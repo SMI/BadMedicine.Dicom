@@ -53,7 +53,7 @@ namespace BadMedicine.Dicom
                 }
 
                 _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
-            }            
+            }
         }
 
         public override object[] GenerateTestDataRow(Person p)
@@ -75,33 +75,51 @@ namespace BadMedicine.Dicom
             return new string[]{"Files Generated" };
         }
 
+        public DicomDataset GenerateTestDataset(Person p)
+        {
+            return GenerateTestDataset(p,null);
+        }
         /// <summary>
         /// Returns a new random dicom image for the <paramref name="p"/> with tag values that make sense for that person
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public DicomDataset GenerateTestDataset(Person p)
+        public DicomDataset GenerateTestDataset(Person p,Series series)
         {
             var stats = DicomDataGeneratorStats.GetInstance(r);
 
             var ds = new DicomDataset();
-
-            DicomUID sopInstanceUid = DicomUID.Generate();
             
-            ds.AddOrUpdate(DicomTag.SOPInstanceUID,sopInstanceUid);
+            //generate UIDs
+            if(series != null)
+            {
+                ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
+            }
+            else
+            {
+                ds.AddOrUpdate(DicomTag.StudyInstanceUID,DicomUID.Generate());
+                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,DicomUID.Generate());
+            }
+
+            //use the series modality (or get a random one)
+            var modality = series?.ModalityStats ?? stats.ModalityFrequency.GetRandom(_modalities);
+
+            DicomUID sopInstanceUID = DicomUID.Generate();
+            ds.AddOrUpdate(DicomTag.SOPInstanceUID,sopInstanceUID);
             ds.AddOrUpdate(DicomTag.SOPClassUID , DicomUID.SecondaryCaptureImageStorage);
             
+            //patient details
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
 
             var dt = p.GetRandomDateDuringLifetime(r);
             ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,dt));
             
-            //get a random modality for this study/image
-            var modality = stats.ModalityFrequency.GetRandom(_modalities);
-            ds.AddOrUpdate(DicomTag.Modality,modality);
-
+            
+            ds.AddOrUpdate(DicomTag.Modality,modality.Modality);
+            
             if(!NoPixels)
-                drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUid.UID);
+                drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
 
             return ds;
         }

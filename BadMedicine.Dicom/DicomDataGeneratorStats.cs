@@ -15,8 +15,10 @@ namespace BadMedicine.Dicom
         /// Dictionary of Modality=>Tag=>FrequencyOfEachValue
         /// </summary>
         public readonly Dictionary<string, Dictionary<DicomTag, BucketList<string>>> TagValuesByModalityAndTag = new Dictionary<string, Dictionary<DicomTag, BucketList<string>>>();
-        public BucketList<string> ModalityFrequency;
+        public BucketList<ModalityStats> ModalityFrequency;
         public Dictionary<string,int> ModalityIndexes = new Dictionary<string, int>();
+
+        
 
         private DicomDataGeneratorStats(Random r)
         {
@@ -28,16 +30,28 @@ namespace BadMedicine.Dicom
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Frequency", typeof(int));
+            dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
+            dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
+            dt.Columns.Add("AverageImagesPerSeries", typeof(double));
+            dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
 
             DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv",dt);
 
-            ModalityFrequency = new BucketList<string>(r);
+            ModalityFrequency = new BucketList<ModalityStats>(r);
 
             int idx=0;
             foreach(DataRow dr in dt.Rows)
             {
                 string modality = (string)dr["Modality"];
-                ModalityFrequency.Add((int) dr["Frequency"],modality);
+                ModalityFrequency.Add((int) dr["Frequency"],
+                    new ModalityStats(
+                        modality,
+                        (double)dr["AverageSeriesPerStudy"],
+                        (double)dr["StandardDeviationSeriesPerStudy"],
+                        (double)dr["AverageImagesPerSeries"],
+                        (double)dr["StandardDeviationImagesPerSeries"]
+                        ));
+                
                 ModalityIndexes.Add(modality,idx++);
             }
                 
