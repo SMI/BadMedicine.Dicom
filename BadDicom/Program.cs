@@ -19,7 +19,7 @@ namespace BadDicom
         {
             returnCode = 0;
 
-            CommandLine.Parser.Default.ParseArguments<ProgramOptions>(args)
+            Parser.Default.ParseArguments<ProgramOptions>(args)
                 .WithParsed<ProgramOptions>(opts => RunOptionsAndReturnExitCode(opts))
                 .WithNotParsed<ProgramOptions>((errs) => HandleParseError(errs));
 
@@ -50,9 +50,45 @@ namespace BadDicom
                 IPersonCollection identifiers = new PersonCollection();
                 identifiers.GeneratePeople(opts.NumberOfPatients,r);
                                                
-                var g = new DicomDataGenerator(r,dir);
+                //Generate the dicom files (of the modalities that the user requested)
+                string[] modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :new string[0];
+
+                var dicomGenerator = new DicomDataGenerator(r,dir,modalities){NoPixels = opts.NoPixels };
+                
                 var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
-                g.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfRows);
+
+                dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfRows);
+
+                //if they also want EHR records for these patients generate those too (uses base BadMedicine code)
+                if (opts.IncludeEhrDatasets)
+                {
+                    var factory = new DataGeneratorFactory();
+                    var generators = factory.GetAvailableGenerators().ToList();
+            
+                    //if the user only wants to extract a single dataset
+                    if(!string.IsNullOrEmpty(opts.Dataset))
+                    {
+                        var match = generators.FirstOrDefault(g => g.Name.Equals(opts.Dataset));
+                        if(match == null)
+                        {
+                            Console.WriteLine("Could not find dataset called '" + opts.Dataset + "'");
+                            Console.WriteLine("Generators found were:" + Environment.NewLine + string.Join(Environment.NewLine,generators.Select(g=>g.Name)));
+                            returnCode = 2;
+                            return;
+                        }
+
+                        generators = new List<Type>(new []{match});
+                    }
+                    
+                    //for each generator
+                    foreach (var g in generators)
+                    {
+                        var instance = factory.Create(g,r);
+
+                        targetFile = new FileInfo(Path.Combine(dir.FullName, g.Name + ".csv"));
+                        instance.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfRows);
+                    }
+                }
             }
             catch (Exception e)
             {

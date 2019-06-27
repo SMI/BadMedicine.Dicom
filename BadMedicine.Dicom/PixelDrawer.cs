@@ -16,13 +16,13 @@ namespace BadMedicine.Dicom
         SolidBrush blackBrush = new SolidBrush(Color.Black);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
 
-        internal void DrawBlackBoxWithWhiteText(DicomDataset ds, int v1, int v2, string v3)
+        internal void DrawBlackBoxWithWhiteText(DicomDataset ds, int width, int height, string msg)
         {
             var bitmap = new Bitmap(500,500);
             using(var g = Graphics.FromImage(bitmap))
             {
-                g.FillRectangle(blackBrush,0,0,500,500);
-                g.DrawString("1.2.3",new Font(FontFamily.GenericMonospace,12),whiteBrush,250,100);
+                g.FillRectangle(blackBrush,0,0,width,height);
+                g.DrawString(msg,new Font(FontFamily.GenericMonospace,12),whiteBrush,250,100);
             }
              
             byte[] pixels = GetPixels(bitmap, out int rows, out int columns);

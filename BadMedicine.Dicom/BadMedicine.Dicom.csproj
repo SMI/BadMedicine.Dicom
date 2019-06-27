@@ -6,7 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DicomDataGeneratorModalities.csv" />
+    <None Remove="DicomDataGeneratorTags.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DicomDataGeneratorModalities.csv" />
+    <EmbeddedResource Include="DicomDataGeneratorTags.csv" />
   </ItemGroup>
 
   <ItemGroup>
