@@ -1,4 +1,5 @@
-﻿using CommandLine;
+﻿using BadMedicine.Dicom;
+using CommandLine;
 using CommandLine.Text;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,9 @@ namespace BadDicom
 
         [Option("NoPixels",HelpText= "Generate dicom files without pixel data (only tags).  This results in much smaller file sizes")]
         public bool NoPixels{get;set;}
+
+        [Option('l',"Layout",HelpText= "The file system layout to use, defaults to Flat",Default = FileSystemLayout.Flat)]
+        public FileSystemLayout Layout{get;set;} = FileSystemLayout.Flat;
 
         [Usage]
         public static IEnumerable<Example> Examples

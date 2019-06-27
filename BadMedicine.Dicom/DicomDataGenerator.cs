@@ -11,24 +11,21 @@ namespace BadMedicine.Dicom
     public class DicomDataGenerator : DataGenerator
     {
         public DirectoryInfo OutputDir { get; }
-        
+
         /// <summary>
         /// Set to true to generate <see cref="DicomDataset"/> without any pixel data.
         /// </summary>
         public bool NoPixels { get; set; }
 
+        /// <summary>
+        /// The subdirectories layout to put dicom files into when writting to disk
+        /// </summary>
+        public FileSystemLayout Layout{get {return _pathProvider.Layout; } set { _pathProvider = new FileSystemLayoutProvider(value);}}
+        private FileSystemLayoutProvider _pathProvider = new FileSystemLayoutProvider(FileSystemLayout.Flat);
+
         PixelDrawer drawing = new PixelDrawer();
 
-        /// <summary>
-        /// Dictionary of Modality=>Tag=>FrequencyOfEachValue
-        /// </summary>
-        private static readonly Dictionary<string, Dictionary<DicomTag, BucketList<string>>> TagValuesByModalityAndTag = new Dictionary<string, Dictionary<DicomTag, BucketList<string>>>();
-        private static BucketList<string> ModalityFrequency;
-        private static Dictionary<string,int> ModalityIndexes = new Dictionary<string, int>();
-
-        private static bool _initialized = false;
         private int[] _modalities;
-        private static readonly object InitializedLock = new object();
 
         /// <summary>
         /// 
@@ -41,80 +38,33 @@ namespace BadMedicine.Dicom
         {
             OutputDir = outputDir;
             
-            lock(InitializedLock)
-                if (!_initialized)
-                    Initialize();
+            var stats = DicomDataGeneratorStats.GetInstance(r);
 
             if(modalities.Length == 0)
             {
-                _modalities = ModalityIndexes.Values.ToArray();
+                _modalities = stats.ModalityIndexes.Values.ToArray();
             }
             else
             {
                 foreach(var m in modalities)
                 {
-                    if(!ModalityIndexes.ContainsKey(m))
-                        throw new ArgumentException("Modality '" + m + "' was not supported, supported modalities are:" + string.Join(",",ModalityIndexes.Select(kvp=>kvp.Key)));
+                    if(!stats.ModalityIndexes.ContainsKey(m))
+                        throw new ArgumentException("Modality '" + m + "' was not supported, supported modalities are:" + string.Join(",",stats.ModalityIndexes.Select(kvp=>kvp.Key)));
                 }
 
-                _modalities = modalities.Select(m=>ModalityIndexes[m]).ToArray();
+                _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
             }            
-        }
-
-        private void Initialize()
-        {
-            InitializeTagValuesByModalityAndTag();
-            InitializeModalityFrequency();
-            _initialized = true;
-        }
-
-        private void InitializeModalityFrequency()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Frequency", typeof(int));
-
-            EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv",dt);
-
-            ModalityFrequency = new BucketList<string>(r);
-
-            int idx=0;
-            foreach(DataRow dr in dt.Rows)
-            {
-                string modality = (string)dr["Modality"];
-                ModalityFrequency.Add((int) dr["Frequency"],modality);
-                ModalityIndexes.Add(modality,idx++);
-            }
-                
-        }
-
-        private void InitializeTagValuesByModalityAndTag()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Frequency", typeof(int));
-
-            EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv",dt);          
-            
-            foreach (DataRow dr in dt.Rows)
-            {
-                var modality = (string)dr["Modality"];
-                var tag = DicomDictionary.Default[(string) dr["Tag"]];           
-
-                if(!TagValuesByModalityAndTag.ContainsKey(modality))
-                    TagValuesByModalityAndTag.Add(modality,new Dictionary<DicomTag, BucketList<string>>());
-
-                if(!TagValuesByModalityAndTag[modality].ContainsKey(tag))
-                    TagValuesByModalityAndTag[modality].Add(tag,new BucketList<string>(r));
-
-                int frequency = (int) dr["Frequency"];
-                TagValuesByModalityAndTag[modality][tag].Add(frequency,(string)dr["Value"]);
-            }
         }
 
         public override object[] GenerateTestDataRow(Person p)
         {
             var f = new DicomFile(GenerateTestDataset(p));
             
-            string fileName = Path.Combine(OutputDir.FullName,f.Dataset.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm");
+            var fi = _pathProvider.GetPath(OutputDir,f.Dataset);
+            if(!fi.Directory.Exists)
+                fi.Directory.Create();
+
+            string fileName = fi.FullName;
             f.Save(fileName);
             
             return new object[]{fileName };
@@ -132,6 +82,8 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public DicomDataset GenerateTestDataset(Person p)
         {
+            var stats = DicomDataGeneratorStats.GetInstance(r);
+
             var ds = new DicomDataset();
 
             DicomUID sopInstanceUid = DicomUID.Generate();
@@ -140,8 +92,12 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.SOPClassUID , DicomUID.SecondaryCaptureImageStorage);
             
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
+
+            var dt = p.GetRandomDateDuringLifetime(r);
+            ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,dt));
             
-            var modality = ModalityFrequency.GetRandom(_modalities);
+            //get a random modality for this study/image
+            var modality = stats.ModalityFrequency.GetRandom(_modalities);
             ds.AddOrUpdate(DicomTag.Modality,modality);
 
             if(!NoPixels)
