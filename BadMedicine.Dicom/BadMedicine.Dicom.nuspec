@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>HIC.BadMedicine.Dicom</id>
+    <version>$version$</version>
+    <title>HIC.BadMedicine.Dicom</title>
+    <authors>Health Informatics Centre - University of Dundee</authors>
+    <owners>Health Informatics Centre - University of Dundee</owners>
+    <projectUrl>https://github.com/HicServices/BadMedicine</projectUrl>
+    <license type="expression">GPL-3.0-or-later</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Generate large volumes of complex (in terms of tags) dicom images for integration/stress testing ETL and image management tools.  BadMedicine.Dicom generates dicom images on demand based on an anonymous aggregate model of tag data found in scottish medical imaging with a small memory footprint.</description>
+    <copyright>Copyright 2019</copyright>
+    <tags>Dicom,Test Data,Random,Synthetic Data,Health</tags>
+    <dependencies>
+      <dependency id="MathNet.Numerics" version="4.7.0" exclude="Build,Analyzers" />
+      <dependency id="fo-dicom.NetCore" version="4.0.1" />
+      <dependency id="HIC.BadMedicine" version="0.0.1.2" />
+      <dependency id="System.Drawing.Common" version="4.5.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.dll" target="lib\netstandard2.0" />
+    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.pdb" target="lib\netstandard2.0" />
+    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.xml" target="lib\netstandard2.0" />
+  </files>
+</package>
