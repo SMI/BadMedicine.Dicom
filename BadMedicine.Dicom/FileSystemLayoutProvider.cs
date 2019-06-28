@@ -1,5 +1,4 @@
 ﻿using Dicom;
-using DicomTypeTranslation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,7 +28,7 @@ namespace BadMedicine.Dicom
 
                 case FileSystemLayout.StudyYearMonthDay:
 
-                    date = (DateTime)DicomTypeTranslaterReader.GetCSharpValue(ds,DicomTag.StudyDate); 
+                    date = ds.GetValues<DateTime>(DicomTag.StudyDate)[0]; 
                     
                     return  new FileInfo(Path.Combine(
                         root.FullName,
@@ -40,7 +39,7 @@ namespace BadMedicine.Dicom
 
                 case FileSystemLayout.StudyYearMonthDayAccession:
                     
-                    date = (DateTime)DicomTypeTranslaterReader.GetCSharpValue(ds,DicomTag.StudyDate); 
+                    date = ds.GetValues<DateTime>(DicomTag.StudyDate)[0];
                     
                     return  new FileInfo(Path.Combine(
                         root.FullName,
@@ -53,5 +52,6 @@ namespace BadMedicine.Dicom
                 default: throw new ArgumentOutOfRangeException();
             }
         }
+
     }
 }

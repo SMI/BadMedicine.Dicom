@@ -1,5 +1,4 @@
 ﻿using Dicom;
-using DicomTypeTranslation;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -20,14 +19,15 @@ namespace BadMedicine.Dicom.Tests
 
             var p = new Person(r);
             
-            Study study = new Study(generator,p,new ModalityStats("MR",2,0,50,0));
+            Study study = new Study(generator,p,new ModalityStats("MR",2,0,50,0,r));
 
             Assert.AreEqual(2,study.Series.Count);
             Assert.AreEqual(50,study.Series[0].Datasets.Count);
 
+
             foreach(DicomDataset ds in study.Series[0])
             {
-                Assert.AreEqual("MR",DicomTypeTranslaterReader.GetCSharpValue(ds,DicomTag.Modality));
+                Assert.AreEqual("MR",ds.GetValues<string>(DicomTag.Modality)[0]);
             }
 
         }

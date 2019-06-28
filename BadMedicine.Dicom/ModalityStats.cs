@@ -1,22 +1,32 @@
-﻿namespace BadMedicine.Dicom
+﻿using MathNet.Numerics.Distributions;
+using System;
+
+namespace BadMedicine.Dicom
 {
     public class ModalityStats
     {
             
-        public string Modality{get;set;}
+        public string Modality{get;private set;}
 
-        public double AverageSeriesPerStudy {get;set;}
-        public double StandardDeviationSeriesPerStudy {get;set;}
-        public double AverageImagesPerSeries {get;set;}
-        public double StandardDeviationImagesPerSeries{get;set;}
+        public double SeriesPerStudyAverage {get;private set;}
+        public double SeriesPerStudyStandardDeviation {get;private set;}
+        public Normal SeriesPerStudyNormal {get; private set; }
 
-        public ModalityStats(string modality, double averageSeriesPerStudy,double standardDeviationSeriesPerStudy,double averageImagesPerSeries,double standardDeviationImagesPerSeries)
+        public double ImagesPerSeriesAverage {get;set;}
+
+        public double ImagesPerSeriesStandardDeviation{get;set;}
+        public Normal ImagesPerSeriesNormal {get; private set; }        
+
+        public ModalityStats(string modality, double averageSeriesPerStudy,double standardDeviationSeriesPerStudy,double averageImagesPerSeries,double standardDeviationImagesPerSeries, Random r)
         {
             Modality = modality;
-            AverageSeriesPerStudy = averageSeriesPerStudy;
-            StandardDeviationSeriesPerStudy = standardDeviationSeriesPerStudy;
-            AverageImagesPerSeries = averageImagesPerSeries;
-            StandardDeviationImagesPerSeries = standardDeviationImagesPerSeries;
+            SeriesPerStudyAverage = averageSeriesPerStudy;
+            SeriesPerStudyStandardDeviation = standardDeviationSeriesPerStudy;
+            ImagesPerSeriesAverage = averageImagesPerSeries;
+            ImagesPerSeriesStandardDeviation = standardDeviationImagesPerSeries;
+
+            SeriesPerStudyNormal = new Normal(SeriesPerStudyAverage,SeriesPerStudyStandardDeviation,r);
+            ImagesPerSeriesNormal = new Normal(ImagesPerSeriesAverage,ImagesPerSeriesStandardDeviation,r);
         }
     }
 }

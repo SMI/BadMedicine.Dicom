@@ -27,7 +27,7 @@ namespace BadMedicine.Dicom
             this.person = person;
             this.ModalityStats = modalityStats;
 
-            int imageCount = (int)((study.Parent.GetGaussian() +1.0) * modalityStats.AverageImagesPerSeries);
+            int imageCount = (int)modalityStats.ImagesPerSeriesNormal.Sample();
 
             for(int i =0 ; i<imageCount;i++)
                 _datasets.Add(Study.Parent.GenerateTestDataset(person,this));

@@ -49,7 +49,8 @@ namespace BadMedicine.Dicom
                         (double)dr["AverageSeriesPerStudy"],
                         (double)dr["StandardDeviationSeriesPerStudy"],
                         (double)dr["AverageImagesPerSeries"],
-                        (double)dr["StandardDeviationImagesPerSeries"]
+                        (double)dr["StandardDeviationImagesPerSeries"],
+                        r
                         ));
                 
                 ModalityIndexes.Add(modality,idx++);

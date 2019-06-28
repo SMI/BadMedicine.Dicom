@@ -23,7 +23,7 @@ namespace BadMedicine.Dicom
             Parent = parent;
             StudyUID = DicomUID.Generate();
             
-            int seriesCount = (int)((parent.GetGaussian() +1.0) * modalityStats.AverageSeriesPerStudy);
+            int seriesCount = (int)modalityStats.SeriesPerStudyNormal.Sample();
          
             for(int i=0;i<seriesCount;i++)
                 _series.Add(new Series(this,person,modalityStats));
