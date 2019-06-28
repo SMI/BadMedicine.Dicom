@@ -83,7 +83,7 @@ The following tags are populated in dicom files generated:
 | PatientID | The CHI number of the (random) patient|
 | StudyDate | A random date during the patients lifetime |
 | SeriesDate | Same as StudyDate* |
-| PatientAge | |
+| PatientAge | Age of patient at SeriesDate e.g. "032Y"|
 
 *SeriesDate is always the same as Study Date (see `Seres` constructor), for secondary capture this should/could not be the case (we should look at how this corresponds in the PACS data we have)
 

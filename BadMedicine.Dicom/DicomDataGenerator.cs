@@ -147,8 +147,16 @@ namespace BadMedicine.Dicom
                         
             ds.AddOrUpdate(DicomTag.Modality,series.ModalityStats.Modality);
             
+            // Calculate the age of the patient at the time the series was taken
+            var age = series.SeriesDate.Year - p.DateOfBirth.Year;
+            // Go back to the year the person was born in case of a leap year
+            if (p.DateOfBirth.Date > series.SeriesDate.AddYears(-age)) age--;
+            ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge,age.ToString("000") + "Y"));
+
+            
             if(!NoPixels)
                 drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
+            
 
             return ds;
         }
