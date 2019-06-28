@@ -11,7 +11,7 @@ BadMedicine.Dicom generates dicom images on demand based on an anonymous aggrega
 
 ## Usage
 
-BadDicom is available as a [nuget package](https://www.nuget.org/packages/HIC.BadDicom/) for linking as a library
+BadDicom is available as a [nuget package](https://www.nuget.org/packages/HIC.BadMedicine.Dicom/) for linking as a library
 
 The standalone CLI (BadDicom.exe) is available in the [releases section of Github](https://github.com/HicServices/BadMedicine.Dicom/releases)
 
@@ -43,6 +43,25 @@ BadMedicine.exe c:\temp\testdicoms 12 100 -s 100
 ```
 _Generates a pool of 12 patients and 10 Studies (for random patients) then 100 rows of data for each EHR dataset_
 
+# Library Usage
+You can generate test data for your program yourself by referencing the [nuget package](https://www.nuget.org/packages/HIC.BadMedicine.Dicom/):
+
+```csharp
+//create a test person
+var r = new Random(23);
+var person = new Person(r);
+
+//create a generator 
+var generator = new DicomDataGenerator(r,null,"CT");
+            
+//create a dataset in memory
+DicomDataset dataset = generator.GenerateTestDataset(person);
+
+//values should match the patient details
+Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
+Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+```
+
 ## Building
 
 You can build a OS specific binary
@@ -62,15 +81,12 @@ The following tags are populated in dicom files generated:
 |Tag | Model |
 |-----|-----|
 | PatientID | The CHI number of the (random) patient|
+| StudyDate | A random date during the patients lifetime |
+| SeriesDate | Same as StudyDate* |
 | PatientAge | |
 
-
-Todo: document aggregate gathering process and what is modelled
-
+*SeriesDate is always the same as Study Date (see `Seres` constructor), for secondary capture this should/could not be the case (we should look at how this corresponds in the PACS data we have)
 
 # Pixel Data
 Currently pixel data is written as a black square with the SOP Instance UID written in white.
 
-# Outstanding Issues
-
-- SeriesDate is always the same as Study Date (see `Seres` constructor), for secondary capture this should/could not be the case (we should look at how this corresponds in the PACS data we have)

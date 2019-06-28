@@ -39,6 +39,26 @@ namespace BadMedicine.Dicom.Tests
             Console.WriteLine("Created file "+ f.FullName);
         }
 
+        
+        [Test]
+        public void ExampleUsage()
+        { 
+            //create a test person
+            var r = new Random(23);
+            var person = new Person(r);
+
+            //create a generator 
+            var generator = new DicomDataGenerator(r,null,"CT");
+            
+            //create a dataset in memory
+            DicomDataset dataset = generator.GenerateTestDataset(person);
+
+            //values should match the patient details
+            Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
+            Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+
+        }
+
         [Test]
         public void Test_CreatingInMemory_ModalityCT()
         {
