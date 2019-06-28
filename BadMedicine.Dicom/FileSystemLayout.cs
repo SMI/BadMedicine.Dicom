@@ -21,5 +21,10 @@ namespace BadMedicine.Dicom
         /// </summary>
         StudyYearMonthDayAccession,
 
+        /// <summary>
+        /// Files are created in subdirectories by Study UID
+        /// </summary>
+        StudyUID
+
     }
 }

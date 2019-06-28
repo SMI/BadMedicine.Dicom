@@ -27,3 +27,6 @@ Todo: document aggregate gathering process and what is modelled
 # Pixel Data
 Currently pixel data is written as a black square with the SOP Instance UID written in white.
 
+# Outstanding Issues
+
+- SeriesDate is always the same as Study Date (see `Seres` constructor), for secondary capture this should/could not be the case (we should look at how this corresponds in the PACS data we have)

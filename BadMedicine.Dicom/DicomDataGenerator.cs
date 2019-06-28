@@ -1,8 +1,6 @@
 ﻿using BadMedicine.Datasets;
 using Dicom;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 
@@ -21,7 +19,13 @@ namespace BadMedicine.Dicom
         /// The subdirectories layout to put dicom files into when writting to disk
         /// </summary>
         public FileSystemLayout Layout{get {return _pathProvider.Layout; } set { _pathProvider = new FileSystemLayoutProvider(value);}}
-        private FileSystemLayoutProvider _pathProvider = new FileSystemLayoutProvider(FileSystemLayout.Flat);
+        
+        /// <summary>
+        /// The maximum number of images to generate regardless of how many calls to <see cref="GenerateTestDataRow"/>,  Defaults to int.MaxValue
+        /// </summary>
+        public int MaximumImages { get; set; } = int.MaxValue;
+
+        private FileSystemLayoutProvider _pathProvider = new FileSystemLayoutProvider(FileSystemLayout.StudyYearMonthDay);
 
         PixelDrawer drawing = new PixelDrawer();
 
@@ -55,30 +59,71 @@ namespace BadMedicine.Dicom
                 _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
             }
         }
-
+        
+        /// <summary>
+        /// Creates a new dicom dataset
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public override object[] GenerateTestDataRow(Person p)
         {
-            var f = new DicomFile(GenerateTestDataset(p));
-            
-            var fi = _pathProvider.GetPath(OutputDir,f.Dataset);
-            if(!fi.Directory.Exists)
-                fi.Directory.Create();
+            Study study;
 
-            string fileName = fi.FullName;
-            f.Save(fileName);
+            foreach(var ds in GenerateStudyImages(p, out study))
+            {
+                //don't generate more than the maximum number of images
+                if(MaximumImages--<=0)
+                {
+                    study = null;
+                    break; 
+                }
+
+                var f = new DicomFile(ds);
             
-            return new object[]{fileName };
+                var fi = _pathProvider.GetPath(OutputDir,f.Dataset);
+                if(!fi.Directory.Exists)
+                    fi.Directory.Create();
+
+                string fileName = fi.FullName;
+                f.Save(fileName);
+            }
+
+            //in the CSV write only the StudyUID
+            return new object[]{study?.StudyUID?.UID };
         }
 
         protected override string[] GetHeaders()
         {
-            return new string[]{"Files Generated" };
+            return new string[]{ "Studies Generated" };
+        }
+
+        /// <summary>
+        /// Creates a dicom study for the <paramref name="p"/> with tag values that make sense for that person.  This call
+        /// will generate an entire with a (sensible) random number of series and a random number of images per series
+        /// (e.g. for CT studies you might get 2 series of ~100 images each).
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public DicomDataset[] GenerateStudyImages(Person p, out Study study)
+        {        
+            //generate a study
+            study = new Study(this,p,GetRandomModality(),r);
+
+            return study.SelectMany(series=>series).Select(image=>image).ToArray();
         }
 
         public DicomDataset GenerateTestDataset(Person p)
         {
-            return GenerateTestDataset(p,null);
+            //get a random modality
+            var modality = GetRandomModality();
+            return GenerateTestDataset(p,new Study(this,p,modality,r).Series[0]);
         }
+
+        private ModalityStats GetRandomModality()
+        {
+            return DicomDataGeneratorStats.GetInstance(r).ModalityFrequency.GetRandom(_modalities);
+        }
+
         /// <summary>
         /// Returns a new random dicom image for the <paramref name="p"/> with tag values that make sense for that person
         /// </summary>
@@ -86,24 +131,10 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public DicomDataset GenerateTestDataset(Person p,Series series)
         {
-            var stats = DicomDataGeneratorStats.GetInstance(r);
-
             var ds = new DicomDataset();
-            
-            //generate UIDs
-            if(series != null)
-            {
-                ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
-                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
-            }
-            else
-            {
-                ds.AddOrUpdate(DicomTag.StudyInstanceUID,DicomUID.Generate());
-                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,DicomUID.Generate());
-            }
-
-            //use the series modality (or get a random one)
-            var modality = series?.ModalityStats ?? stats.ModalityFrequency.GetRandom(_modalities);
+                        
+            ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+            ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
 
             DicomUID sopInstanceUID = DicomUID.Generate();
             ds.AddOrUpdate(DicomTag.SOPInstanceUID,sopInstanceUID);
@@ -111,12 +142,10 @@ namespace BadMedicine.Dicom
             
             //patient details
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
-
-            var dt = p.GetRandomDateDuringLifetime(r);
-            ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,dt));
-            
-            
-            ds.AddOrUpdate(DicomTag.Modality,modality.Modality);
+            ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,series.Study.StudyDate));
+            ds.AddOrUpdate(new DicomDate(DicomTag.SeriesDate,series.SeriesDate));
+                        
+            ds.AddOrUpdate(DicomTag.Modality,series.ModalityStats.Modality);
             
             if(!NoPixels)
                 drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);

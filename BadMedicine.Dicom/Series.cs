@@ -18,16 +18,22 @@ namespace BadMedicine.Dicom
         
         public Person person;
         public ModalityStats ModalityStats {get;  private set;}
-        
-        public Series(Study study, Person person, ModalityStats modalityStats)
+        public DateTime SeriesDate { get; internal set; }
+
+        internal Series(Study study, Person person, ModalityStats modalityStats, Random r)
         {
             SeriesUID = DicomUID.Generate();
 
             this.Study = study;
             this.person = person;
             this.ModalityStats = modalityStats;
+            
+            //todo: for now just use the Study date, in theory secondary capture images could be generated later
+            SeriesDate = study.StudyDate;
 
-            int imageCount = (int)modalityStats.ImagesPerSeriesNormal.Sample();
+            //have a random number of images (based on average and standard deviation for that modality)
+            //but have at least 1 image!
+            int imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
 
             for(int i =0 ; i<imageCount;i++)
                 _datasets.Add(Study.Parent.GenerateTestDataset(person,this));

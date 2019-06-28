@@ -15,18 +15,22 @@ namespace BadMedicine.Dicom
         public DicomDataGenerator Parent;
         
         public DicomUID StudyUID{get; private set; }
+        public DateTime StudyDate { get; internal set; }
 
         private List<Series> _series = new List<Series>();
 
-        public Study(DicomDataGenerator parent,Person person, ModalityStats modalityStats)
+        public Study(DicomDataGenerator parent,Person person, ModalityStats modalityStats,Random r)
         {
             Parent = parent;
             StudyUID = DicomUID.Generate();
-            
-            int seriesCount = (int)modalityStats.SeriesPerStudyNormal.Sample();
+            StudyDate = person.GetRandomDateDuringLifetime(r);
+
+            //have a random number of series (based on average and standard deviation for that modality)
+            //but have at least 1 series!
+            int seriesCount = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
          
             for(int i=0;i<seriesCount;i++)
-                _series.Add(new Series(this,person,modalityStats));
+                _series.Add(new Series(this,person,modalityStats,r));
 
             Series = new ReadOnlyCollection<Series>(_series);
         }

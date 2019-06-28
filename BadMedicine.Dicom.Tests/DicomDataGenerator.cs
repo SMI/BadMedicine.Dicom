@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace BadMedicine.Dicom.Tests
 {
@@ -11,12 +12,31 @@ namespace BadMedicine.Dicom.Tests
         public void Test_CreatingOnDisk_OneFile()
         {
             var r = new Random(500);
-            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory));
-            
+            var root = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
+            var generator = new DicomDataGenerator(r,root);
+            generator.Layout = FileSystemLayout.StudyUID;
+            generator.MaximumImages = 1; 
+
             var person = new Person(r);
-            string fileName = (string)generator.GenerateTestDataRow(person)[0];
-            Assert.IsTrue(File.Exists(fileName));
-            Console.WriteLine("Created file "+ fileName);
+
+            //generates a study but because of maximum images 1 we should only get 1 image being generated
+            string studyUid = (string)generator.GenerateTestDataRow(person)[0];
+            
+            //should be a directory named after the Study UID
+            Assert.IsTrue(Directory.Exists(Path.Combine(root.FullName,studyUid)));
+            
+            //should be a single file
+            var f = new FileInfo(Directory.GetFiles(Path.Combine(root.FullName,studyUid)).Single());
+            Assert.IsTrue(f.Exists);
+
+            var datasetCreated = DicomFile.Open(f.FullName);
+            
+            Assert.AreEqual(studyUid,
+            datasetCreated.Dataset.GetValues<DicomUID>(DicomTag.StudyInstanceUID)[0].UID,
+            "UID in the dicom file generated did not match the one output into the CSV inventory file"
+            );
+            
+            Console.WriteLine("Created file "+ f.FullName);
         }
 
         [Test]

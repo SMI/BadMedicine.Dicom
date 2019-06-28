@@ -35,7 +35,7 @@ namespace BadMedicine.Dicom
                         date.Year.ToString(),
                         date.Month.ToString(),
                         date.Day.ToString(),
-                        ds.GetSingleValue<DicomUID>(DicomTag.StudyDate).UID+".dcm"));
+                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
 
                 case FileSystemLayout.StudyYearMonthDayAccession:
                     
@@ -47,7 +47,14 @@ namespace BadMedicine.Dicom
                         date.Month.ToString(),
                         date.Day.ToString(),
                         ds.GetSingleValue<string>(DicomTag.AccessionNumber),
-                        ds.GetSingleValue<DicomUID>(DicomTag.StudyDate).UID+".dcm"));
+                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
+
+                case FileSystemLayout.StudyUID:
+
+                    return  new FileInfo(Path.Combine(
+                        root.FullName,
+                        ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
+                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
 
                 default: throw new ArgumentOutOfRangeException();
             }

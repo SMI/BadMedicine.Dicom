@@ -37,8 +37,8 @@ namespace BadDicom
 
             if (opts.NumberOfPatients <= 0)
                 opts.NumberOfPatients = 500;
-            if (opts.NumberOfRows <= 0)
-                opts.NumberOfRows = 2000;
+            if (opts.NumberOfStudies <= 0)
+                opts.NumberOfStudies = 2000;
 
             var dir = Directory.CreateDirectory(opts.OutputDirectory);
 
@@ -57,42 +57,12 @@ namespace BadDicom
                 {
                     NoPixels = opts.NoPixels ,
                     Layout = opts.Layout,
+                    MaximumImages = opts.MaximumImages,
                 };
                 
                 var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
+                dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
 
-                dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfRows);
-
-                //if they also want EHR records for these patients generate those too (uses base BadMedicine code)
-                if (opts.IncludeEhrDatasets)
-                {
-                    var factory = new DataGeneratorFactory();
-                    var generators = factory.GetAvailableGenerators().ToList();
-            
-                    //if the user only wants to extract a single dataset
-                    if(!string.IsNullOrEmpty(opts.Dataset))
-                    {
-                        var match = generators.FirstOrDefault(g => g.Name.Equals(opts.Dataset));
-                        if(match == null)
-                        {
-                            Console.WriteLine("Could not find dataset called '" + opts.Dataset + "'");
-                            Console.WriteLine("Generators found were:" + Environment.NewLine + string.Join(Environment.NewLine,generators.Select(g=>g.Name)));
-                            returnCode = 2;
-                            return;
-                        }
-
-                        generators = new List<Type>(new []{match});
-                    }
-                    
-                    //for each generator
-                    foreach (var g in generators)
-                    {
-                        var instance = factory.Create(g,r);
-
-                        targetFile = new FileInfo(Path.Combine(dir.FullName, g.Name + ".csv"));
-                        instance.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfRows);
-                    }
-                }
             }
             catch (Exception e)
             {
