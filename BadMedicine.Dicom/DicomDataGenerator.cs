@@ -142,6 +142,11 @@ namespace BadMedicine.Dicom
             
             //patient details
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
+            ds.AddOrUpdate(DicomTag.PatientName, p.Forename + " " + p.Surname);
+            ds.AddOrUpdate(DicomTag.PatientBirthDate, p.DateOfBirth);
+            ds.AddOrUpdate(DicomTag.PatientAddress,p.Address.Line1 + " " + p.Address.Line2 + " " + p.Address.Line3 + " " + p.Address.Line4 + " " + p.Address.Postcode.Value);
+
+
             ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,series.Study.StudyDate));
             ds.AddOrUpdate(new DicomDate(DicomTag.SeriesDate,series.SeriesDate));
                         
