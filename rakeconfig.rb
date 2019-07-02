@@ -1,5 +1,5 @@
 PUBLISH_DIR =  ENV['PUBLISH_DIR']  || "Release" 
-SOLUTION =     ENV['SOLUTION']     || "BadMedicine.sln" 
+SOLUTION =     ENV['SOLUTION']     || "BadMedicine.Dicom.sln" 
 DBSERVER =     ENV['DBSERVER']     || "SQL-ADP-02\\hiccitests" 
 MYSQLDB  =     ENV['MYSQLDB']      || "adp-hicci-03"
 MYSQLUSR =     ENV['MYSQLUSR']     || "hicci"
