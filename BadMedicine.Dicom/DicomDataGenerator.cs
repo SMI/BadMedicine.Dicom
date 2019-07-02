@@ -67,7 +67,9 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public override object[] GenerateTestDataRow(Person p)
         {
+            //The currently extracting study
             Study study;
+            string studyUID = null;
 
             foreach(var ds in GenerateStudyImages(p, out study))
             {
@@ -76,7 +78,9 @@ namespace BadMedicine.Dicom
                 {
                     study = null;
                     break; 
-                }
+                } 
+                else
+                    studyUID = study.StudyUID.UID; //all images will have the same study
 
                 var f = new DicomFile(ds);
             
@@ -89,7 +93,7 @@ namespace BadMedicine.Dicom
             }
 
             //in the CSV write only the StudyUID
-            return new object[]{study?.StudyUID?.UID };
+            return new object[]{studyUID };
         }
 
         protected override string[] GetHeaders()
