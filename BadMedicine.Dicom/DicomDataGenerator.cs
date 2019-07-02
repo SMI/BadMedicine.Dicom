@@ -152,16 +152,22 @@ namespace BadMedicine.Dicom
 
 
             ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate,series.Study.StudyDate));
+            ds.AddOrUpdate(new DicomTime(DicomTag.StudyTime, DateTime.Today  +  series.Study.StudyTime));
+
             ds.AddOrUpdate(new DicomDate(DicomTag.SeriesDate,series.SeriesDate));
                         
             ds.AddOrUpdate(DicomTag.Modality,series.ModalityStats.Modality);
             
+            if(series.Study.StudyDescription != null)
+                ds.AddOrUpdate(DicomTag.StudyDescription,series.Study.StudyDescription);
+                        
+
+
             // Calculate the age of the patient at the time the series was taken
             var age = series.SeriesDate.Year - p.DateOfBirth.Year;
             // Go back to the year the person was born in case of a leap year
             if (p.DateOfBirth.Date > series.SeriesDate.AddYears(-age)) age--;
-            ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge,age.ToString("000") + "Y"));
-
+                ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge,age.ToString("000") + "Y"));
             
             if(!NoPixels)
                 drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
@@ -169,5 +175,7 @@ namespace BadMedicine.Dicom
 
             return ds;
         }
+
+
     }
 }

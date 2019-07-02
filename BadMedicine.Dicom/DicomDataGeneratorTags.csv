@@ -1,3 +1,512 @@
 Modality,Tag,Value,Frequency
-CT,ModalitiesInStudy,CT\SR,100
-CT,ModalitiesInStudy,CT,900
+CT,StudyDescription,CCHAPC,1
+CT,StudyDescription,CT Abdomen & pelvis,1
+CT,StudyDescription,CT Abdomen & pelvis wi,51
+CT,StudyDescription,CT Abdomen & pelvis with contrast,11
+CT,StudyDescription,CT Adrenal Both,1
+CT,StudyDescription,CT Angio aortic arch &,1
+CT,StudyDescription,CT Angiogram aorta,12
+CT,StudyDescription,CT Angiogram intracranial,1
+CT,StudyDescription,CT Angiogram lower limb Both,10
+CT,StudyDescription,CT Angiogram pulmonary,32
+CT,StudyDescription,CT Cardiac angiogram coronary,1
+CT,StudyDescription,CT Chest high resolution,28
+CT,StudyDescription,CT Colonoscopy virtual,9
+CT,StudyDescription,CT Cone beam mandible,1
+CT,StudyDescription,CT Foot Rt,1
+CT,StudyDescription,CT Guided ablation,1
+CT,StudyDescription,CT Guided biopsy,1
+CT,StudyDescription,CT Head,153
+CT,StudyDescription,CT Head with contrast,5
+CT,StudyDescription,CT Hip Both,1
+CT,StudyDescription,CT Hip Lt,1
+CT,StudyDescription,CT Hip Rt,1
+CT,StudyDescription,CT Knee Lt,1
+CT,StudyDescription,CT Knee Rt,1
+CT,StudyDescription,CT Liver with contrast,1
+CT,StudyDescription,CT Neck with contrast,6
+CT,StudyDescription,CT Pancreas with contrast,1
+CT,StudyDescription,CT Pelvis,1
+CT,StudyDescription,CT Renal Both,12
+CT,StudyDescription,CT Renal with contrast Both,6
+CT,StudyDescription,CT Shoulder Rt,1
+CT,StudyDescription,CT Sinuses,1
+CT,StudyDescription,CT Spine cervical,1
+CT,StudyDescription,CT Spine thoracic,1
+CT,StudyDescription,CT Temporal bones,1
+CT,StudyDescription,CT Thorax,6
+CT,StudyDescription,CT Thorax & abdo & pel,51
+CT,StudyDescription,CT Thorax & abdo & pelvis with contrast,27
+CT,StudyDescription,CT Thorax & abdomen wi,8
+CT,StudyDescription,CT Thorax & abdomen with contrast,1
+CT,StudyDescription,CT Thorax with contrast,1
+CT,StudyDescription,CT Urogram,17
+CT,StudyDescription,CT Wrist Lt,1
+CT,StudyDescription,PET FDG Head and Neck,1
+CT,StudyDescription,PET FDG Whole body,11
+MR,StudyDescription,MRA Lower limb Both,1
+MR,StudyDescription,MRCP,16
+MR,StudyDescription,MRI Ankle Lt,1
+MR,StudyDescription,MRI Breast with contrast Both,1
+MR,StudyDescription,MRI Cardiac myocardial viability,1
+MR,StudyDescription,MRI Foot Lt,1
+MR,StudyDescription,MRI Foot Rt,1
+MR,StudyDescription,MRI Forearm Rt,1
+MR,StudyDescription,MRI Hand Rt,1
+MR,StudyDescription,MRI Head,50
+MR,StudyDescription,MRI Head with contrast,1
+MR,StudyDescription,MRI Heart,8
+MR,StudyDescription,MRI Hip Lt,1
+MR,StudyDescription,MRI Internal auditory meatus Both,10
+MR,StudyDescription,MRI Knee Lt,1
+MR,StudyDescription,MRI Knee Rt,1
+MR,StudyDescription,MRI Liver with contrast,1
+MR,StudyDescription,MRI Neck with contrast,1
+MR,StudyDescription,MRI Pelvis,1
+MR,StudyDescription,MRI Pelvis gynaecological,1
+MR,StudyDescription,MRI Pelvis prostate,6
+MR,StudyDescription,MRI Pelvis rectum,1
+MR,StudyDescription,MRI Pelvis with contrast,1
+MR,StudyDescription,MRI Pituitary,1
+MR,StudyDescription,MRI Renal Both,1
+MR,StudyDescription,MRI Scaphoid Left,1
+MR,StudyDescription,MRI Scaphoid Right,1
+MR,StudyDescription,MRI Spine cervical,10
+MR,StudyDescription,MRI Spine thoracic,1
+MR,StudyDescription,MRI Spine whole,1
+MR,StudyDescription,MRI Thorax,1
+MR,StudyDescription,MRI scan,1
+MR,StudyDescription,NINEWELLS^Lumbar Spine,13
+MR,StudyDescription,NINEWELLS^Pelvis,1
+MR,StudyDescription,STRACATHRO^L SPINE,1
+MR,StudyDescription,hip^Routine,1
+MR,StudyDescription,l-spine^General,17
+XA,StudyDescription,Diagnostic Coronary Angiogram + Grafts,11
+SR,StudyDescription,XR Hand Rt,6
+IO,StudyDescription,XR Dental intraoral incisor,11
+SR,StudyDescription,XR Tibia and fibula Lt,1
+SR,StudyDescription,US Soft Tissue,6
+RF,StudyDescription,ERCP,32
+CR,StudyDescription,XR Ankle Both,8
+SR,StudyDescription,CT Guided biopsy,1
+SR,StudyDescription,FOREARM RIGHT,1
+CR,StudyDescription,HUMERUS AP,1
+SR,StudyDescription,US Breast Rt,1
+XA,StudyDescription,Angio aortofemoral lower limb Both,7
+RF,StudyDescription,Endoscopic guided oesophageal stent,1
+CR,StudyDescription,XR Hand Rt,10
+KO,StudyDescription,Primary PCI,1
+SR,StudyDescription,Nephrostogram Lt,1
+DX,StudyDescription,XR Wrist Lt,24
+XA,StudyDescription,Angioplasty vein graft,41
+SR,StudyDescription,XR Knee Lt,32
+IO,StudyDescription,23 PERIAPICAL,8
+DX,StudyDescription,XR Elbow Rt,1
+SR,StudyDescription,MRI Spine thoracic,1
+PT,StudyDescription,PET FDG Whole body,2597
+SR,StudyDescription,US Doppler lower limb veins Lt,1
+SR,StudyDescription,CT Urogram,30
+CR,StudyDescription,XR Fingers Rt,8
+XA,StudyDescription,Planned Coronary CTO PCI,5
+SR,StudyDescription,NM Bone whole body,24
+DX,StudyDescription,XR Clavicle Lt,1
+XA,StudyDescription,CRT Pacemaker Implant,1
+MG,StudyDescription,"Screening Mammography, Right",1
+CR,StudyDescription,XR Knee Lt,57
+SR,StudyDescription,XR Ankle Both,1
+SR,StudyDescription,MRI Forearm Rt,1
+SR,StudyDescription,MRI Pituitary,1
+IO,StudyDescription,XR Dental intraoral molar,5
+XA,StudyDescription,Diagnostic Angiogram +/- PCI with graft,19
+XA,StudyDescription,Planned Multivessel Coronary PCI,101
+PR,StudyDescription,CT Angiogram pulmonary,1
+SR,StudyDescription,XR Knee Rt,40
+XA,StudyDescription,Ureteric stent retrograde Both,10
+SR,StudyDescription,XR Mammogram Lt,7
+SR,StudyDescription,US Thyroid,1
+DX,StudyDescription,XR Thumb Rt,1
+SR,StudyDescription,CT Abdomen & pelvis with contrast,11
+SR,StudyDescription,US Kidney Both,20
+XA,StudyDescription,Arterial stent renal Lt,8
+CR,StudyDescription,FOREARM RIGHT,1
+CR,StudyDescription,XR Knee Rt,80
+SR,StudyDescription,MRI Scaphoid Right,1
+SR,StudyDescription,XR Thoracic spine,6
+SR,StudyDescription,XR Orthopantomogram Lt,1
+SR,StudyDescription,US Knee Lt,1
+DX,StudyDescription,XR Elbow Lt,1
+SR,StudyDescription,US Pelvis transvaginal,1
+CR,StudyDescription,XR Foot Both,14
+SR,StudyDescription,CT Renal with contrast Both,9
+XA,StudyDescription,Tunnelled central venous line insertion,1
+SR,StudyDescription,XR Skeletal survey myeloma,1
+DX,StudyDescription,XR Pathological specimen,1
+CR,StudyDescription,XR Ankle Lt,36
+XA,StudyDescription,Retrograde ureteropyelogram Rt,6
+IO,StudyDescription,XR Dental intra-oral,1
+SR,StudyDescription,XR Toe great Rt,1
+SR,StudyDescription,US Neck,7
+SR,StudyDescription,US Guided aspiration thyroid,1
+SR,StudyDescription,US Elbow Rt,1
+XA,StudyDescription,Upgrade to CRT-D,1
+SR,StudyDescription,CT Abdomen & pelvis wi,67
+DX,StudyDescription,XR Ankle Rt,14
+SR,StudyDescription,CT Thorax & abdo & pelvis with contrast,10
+SR,StudyDescription,XR Chest,1037
+XA,StudyDescription,VVIR Pacemaker Implant,6
+SR,StudyDescription,XR Ankle Lt,18
+SR,StudyDescription,Video swallow,1
+DX,StudyDescription,XR Pelvis,12
+MG,StudyDescription,XR Mammogram Rt,14
+SR,StudyDescription,XR Orthopantomogram full,7
+SR,StudyDescription,US Breast Lt,5
+SR,StudyDescription,Arterial Stent Femoral Rt,1
+SR,StudyDescription,Tunnelled central venous line insertion,1
+SR,StudyDescription,US Abdomen,71
+SR,StudyDescription,Nephrostomy Rt,1
+SR,StudyDescription,US Foot Rt,1
+PR,StudyDescription,NINEWELLS^Lumbar Spine,1
+SR,StudyDescription,US Liver,1
+SR,StudyDescription,Angioplasty infrapopliteal Rt,1
+SR,StudyDescription,CT Angiogram aorta,6
+SR,StudyDescription,CT Angiogram intracranial,1
+CR,StudyDescription,XR Shoulder Rt,56
+SR,StudyDescription,Diagnostic Angiogram +/- PCI,6
+SR,StudyDescription,NM Lung ventilation scan V,1
+CR,StudyDescription,XR Skeletal survey myeloma,11
+SR,StudyDescription,CT Pelvis,1
+SR,StudyDescription,XR Abdomen,72
+SR,StudyDescription,US Abdomen & pelvis,7
+SR,StudyDescription,Arterial stent renal Lt,1
+PX,StudyDescription,XR Orthopantomogram full,7
+DX,StudyDescription,XR Hand Lt,5
+DX,StudyDescription,XR Scaphoid Lt,8
+SR,StudyDescription,MRI scan,1
+SR,StudyDescription,MRI Heart,5
+CR,StudyDescription,XR Shoulder Lt,42
+SR,StudyDescription,Nephrostogram Rt,1
+XA,StudyDescription,Angio cerebral,95
+CR,StudyDescription,XR Thoracic spine,8
+DX,StudyDescription,XR Thumb Lt,1
+SR,StudyDescription,MRI Foot Lt,1
+US,StudyDescription,US Soft Tissue,67
+SR,StudyDescription,CT Thorax & abdo & pel,37
+XA,StudyDescription,Coronary^Diagnostic Coronary Catheterization,1
+XA,StudyDescription,Venoplasty,54
+SR,StudyDescription,XR Humerus Lt,1
+SR,StudyDescription,NINEWELLS^Lumbar Spine,13
+CR,StudyDescription,Orthopaedic pinning upper limb Lt,1
+DX,StudyDescription,XR Wrist Rt,1
+CR,StudyDescription,Orthopaedic pinning hip Rt,1
+US,StudyDescription,US Breast Rt,19
+NM,StudyDescription,NM Brain Ioflupane DaTSCAN images,1
+SR,StudyDescription,MRI Head,15
+CR,StudyDescription,XR Abdomen,122
+US,StudyDescription,US Doppler lower limb veins Rt,88
+XA,StudyDescription,DDDR Pacemaker Implant,8
+XA,StudyDescription,Tubogram,5
+RF,StudyDescription,Barium swallow,339
+SR,StudyDescription,CT Shoulder Rt,1
+CR,StudyDescription,XR Humerus Lt,7
+SR,StudyDescription,NM Parathyroid MIBI injection + Scan,1
+CR,StudyDescription,Orthopaedic pinning lower limb Rt,10
+CR,StudyDescription,XR Toe great Rt,1
+SR,StudyDescription,CT Spine thoracic,1
+SR,StudyDescription,Planned Multivessel Coronary PCI,1
+US,StudyDescription,US Ankle Rt,13
+SR,StudyDescription,US Pelvis Transabdominal/Transvaginal,1
+SR,StudyDescription,CT Cardiac angiogram coronary,1
+SR,StudyDescription,Venoplasty,1
+DX,StudyDescription,XR Foot Lt,9
+SR,StudyDescription,XR Forefoot Lt,1
+XA,StudyDescription,Nephrostogram Rt,1
+SR,StudyDescription,NM Cardiac MUGA,1
+IO,StudyDescription,XR Dental intra-oral molar,1
+SR,StudyDescription,MRI Foot Rt,1
+SR,StudyDescription,US Guided core biopsy breast Lt,1
+SR,StudyDescription,NINEWELLS^Pelvis,1
+SR,StudyDescription,US Ankle Rt,1
+US,StudyDescription,US Pelvis Transabdominal/Transvaginal,14
+SR,StudyDescription,MRI Pelvis,1
+US,StudyDescription,US Liver,33
+SR,StudyDescription,CT Renal Both,22
+US,StudyDescription,US Guided skin marking,19
+XA,StudyDescription,Mobile image intensifier thoracic spine,1
+SR,StudyDescription,MRI Knee Lt,1
+SR,StudyDescription,Stent graft abdominal aorta,1
+PX,StudyDescription,XR Orthopantomogram Lt,1
+SR,StudyDescription,MRI Internal auditory meatus Both,10
+SR,StudyDescription,US Salivary glands parotid,1
+SR,StudyDescription,XR Femur Lt,7
+SR,StudyDescription,MRI Pelvis prostate,1
+SR,StudyDescription,CT Thorax with contrast,7
+SR,StudyDescription,XR Mammogram compression view Lt,1
+SR,StudyDescription,Ureteric stent retrograde Both,1
+XA,StudyDescription,Orthopaedic pinning hip Rt,8
+US,StudyDescription,US Salivary glands parotid,65
+SR,StudyDescription,Diagnostic Angiogram +/- PCI with graft,1
+SR,StudyDescription,US Urinary tract,22
+IO,StudyDescription,XR Dental bitewing,18
+CR,StudyDescription,XR Shoulder Both,1
+PT,StudyDescription,PET FDG Head and Neck,42
+CR,StudyDescription,XR Forefoot Lt,1
+XA,StudyDescription,Diagnostic Angiogram +/- PCI,228
+SR,StudyDescription,Nephrostomy Lt,1
+PR,StudyDescription,CT Renal with contrast Both,1
+XA,StudyDescription,Angioplasty infrapopliteal Rt,54
+US,StudyDescription,US Knee Lt,6
+SR,StudyDescription,MRI Knee Rt,1
+SR,StudyDescription,Diagnostic Coronary Angiogram,12
+DX,StudyDescription,XR Foot Rt,11
+SR,StudyDescription,Angioplasty vein graft,1
+XA,StudyDescription,Planned Coronary PCI,75
+NM,StudyDescription,NM Lung ventilation scan V,1
+SR,StudyDescription,Angio aortofemoral lower limb Both,1
+SR,StudyDescription,XR Humerus Rt,1
+CR,StudyDescription,XR Humerus Rt,9
+RF,StudyDescription,Fistulogram,329
+SR,StudyDescription,XR Scaphoid Rt,1
+SR,StudyDescription,CT Thorax & abdomen with contrast,1
+CR,StudyDescription,XR Thoracolumbar spine,7
+CR,StudyDescription,XR Mandible,1
+CR,StudyDescription,XR Lumbar spine,34
+RF,StudyDescription,Video swallow,1
+XA,StudyDescription,Orthopaedic pinning lower limb Rt,12
+SR,StudyDescription,XR Mammogram Both,24
+SR,StudyDescription,XR Tibia & fibula Lt,1
+SR,StudyDescription,XR Calcaneus Rt,1
+XA,StudyDescription,Stent graft abdominal aorta,126
+PR,StudyDescription,CT Thorax & abdo & pel,13
+US,StudyDescription,US Kidney Both,332
+SR,StudyDescription,MRI Thorax,1
+NM,StudyDescription,NM Parathyroid MIBI injection + Scan,1
+SR,StudyDescription,US Guided core biopsy axilla Rt,1
+CR,StudyDescription,XR Femur Lt,15
+SR,StudyDescription,XR Mandible,1
+SR,StudyDescription,XR Thoracolumbar spine,1
+SR,StudyDescription,Angio cerebral,1
+SR,StudyDescription,US Foot Lt,1
+XA,StudyDescription,Retrograde ureteropyelogram Both,8
+NM,StudyDescription,NM Bone whole body,34
+CR,StudyDescription,XR Calcaneus Rt,1
+XA,StudyDescription,Nephrostomy Lt,1
+SR,StudyDescription,CT Temporal bones,1
+XA,StudyDescription,Diagnostic Coronary Angiogram,197
+SR,StudyDescription,XR Fingers Rt,1
+XA,StudyDescription,Arterial Stent Femoral Rt,13
+SR,StudyDescription,CT Colonoscopy virtual,1
+XA,StudyDescription,Nephrostogram Lt,1
+CR,StudyDescription,XR Tibia & fibula Lt,1
+DX,StudyDescription,XR Hip Rt,1
+SR,StudyDescription,CT Thorax & abdomen wi,10
+SR,StudyDescription,CT Hip Lt,1
+SR,StudyDescription,XR Facial bones,1
+SR,StudyDescription,Tubogram,1
+SR,StudyDescription,XR Shoulder Lt,28
+SR,StudyDescription,CT Head,244
+CR,StudyDescription,XR Facial bones,5
+SR,StudyDescription,XR Dental bitewing,1
+SR,StudyDescription,NM Brain Ioflupane DaTSCAN images,1
+SR,StudyDescription,US Hand Lt,1
+SR,StudyDescription,CT Knee Lt,1
+SR,StudyDescription,XR Shoulder Both,1
+SR,StudyDescription,XR Shoulder Rt,40
+SR,StudyDescription,XR Lumbar spine,16
+US,StudyDescription,US Guided aspiration thyroid,29
+US,StudyDescription,US Elbow Rt,7
+SR,StudyDescription,US Doppler lower limb veins Rt,5
+SR,StudyDescription,US Transplant kidney,1
+XA,StudyDescription,Nephrostomy Rt,6
+SR,StudyDescription,XR Dental intraoral incisor,1
+OT,StudyDescription,PET FDG Whole body,391
+XA,StudyDescription,Ureteric stent retrograde Rt,1
+US,StudyDescription,US Guided core biopsy breast Lt,5
+CR,StudyDescription,XR Wrist Lt,19
+US,StudyDescription,US Foot Lt,30
+DX,StudyDescription,XR Abdomen,12
+SR,StudyDescription,Transthoracic Echocardiogram,1
+SR,StudyDescription,US Extremity,1
+XA,StudyDescription,Arterial stent iliac Lt,9
+SR,StudyDescription,XR Wrist Lt,23
+XA,StudyDescription,PICC Line insertion,9
+SR,StudyDescription,XR Scaphoid Lt,1
+SR,StudyDescription,Fluoroscopic guided injection hip Rt,1
+CR,StudyDescription,XR Thumb Lt,5
+SR,StudyDescription,CT Angiogram lower limb Both,5
+SR,StudyDescription,XR Pelvis,102
+SR,StudyDescription,US Pelvis transabdominal,8
+CR,StudyDescription,XR Hand Lt,13
+CR,StudyDescription,FEMUR,1
+SR,StudyDescription,XR Hand Lt,10
+XA,StudyDescription,Angioplasty superficial femoral Rt,119
+SR,StudyDescription,Primary PCI,1
+XA,StudyDescription,Mobile image intensifier lumbar spine,5
+NM,StudyDescription,NM Lung perfusion scan Q,1
+US,StudyDescription,US Abdomen & pelvis,233
+SR,StudyDescription,MRI Spine cervical,8
+SR,StudyDescription,CT Hip Rt,1
+SR,StudyDescription,CT Cone beam mandible,1
+DX,StudyDescription,XR Lumbar spine,1
+SR,StudyDescription,XR Foot Lt,28
+SR,StudyDescription,XR Fingers Lt,6
+SR,StudyDescription,CT Sinuses,1
+SR,StudyDescription,PET FDG Whole body,1
+MG,StudyDescription,"Coned Compression, Right",1
+SR,StudyDescription,XR Skull,1
+SR,StudyDescription,MRI Liver with contrast,1
+SR,StudyDescription,MRI Hip Lt,1
+CR,StudyDescription,XR Femur Rt,13
+DX,StudyDescription,XR Ankle Lt,1
+IO,StudyDescription,XR Dental intraoral premolar,1
+SR,StudyDescription,XR Cervical spine,11
+SR,StudyDescription,US Testes,7
+CR,StudyDescription,XR Hip Lt,45
+CR,StudyDescription,XR Fingers Lt,9
+SR,StudyDescription,XR Mammogram Rt,6
+SR,StudyDescription,XR Femur Rt,5
+CR,StudyDescription,XR Wrist Both,8
+SR,StudyDescription,CT Neck with contrast,8
+SR,StudyDescription,XR Hip Lt,31
+SR,StudyDescription,MRI Scaphoid Left,1
+SR,StudyDescription,CT Pancreas with contrast,1
+SR,StudyDescription,XR Neck soft tissue,1
+CR,StudyDescription,Orthopaedic pinning upper limb Rt,8
+SR,StudyDescription,MRI Neck with contrast,1
+XA,StudyDescription,Orthopaedic pinning hip Lt,9
+SR,StudyDescription,US Shoulder Rt,1
+RF,StudyDescription,Barium swallow & meal,117
+CR,StudyDescription,XR Cervical spine,24
+DX,StudyDescription,XR Tibia and fibula Lt,1
+SR,StudyDescription,Gastrostomy insertion,1
+CR,StudyDescription,XR Foot Lt,50
+DX,StudyDescription,XR Hand Rt,6
+CR,StudyDescription,XR Neck soft tissue,1
+IO,StudyDescription,XR Dental intraoral periapical,44
+CR,StudyDescription,Mobile image intensifier lower limb Rt,1
+CR,StudyDescription,XR Pelvis,113
+SR,StudyDescription,US Guided skin marking,1
+NM,StudyDescription,NM Renogram with diuretic,1
+RF,StudyDescription,Oesophageal stent insertion,6
+SR,StudyDescription,MRI Hand Rt,1
+CR,StudyDescription,XR Skull,6
+US,StudyDescription,US guided guidewire Loc breast Lt,1
+SR,StudyDescription,Angioplasty superficial femoral Lt,1
+DX,StudyDescription,XR Knee Rt,9
+US,StudyDescription,US Pelvis transvaginal,16
+SR,StudyDescription,CT Foot Rt,1
+MG,StudyDescription,XR Mammogram Lt,13
+DX,StudyDescription,XR Femur Lt,1
+SR,StudyDescription,MRI Pelvis with contrast,1
+SR,StudyDescription,CT Spine cervical,1
+US,StudyDescription,US Hand Lt,19
+SR,StudyDescription,XR Dental intraoral periapical,16
+CR,StudyDescription,XR Patella Rt,1
+SR,StudyDescription,XR Dental intraoral molar,1
+US,StudyDescription,US Extremity,30
+CR,StudyDescription,TIB/FIB LEFT,7
+SR,StudyDescription,XR Hip Rt,30
+CR,StudyDescription,Orthopaedic pinning hip Lt,7
+CR,StudyDescription,XR Elbow Rt,1
+SR,StudyDescription,XR Elbow Rt,1
+CR,StudyDescription,XR Elbow Lt,19
+DX,StudyDescription,XR Facial bones,1
+XA,StudyDescription,Cateterismo y Angiocardiografía Izquierdos,11
+SR,StudyDescription,l-spine^General,17
+CR,StudyDescription,XR Foot Rt,40
+DX,StudyDescription,XR Chest,305
+XA,StudyDescription,Fluoroscopic guided injection,1
+CR,StudyDescription,XR Scaphoid Rt,10
+DX,StudyDescription,XR Shoulder Rt,11
+MG,StudyDescription,XR Mammogram compression view Lt,1
+SR,StudyDescription,XR Thumb Rt,8
+SR,StudyDescription,NM Bone dynamic,6
+SR,StudyDescription,TIB/FIB LEFT,1
+CR,StudyDescription,XR Thumb Rt,7
+DX,StudyDescription,XR Thoracic spine,1
+SR,StudyDescription,MRI Ankle Lt,1
+XA,StudyDescription,Primary PCI,125
+SR,StudyDescription,NM Lung perfusion scan Q,1
+XA,StudyDescription,Orthopaedic pinning lower limb Lt,1
+CR,StudyDescription,XR Sternum,1
+SR,StudyDescription,CT Thorax,7
+SR,StudyDescription,CT Angiogram pulmonary,61
+SR,StudyDescription,XR Orbit foreign body demonstration Both,1
+US,StudyDescription,US Guided core biopsy axilla Rt,14
+CR,StudyDescription,XR Wrist Rt,16
+SR,StudyDescription,XR Clavicle Lt,1
+SR,StudyDescription,MRCP,14
+CR,StudyDescription,Ureteric stent retrograde Rt,1
+XA,StudyDescription,Defibrillator Box Change,1
+SR,StudyDescription,XR Sternum,1
+NM,StudyDescription,NM Cardiac MUGA,1
+XA,StudyDescription,Angioplasty superficial femoral Lt,68
+DX,StudyDescription,XR Knee Lt,9
+DX,StudyDescription,XR Scaphoid Rt,1
+US,StudyDescription,US Testes,151
+SR,StudyDescription,CT Head with contrast,6
+US,StudyDescription,US Foot Rt,15
+SR,StudyDescription,XR Wrist Rt,10
+SR,StudyDescription,Barium swallow & meal,1
+CR,StudyDescription,XR Orbit foreign body demonstration Both,1
+SR,StudyDescription,Cateterismo y Angiocardiografía Izquierdos,1
+RF,StudyDescription,Nasogastric feeding tube,1
+CR,StudyDescription,XR Scaphoid Lt,1
+US,StudyDescription,US Breast Lt,66
+US,StudyDescription,US Thyroid,47
+SR,StudyDescription,XR Elbow Lt,9
+NM,StudyDescription,NM Bone dynamic,12
+US,StudyDescription,US Transplant kidney,10
+CR,StudyDescription,XR Hip Rt,25
+US,StudyDescription,US Abdomen,1847
+XA,StudyDescription,Gastrostomy insertion,7
+CR,StudyDescription,XR Chest,814
+MG,StudyDescription,XR Mammogram Both,116
+SR,StudyDescription,XR Foot Rt,23
+RF,StudyDescription,Water soluble contrast swallow & meal,357
+SR,StudyDescription,PICC Line insertion,7
+SR,StudyDescription,Angioplasty superficial femoral Rt,1
+SR,StudyDescription,XR Knee Both,11
+SR,StudyDescription,MRI Spine whole,1
+US,StudyDescription,US Neck,103
+US,StudyDescription,US Urinary tract,310
+SR,StudyDescription,CT Wrist Lt,1
+XA,StudyDescription,Mobile image intensifier cervical spine,1
+SR,StudyDescription,Nasogastric feeding tube,1
+SC,StudyDescription,XR Dental intraoral periapical,1
+PR,StudyDescription,XR Chest,1
+SR,StudyDescription,CT Hip Both,1
+XA,StudyDescription,Pacemaker Box Change,1
+SR,StudyDescription,CT Chest high resolution,25
+SR,StudyDescription,Orthopaedic pinning upper limb Rt,1
+XA,StudyDescription,Fluoroscopic guided injection hip Rt,1
+CR,StudyDescription,XR Hand Both,1
+DX,StudyDescription,XR Shoulder Lt,8
+US,StudyDescription,US Doppler lower limb veins Lt,70
+SR,StudyDescription,MRI Pelvis rectum,1
+SR,StudyDescription,NM Renogram with diuretic,1
+RF,StudyDescription,Tubogram,18
+CR,StudyDescription,TIB/FIB RIGHT,12
+SR,StudyDescription,XR Thumb Lt,5
+XA,StudyDescription,NULL,1
+CR,StudyDescription,XR Ankle Rt,56
+SR,StudyDescription,MRI Pelvis gynaecological,1
+US,StudyDescription,US Pelvis transabdominal,102
+US,StudyDescription,US guided guidewire Loc breast Rt,1
+SR,StudyDescription,Barium swallow,1
+SR,StudyDescription,CT Abdomen & pelvis,9
+SR,StudyDescription,XR Hand Both,1
+SR,StudyDescription,CT Knee Rt,1
+SR,StudyDescription,STRACATHRO^L SPINE,12
+XA,StudyDescription,Ureteric stent retrograde Lt,1
+PR,StudyDescription,XR Mammogram Rt,1
+SR,StudyDescription,XR Wrist Both,1
+SR,StudyDescription,XR Ankle Rt,34
+US,StudyDescription,US Shoulder Rt,39
+SR,StudyDescription,XR Foot Both,6
+SR,StudyDescription,TIB/FIB RIGHT,1
+SR,StudyDescription,hip^Routine,1
+SR,StudyDescription,Arterial stent iliac Lt,1
+CR,StudyDescription,XR Knee Both,43
+PR,StudyDescription,MRI Pelvis with contrast,1
+XA,StudyDescription,Orthopaedic pinning upper limb Rt,8
+

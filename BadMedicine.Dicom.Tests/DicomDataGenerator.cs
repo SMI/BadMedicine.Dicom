@@ -57,6 +57,10 @@ namespace BadMedicine.Dicom.Tests
             Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
             Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
 
+            //should have a study description
+            Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
+            //should have a study description
+            Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
         }
 
         [Test]

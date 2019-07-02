@@ -18,14 +18,76 @@ namespace BadMedicine.Dicom
         public BucketList<ModalityStats> ModalityFrequency;
         public Dictionary<string,int> ModalityIndexes = new Dictionary<string, int>();
 
-        
+        /// <summary>
+        /// Distribution of time of day (in hours only) that tests were taken
+        /// </summary>
+        public static BucketList<int> HourOfDay;
+       
 
         private DicomDataGeneratorStats(Random r)
         {
             InitializeTagValuesByModalityAndTag(r);
             InitializeModalityFrequency(r);
+
+            InitializeHourOfDay(r);
         }
-        
+
+        private void InitializeHourOfDay(Random r)
+        {
+            //Provenance:
+            //select DATEPART(HOUR,StudyTime),work.dbo.get_aggregate_value(count(*)) from CT_Godarts_StudyTable group by DATEPART(HOUR,StudyTime)
+
+            HourOfDay = new BucketList<int>(r);
+            
+            HourOfDay.Add(1,1);
+            HourOfDay.Add(4,1);
+            HourOfDay.Add(5,1);
+            HourOfDay.Add(6,1);
+            HourOfDay.Add(8,15);
+            HourOfDay.Add(9,57);
+            HourOfDay.Add(10,36);
+            HourOfDay.Add(11,41);
+            HourOfDay.Add(12,51);
+            HourOfDay.Add(13,55);
+            HourOfDay.Add(14,54);
+            HourOfDay.Add(15,42);
+            HourOfDay.Add(16,44);
+            HourOfDay.Add(17,42);
+            HourOfDay.Add(18,33);
+            HourOfDay.Add(19,1);
+            HourOfDay.Add(20,7);
+            HourOfDay.Add(21,5);
+            HourOfDay.Add(22,8);        
+        }
+
+        /// <summary>
+        /// Generates a random time of day with a frequency that matches the times when the most images are captured (e.g. more images are
+        /// taken at 1pm than at 8pm
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public TimeSpan GetRandomTimeOfDay(Random r)
+        {
+            var ts = new TimeSpan(0,HourOfDay.GetRandom(),r.Next(60),r.Next(60),0);
+            
+            ts = ts.Subtract(new TimeSpan(ts.Days,0,0,0));
+
+            if(ts.Days != 0)
+                throw new Exception("What!");
+
+            return ts;
+        }
+
+        /// <summary>
+        /// returns a random string e.g. T101H12451352 where the first letter indiciates Tayside and 5th letter indicates Hospital
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public string GetRandomAccessionNumber(Random r)
+        {
+            return 'T' + r.Next(4) + r.Next(2) + r.Next(5) + "H" + r.Next(9999999);
+        }
+
         private void InitializeModalityFrequency(Random r)
         {
             DataTable dt = new DataTable();

@@ -28,6 +28,7 @@ namespace BadMedicine.Dicom.Tests
             foreach(DicomDataset ds in study.Series[0])
             {
                 Assert.AreEqual("MR",ds.GetValues<string>(DicomTag.Modality)[0]);
+                Assert.AreEqual(study.StudyTime,ds.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
             }
 
         }

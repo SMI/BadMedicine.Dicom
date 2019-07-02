@@ -82,8 +82,11 @@ The following tags are populated in dicom files generated:
 |-----|-----|
 | PatientID | The CHI number of the (random) patient|
 | StudyDate | A random date during the patients lifetime |
+| StudyTime | Random time of day with hours favoured during the middle of the working day.|
 | SeriesDate | Same as StudyDate* |
 | PatientAge | Age of patient at SeriesDate e.g. "032Y"|
+| Modality | Random modality for which we have at least 1 image locally. (proportionate to modality popularity)|
+| StudyDescription | Random description that exists in the modality (proportionate to frequency seen) |
 
 *SeriesDate is always the same as Study Date (see `Seres` constructor), for secondary capture this should/could not be the case (we should look at how this corresponds in the PACS data we have)
 
