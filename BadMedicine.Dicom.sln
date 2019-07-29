@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9C7F03FC-AB21-48FB-B9B1-F8E84EA32E4D}"
 	ProjectSection(SolutionItems) = preProject
 		BadMedicine.Dicom\BadMedicine.Dicom.nuspec = BadMedicine.Dicom\BadMedicine.Dicom.nuspec
+		CHANGELOG.md = CHANGELOG.md
 		Packages.md = Packages.md
 		rakeconfig.rb = rakeconfig.rb
 		rakefile.rb = rakefile.rb
