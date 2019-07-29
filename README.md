@@ -64,6 +64,7 @@ Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.Da
 
 ## Building
 
+Building requires MSBuild 15 or later (or Visual Studio 2017 or later).  You will also need to install the DotNetCore 2.2 SDK.
 You can build a OS specific binary
 
 First build BadDicom.csproj
