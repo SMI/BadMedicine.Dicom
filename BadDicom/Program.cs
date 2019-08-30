@@ -55,11 +55,12 @@ namespace BadDicom
 
                 var dicomGenerator = new DicomDataGenerator(r,dir,modalities)
                 {
-                    NoPixels = opts.NoPixels ,
+                    NoPixels = opts.NoPixels,
                     Layout = opts.Layout,
                     MaximumImages = opts.MaximumImages,
+                    csv = opts.csv,
                 };
-                
+               
                 var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
                 dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
 
