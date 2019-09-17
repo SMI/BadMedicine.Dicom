@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using CsvHelper;
 
 namespace BadMedicine.Dicom
 {
@@ -16,7 +17,11 @@ namespace BadMedicine.Dicom
         /// </summary>
         public bool NoPixels { get; set; }
 
-        public bool csv { get; set; }
+        /// <summary>
+        /// True to output Study / Series / Image level CSV files containing all the tag data.  Setting this option
+        /// disables image file output
+        /// </summary>
+        public bool Csv { get; set; }
 
         /// <summary>
         /// The subdirectories layout to put dicom files into when writting to disk
@@ -39,7 +44,7 @@ namespace BadMedicine.Dicom
         private List<DicomTag> _imageTags;
         private string _lastStudyUID = "";
         private string _lastSeriesUID = "";
-        private StreamWriter studyWriter, seriesWriter, imageWriter;
+        private CsvWriter studyWriter, seriesWriter, imageWriter;
 
         /// <summary>
         /// 
@@ -94,7 +99,10 @@ namespace BadMedicine.Dicom
                 else
                     studyUID = study.StudyUID.UID; //all images will have the same study
 
-                if(!csv)
+                // ACH : additions to produce some CSV data
+                if(Csv)
+                    AddDicomDatasetToCSV(ds);
+                else
                 {
                     var f = new DicomFile(ds);
 
@@ -105,10 +113,6 @@ namespace BadMedicine.Dicom
                     string fileName = fi.FullName;
                     f.Save(fileName);
                 }
-
-                // ACH : additions to produce some CSV data
-                if(csv)
-                    AddDicomDatasetToCSV(ds);
             }
 
             //in the CSV write only the StudyUID
@@ -302,9 +306,9 @@ namespace BadMedicine.Dicom
             if (OutputDir != null)
             {
                 // Create/open CSV files
-                studyWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv"));
-                seriesWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv"));
-                imageWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv"));
+                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv")));
+                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv")));
+                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv")));
             }
             
             // Write header
@@ -313,10 +317,12 @@ namespace BadMedicine.Dicom
             //WriteData("IMAGES>>", imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
         }
 
-        private void WriteData(string fileId, StreamWriter sw, IEnumerable<string> data)
+        private void WriteData(string fileId, CsvWriter sw, IEnumerable<string> data)
         {
-            //Console.WriteLine(fileId + String.Join(",", data));
-            sw.WriteLine(String.Join(",", data));
+            foreach (string s in data)
+                sw.WriteField(s);
+            
+            sw.NextRecord();
         }
 
         private void AddDicomDatasetToCSV(DicomDataset ds)
@@ -338,7 +344,7 @@ namespace BadMedicine.Dicom
             WriteTags("IMAGE>>", imageWriter, _imageTags, ds);
         }
 
-        private void WriteTags(string fileId, StreamWriter sw, List<DicomTag> tags, DicomDataset ds)
+        private void WriteTags(string fileId, CsvWriter sw, List<DicomTag> tags, DicomDataset ds)
         {
             var columnData = new List<string>();
             foreach (DicomTag tag in tags)

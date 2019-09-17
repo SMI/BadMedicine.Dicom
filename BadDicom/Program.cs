@@ -57,7 +57,7 @@ namespace BadDicom
                     NoPixels = opts.NoPixels,
                     Layout = opts.Layout,
                     MaximumImages = opts.MaximumImages,
-                    csv = opts.csv,
+                    Csv = opts.csv,
                 })
                 {
                     var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
