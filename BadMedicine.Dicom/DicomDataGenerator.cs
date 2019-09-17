@@ -61,6 +61,8 @@ namespace BadMedicine.Dicom
         /// </summary>
         public const string ImageCsvFilename = "image.csv";
 
+        private bool csvInitialized = false;
+
         /// <summary>
         /// 
         /// </summary>
@@ -88,8 +90,6 @@ namespace BadMedicine.Dicom
 
                 _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
             }
-
-            InitialiseCSVOutput();
         }
         
         /// <summary>
@@ -99,6 +99,9 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public override object[] GenerateTestDataRow(Person p)
         {
+            if(!csvInitialized && Csv)
+                InitialiseCSVOutput();
+
             //The currently extracting study
             Study study;
             string studyUID = null;
@@ -249,6 +252,9 @@ namespace BadMedicine.Dicom
         private void InitialiseCSVOutput()
         {
             // Write the headers
+            if(csvInitialized)
+                return;
+            csvInitialized = true;
 
             _studyTags = new List<DicomTag>()
             {
