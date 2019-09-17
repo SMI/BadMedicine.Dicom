@@ -309,12 +309,12 @@ namespace BadMedicine.Dicom
                 studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv")));
                 seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv")));
                 imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv")));
+                
+                // Write header
+                WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
+                WriteData("SERIES>>", seriesWriter, _seriesTags.Select(i => i.DictionaryEntry.Keyword));
+                WriteData("IMAGES>>", imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
             }
-            
-            // Write header
-            //WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
-            //WriteData("SERIES>>", seriesWriter, _seriesTags.Select(i => i.DictionaryEntry.Keyword));
-            //WriteData("IMAGES>>", imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
         }
 
         private void WriteData(string fileId, CsvWriter sw, IEnumerable<string> data)
@@ -355,7 +355,7 @@ namespace BadMedicine.Dicom
                 }
                 else
                 {
-                    columnData.Add("Anonymized");
+                    columnData.Add("NULL");
                 }
             }
 

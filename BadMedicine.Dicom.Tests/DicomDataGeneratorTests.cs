@@ -114,5 +114,33 @@ namespace BadMedicine.Dicom.Tests
             Assert.Throws<ArgumentException>(()=>new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"LOLZ"));
 
         }
+
+        [Test]
+        public void Test_CsvOption()
+        {
+            var r = new Random(500);
+
+            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory, "TestCsv"));
+            outputDir.Create();
+
+            var people = new PersonCollection();
+            people.GeneratePeople(100,r);
+
+            using (var generator = new DicomDataGenerator(r,outputDir, "CT"))
+            {
+                generator.Csv = true;
+                generator.NoPixels = true;
+                generator.MaximumImages = 500;
+
+                generator.GenerateTestDataFile(people,new FileInfo(Path.Combine(outputDir.FullName,"index.csv")),500);
+            }
+
+            //3 csv files + index.csv (the default one
+            Assert.AreEqual(4,outputDir.GetFiles().Length);
+
+
+
+            
+        }
     }
 }
