@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using System.Linq;
+using CsvHelper;
 
 namespace BadMedicine.Dicom.Tests
 {
@@ -138,7 +139,22 @@ namespace BadMedicine.Dicom.Tests
             //3 csv files + index.csv (the default one
             Assert.AreEqual(4,outputDir.GetFiles().Length);
 
+            foreach (FileInfo f in outputDir.GetFiles())
+            {
+                using(var reader = new CsvReader(new StreamReader(f.FullName)))
+                {
+                    int rowcount = 0;
 
+                    //confirms that the CSV is intact (no dodgy commas, unquoted newlines etc)
+                    while (reader.Read())
+                        rowcount++;
+
+                    //should be 1 row per image + 1 for header
+                    if(f.Name == DicomDataGenerator.ImageCsvFilename)
+                        Assert.AreEqual(501,rowcount);
+                }
+
+            }
 
             
         }

@@ -47,6 +47,21 @@ namespace BadMedicine.Dicom
         private CsvWriter studyWriter, seriesWriter, imageWriter;
 
         /// <summary>
+        /// Name of the file that contains distinct Study level records for all images when <see cref="Csv"/> is true
+        /// </summary>
+        public const string StudyCsvFilename = "study.csv";
+
+        /// <summary>
+        /// Name of the file that contains distinct Series level records for all images when <see cref="Csv"/> is true
+        /// </summary>
+        public const string SeriesCsvFilename = "series.csv";
+
+        /// <summary>
+        /// Name of the file that contains distinct Image level records for all images when <see cref="Csv"/> is true
+        /// </summary>
+        public const string ImageCsvFilename = "image.csv";
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="r"></param>
@@ -306,9 +321,9 @@ namespace BadMedicine.Dicom
             if (OutputDir != null)
             {
                 // Create/open CSV files
-                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv")));
-                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv")));
-                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv")));
+                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, StudyCsvFilename)));
+                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, SeriesCsvFilename)));
+                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, ImageCsvFilename)));
                 
                 // Write header
                 WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
