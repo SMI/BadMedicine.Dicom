@@ -53,17 +53,16 @@ namespace BadDicom
                 //Generate the dicom files (of the modalities that the user requested)
                 string[] modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :new string[0];
 
-                var dicomGenerator = new DicomDataGenerator(r,dir,modalities)
-                {
+                using(var dicomGenerator = new DicomDataGenerator(r,dir,modalities){
                     NoPixels = opts.NoPixels,
                     Layout = opts.Layout,
                     MaximumImages = opts.MaximumImages,
                     csv = opts.csv,
-                };
-               
-                var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
-                dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
-
+                })
+                {
+                    var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
+                    dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
+                }
             }
             catch (Exception e)
             {

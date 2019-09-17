@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BadMedicine.Dicom
 {
-    public class DicomDataGenerator : DataGenerator
+    public class DicomDataGenerator : DataGenerator,IDisposable
     {
         public DirectoryInfo OutputDir { get; }
 
@@ -69,7 +69,6 @@ namespace BadMedicine.Dicom
                 _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
             }
 
-            //TODO This function should be called if csv is True. At this point in the code, csv is false.
             InitialiseCSVOutput();
         }
         
@@ -299,11 +298,14 @@ namespace BadMedicine.Dicom
                 DicomTag.LossyImageCompressionRatio,
                 DicomTag.ScanOptions
             };
-            
-            // Create/open CSV files
-            studyWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv"));
-            seriesWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv"));
-            imageWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv"));
+
+            if (OutputDir != null)
+            {
+                // Create/open CSV files
+                studyWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "study.csv"));
+                seriesWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "series.csv"));
+                imageWriter = new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, "image.csv"));
+            }
             
             // Write header
             //WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
@@ -355,5 +357,11 @@ namespace BadMedicine.Dicom
             sw.Flush();
         }
 
+        public void Dispose()
+        {
+            studyWriter?.Dispose();
+            seriesWriter?.Dispose();
+            imageWriter?.Dispose();
+        }
     }
 }
