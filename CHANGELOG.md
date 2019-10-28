@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ...
+## [0.0.4] - 2019-10-28
+
+## Changed
+
+- Updated dependencies to latest fo Dicom library 4.0.3
+
+## Fixed
+
+- Fixed dodgy tags in test data generated which results in broken images with fo Dicom 4.0.3
+
+## [0.0.3] - 2019-10-28
+
+### Added 
+
+ - Added Csv mode where by dicom tags are output in full to series/study/instance level CSV files
 
 ## [0.0.2] - 2019-07-16
 
@@ -24,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/5517d7e29aaf3742e91b86288b85f692a063dba4...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.4...develop
+[0.0.4]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.3...v0.0.4
+[0.0.3]: https://github.com/HicServices/BadMedicine.Dicom/compare/5517d7e29aaf3742e91b86288b85f692a063dba4...v0.0.3
 [0.0.2]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.1...5517d7e29aaf3742e91b86288b85f692a063dba4
 [0.0.1]: https://github.com/HicServices/BadMedicine.Dicom/compare/bdea963df0337e47434c3e72bde7a16a111b99a8...v0.0.1

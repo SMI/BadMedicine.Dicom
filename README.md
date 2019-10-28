@@ -52,14 +52,18 @@ var r = new Random(23);
 var person = new Person(r);
 
 //create a generator 
-var generator = new DicomDataGenerator(r,null,"CT");
-            
-//create a dataset in memory
-DicomDataset dataset = generator.GenerateTestDataset(person);
+using (var generator = new DicomDataGenerator(r, null, "CT"))
+{
+    //create a dataset in memory
+    DicomDataset dataset = generator.GenerateTestDataset(person, r);
 
-//values should match the patient details
-Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
-Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+    //values should match the patient details
+    Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
+    Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+
+    //should have a study description
+    Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));   
+}
 ```
 
 ## Building

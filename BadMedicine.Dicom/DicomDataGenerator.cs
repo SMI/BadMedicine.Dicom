@@ -152,21 +152,21 @@ namespace BadMedicine.Dicom
         public DicomDataset[] GenerateStudyImages(Person p, out Study study)
         {        
             //generate a study
-            study = new Study(this,p,GetRandomModality(),r);
+            study = new Study(this,p,GetRandomModality(r),r);
 
             return study.SelectMany(series=>series).Select(image=>image).ToArray();
         }
 
-        public DicomDataset GenerateTestDataset(Person p)
+        public DicomDataset GenerateTestDataset(Person p,Random r)
         {
             //get a random modality
-            var modality = GetRandomModality();
+            var modality = GetRandomModality(r);
             return GenerateTestDataset(p,new Study(this,p,modality,r).Series[0]);
         }
 
-        private ModalityStats GetRandomModality()
+        private ModalityStats GetRandomModality(Random r)
         {
-            return DicomDataGeneratorStats.GetInstance(r).ModalityFrequency.GetRandom(_modalities);
+            return DicomDataGeneratorStats.GetInstance(r).ModalityFrequency.GetRandom(_modalities,r);
         }
 
         /// <summary>
@@ -189,8 +189,16 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
             ds.AddOrUpdate(DicomTag.PatientName, p.Forename + " " + p.Surname);
             ds.AddOrUpdate(DicomTag.PatientBirthDate, p.DateOfBirth);
-            ds.AddOrUpdate(DicomTag.PatientAddress,p.Address.Line1 + " " + p.Address.Line2 + " " + p.Address.Line3 + " " + p.Address.Line4 + " " + p.Address.Postcode.Value);
 
+            if (p.Address != null)
+            {
+                string s = p.Address.Line1 + " " + p.Address.Line2 + " " + p.Address.Line3 + " " + p.Address.Line4 +
+                           " " + p.Address.Postcode.Value;
+
+                ds.AddOrUpdate(DicomTag.PatientAddress,
+                    s.Substring(0,Math.Min(s.Length,64)) //LO only allows 64 characters
+                    );
+            }
 
             ds.AddOrUpdate(new DicomDate(DicomTag.StudyDate, series.Study.StudyDate));
             ds.AddOrUpdate(new DicomTime(DicomTag.StudyTime, DateTime.Today + series.Study.StudyTime));
@@ -235,11 +243,11 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.AcquisitionNumber, "0");
             ds.AddOrUpdate(DicomTag.AcquisitionDate, series.SeriesDate);
             ds.AddOrUpdate(new DicomTime(DicomTag.AcquisitionTime, DateTime.Today + series.SeriesTime));
-            ds.AddOrUpdate(DicomTag.ImagePositionPatient, "0");
-            ds.AddOrUpdate(DicomTag.PixelSpacing, "0");
+            ds.AddOrUpdate(DicomTag.ImagePositionPatient, "0","0","0");
+            ds.AddOrUpdate(new DicomDecimalString(DicomTag.PixelSpacing,"0.3","0.25"));
             ds.AddOrUpdate(DicomTag.FieldOfViewDimensions, "0");
             ds.AddOrUpdate(DicomTag.FieldOfViewDimensionsInFloat, "0");
-            ds.AddOrUpdate(DicomTag.TransferSyntaxUID, "0");
+            //ds.AddOrUpdate(DicomTag.TransferSyntaxUID, "1.2.840.10008.1.2"); this seems to break saving of files lets not set it
             ds.AddOrUpdate(DicomTag.LossyImageCompression, "00");
             ds.AddOrUpdate(DicomTag.LossyImageCompressionMethod, "ISO_10918_1");
             ds.AddOrUpdate(DicomTag.LossyImageCompressionRatio, "1");

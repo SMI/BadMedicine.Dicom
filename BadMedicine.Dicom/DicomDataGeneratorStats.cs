@@ -30,9 +30,9 @@ namespace BadMedicine.Dicom
 
         private DicomDataGeneratorStats(Random r)
         {
-            InitializeTagValuesByModalityAndTag(r);
+            InitializeTagValuesByModalityAndTag();
             InitializeModalityFrequency(r);
-            InitializeImageType(r);
+            InitializeImageType();
 
             InitializeHourOfDay(r);
         }
@@ -42,7 +42,7 @@ namespace BadMedicine.Dicom
             //Provenance:
             //select DATEPART(HOUR,StudyTime),work.dbo.get_aggregate_value(count(*)) from CT_Godarts_StudyTable group by DATEPART(HOUR,StudyTime)
 
-            HourOfDay = new BucketList<int>(r);
+            HourOfDay = new BucketList<int>();
             
             HourOfDay.Add(1,1);
             HourOfDay.Add(4,1);
@@ -73,7 +73,7 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public TimeSpan GetRandomTimeOfDay(Random r)
         {
-            var ts = new TimeSpan(0,HourOfDay.GetRandom(),r.Next(60),r.Next(60),0);
+            var ts = new TimeSpan(0,HourOfDay.GetRandom(r),r.Next(60),r.Next(60),0);
             
             ts = ts.Subtract(new TimeSpan(ts.Days,0,0,0));
 
@@ -83,9 +83,9 @@ namespace BadMedicine.Dicom
             return ts;
         }
 
-        public string GetRandomImageType()
+        public string GetRandomImageType(Random r)
         {
-            return ImageType.GetRandom();
+            return ImageType.GetRandom(r);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace BadMedicine.Dicom
 
             DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv",dt);
 
-            ModalityFrequency = new BucketList<ModalityStats>(r);
+            ModalityFrequency = new BucketList<ModalityStats>();
 
             int idx=0;
             foreach(DataRow dr in dt.Rows)
@@ -130,7 +130,7 @@ namespace BadMedicine.Dicom
                 
         }
 
-        private void InitializeTagValuesByModalityAndTag(Random r)
+        private void InitializeTagValuesByModalityAndTag()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Frequency", typeof(int));
@@ -146,16 +146,16 @@ namespace BadMedicine.Dicom
                     TagValuesByModalityAndTag.Add(modality,new Dictionary<DicomTag, BucketList<string>>());
 
                 if(!TagValuesByModalityAndTag[modality].ContainsKey(tag))
-                    TagValuesByModalityAndTag[modality].Add(tag,new BucketList<string>(r));
+                    TagValuesByModalityAndTag[modality].Add(tag,new BucketList<string>());
 
                 int frequency = (int) dr["Frequency"];
                 TagValuesByModalityAndTag[modality][tag].Add(frequency,(string)dr["Value"]);
             }
         }
 
-        private void InitializeImageType(Random r)
+        private void InitializeImageType()
         {
-            ImageType = new BucketList<string>(r);
+            ImageType = new BucketList<string>();
             
             ImageType.Add(96,"ORIGINAL\\PRIMARY\\AXIAL");
             ImageType.Add(1,"ORIGINAL\\PRIMARY\\LOCALIZER");

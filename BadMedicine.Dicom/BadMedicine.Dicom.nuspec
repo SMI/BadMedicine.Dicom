@@ -6,7 +6,7 @@
     <title>HIC.BadMedicine.Dicom</title>
     <authors>Health Informatics Centre - University of Dundee</authors>
     <owners>Health Informatics Centre - University of Dundee</owners>
-    <projectUrl>https://github.com/HicServices/BadMedicine</projectUrl>
+    <projectUrl>https://github.com/HicServices/BadMedicine.Dicom</projectUrl>
     <license type="expression">GPL-3.0-or-later</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Generate large volumes of complex (in terms of tags) dicom images for integration/stress testing ETL and image management tools.  BadMedicine.Dicom generates dicom images on demand based on an anonymous aggregate model of tag data found in scottish medical imaging with a small memory footprint.</description>
@@ -14,8 +14,8 @@
     <tags>Dicom,Test Data,Random,Synthetic Data,Health</tags>
     <dependencies>
       <dependency id="MathNet.Numerics" version="4.7.0" exclude="Build,Analyzers" />
-      <dependency id="fo-dicom.NetCore" version="4.0.1" />
-      <dependency id="HIC.BadMedicine" version="0.1.4" />
+      <dependency id="fo-dicom.NetCore" version="4.0.3" />
+      <dependency id="HIC.BadMedicine" version="0.1.5" />
       <dependency id="System.Drawing.Common" version="4.5.1" />
     </dependencies>
   </metadata>

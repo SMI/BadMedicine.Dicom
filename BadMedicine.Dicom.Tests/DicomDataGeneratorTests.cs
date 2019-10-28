@@ -51,21 +51,20 @@ namespace BadMedicine.Dicom.Tests
             var person = new Person(r);
 
             //create a generator 
-            var generator = new DicomDataGenerator(r,null,"CT");
-            
-            //create a dataset in memory
-            DicomDataset dataset = generator.GenerateTestDataset(person);
+            using (var generator = new DicomDataGenerator(r, null, "CT"))
+            {
+                //create a dataset in memory
+                DicomDataset dataset = generator.GenerateTestDataset(person, r);
 
-            //values should match the patient details
-            Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
-            Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+                //values should match the patient details
+                Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
+                Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
 
-            //should have a study description
-            Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
-            //should have a study description
-            Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
-            
-            generator.Dispose();
+                //should have a study description
+                Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
+                //should have a study description
+                Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
+            }
         }
 
         [Test]
@@ -80,7 +79,7 @@ namespace BadMedicine.Dicom.Tests
             for(int i = 0 ; i < 100 ; i++)
             {
                 //all should be CT because we said CT only
-                var ds = generator.GenerateTestDataset(person);
+                var ds = generator.GenerateTestDataset(person, r);
                 Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
             }
 
@@ -99,7 +98,7 @@ namespace BadMedicine.Dicom.Tests
             for(int i = 0 ; i < 100 ; i++)
             {
                 //all should be CT because we said CT only
-                var ds = generator.GenerateTestDataset(person);
+                var ds = generator.GenerateTestDataset(person, r);
                 var modality = ds.GetSingleValue<string>(DicomTag.Modality);
 
                 Assert.IsTrue(modality == "CT" || modality == "MR","Unexpected modality {0}",modality);
@@ -155,8 +154,6 @@ namespace BadMedicine.Dicom.Tests
                 }
 
             }
-
-            
         }
     }
 }

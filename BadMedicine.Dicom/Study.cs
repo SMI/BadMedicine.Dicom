@@ -44,7 +44,7 @@ namespace BadMedicine.Dicom
 
                     //if it's a study level one record it here
                     if(dict.Key == DicomTag.StudyDescription)
-                        StudyDescription = dict.Value.GetRandom();
+                        StudyDescription = dict.Value.GetRandom(r);
                 }
 
             AccessionNumber = stats.GetRandomAccessionNumber(r);
@@ -58,7 +58,7 @@ namespace BadMedicine.Dicom
             if(modalityStats.Modality == "CT")
             {
                 // Set ImageType
-                imageType = stats.GetRandomImageType();
+                imageType = stats.GetRandomImageType(r);
                 if(imageType == "ORIGINAL\\PRIMARY\\AXIAL")
                 {
                     NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
@@ -67,7 +67,7 @@ namespace BadMedicine.Dicom
             }
             else
             {
-                imageType = "UNKNOWN";
+                imageType = "ORIGINAL\\PRIMARY";
                 NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
                 imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
             }
