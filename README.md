@@ -64,6 +64,8 @@ Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.Da
 
 ## Building
 
+Building requires MSBuild 15 or later (or Visual Studio 2017 or later).  You will also need to install the DotNetCore 2.2 SDK.
+
 Csproj files are in the 2017 format and require Visual Studio 2017 or later to run.  The following projects are part of the solution:
 
 |Project | Runtime | Purpose | Build Output |
