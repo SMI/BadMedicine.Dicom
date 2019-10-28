@@ -1,10 +1,8 @@
-﻿using BadMedicine.Datasets;
-using Dicom;
+﻿using Dicom;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace BadMedicine.Dicom
 {
@@ -21,9 +19,11 @@ namespace BadMedicine.Dicom
         public string AccessionNumber { get; }
         public TimeSpan StudyTime { get; }
 
+        public int NumberOfStudyRelatedInstances { get; }
+
         private List<Series> _series = new List<Series>();
 
-        public Study(DicomDataGenerator parent,Person person, ModalityStats modalityStats,Random r)
+        public Study(DicomDataGenerator parent, Person person, ModalityStats modalityStats, Random r)
         {
             /////////////////////// Generate all the Study Values ////////////////////
             Parent = parent;
@@ -31,6 +31,10 @@ namespace BadMedicine.Dicom
             StudyDate = person.GetRandomDateDuringLifetime(r).Date;
 
             var stats = DicomDataGeneratorStats.GetInstance(r);
+
+            string imageType;
+            NumberOfStudyRelatedInstances = 1;
+            int imageCount = 2;
 
             //if we know about the frequency of tag values for this modality?
             if(stats.TagValuesByModalityAndTag.ContainsKey(modalityStats.Modality))
@@ -40,7 +44,7 @@ namespace BadMedicine.Dicom
 
                     //if it's a study level one record it here
                     if(dict.Key == DicomTag.StudyDescription)
-                        StudyDescription = dict.Value.GetRandom();                    
+                        StudyDescription = dict.Value.GetRandom();
                 }
 
             AccessionNumber = stats.GetRandomAccessionNumber(r);
@@ -50,12 +54,28 @@ namespace BadMedicine.Dicom
             
             //have a random number of series (based on average and standard deviation for that modality)
             //but have at least 1 series!
-            int seriesCount = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
+
+            if(modalityStats.Modality == "CT")
+            {
+                // Set ImageType
+                imageType = stats.GetRandomImageType();
+                if(imageType == "ORIGINAL\\PRIMARY\\AXIAL")
+                {
+                    NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
+                    imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
+                }
+            }
+            else
+            {
+                imageType = "UNKNOWN";
+                NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
+                imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
+            }
          
             Series = new ReadOnlyCollection<Series>(_series);
             
-            for(int i=0;i<seriesCount;i++)
-                _series.Add(new Series(this,person,modalityStats,r));
+            for(int i=0;i<NumberOfStudyRelatedInstances;i++)
+                _series.Add(new Series(this, person, modalityStats.Modality, imageType, imageCount, r));
         }
 
 

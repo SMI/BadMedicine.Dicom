@@ -31,6 +31,8 @@ namespace BadMedicine.Dicom.Tests
                 Assert.AreEqual(study.StudyTime,ds.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
             }
 
+            generator.Dispose();
+
         }
     }
 }

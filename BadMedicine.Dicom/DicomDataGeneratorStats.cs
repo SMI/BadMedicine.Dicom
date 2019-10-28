@@ -22,12 +22,17 @@ namespace BadMedicine.Dicom
         /// Distribution of time of day (in hours only) that tests were taken
         /// </summary>
         public static BucketList<int> HourOfDay;
-       
+
+        /// <summary>
+        /// CT Image Type
+        /// </summary>
+        public static BucketList<string> ImageType;
 
         private DicomDataGeneratorStats(Random r)
         {
             InitializeTagValuesByModalityAndTag(r);
             InitializeModalityFrequency(r);
+            InitializeImageType(r);
 
             InitializeHourOfDay(r);
         }
@@ -76,6 +81,11 @@ namespace BadMedicine.Dicom
                 throw new Exception("What!");
 
             return ts;
+        }
+
+        public string GetRandomImageType()
+        {
+            return ImageType.GetRandom();
         }
 
         /// <summary>
@@ -141,7 +151,16 @@ namespace BadMedicine.Dicom
                 int frequency = (int) dr["Frequency"];
                 TagValuesByModalityAndTag[modality][tag].Add(frequency,(string)dr["Value"]);
             }
-        }  
+        }
+
+        private void InitializeImageType(Random r)
+        {
+            ImageType = new BucketList<string>(r);
+            
+            ImageType.Add(96,"ORIGINAL\\PRIMARY\\AXIAL");
+            ImageType.Add(1,"ORIGINAL\\PRIMARY\\LOCALIZER");
+            ImageType.Add(3,"DERIVED\\SECONDARY");
+        }
 
         /// <summary>
         /// Returns the existing stats for tag popularity, modality frequencies etc.  If stats have not been loaded they are loaded

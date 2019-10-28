@@ -1,9 +1,7 @@
 ﻿using BadMedicine.Dicom;
 using CommandLine;
 using CommandLine.Text;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BadDicom
 {
@@ -26,6 +24,9 @@ namespace BadDicom
         
         [Option("NoPixels",HelpText= "Generate dicom files without pixel data (only tags).  This results in much smaller file sizes")]
         public bool NoPixels{get;set;}
+
+        [Option("csv",HelpText= "Generate CSV files to be ingested in a database.  This results in no dicom images being generated (i.e. only csv tag data in flat files)")]
+        public bool csv{get;set;}
 
         [Option('l',"Layout",HelpText= "The file system layout to use, defaults to Flat",Default = FileSystemLayout.StudyYearMonthDay)]
         public FileSystemLayout Layout{get;set;} = FileSystemLayout.StudyYearMonthDay;

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using System.Linq;
+using CsvHelper;
 
 namespace BadMedicine.Dicom.Tests
 {
@@ -37,6 +38,8 @@ namespace BadMedicine.Dicom.Tests
             );
             
             Console.WriteLine("Created file "+ f.FullName);
+
+            generator.Dispose();
         }
 
         
@@ -61,6 +64,8 @@ namespace BadMedicine.Dicom.Tests
             Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
             //should have a study description
             Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
+            
+            generator.Dispose();
         }
 
         [Test]
@@ -78,6 +83,8 @@ namespace BadMedicine.Dicom.Tests
                 var ds = generator.GenerateTestDataset(person);
                 Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
             }
+
+            generator.Dispose();
             
         }
         [Test]
@@ -97,6 +104,8 @@ namespace BadMedicine.Dicom.Tests
 
                 Assert.IsTrue(modality == "CT" || modality == "MR","Unexpected modality {0}",modality);
             }
+
+            generator.Dispose();
         }
 
         [Test]
@@ -106,6 +115,48 @@ namespace BadMedicine.Dicom.Tests
             Assert.Throws<ArgumentException>(()=>new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"LOLZ"));
 
         }
+
+        [Test]
+        public void Test_CsvOption()
+        {
+            var r = new Random(500);
+
+            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory, "TestCsv"));
+            outputDir.Create();
+
+            var people = new PersonCollection();
+            people.GeneratePeople(100,r);
+
+            using (var generator = new DicomDataGenerator(r,outputDir, "CT"))
+            {
+                generator.Csv = true;
+                generator.NoPixels = true;
+                generator.MaximumImages = 500;
+
+                generator.GenerateTestDataFile(people,new FileInfo(Path.Combine(outputDir.FullName,"index.csv")),500);
+            }
+
+            //3 csv files + index.csv (the default one
+            Assert.AreEqual(4,outputDir.GetFiles().Length);
+
+            foreach (FileInfo f in outputDir.GetFiles())
+            {
+                using(var reader = new CsvReader(new StreamReader(f.FullName)))
+                {
+                    int rowcount = 0;
+
+                    //confirms that the CSV is intact (no dodgy commas, unquoted newlines etc)
+                    while (reader.Read())
+                        rowcount++;
+
+                    //should be 1 row per image + 1 for header
+                    if(f.Name == DicomDataGenerator.ImageCsvFilename)
+                        Assert.AreEqual(501,rowcount);
+                }
+
+            }
+
+            
+        }
     }
 }
-
