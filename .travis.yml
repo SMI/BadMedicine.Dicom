@@ -2,6 +2,11 @@ language: csharp
 mono: none
 dotnet: 2.2.100
 
+before_script:
+- sudo apt install libc6-dev 
+- sudo apt install libgdiplus
+
+
 script:
 - dotnet build
 - dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
