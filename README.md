@@ -1,4 +1,6 @@
 # BadMedicine.Dicom
+[![Build Status](https://travis-ci.org/HicServices/BadMedicine.Dicom.svg?branch=master)](https://travis-ci.org/HicServices/BadMedicine.Dicom) [![NuGet Badge](https://buildstats.info/nuget/HIC.BadMedicine.Dicom)](https://www.nuget.org/packages/HIC.BadMedicine.Dicom/)  [![Total alerts](https://img.shields.io/lgtm/alerts/g/HicServices/BadMedicine.Dicom.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HicServices/BadMedicine.Dicom/alerts/)
+
 The purpose of BadMedicine.Dicom is to generate large volumes of complex (in terms of tags) dicom images for integration/stress testing ETL and image management tools.
 
 There are a number of public sources of Dicom clinical images e.g. [TCIA ](https://www.cancerimagingarchive.net/).  The difficulty with using these for integration/stress testing is that they often:
