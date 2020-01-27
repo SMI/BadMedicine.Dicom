@@ -1,11 +1,16 @@
+
 language: csharp
 mono: none
 dotnet: 2.2.100
+
+cache:
+  directories:
+  - $HOME/.nuget
+
 before_script:
-- sudo apt install libc6-dev
-- sudo apt install libgdiplus
+- sudo apt install libc6-dev libgdiplus
+
 script:
-- dotnet restore
 - dotnet build
 - dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
 - VERSION=`grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2`
@@ -15,12 +20,11 @@ script:
 - dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:NuspecFile=./BadMedicine.Dicom.nuspec
   -p:IncludeSymbols=true
 - pwd
-
 - |
-      for platform in linux win
-      do
-        dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained false -nologo -v q
-      done
+  for platform in linux win
+  do
+    dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained false -nologo -v q
+  done
 - ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
     
 after_success:
