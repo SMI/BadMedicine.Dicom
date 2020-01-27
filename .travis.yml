@@ -8,5 +8,23 @@ before_script:
 
 
 script:
+- dotnet restore
 - dotnet build
 - dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
+
+- "VERSION=`grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'\"' -f2`"
+- "echo $VERSION"
+
+- sed -i "s/VERSION/$VERSION/g" ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
+
+- cat ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
+
+- dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:NuspecFile=./BadMedicine.Dicom.nuspec -p:IncludeSymbols=true
+
+- pwd
+
+- "dotnet nuget push \"./BadMedicine.Dicom/BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg\" -s https://api.nuget.org/v3/index.json -k $NUGET_KEY"
+    
+after_success:
+  - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fienv:
+  
