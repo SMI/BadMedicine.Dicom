@@ -32,7 +32,7 @@ script:
     
 - cd ./BadDicom/bin/Debug/netcoreapp2.2
 - curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
-- mv BadDicom.template.yml BadDicom.yml
+- mv BadDicom.template.yaml BadDicom.yaml
 - dotnet ./BadDicom.dll ./ 50000 5000 CT
 
 
