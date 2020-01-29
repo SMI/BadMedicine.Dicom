@@ -3,3 +3,4 @@
   DatabaseType: MySql
   Template: CT.it
   DatabaseName: BadMedicineTestData
+  MakeDistinct: true

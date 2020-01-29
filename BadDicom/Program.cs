@@ -138,6 +138,7 @@ namespace BadDicom
 
         private static int RunDatabaseTarget(TargetDatabase configDatabase, ProgramOptions opts)
         {
+            string neverDistinct = "SOPInstanceUID";
 
             if (!File.Exists(configDatabase.Template))
             {
@@ -191,17 +192,42 @@ namespace BadDicom
 
             var creator = new ImagingTableCreation(db.Server.GetQuerySyntaxHelper());
             
-            Console.WriteLine($"Image template contained '{template.Tables.Count}'.  Looking for existing tables..");
+            Console.WriteLine($"Image template contained schemas for {template.Tables.Count} tables.  Looking for existing tables..");
             
             //setting up bulk inserters
-            
+            DiscoveredTable[] tables = new DiscoveredTable[template.Tables.Count];
             DataTable[] batches = new DataTable[template.Tables.Count];
             IBulkCopy[] uploaders= new IBulkCopy[template.Tables.Count];
+            string[] pks = new string[template.Tables.Count];
 
             for (var i = 0; i < template.Tables.Count; i++)
             {
                 var tableSchema = template.Tables[i];
                 var tbl = db.ExpectTable(tableSchema.TableName);
+                tables[i] = tbl;
+
+                if (configDatabase.MakeDistinct)
+                {
+                    var col = tableSchema.Columns.Where(c => c.IsPrimaryKey).ToArray();
+
+                    if (col.Length > 1)
+                        Console.WriteLine("MakeDistinct only works with single column primary keys e.g. StudyInstanceUID / SeriesInstanceUID");
+
+                    pks[i] = col.SingleOrDefault()?.ColumnName;
+
+                    if (pks[i] != null)
+                    {
+                        //if it is sop instance uid then we shouldn't be trying to deduplicate
+                        if (string.Equals(pks[i], neverDistinct, StringComparison.CurrentCultureIgnoreCase))
+                            pks[i] = null;
+                        else
+                        {
+                            //we will make this a primary key later on
+                            col.Single().IsPrimaryKey = false;
+                            Console.WriteLine($"MakeDistinct will apply to '{pks[i]}' on '{tbl.GetFullyQualifiedName()}'");
+                        }
+                    }
+                }
 
                 if (tbl.Exists())
                     Console.WriteLine(
@@ -257,13 +283,17 @@ namespace BadDicom
                         }
 
                         //every 100 and last batch
-                        if(i % 100 == 0 || i == opts.NumberOfStudies -1)
+                        if (i % 100 == 0 || i == opts.NumberOfStudies - 1)
+                        {
                             for (var j = 0; j < uploaders.Length; j++)
                             {
                                 uploaders[j].Upload(batches[j]);
                                 batches[j].Rows.Clear();
-                                Console.WriteLine($"Done {j} rows");
                             }
+
+                            Console.WriteLine($"Done {i} rows");
+                        }
+                            
                     }
                 }
             }
@@ -275,7 +305,21 @@ namespace BadDicom
                     batches[i].Dispose();
                 }
             }
-            
+
+            for (var i = 0; i < tables.Length; i++)
+            {
+                if(pks[i] == null)
+                    continue;
+
+                Console.WriteLine($"Making table '{tables[i]}' distinct (this may take a long time)");
+                var tbl = tables[i];
+                tbl.MakeDistinct(500000000);
+
+                Console.WriteLine($"Creating primary key on '{tables[i]}' of '{pks[i]}'");
+                tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
+            }
+
+
             return 0;
         }
     }
