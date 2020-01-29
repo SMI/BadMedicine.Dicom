@@ -30,11 +30,10 @@ script:
   done
 - ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
     
-# TODO ...
-# curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it 
-# rename BadDicom.template.yml to BadDicom.yml
-# dotnet ./BadDicom.dll ./ 50000 5000 CT
-
+- cd ./BadDicom/bin/Debug/netcoreapp2.2
+- curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
+- mv BadDicom.template.yml BadDicom.yml
+- dotnet ./BadDicom.dll ./ 50000 5000 CT
 
 
 after_success:
