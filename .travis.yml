@@ -10,6 +10,9 @@ cache:
 before_script:
 - sudo apt install libc6-dev libgdiplus
 
+services:
+  - mysql
+  
 script:
 - dotnet build
 - dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
@@ -27,6 +30,12 @@ script:
   done
 - ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
     
+- cd ./BadDicom/bin/Debug/netcoreapp2.2
+- curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
+- mv BadDicom.template.yaml BadDicom.yaml
+- dotnet ./BadDicom.dll ./ 50000 5000 CT
+
+
 after_success:
 - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi 
 - dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg"

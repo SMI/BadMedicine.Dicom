@@ -35,6 +35,26 @@ You can pass `-s` to seed the random number generators.  Seeding will ensure the
 BadDicom.exe c:\temp\testdicoms 5 10 --NoPixels -s 100
 ```
 
+## Direct to Database
+
+You can generate DICOM metadata directly into a relational database (instead of onto disk).  This can be done by downloading an [image template](https://github.com/HicServices/DicomTypeTranslation/tree/master/Templates) or by [creating one yourself](https://github.com/HicServices/DicomTemplateBuilder).  
+
+To turn this mode on rename the file `BadDicom.template.yaml` to `BadDicom.yaml` and provide the connection strings to your database e.g.:
+
+```yaml
+Database:
+  # The connection string to your database
+  ConnectionString: server=127.0.0.1;Uid=root;Pwd=;Ssl-Mode=None
+  # Your DBMS provider ('MySql', 'PostgreSql','Oracle' or 'MicrosoftSQL')
+  DatabaseType: MySql
+  # Contains the table schema (which dicom tags to use for which tables)
+  Template: CT.it
+  # Database to create/use on the server
+  DatabaseName: BadMedicineTestData
+  # Setting this deduplicates study/series level schemas (works only if tables do not already exist on server)
+  MakeDistinct: true
+```
+
 ## EHR Datasets
 
 If you want to generate EHR datasets with a shared patient pool with the dicom data (e.g. for doing linkage) you can provided the -s (seed) and use the main [BadMedicine](https://github.com/HicServices/BadMedicine) application.
