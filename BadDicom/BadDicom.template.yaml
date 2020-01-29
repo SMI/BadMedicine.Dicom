@@ -1,0 +1,5 @@
+﻿Database:
+  ConnectionString: server=127.0.0.1;Uid=root;Pwd=;Ssl-Mode=None
+  DatabaseType: MySql
+  Template: CT.it
+  DatabaseName: BadMedicineTestData
