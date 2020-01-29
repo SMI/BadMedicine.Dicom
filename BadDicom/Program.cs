@@ -291,7 +291,7 @@ namespace BadDicom
                                 batches[j].Rows.Clear();
                             }
 
-                            Console.WriteLine($"Done {i} rows");
+                            Console.WriteLine($"Done {i} studies");
                         }
                             
                     }

@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ...
+
+## Added
+
+- Added direct to database mode for CLI application (`BadDicom` only i.e. not part of the nuget package).
+
 ## [0.0.4] - 2019-10-28
 
 ## Changed
