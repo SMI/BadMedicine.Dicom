@@ -33,12 +33,12 @@ script:
 - cd ./BadDicom/bin/Debug/netcoreapp2.2
 - curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
 - mv BadDicom.template.yaml BadDicom.yaml
-- dotnet ./BadDicom.dll ./ 50000 5000 CT
+- dotnet ./BadDicom.dll ./ 50000 100 CT
 
 - "sed -i \"s/Batches: 1/Batches: 10/g\" ./BadDicom.yaml"
 - "sed -i \"s/DropTables: false/DropTables: true/g\" ./BadDicom.yaml"
 
-- dotnet ./BadDicom.dll ./ 50000 5000 CT
+- dotnet ./BadDicom.dll ./ 50000 100 CT
 
 after_success:
 - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi 
