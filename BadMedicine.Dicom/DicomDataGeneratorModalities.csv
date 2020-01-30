@@ -1,5 +1,5 @@
 Modality,Frequency,AverageSeriesPerStudy,StandardDeviationSeriesPerStudy,AverageImagesPerSeries,StandardDeviationImagesPerSeries
-CT,182846,2,0,4,0
+CT,182846,2,0,100,0
 MR,53161,1,0,100,10
 IO,92,1,0,100,10
 DX,485,1,0,100,10
