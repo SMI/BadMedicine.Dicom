@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-...
+## [0.0.5] - 2020-01-30
+
+## Added
+
+- Added direct to database mode for CLI application (`BadDicom` only i.e. not part of the nuget package).
+
+## Changed
+
+- Changed number of images per series to 100 for CT
+
 ## [0.0.4] - 2019-10-28
 
 ## Changed
@@ -39,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.4...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.5...develop
+[0.0.5]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/HicServices/BadMedicine.Dicom/compare/5517d7e29aaf3742e91b86288b85f692a063dba4...v0.0.3
 [0.0.2]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.1...5517d7e29aaf3742e91b86288b85f692a063dba4

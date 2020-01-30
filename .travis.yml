@@ -1,12 +1,58 @@
+
 language: csharp
 mono: none
 dotnet: 2.2.100
 
+cache:
+  directories:
+  - $HOME/.nuget
+
 before_script:
-- sudo apt install libc6-dev 
-- sudo apt install libgdiplus
+- sudo apt install libc6-dev libgdiplus
 
-
+services:
+  - mysql
+  
 script:
 - dotnet build
 - dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
+- VERSION=`grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2`
+- echo $VERSION
+- sed -i "s/VERSION/$VERSION/g" ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
+- cat ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
+- dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:NuspecFile=./BadMedicine.Dicom.nuspec
+  -p:IncludeSymbols=true
+- pwd
+- |
+  for platform in linux win
+  do
+    dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained false -nologo -v q
+  done
+- ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
+    
+- cd ./BadDicom/bin/Debug/netcoreapp2.2
+- curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
+- mv BadDicom.template.yaml BadDicom.yaml
+- dotnet ./BadDicom.dll ./ 50000 100 CT
+
+- "sed -i \"s/Batches: 1/Batches: 10/g\" ./BadDicom.yaml"
+- "sed -i \"s/DropTables: false/DropTables: true/g\" ./BadDicom.yaml"
+
+- dotnet ./BadDicom.dll ./ 50000 100 CT
+
+after_success:
+- if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi 
+- dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg"
+  -s https://api.nuget.org/v3/index.json -k $NUGET_KEY || true
+  
+deploy:
+  provider: releases
+  api_key:
+    secure: sTuG37WiapfusByevk7gO8YVIPx5xXxB56gK6aC0v6nzHcxuoB4iqWiRd9DQk8n2dabDP5CsxKjfCCE3WJ1D1m+u0hJ92Ts61jIBpcEqD7skIUanJu3RwOngFqFOI5CW/FDZO6635aINfBZsR6a01pckB3XdR1/aQgB7f9uXq4MxV2bq6nq/nCBo5jVOC85AaeuB6TesS0fMcuwCJ68vDVsBFOrEVh3iOdxGyDCghbwBEtevfoaEl0r3Kp/56TqfJseJF/sDWkYLg0HWZYXYQ7I2SAKLkpd49tt5pgqlqYCNqunaOCMOw6wNRvADN+uP0lMDqArgMPu+DQ4ETGnobjW9IeCzLDxciEwYU9LTB+/YossDheCmECv+zYbRSad7DY64pbfmujI6b3ZSFN0xF0efyIbc1GOa7JimqHJNOVC42T1DnsV2n7LrrkTM861pybwItGPZoYsUNckNwKldmfxnzk7+MKHiK6BbwtXae+FWrrlOBGgAlEZr3DrZNcDwJWwJG9QyjI0avdbvxMmy6XSaYdbw6qGVbHD674/UXZrmNwwffZoIa5vLg9VnkyecheqGjuTRMqIYUkgH00Jd4zgk3gsQoe6bfb03edxeI5/4RrGq6T9FEUGiGCcO076K/+NdRFl6btprX5l4OW6hRs64PN0sUyAOav+LtsDS0Ls=
+  file_glob: true
+  file: dist/*.*
+  skip-cleanup: true
+  on:
+    all_branches: true
+    tags: true
+    

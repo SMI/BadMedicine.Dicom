@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>HIC.BadMedicine.Dicom</id>
-    <version>$version$</version>
+    <version>VERSION</version>
     <title>HIC.BadMedicine.Dicom</title>
     <authors>Health Informatics Centre - University of Dundee</authors>
     <owners>Health Informatics Centre - University of Dundee</owners>
@@ -20,8 +20,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.dll" target="lib\netstandard2.0" />
-    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.pdb" target="lib\netstandard2.0" />
-    <file src="bin\$configuration$\netstandard2.0\BadMedicine.Dicom.xml" target="lib\netstandard2.0" />
+    <file src="bin\Release\netstandard2.0\BadMedicine.Dicom.dll" target="lib\netstandard2.0" />
+    <file src="bin\Release\netstandard2.0\BadMedicine.Dicom.pdb" target="lib\netstandard2.0" />
+    <file src="bin\Release\netstandard2.0\BadMedicine.Dicom.xml" target="lib\netstandard2.0" />
   </files>
 </package>
