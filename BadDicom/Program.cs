@@ -95,6 +95,7 @@ namespace BadDicom
                 IPersonCollection identifiers = GetPeople(opts, out Random r);
                 using(var dicomGenerator = GetDataGenerator(opts, identifiers,r, out DirectoryInfo dir))
                 {
+                    Console.WriteLine($"{DateTime.Now} Starting file generation (to {dir.FullName})" );
                     var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
                     dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
                 }
@@ -105,6 +106,8 @@ namespace BadDicom
                 returnCode = 2;
                 return;
             }
+
+            Console.WriteLine($"{DateTime.Now} Finished" );
 
             returnCode = 0;
         }
@@ -291,7 +294,7 @@ namespace BadDicom
                                 batches[j].Rows.Clear();
                             }
 
-                            Console.WriteLine($"Done {i} studies");
+                            Console.WriteLine($"{DateTime.Now} Done {i} studies");
                         }
                             
                     }
@@ -311,11 +314,13 @@ namespace BadDicom
                 if(pks[i] == null)
                     continue;
 
-                Console.WriteLine($"Making table '{tables[i]}' distinct (this may take a long time)");
+                
+
+                Console.WriteLine( $"{DateTime.Now} Making table '{tables[i]}' distinct (this may take a long time)");
                 var tbl = tables[i];
                 tbl.MakeDistinct(500000000);
 
-                Console.WriteLine($"Creating primary key on '{tables[i]}' of '{pks[i]}'");
+                Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
                 tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
             }
 
