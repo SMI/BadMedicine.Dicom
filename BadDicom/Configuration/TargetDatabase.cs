@@ -16,5 +16,10 @@ namespace BadDicom.Configuration
         /// then deduplicate final tables and recreate primary key
         /// </summary>
         public bool MakeDistinct { get; set; }
+
+        /// <summary>
+        /// Set to true to drop and recreate tables described in the Template
+        /// </summary>
+        public bool DropTables { get; set; }
     }
 }

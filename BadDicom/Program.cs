@@ -5,6 +5,7 @@ using CommandLine;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -141,6 +142,19 @@ namespace BadDicom
 
         private static int RunDatabaseTarget(TargetDatabase configDatabase, ProgramOptions opts)
         {
+
+            //if we are going into a database we definetly do not need pixels!
+            if (opts.NoPixels == false)
+                opts.NoPixels = true;
+
+            Stopwatch swGeneration = new Stopwatch();
+            Stopwatch swReading = new Stopwatch();
+            Stopwatch swUploading = new Stopwatch();
+            
+            Stopwatch swTotal = new Stopwatch();
+
+            swTotal.Start();
+
             string neverDistinct = "SOPInstanceUID";
 
             if (!File.Exists(configDatabase.Template))
@@ -232,10 +246,23 @@ namespace BadDicom
                     }
                 }
 
+                bool create = true;
+
                 if (tbl.Exists())
-                    Console.WriteLine(
-                        $"Table '{tbl.GetFullyQualifiedName()}' already existed (so will not be created)");
-                else
+                {
+                    if (configDatabase.DropTables)
+                    {
+                        Console.WriteLine($"Dropping existing table '{tbl.GetFullyQualifiedName()}'");
+                        tbl.Drop();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Table '{tbl.GetFullyQualifiedName()}' already existed (so will not be created)");
+                        create = false;
+                    }
+                }
+                    
+                if(create)
                 {
                     Console.WriteLine($"About to create '{tbl.GetFullyQualifiedName()}'");
                     creator.CreateTable(tbl, tableSchema);
@@ -259,8 +286,12 @@ namespace BadDicom
                 {
                     for (int i = 0; i < opts.NumberOfStudies; i++)
                     {
+                        swGeneration.Start();
+
                         var p = identifiers.People[r.Next(identifiers.People.Length)];
                         var ds = dicomGenerator.GenerateStudyImages(p,out Study s);
+                        
+                        swGeneration.Stop();
 
                         foreach (DicomDataset dataset in ds)
                         {
@@ -269,6 +300,7 @@ namespace BadDicom
                             for (int j = 0; j < batches.Length; j++) 
                                 rows[j] = batches[j].NewRow();
 
+                            swReading.Start();
                             foreach (DicomItem item in dataset)
                             {
                                 var column = DicomTypeTranslaterReader.GetColumnNameForTag(item.Tag, false);
@@ -283,17 +315,20 @@ namespace BadDicom
 
                             for (int j = 0; j < batches.Length; j++)
                                 batches[j].Rows.Add(rows[j]);
+
+                            swReading.Stop();
                         }
 
                         //every 100 and last batch
                         if (i % 100 == 0 || i == opts.NumberOfStudies - 1)
                         {
+                            swUploading.Start();
                             for (var j = 0; j < uploaders.Length; j++)
                             {
                                 uploaders[j].Upload(batches[j]);
                                 batches[j].Rows.Clear();
                             }
-
+                            swUploading.Stop();
                             Console.WriteLine($"{DateTime.Now} Done {i} studies");
                         }
                             
@@ -308,6 +343,7 @@ namespace BadDicom
                     batches[i].Dispose();
                 }
             }
+            swTotal.Stop();
 
             for (var i = 0; i < tables.Length; i++)
             {
@@ -323,8 +359,17 @@ namespace BadDicom
                 Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
                 tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
             }
+            
+            Console.WriteLine("Total time Generating Dicoms:" + swGeneration.Elapsed);
+            Console.WriteLine("Total time Reading Dicoms:" + swReading.Elapsed);
+            Console.WriteLine("Total time Uploading Records:" + swUploading.Elapsed);
 
+            Console.WriteLine("Final Row Counts:");
+            
+            foreach (DiscoveredTable t in tables)
+                Console.WriteLine($"{t.GetFullyQualifiedName()}: {t.GetRowCount():0,0}");
 
+            Console.WriteLine("Total Running Time:" + swTotal.Elapsed);
             return 0;
         }
     }
