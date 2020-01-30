@@ -142,14 +142,12 @@ namespace BadDicom
 
         private static int RunDatabaseTarget(TargetDatabase configDatabase, ProgramOptions opts)
         {
+            var batchSize = Math.Max(1, configDatabase.Batches);
 
             //if we are going into a database we definetly do not need pixels!
             if (opts.NoPixels == false)
                 opts.NoPixels = true;
 
-            Stopwatch swGeneration = new Stopwatch();
-            Stopwatch swReading = new Stopwatch();
-            Stopwatch swUploading = new Stopwatch();
             
             Stopwatch swTotal = new Stopwatch();
 
@@ -213,8 +211,16 @@ namespace BadDicom
             
             //setting up bulk inserters
             DiscoveredTable[] tables = new DiscoveredTable[template.Tables.Count];
-            DataTable[] batches = new DataTable[template.Tables.Count];
-            IBulkCopy[] uploaders= new IBulkCopy[template.Tables.Count];
+            DataTable[][] batches = new DataTable[batchSize][];
+
+            for (var i = 0; i < batches.Length; i++) 
+                batches[i] = new DataTable[template.Tables.Count];
+
+            IBulkCopy[][] uploaders= new IBulkCopy[batchSize][];
+
+            for (int i = 0; i < uploaders.Length; i++)
+                uploaders[i] = new IBulkCopy[template.Tables.Count];
+
             string[] pks = new string[template.Tables.Count];
 
             for (var i = 0; i < template.Tables.Count; i++)
@@ -271,19 +277,68 @@ namespace BadDicom
 
                 Console.WriteLine($"Creating uploader for '{tbl.GetRuntimeName()}''");
 
-                //fetch schema
-                var dt = tbl.GetDataTable();
-                dt.Rows.Clear();
+                for (int j = 0; j < batchSize; j++)
+                {
+                    //fetch schema
+                    var dt = tbl.GetDataTable();
+                    dt.Rows.Clear();
 
-                batches[i] = dt; 
-                uploaders[i] = tbl.BeginBulkInsert();
+                    batches[j][i] = dt; 
+                    uploaders[j][i] = tbl.BeginBulkInsert();
+                }
             }
+            var tasks = new Task[batchSize];
+            
+            IPersonCollection identifiers = GetPeople(opts, out Random r);
+
+            for (int i = 0; i < batchSize; i++)
+            {
+                var batch = i;
+                tasks[i] = new Task(() =>
+                {
+                    RunBatch(identifiers,opts,r,batches[batch],uploaders[batch]);
+
+                });
+                tasks[i].Start();
+            }
+
+            Task.WaitAll(tasks);
+            
+            swTotal.Stop();
+
+            for (var i = 0; i < tables.Length; i++)
+            {
+                if(pks[i] == null)
+                    continue;
+                
+                Console.WriteLine( $"{DateTime.Now} Making table '{tables[i]}' distinct (this may take a long time)");
+                var tbl = tables[i];
+                tbl.MakeDistinct(500000000);
+
+                Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
+                tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
+            }
+            
+            Console.WriteLine("Final Row Counts:");
+            
+            foreach (DiscoveredTable t in tables)
+                Console.WriteLine($"{t.GetFullyQualifiedName()}: {t.GetRowCount():0,0}");
+
+            Console.WriteLine("Total Running Time:" + swTotal.Elapsed);
+            return 0;
+        }
+
+        private static void RunBatch(IPersonCollection identifiers, ProgramOptions opts, Random r,DataTable[] batches, IBulkCopy[] uploaders)
+        {
+            Stopwatch swGeneration = new Stopwatch();
+            Stopwatch swReading = new Stopwatch();
+            Stopwatch swUploading = new Stopwatch();
 
             try
             {
-                IPersonCollection identifiers = GetPeople(opts, out Random r);
                 using(var dicomGenerator = GetDataGenerator(opts, identifiers,r, out _))
                 {
+            
                     for (int i = 0; i < opts.NumberOfStudies; i++)
                     {
                         swGeneration.Start();
@@ -343,34 +398,11 @@ namespace BadDicom
                     batches[i].Dispose();
                 }
             }
-            swTotal.Stop();
-
-            for (var i = 0; i < tables.Length; i++)
-            {
-                if(pks[i] == null)
-                    continue;
-
-                
-
-                Console.WriteLine( $"{DateTime.Now} Making table '{tables[i]}' distinct (this may take a long time)");
-                var tbl = tables[i];
-                tbl.MakeDistinct(500000000);
-
-                Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
-                tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
-            }
             
             Console.WriteLine("Total time Generating Dicoms:" + swGeneration.Elapsed);
             Console.WriteLine("Total time Reading Dicoms:" + swReading.Elapsed);
             Console.WriteLine("Total time Uploading Records:" + swUploading.Elapsed);
 
-            Console.WriteLine("Final Row Counts:");
-            
-            foreach (DiscoveredTable t in tables)
-                Console.WriteLine($"{t.GetFullyQualifiedName()}: {t.GetRowCount():0,0}");
-
-            Console.WriteLine("Total Running Time:" + swTotal.Elapsed);
-            return 0;
         }
     }
 }

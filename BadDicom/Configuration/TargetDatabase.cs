@@ -21,5 +21,11 @@ namespace BadDicom.Configuration
         /// Set to true to drop and recreate tables described in the Template
         /// </summary>
         public bool DropTables { get; set; }
+
+        /// <summary>
+        /// The number of parallel batches to execute (each batch gets the full count of studies
+        /// then they are merged at the end).
+        /// </summary>
+        public int Batches { get; set; } = 1;
     }
 }

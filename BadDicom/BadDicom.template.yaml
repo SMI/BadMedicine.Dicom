@@ -11,3 +11,5 @@
   DatabaseName: BadMedicineTestData
   # Setting this deduplicates study/series level schemas (works only if tables do not already exist on server)
   MakeDistinct: true
+  #The number of parallel batches to execute (each batch gets the full count of studies then they are merged at the end
+  Batches: 1
