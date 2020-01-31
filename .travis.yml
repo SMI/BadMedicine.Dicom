@@ -33,17 +33,16 @@ script:
 - cd ./BadDicom/bin/Debug/netcoreapp2.2
 - curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
 - mv BadDicom.template.yaml BadDicom.yaml
-- dotnet ./BadDicom.dll ./ 50000 100 CT
+- dotnet ./BadDicom.dll ./ 50000 10 CT
 
-- "sed -i \"s/Batches: 1/Batches: 10/g\" ./BadDicom.yaml"
+- "sed -i \"s/Batches: 1/Batches: 5/g\" ./BadDicom.yaml"
 - "sed -i \"s/DropTables: false/DropTables: true/g\" ./BadDicom.yaml"
 
-- dotnet ./BadDicom.dll ./ 50000 100 CT
+- dotnet ./BadDicom.dll ./ 50000 10 CT
 
 after_success:
 - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi 
-- dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg"
-  -s https://api.nuget.org/v3/index.json -k $NUGET_KEY || true
+- dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_KEY
   
 deploy:
   provider: releases
