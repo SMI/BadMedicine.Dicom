@@ -316,7 +316,7 @@ namespace BadDicom
                 tbl.MakeDistinct(500000000);
 
                 Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
-                tbl.CreatePrimaryKey(tbl.DiscoverColumn(pks[i]));
+                tbl.CreatePrimaryKey(500000000,tbl.DiscoverColumn(pks[i]));
             }
             
             Console.WriteLine("Final Row Counts:");
