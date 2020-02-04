@@ -31,7 +31,7 @@ namespace BadDicom
         [Option('l',"Layout",HelpText= "The file system layout to use, defaults to Flat",Default = FileSystemLayout.StudyYearMonthDay)]
         public FileSystemLayout Layout{get;set;} = FileSystemLayout.StudyYearMonthDay;
 
-        [Option('l',"Layout",HelpText= "The maximum number of images to generate (regardless of NumberOfStudies)",Default = int.MaxValue)]
+        [Option('m',"MaxImages",HelpText= "The maximum number of images to generate (regardless of NumberOfStudies)",Default = int.MaxValue)]
         public int MaximumImages { get; set; } = int.MaxValue;
 
         [Usage]
