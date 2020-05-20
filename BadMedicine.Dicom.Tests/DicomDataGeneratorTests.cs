@@ -1,6 +1,7 @@
 ﻿using Dicom;
 using NUnit.Framework;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
@@ -140,7 +141,7 @@ namespace BadMedicine.Dicom.Tests
 
             foreach (FileInfo f in outputDir.GetFiles())
             {
-                using(var reader = new CsvReader(new StreamReader(f.FullName)))
+                using(var reader = new CsvReader(new StreamReader(f.FullName),CultureInfo.CurrentCulture))
                 {
                     int rowcount = 0;
 

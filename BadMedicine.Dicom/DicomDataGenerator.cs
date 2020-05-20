@@ -4,12 +4,19 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 using CsvHelper;
 
 namespace BadMedicine.Dicom
 {
+    /// <summary>
+    /// <see cref="DataGenerator"/> which produces dicom files on disk and accompanying metadata
+    /// </summary>
     public class DicomDataGenerator : DataGenerator,IDisposable
     {
+        /// <summary>
+        /// Location on disk to output dicom files to
+        /// </summary>
         public DirectoryInfo OutputDir { get; }
 
         /// <summary>
@@ -137,6 +144,10 @@ namespace BadMedicine.Dicom
             return new object[]{studyUID };
         }
 
+        /// <summary>
+        /// Returns headers for the inventory file produced during <see cref="GenerateTestDataset(BadMedicine.Person,System.Random)"/>
+        /// </summary>
+        /// <returns></returns>
         protected override string[] GetHeaders()
         {
             return new string[]{ "Studies Generated" };
@@ -148,6 +159,7 @@ namespace BadMedicine.Dicom
         /// (e.g. for CT studies you might get 2 series of ~100 images each).
         /// </summary>
         /// <param name="p"></param>
+        /// <param name="study"></param>
         /// <returns></returns>
         public DicomDataset[] GenerateStudyImages(Person p, out Study study)
         {        
@@ -157,6 +169,12 @@ namespace BadMedicine.Dicom
             return study.SelectMany(series=>series).Select(image=>image).ToArray();
         }
 
+        /// <summary>
+        /// Generates a new <see cref="DicomDataset"/> for the given <see cref="Person"/>.  This will be a single image single series study
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public DicomDataset GenerateTestDataset(Person p,Random r)
         {
             //get a random modality
@@ -173,6 +191,7 @@ namespace BadMedicine.Dicom
         /// Returns a new random dicom image for the <paramref name="p"/> with tag values that make sense for that person
         /// </summary>
         /// <param name="p"></param>
+        /// <param name="series"></param>
         /// <returns></returns>
         public DicomDataset GenerateTestDataset(Person p,Series series)
         {
@@ -335,9 +354,9 @@ namespace BadMedicine.Dicom
             if (OutputDir != null)
             {
                 // Create/open CSV files
-                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, StudyCsvFilename)));
-                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, SeriesCsvFilename)));
-                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, ImageCsvFilename)));
+                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
+                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
+                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
                 
                 // Write header
                 WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
@@ -392,6 +411,9 @@ namespace BadMedicine.Dicom
             sw.Flush();
         }
 
+        /// <summary>
+        /// Closes all writers and flushes to disk
+        /// </summary>
         public void Dispose()
         {
             studyWriter?.Dispose();
