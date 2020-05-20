@@ -20,6 +20,8 @@ namespace BadMedicineTests
         static string[] Analyzers = new string[] { "SecurityCodeScan" };
 
         [TestCase("../../../../BadMedicine.Dicom/BadMedicine.Dicom.csproj", "../../../../BadMedicine.Dicom/BadMedicine.Dicom.nuspec", "../../../../Packages.md")]
+        [TestCase("../../../../BadDicom/BadDicom.csproj", null, "../../../../Packages.md")]
+        [TestCase("../../../../BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj", null, "../../../../Packages.md")]
         public void TestDependencyCorrect(string csproj, string nuspec, string packagesMarkdown)
         {
             if(csproj != null && !Path.IsPathRooted(csproj))
