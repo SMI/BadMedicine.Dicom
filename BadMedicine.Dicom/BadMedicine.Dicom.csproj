@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="fo-dicom.NetCore" Version="4.0.3" />
-    <PackageReference Include="HIC.BadMedicine" Version="0.1.5" />
-    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+    <PackageReference Include="fo-dicom.NetCore" Version="4.0.5" />
+    <PackageReference Include="HIC.BadMedicine" Version="0.1.6" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
   </ItemGroup>
 
 </Project>
