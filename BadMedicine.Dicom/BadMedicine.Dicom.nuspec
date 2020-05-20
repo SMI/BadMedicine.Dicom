@@ -13,7 +13,7 @@
     <copyright>Copyright 2019</copyright>
     <tags>Dicom,Test Data,Random,Synthetic Data,Health</tags>
     <dependencies>
-      <dependency id="MathNet.Numerics" version="4.7.0" exclude="Build,Analyzers" />
+      <dependency id="MathNet.Numerics" version="4.9.1" exclude="Build,Analyzers" />
       <dependency id="fo-dicom.NetCore" version="4.0.5" />
       <dependency id="HIC.BadMedicine" version="0.1.6" />
       <dependency id="System.Drawing.Common" version="4.7.0" />
