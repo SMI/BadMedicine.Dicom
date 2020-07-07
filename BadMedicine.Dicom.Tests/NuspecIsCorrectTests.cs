@@ -17,7 +17,7 @@ namespace BadMedicineTests
     /// </summary>
     class NuspecIsCorrectTests
     {
-        static string[] Analyzers = new string[] { "SecurityCodeScan" };
+        static string[] Analyzers = new string[] { "SecurityCodeScan","Microsoft.SourceLink.GitHub" };
 
         [TestCase("../../../../BadMedicine.Dicom/BadMedicine.Dicom.csproj", "../../../../BadMedicine.Dicom/BadMedicine.Dicom.nuspec", "../../../../Packages.md")]
         [TestCase("../../../../BadDicom/BadDicom.csproj", null, "../../../../Packages.md")]
