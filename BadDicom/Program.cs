@@ -294,11 +294,11 @@ namespace BadDicom
             for (int i = 0; i < batchSize; i++)
             {
                 var batch = i;
-                tasks[i] = new Task(() =>
+                tasks[i] = new Task(() =>  // lgtm[cs/local-not-disposed]
                 {
                     RunBatch(identifiers,opts,r,batches[batch],uploaders[batch]);
 
-                }); // lgtm[cs/local-not-disposed]
+                });
                 tasks[i].Start();
             }
 
