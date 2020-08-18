@@ -100,56 +100,60 @@ namespace BadMedicine.Dicom
 
         private void InitializeModalityFrequency(Random r)
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Frequency", typeof(int));
-            dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
-            dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
-            dt.Columns.Add("AverageImagesPerSeries", typeof(double));
-            dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
-
-            DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv",dt);
-
-            ModalityFrequency = new BucketList<ModalityStats>();
-
-            int idx=0;
-            foreach(DataRow dr in dt.Rows)
+            using (DataTable dt = new DataTable())
             {
-                string modality = (string)dr["Modality"];
-                ModalityFrequency.Add((int) dr["Frequency"],
-                    new ModalityStats(
-                        modality,
-                        (double)dr["AverageSeriesPerStudy"],
-                        (double)dr["StandardDeviationSeriesPerStudy"],
-                        (double)dr["AverageImagesPerSeries"],
-                        (double)dr["StandardDeviationImagesPerSeries"],
-                        r
-                        ));
-                
-                ModalityIndexes.Add(modality,idx++);
+
+                dt.Columns.Add("Frequency", typeof(int));
+                dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
+                dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
+                dt.Columns.Add("AverageImagesPerSeries", typeof(double));
+                dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
+
+                DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
+
+                ModalityFrequency = new BucketList<ModalityStats>();
+
+                int idx = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string modality = (string)dr["Modality"];
+                    ModalityFrequency.Add((int)dr["Frequency"],
+                        new ModalityStats(
+                            modality,
+                            (double)dr["AverageSeriesPerStudy"],
+                            (double)dr["StandardDeviationSeriesPerStudy"],
+                            (double)dr["AverageImagesPerSeries"],
+                            (double)dr["StandardDeviationImagesPerSeries"],
+                            r
+                            ));
+
+                    ModalityIndexes.Add(modality, idx++);
+                }
             }
-                
         }
 
         private void InitializeTagValuesByModalityAndTag()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Frequency", typeof(int));
-
-            DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv",dt);          
-            
-            foreach (DataRow dr in dt.Rows)
+            using (DataTable dt = new DataTable())
             {
-                var modality = (string)dr["Modality"];
-                var tag = DicomDictionary.Default[(string) dr["Tag"]];           
+                dt.Columns.Add("Frequency", typeof(int));
 
-                if(!TagValuesByModalityAndTag.ContainsKey(modality))
-                    TagValuesByModalityAndTag.Add(modality,new Dictionary<DicomTag, BucketList<string>>());
+                DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
 
-                if(!TagValuesByModalityAndTag[modality].ContainsKey(tag))
-                    TagValuesByModalityAndTag[modality].Add(tag,new BucketList<string>());
+                foreach (DataRow dr in dt.Rows)
+                {
+                    var modality = (string)dr["Modality"];
+                    var tag = DicomDictionary.Default[(string)dr["Tag"]];
 
-                int frequency = (int) dr["Frequency"];
-                TagValuesByModalityAndTag[modality][tag].Add(frequency,(string)dr["Value"]);
+                    if (!TagValuesByModalityAndTag.ContainsKey(modality))
+                        TagValuesByModalityAndTag.Add(modality, new Dictionary<DicomTag, BucketList<string>>());
+
+                    if (!TagValuesByModalityAndTag[modality].ContainsKey(tag))
+                        TagValuesByModalityAndTag[modality].Add(tag, new BucketList<string>());
+
+                    int frequency = (int)dr["Frequency"];
+                    TagValuesByModalityAndTag[modality][tag].Add(frequency, (string)dr["Value"]);
+                }
             }
         }
 
