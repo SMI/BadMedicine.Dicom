@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 namespace BadMedicine.Dicom
 {
     /// <summary>
-    /// Handels drawing image data directly into the dicom file
+    /// Handles drawing image data directly into the dicom file
     /// </summary>
     internal class PixelDrawer
     {
@@ -18,30 +18,33 @@ namespace BadMedicine.Dicom
 
         internal void DrawBlackBoxWithWhiteText(DicomDataset ds, int width, int height, string msg)
         {
-            var bitmap = new Bitmap(500,500);
-            using(var g = Graphics.FromImage(bitmap))
+            using (var bitmap = new Bitmap(500, 500))
             {
-                g.FillRectangle(blackBrush,0,0,width,height);
-                g.DrawString(msg,new Font(FontFamily.GenericMonospace,12),whiteBrush,250,100);
+                using (var g = Graphics.FromImage(bitmap))
+                {
+                    g.FillRectangle(blackBrush, 0, 0, width, height);
+                    using (var font = new Font(FontFamily.GenericMonospace, 12))
+                        g.DrawString(msg, font, whiteBrush, 250, 100);
+                }
+
+                byte[] pixels = GetPixels(bitmap, out int rows, out int columns);
+                MemoryByteBuffer buffer = new MemoryByteBuffer(pixels);
+
+                ds.Add(DicomTag.PhotometricInterpretation, PhotometricInterpretation.Rgb.Value);
+                ds.Add(DicomTag.Rows, (ushort)rows);
+                ds.Add(DicomTag.Columns, (ushort)columns);
+                ds.Add(DicomTag.BitsAllocated, (ushort)8);
+
+                DicomPixelData pixelData = DicomPixelData.Create(ds, true);
+                pixelData.BitsStored = 8;
+                pixelData.SamplesPerPixel = 3;
+                pixelData.HighBit = 7;
+                pixelData.PixelRepresentation = 0;
+                pixelData.PlanarConfiguration = 0;
+                pixelData.AddFrame(buffer);
             }
-             
-            byte[] pixels = GetPixels(bitmap, out int rows, out int columns);
-            MemoryByteBuffer buffer = new MemoryByteBuffer(pixels);
-            
-            ds.Add(DicomTag.PhotometricInterpretation, PhotometricInterpretation .Rgb .Value );
-            ds.Add(DicomTag.Rows, (ushort)rows);
-            ds.Add(DicomTag.Columns, (ushort)columns);
-            ds.Add(DicomTag.BitsAllocated,(ushort)8);
-
-            DicomPixelData pixelData = DicomPixelData.Create(ds, true);
-            pixelData.BitsStored = 8;
-            pixelData.SamplesPerPixel = 3;
-            pixelData.HighBit = 7;
-            pixelData.PixelRepresentation = 0;
-            pixelData.PlanarConfiguration = 0;
-            pixelData.AddFrame(buffer);
-
         }
+
         private static byte[] GetPixels(Bitmap image, out int rows, out int columns)
         {
             rows = image.Height;

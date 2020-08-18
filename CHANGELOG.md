@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.0.7] - 2020-08-18
+
+- Enable SourceLink package
+- Bump fo-dicom.NetCore from 4.0.5 to 4.0.6
+- Bump HIC.DicomTypeTranslation from 2.2.2 to 2.3.1
+- Bump YamlDotNet from 8.1.1 to 8.1.2
+- Clean remaining LGTM alerts
+
 ## [0.0.6] - 2020-05-20
 
 ### Changed

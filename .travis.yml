@@ -42,11 +42,13 @@ script:
 
 - cd ../../../..
 - pwd 
+- ls -lh dist
 
 after_success:
 - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi
 - dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg"
   -s https://api.nuget.org/v3/index.json -k $NUGET_KEY || true
+
 deploy:
   provider: releases
   api_key:
