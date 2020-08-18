@@ -298,7 +298,7 @@ namespace BadDicom
                 {
                     RunBatch(identifiers,opts,r,batches[batch],uploaders[batch]);
 
-                });
+                }); // lgtm[cs/local-not-disposed]
                 tasks[i].Start();
             }
 
