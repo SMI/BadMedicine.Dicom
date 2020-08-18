@@ -29,7 +29,6 @@ script:
     dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained false -nologo -v q
   done
 - ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
-- ls -lh dist
     
 - cd ./BadDicom/bin/Debug/netcoreapp2.2
 - curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
@@ -43,11 +42,13 @@ script:
 
 - cd ../../../..
 - pwd 
+- ls -lh dist
 
 after_success:
 - if [ -z "$TRAVIS_TAG" ]; then travis_terminate 0; fi
 - dotnet nuget push "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.$VERSION.nupkg"
   -s https://api.nuget.org/v3/index.json -k $NUGET_KEY || true
+
 deploy:
   provider: releases
   api_key:
