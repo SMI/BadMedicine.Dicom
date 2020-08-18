@@ -42,7 +42,7 @@
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="fo-dicom.NetCore" Version="4.0.5" />
     <PackageReference Include="HIC.DicomTypeTranslation" Version="2.2.2" />
-    <PackageReference Include="YamlDotNet" Version="8.1.1" />
+    <PackageReference Include="YamlDotNet" Version="8.1.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
