@@ -118,7 +118,6 @@ namespace BadMedicine.Dicom
                 //don't generate more than the maximum number of images
                 if (MaximumImages-- <= 0)
                 {
-                    study = null;
                     break;
                 }
                 else
@@ -166,7 +165,7 @@ namespace BadMedicine.Dicom
             //generate a study
             study = new Study(this,p,GetRandomModality(r),r);
 
-            return study.SelectMany(series=>series).Select(image=>image).ToArray();
+            return study.SelectMany(series=>series).ToArray();
         }
 
         /// <summary>
