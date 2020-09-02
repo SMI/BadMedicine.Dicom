@@ -1,5 +1,4 @@
 using BadMedicine;
-using BadMedicine.Datasets;
 using BadMedicine.Dicom;
 using CommandLine;
 using System;
@@ -8,9 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 using BadDicom.Configuration;
 using Dicom;
 using DicomTypeTranslation;

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BadMedicine.Dicom
+﻿namespace BadMedicine.Dicom
 {
+    /// <summary>
+    /// How and whether to group the generated files into subdirectories
+    /// </summary>
     public enum FileSystemLayout
     {
         /// <summary>

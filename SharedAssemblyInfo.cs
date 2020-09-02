@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
 using System.Reflection;
 
 [assembly: AssemblyCompany("Health Informatics Centre, University of Dundee")]
