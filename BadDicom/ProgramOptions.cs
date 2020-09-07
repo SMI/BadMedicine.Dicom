@@ -16,7 +16,7 @@ namespace BadDicom
         [Value(2, HelpText = "The number of dicom studies to generate (each study will have ", Default = 10)]
         public int NumberOfStudies { get; set; } = 10;
 
-        [Option('s', "Seeds the random number generator with a specific number", Default = -1)]
+        [Option('s', HelpText = "Seeds the random number generator with a specific number", Default = -1)]
         public int Seed { get; set; } = -1;
 
         [Value(3, HelpText = "Comma separated list of modalities to generate from", Default = "CT")]
