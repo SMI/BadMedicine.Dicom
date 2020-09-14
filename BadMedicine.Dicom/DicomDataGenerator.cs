@@ -277,7 +277,11 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.LossyImageCompressionRatio, "1");
 
             if(Anonymise)
+            { 
                 _anonymizer.AnonymizeInPlace(ds);
+                ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
+            }
 
             return ds;
         }
