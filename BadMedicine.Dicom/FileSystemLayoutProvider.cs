@@ -39,15 +39,16 @@ namespace BadMedicine.Dicom
 
                 case FileSystemLayout.StudyYearMonthDayAccession:
                     
+                    var acc = ds.GetSingleValue<string>(DicomTag.AccessionNumber);
                     
-                    if(date.Length > 0)
+                    if(date.Length > 0 && !string.IsNullOrWhiteSpace(acc))
                     {
                         return  new FileInfo(Path.Combine(
                         root.FullName,
                         date[0].Year.ToString(),
                         date[0].Month.ToString(),
                         date[0].Day.ToString(),
-                        ds.GetSingleValue<string>(DicomTag.AccessionNumber),
+                        acc,
                         filename));
                     }
                     else
