@@ -25,6 +25,11 @@ namespace BadMedicine.Dicom
         public bool NoPixels { get; set; }
 
         /// <summary>
+        /// Set to true to run <see cref="DicomAnonymizer"/> on the generated <see cref="DicomDataset"/> before writting to disk.
+        /// </summary>
+        public bool Anonymise {get;set;}
+
+        /// <summary>
         /// True to output Study / Series / Image level CSV files containing all the tag data.  Setting this option
         /// disables image file output
         /// </summary>
@@ -52,6 +57,7 @@ namespace BadMedicine.Dicom
         private string _lastStudyUID = "";
         private string _lastSeriesUID = "";
         private CsvWriter studyWriter, seriesWriter, imageWriter;
+        private DicomAnonymizer _anonymizer = new DicomAnonymizer();
 
         /// <summary>
         /// Name of the file that contains distinct Study level records for all images when <see cref="Csv"/> is true
@@ -269,6 +275,13 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.LossyImageCompression, "00");
             ds.AddOrUpdate(DicomTag.LossyImageCompressionMethod, "ISO_10918_1");
             ds.AddOrUpdate(DicomTag.LossyImageCompressionRatio, "1");
+
+            if(Anonymise)
+            { 
+                _anonymizer.AnonymizeInPlace(ds);
+                ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
+            }
 
             return ds;
         }

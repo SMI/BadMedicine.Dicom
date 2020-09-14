@@ -88,6 +88,32 @@ namespace BadMedicine.Dicom.Tests
             
         }
         [Test]
+        public void Test_Anonymise()
+        {
+            var r = new Random(23);
+            var person = new Person(r);
+
+            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"CT");
+            
+            // without anonymisation (default) we get the normal patient ID
+            var ds = generator.GenerateTestDataset(person, r);
+            
+            Assert.IsTrue(ds.Contains(DicomTag.PatientID));
+            Assert.AreEqual(person.CHI,ds.GetValue<string>(DicomTag.PatientID,0));
+            
+            // with anonymisation
+            generator.Anonymise = true;
+            
+            var ds2 = generator.GenerateTestDataset(person, r);
+
+            // we get a blank patient ID
+            Assert.IsTrue(ds2.Contains(DicomTag.PatientID));
+            Assert.AreEqual(string.Empty,ds2.GetString(DicomTag.PatientID));
+
+            generator.Dispose();
+            
+        }
+        [Test]
         public void Test_CreatingInMemory_Modality_CTAndMR()
         {
             var r = new Random(23);
