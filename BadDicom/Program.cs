@@ -120,6 +120,7 @@ namespace BadDicom
             return new DicomDataGenerator(r, dir, modalities)
             {
                 NoPixels = opts.NoPixels,
+                Anonymise = opts.Anonymise,
                 Layout = opts.Layout,
                 MaximumImages = opts.MaximumImages,
                 Csv = opts.csv,

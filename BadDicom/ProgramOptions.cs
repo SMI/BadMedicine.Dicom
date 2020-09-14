@@ -25,6 +25,9 @@ namespace BadDicom
         [Option("NoPixels",HelpText= "Generate dicom files without pixel data (only tags).  This results in much smaller file sizes")]
         public bool NoPixels{get;set;}
 
+        [Option('a',"Anonymise",HelpText= "Generate anonymous dicom files")]
+        public bool Anonymise { get;set;}
+
         [Option("csv",HelpText= "Generate CSV files to be ingested in a database.  This results in no dicom images being generated (i.e. only csv tag data in flat files)")]
         public bool csv{get;set;}
 
