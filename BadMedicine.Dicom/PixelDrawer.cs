@@ -13,8 +13,8 @@ namespace BadMedicine.Dicom
     /// </summary>
     internal class PixelDrawer
     {
-        SolidBrush blackBrush = new SolidBrush(Color.Black);
-        SolidBrush whiteBrush = new SolidBrush(Color.White);
+        readonly SolidBrush _blackBrush = new SolidBrush(Color.Black);
+        readonly SolidBrush _whiteBrush = new SolidBrush(Color.White);
 
         internal void DrawBlackBoxWithWhiteText(DicomDataset ds, int width, int height, string msg)
         {
@@ -22,9 +22,9 @@ namespace BadMedicine.Dicom
             {
                 using (var g = Graphics.FromImage(bitmap))
                 {
-                    g.FillRectangle(blackBrush, 0, 0, width, height);
+                    g.FillRectangle(_blackBrush, 0, 0, width, height);
                     using (var font = new Font(FontFamily.GenericMonospace, 12))
-                        g.DrawString(msg, font, whiteBrush, 250, 100);
+                        g.DrawString(msg, font, _whiteBrush, 250, 100);
                 }
 
                 byte[] pixels = GetPixels(bitmap, out int rows, out int columns);
