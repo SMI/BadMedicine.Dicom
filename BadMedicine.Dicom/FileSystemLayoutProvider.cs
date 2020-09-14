@@ -15,47 +15,55 @@ namespace BadMedicine.Dicom
 
         public FileInfo GetPath(DirectoryInfo root,DicomDataset ds)
         {
-            DateTime date;
+            var filename = ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm";
+            var date = ds.GetValues<DateTime>(DicomTag.StudyDate);
 
             switch(Layout)
             {
                 case FileSystemLayout.Flat: 
-                    return  new FileInfo(Path.Combine(
-                        root.FullName,
-                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
+                    return  new FileInfo(Path.Combine(root.FullName,filename));
 
                 case FileSystemLayout.StudyYearMonthDay:
-
-                    date = ds.GetValues<DateTime>(DicomTag.StudyDate)[0]; 
                     
-                    return  new FileInfo(Path.Combine(
+                    if(date.Length > 0)
+                    {
+                        return  new FileInfo(Path.Combine(
                         root.FullName,
-                        date.Year.ToString(),
-                        date.Month.ToString(),
-                        date.Day.ToString(),
-                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
+                        date[0].Year.ToString(),
+                        date[0].Month.ToString(),
+                        date[0].Day.ToString(),
+                        filename));
+                    }
+                    else
+                        break;
 
                 case FileSystemLayout.StudyYearMonthDayAccession:
                     
-                    date = ds.GetValues<DateTime>(DicomTag.StudyDate)[0];
                     
-                    return  new FileInfo(Path.Combine(
+                    if(date.Length > 0)
+                    {
+                        return  new FileInfo(Path.Combine(
                         root.FullName,
-                        date.Year.ToString(),
-                        date.Month.ToString(),
-                        date.Day.ToString(),
+                        date[0].Year.ToString(),
+                        date[0].Month.ToString(),
+                        date[0].Day.ToString(),
                         ds.GetSingleValue<string>(DicomTag.AccessionNumber),
-                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
+                        filename));
+                    }
+                    else
+                        break;
 
                 case FileSystemLayout.StudyUID:
 
                     return  new FileInfo(Path.Combine(
                         root.FullName,
                         ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
-                        ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm"));
+                        filename));
 
                 default: throw new ArgumentOutOfRangeException();
             }
+                   
+            return  new FileInfo(Path.Combine(root.FullName,filename));
         }
 
     }
