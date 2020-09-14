@@ -107,7 +107,7 @@ namespace BadMedicine.Dicom.Tests
             var ds2 = generator.GenerateTestDataset(person, r);
 
             // we get a blank patient ID
-            Assert.IsTrue(ds.Contains(DicomTag.PatientID));
+            Assert.IsTrue(ds2.Contains(DicomTag.PatientID));
             Assert.AreEqual(string.Empty,ds2.GetString(DicomTag.PatientID));
 
             generator.Dispose();
