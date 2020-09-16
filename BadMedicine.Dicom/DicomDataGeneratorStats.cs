@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using BadMedicine.Datasets;
 
 namespace BadMedicine.Dicom
 {
@@ -89,7 +90,7 @@ namespace BadMedicine.Dicom
         }
 
         /// <summary>
-        /// returns a random string e.g. T101H12451352 where the first letter indiciates Tayside and 5th letter indicates Hospital
+        /// returns a random string e.g. T101H12451352 where the first letter indicates Tayside and 5th letter indicates Hospital
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -109,7 +110,7 @@ namespace BadMedicine.Dicom
                 dt.Columns.Add("AverageImagesPerSeries", typeof(double));
                 dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
 
-                DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
+                DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
 
                 ModalityFrequency = new BucketList<ModalityStats>();
 
@@ -138,7 +139,7 @@ namespace BadMedicine.Dicom
             {
                 dt.Columns.Add("Frequency", typeof(int));
 
-                DicomDataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
+                DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -176,10 +177,7 @@ namespace BadMedicine.Dicom
         {
             lock(InstanceLock)
             {
-                if (_instance == null)
-                    _instance = new DicomDataGeneratorStats(r);
-                
-                return _instance;
+                return _instance ?? (_instance = new DicomDataGeneratorStats(r));
             }
                 
         }

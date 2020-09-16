@@ -4,12 +4,12 @@
 // RDMP is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 // You should have received a copy of the GNU General Public License along with RDMP. If not, see <https://www.gnu.org/licenses/>.
 
-using NUnit.Framework;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using NUnit.Framework;
 
-namespace BadMedicineTests
+namespace BadMedicine.Dicom.Tests
 {
     /// <summary>
     /// Tests to confirm that the dependencies in csproj files (NuGet packages) match those in the .nuspec files and that packages.md 
@@ -17,7 +17,7 @@ namespace BadMedicineTests
     /// </summary>
     class NuspecIsCorrectTests
     {
-        static string[] Analyzers = new string[] { "SecurityCodeScan","Microsoft.SourceLink.GitHub" };
+        static readonly string[] Analyzers = new string[] { "SecurityCodeScan","Microsoft.SourceLink.GitHub" };
 
         [TestCase("../../../../BadMedicine.Dicom/BadMedicine.Dicom.csproj", "../../../../BadMedicine.Dicom/BadMedicine.Dicom.nuspec", "../../../../Packages.md")]
         [TestCase("../../../../BadDicom/BadDicom.csproj", null, "../../../../Packages.md")]
@@ -99,7 +99,7 @@ namespace BadMedicineTests
 
         private object BuildRecommendedDependencyLine(string package, string version)
         {
-            return string.Format("<dependency id=\"{0}\" version=\"{1}\" />", package, version);
+            return $"<dependency id=\"{package}\" version=\"{version}\" />";
         }
 
         private object BuildRecommendedMarkdownLine(string package, string version)

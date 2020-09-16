@@ -15,9 +15,8 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(500);
             var root = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
-            var generator = new DicomDataGenerator(r,root);
-            generator.Layout = FileSystemLayout.StudyUID;
-            generator.MaximumImages = 1; 
+            var generator = new DicomDataGenerator(r, root) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
+
 
             var person = new Person(r);
 

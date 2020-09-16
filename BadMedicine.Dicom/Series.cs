@@ -8,16 +8,16 @@ namespace BadMedicine.Dicom
 {
     public class Series : IEnumerable<DicomDataset>
     {
-        public DicomUID SeriesUID {get; private set; }
-        public Study Study{get; private set; }
+        public DicomUID SeriesUID {get; }
+        public Study Study{get; }
 
-        public IReadOnlyList<DicomDataset> Datasets{get;private set;}
+        public IReadOnlyList<DicomDataset> Datasets{get; }
 
         private readonly List<DicomDataset> _datasets = new List<DicomDataset>();
         
         public Person person;
-        public string Modality {get;  private set;}
-        public string ImageType {get;  private set;}
+        public string Modality {get; }
+        public string ImageType {get; }
         public DateTime SeriesDate { get; internal set; }
         public TimeSpan SeriesTime { get; internal set; }
         public int NumberOfSeriesRelatedInstances { get; }
