@@ -16,7 +16,7 @@
       <dependency id="MathNet.Numerics" version="4.9.1" exclude="Build,Analyzers" />
       <dependency id="fo-dicom.NetCore" version="4.0.7" />
       <dependency id="HIC.BadMedicine" version="0.1.6" />
-      <dependency id="System.Drawing.Common" version="4.7.0" />
+      <dependency id="System.Drawing.Common" version="5.0.0" />
     </dependencies>
   </metadata>
   <files>
