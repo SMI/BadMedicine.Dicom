@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 
 - Bump YamlDotNet from 9.1.1 to 9.1.4
+- Bump XunitXml.TestLogger from 2.1.26 to 2.1.45
 
 ## [0.0.7] - 2020-08-18
 
