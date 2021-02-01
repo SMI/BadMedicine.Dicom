@@ -20,6 +20,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.80" />
-    <PackageReference Include="XunitXml.TestLogger" Version="2.1.45" />
+    <PackageReference Include="XunitXml.TestLogger" Version="3.0.56" />
   </ItemGroup>
 </Project>
