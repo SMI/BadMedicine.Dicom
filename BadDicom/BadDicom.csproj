@@ -6,6 +6,7 @@
     <StartupObject></StartupObject>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <StartupObject>BadDicom.Program</StartupObject>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
