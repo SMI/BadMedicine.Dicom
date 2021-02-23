@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="fo-dicom.NetCore" Version="4.0.7" />
-    <PackageReference Include="HIC.BadMedicine" Version="0.1.6" />
+    <PackageReference Include="HIC.BadMedicine" Version="1.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.1" />
   </ItemGroup>
 
