@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - name: Start MySQL for testing
+        run: sudo systemctl start mysql.service
       - name: Test
         run: |
           dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
           sed -i "s/VERSION/$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2)/g" ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
-          
       - name: Package
         run: |
           dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:NuspecFile=./BadMedicine.Dicom.nuspec -p:IncludeSymbols=true
