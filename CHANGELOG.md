@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.8] - 2021-03-02
+
+### Changes
+
+- Now built and released via Github Actions
+
+### Dependencies
+
+- Bump YamlDotNet from 9.1.1 to 9.1.4
+- Bump XunitXml.TestLogger from 2.1.26 to 2.1.45
+- Bump System.Drawing.Common from 5.0.0 to 5.0.1
+- Bump HIC.BadMedicine from 0.1.6 to 1.0.0
+- Bump Microsoft.NET.Test.Sdk from 16.8.3 to 16.9.1
 
 ## [0.0.7] - 2020-08-18
 
@@ -64,7 +77,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.6...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.8...develop
+[0.0.8]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.7...v0.0.8
+[0.0.7]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.3...v0.0.4

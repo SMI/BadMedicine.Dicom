@@ -25,6 +25,11 @@ namespace BadMedicine.Dicom
         public bool NoPixels { get; set; }
 
         /// <summary>
+        /// Set to true to run <see cref="DicomAnonymizer"/> on the generated <see cref="DicomDataset"/> before writting to disk.
+        /// </summary>
+        public bool Anonymise {get;set;}
+
+        /// <summary>
         /// True to output Study / Series / Image level CSV files containing all the tag data.  Setting this option
         /// disables image file output
         /// </summary>
@@ -33,7 +38,10 @@ namespace BadMedicine.Dicom
         /// <summary>
         /// The subdirectories layout to put dicom files into when writting to disk
         /// </summary>
-        public FileSystemLayout Layout{get {return _pathProvider.Layout; } set { _pathProvider = new FileSystemLayoutProvider(value);}}
+        public FileSystemLayout Layout{
+            get => _pathProvider.Layout;
+            set => _pathProvider = new FileSystemLayoutProvider(value);
+        }
         
         /// <summary>
         /// The maximum number of images to generate regardless of how many calls to <see cref="GenerateTestDataRow"/>,  Defaults to int.MaxValue
@@ -42,9 +50,9 @@ namespace BadMedicine.Dicom
 
         private FileSystemLayoutProvider _pathProvider = new FileSystemLayoutProvider(FileSystemLayout.StudyYearMonthDay);
 
-        PixelDrawer drawing = new PixelDrawer();
+        readonly PixelDrawer drawing = new PixelDrawer();
 
-        private int[] _modalities;
+        private readonly int[] _modalities;
 
         private List<DicomTag> _studyTags;
         private List<DicomTag> _seriesTags;
@@ -52,6 +60,7 @@ namespace BadMedicine.Dicom
         private string _lastStudyUID = "";
         private string _lastSeriesUID = "";
         private CsvWriter studyWriter, seriesWriter, imageWriter;
+        private DicomAnonymizer _anonymizer = new DicomAnonymizer();
 
         /// <summary>
         /// Name of the file that contains distinct Study level records for all images when <see cref="Csv"/> is true
@@ -110,10 +119,9 @@ namespace BadMedicine.Dicom
                 InitialiseCSVOutput();
 
             //The currently extracting study
-            Study study;
             string studyUID = null;
 
-            foreach (var ds in GenerateStudyImages(p, out study))
+            foreach (var ds in GenerateStudyImages(p, out var study))
             {
                 //don't generate more than the maximum number of images
                 if (MaximumImages-- <= 0)
@@ -149,7 +157,7 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         protected override string[] GetHeaders()
         {
-            return new string[]{ "Studies Generated" };
+            return new[]{ "Studies Generated" };
         }
 
         /// <summary>
@@ -172,18 +180,18 @@ namespace BadMedicine.Dicom
         /// Generates a new <see cref="DicomDataset"/> for the given <see cref="Person"/>.  This will be a single image single series study
         /// </summary>
         /// <param name="p"></param>
-        /// <param name="r"></param>
+        /// <param name="_r"></param>
         /// <returns></returns>
-        public DicomDataset GenerateTestDataset(Person p,Random r)
+        public DicomDataset GenerateTestDataset(Person p,Random _r)
         {
             //get a random modality
-            var modality = GetRandomModality(r);
-            return GenerateTestDataset(p,new Study(this,p,modality,r).Series[0]);
+            var modality = GetRandomModality(_r);
+            return GenerateTestDataset(p,new Study(this,p,modality,_r).Series[0]);
         }
 
-        private ModalityStats GetRandomModality(Random r)
+        private ModalityStats GetRandomModality(Random _r)
         {
-            return DicomDataGeneratorStats.GetInstance(r).ModalityFrequency.GetRandom(_modalities,r);
+            return DicomDataGeneratorStats.GetInstance(_r).ModalityFrequency.GetRandom(_modalities,_r);
         }
 
         /// <summary>
@@ -270,6 +278,13 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.LossyImageCompressionMethod, "ISO_10918_1");
             ds.AddOrUpdate(DicomTag.LossyImageCompressionRatio, "1");
 
+            if(Anonymise)
+            { 
+                _anonymizer.AnonymizeInPlace(ds);
+                ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+                ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
+            }
+
             return ds;
         }
 
@@ -353,9 +368,9 @@ namespace BadMedicine.Dicom
             if (OutputDir != null)
             {
                 // Create/open CSV files
-                studyWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
-                seriesWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
-                imageWriter = new CsvWriter(new StreamWriter(System.IO.Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
+                studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
+                seriesWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
+                imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
                 
                 // Write header
                 WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
@@ -396,14 +411,7 @@ namespace BadMedicine.Dicom
             var columnData = new List<string>();
             foreach (DicomTag tag in tags)
             {
-                if (ds.Contains(tag))
-                {
-                    columnData.Add(ds.GetString(tag));
-                }
-                else
-                {
-                    columnData.Add("NULL");
-                }
+                columnData.Add(ds.Contains(tag) ? ds.GetString(tag) : "NULL");
             }
 
             WriteData(fileId, sw, columnData);

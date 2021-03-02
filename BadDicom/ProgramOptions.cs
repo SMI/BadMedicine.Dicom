@@ -16,7 +16,7 @@ namespace BadDicom
         [Value(2, HelpText = "The number of dicom studies to generate (each study will have ", Default = 10)]
         public int NumberOfStudies { get; set; } = 10;
 
-        [Option('s', "Seeds the random number generator with a specific number", Default = -1)]
+        [Option('s', HelpText = "Seeds the random number generator with a specific number", Default = -1)]
         public int Seed { get; set; } = -1;
 
         [Value(3, HelpText = "Comma separated list of modalities to generate from", Default = "CT")]
@@ -24,6 +24,9 @@ namespace BadDicom
         
         [Option("NoPixels",HelpText= "Generate dicom files without pixel data (only tags).  This results in much smaller file sizes")]
         public bool NoPixels{get;set;}
+
+        [Option('a',"Anonymise",HelpText= "Generate anonymous dicom files")]
+        public bool Anonymise { get;set;}
 
         [Option("csv",HelpText= "Generate CSV files to be ingested in a database.  This results in no dicom images being generated (i.e. only csv tag data in flat files)")]
         public bool csv{get;set;}

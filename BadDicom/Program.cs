@@ -1,5 +1,4 @@
 using BadMedicine;
-using BadMedicine.Datasets;
 using BadMedicine.Dicom;
 using CommandLine;
 using System;
@@ -8,9 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 using BadDicom.Configuration;
 using Dicom;
 using DicomTypeTranslation;
@@ -27,24 +24,24 @@ namespace BadDicom
 {
       class Program
     {
-        private static int returnCode;
+        private static int _returnCode;
         public const string ConfigFile = "./BadDicom.yaml";
 
         public static int Main(string[] args)
         {
-            returnCode = 0;
+            _returnCode = 0;
 
             Parser.Default.ParseArguments<ProgramOptions>(args)
-                .WithParsed<ProgramOptions>(opts => RunOptionsAndReturnExitCode(opts))
-                .WithNotParsed<ProgramOptions>((errs) => HandleParseError(errs));
+                .WithParsed(opts => RunOptionsAndReturnExitCode(opts))
+                .WithNotParsed((errs) => HandleParseError(errs));
 
 
-            return returnCode;
+            return _returnCode;
         }
 
         private static void HandleParseError(IEnumerable<Error> errs)
         {
-            returnCode = 500;
+            _returnCode = 500;
         }
 
         private static void RunOptionsAndReturnExitCode(ProgramOptions opts)
@@ -69,7 +66,7 @@ namespace BadDicom
                 {
                     Console.WriteLine($"Error deserializing '{ConfigFile}'");
                     Console.Write(e.ToString());
-                    returnCode = -1;
+                    _returnCode = -1;
                     return;
                 }
 
@@ -77,14 +74,14 @@ namespace BadDicom
                 {
                     try
                     {
-                        returnCode = RunDatabaseTarget(config.Database, opts);
+                        _returnCode = RunDatabaseTarget(config.Database, opts);
                         return;
                     }
                     catch (Exception e)
                     {
                         
                         Console.WriteLine(e);
-                        returnCode = 3;
+                        _returnCode = 3;
                         return;
                     }
                 }
@@ -104,13 +101,13 @@ namespace BadDicom
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                returnCode = 2;
+                _returnCode = 2;
                 return;
             }
 
             Console.WriteLine($"{DateTime.Now} Finished" );
 
-            returnCode = 0;
+            _returnCode = 0;
         }
 
         private static DicomDataGenerator GetDataGenerator(ProgramOptions opts, IPersonCollection identifiers,Random r, out DirectoryInfo dir)
@@ -123,6 +120,7 @@ namespace BadDicom
             return new DicomDataGenerator(r, dir, modalities)
             {
                 NoPixels = opts.NoPixels,
+                Anonymise = opts.Anonymise,
                 Layout = opts.Layout,
                 MaximumImages = opts.MaximumImages,
                 Csv = opts.csv,
@@ -144,7 +142,7 @@ namespace BadDicom
         {
             var batchSize = Math.Max(1, configDatabase.Batches);
 
-            //if we are going into a database we definetly do not need pixels!
+            //if we are going into a database we definitely do not need pixels!
             if (opts.NoPixels == false)
                 opts.NoPixels = true;
 
@@ -198,7 +196,7 @@ namespace BadDicom
             {
                 Console.WriteLine($"Creating Database '{db.GetRuntimeName()}'");
                 db.Create();
-                Console.WriteLine($"Database Created");
+                Console.WriteLine("Database Created");
             }
             else
             {

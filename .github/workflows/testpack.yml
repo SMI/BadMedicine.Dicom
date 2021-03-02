@@ -1,0 +1,43 @@
+name: Build, test and package
+
+on: push
+
+jobs:
+  package:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Start MySQL for testing
+        run: sudo systemctl start mysql.service
+      - name: Test
+        run: |
+          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
+          sed -i "s/VERSION/$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2)/g" ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
+      - name: Package
+        run: |
+          dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:NuspecFile=./BadMedicine.Dicom.nuspec -p:IncludeSymbols=true
+          for platform in linux win
+          do
+            dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained true -nologo -v q
+          done
+          ( cd dist && zip -r baddicom-win-x64-$TRAVIS_TAG.zip ./win-x64 && tar czf baddicom-linux-x64-$TRAVIS_TAG.tar.gz ./linux-x64 && cd - )
+          dotnet build -c Debug
+          cd ./BadDicom/bin/Debug/netcoreapp3.1
+          curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
+          mv BadDicom.template.yaml BadDicom.yaml
+          dotnet ./BadDicom.dll ./ 50000 10 CT
+          sed -i "s/Batches: 1/Batches: 5/g" ./BadDicom.yaml
+          sed -i "s/DropTables: false/DropTables: true/g" ./BadDicom.yaml
+          dotnet ./BadDicom.dll ./ 50000 10 CT
+          cd -
+      - name: Nuget push
+        if: contains(github.ref,'refs/tags/')
+        run: |
+          dotnet nuget push -skipDuplicate "./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_KEY }})
+      - name: Upload release binaries
+        if: contains(github.ref,'refs/tags/')
+        uses: alexellis/upload-assets@0.2.2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_paths: '["dist/*"]'

@@ -15,9 +15,8 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(500);
             var root = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
-            var generator = new DicomDataGenerator(r,root);
-            generator.Layout = FileSystemLayout.StudyUID;
-            generator.MaximumImages = 1; 
+            var generator = new DicomDataGenerator(r, root) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
+
 
             var person = new Person(r);
 
@@ -83,6 +82,32 @@ namespace BadMedicine.Dicom.Tests
                 var ds = generator.GenerateTestDataset(person, r);
                 Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
             }
+
+            generator.Dispose();
+            
+        }
+        [Test]
+        public void Test_Anonymise()
+        {
+            var r = new Random(23);
+            var person = new Person(r);
+
+            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"CT");
+            
+            // without anonymisation (default) we get the normal patient ID
+            var ds = generator.GenerateTestDataset(person, r);
+            
+            Assert.IsTrue(ds.Contains(DicomTag.PatientID));
+            Assert.AreEqual(person.CHI,ds.GetValue<string>(DicomTag.PatientID,0));
+            
+            // with anonymisation
+            generator.Anonymise = true;
+            
+            var ds2 = generator.GenerateTestDataset(person, r);
+
+            // we get a blank patient ID
+            Assert.IsTrue(ds2.Contains(DicomTag.PatientID));
+            Assert.AreEqual(string.Empty,ds2.GetString(DicomTag.PatientID));
 
             generator.Dispose();
             
