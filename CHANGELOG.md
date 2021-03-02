@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.8] - 2021-03-03
+
+### Changes
+
+- Now built and released via Github Actions
+
 ### Dependencies
 
 - Bump YamlDotNet from 9.1.1 to 9.1.4
