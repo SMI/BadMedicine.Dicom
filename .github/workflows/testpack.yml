@@ -33,7 +33,7 @@ jobs:
       - name: Nuget push
         if: contains(github.ref,'refs/tags/')
         run: |
-          dotnet nuget push -skipDuplicate ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_KEY }})
+          dotnet nuget push -skipDuplicate ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_KEY }}
       - name: Upload release binaries
         if: contains(github.ref,'refs/tags/')
         uses: alexellis/upload-assets@0.2.2
