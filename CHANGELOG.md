@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Remove spurious MathNet.Numerics dependency from nuspec as it caused conflicts with BadMedicine
+- Bump HIC.DicomTypeTranslation from 2.3.1 to 2.3.2
+
+
 ## [0.0.8] - 2021-03-02
 
 ### Changes
