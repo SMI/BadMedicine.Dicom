@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 
 - Bump NunitXml.TestLogger from 3.0.91 to 3.0.97
-
+- Bump XunitXml.TestLogger from 3.0.62 to 3.0.66
 
 ## [0.0.9] - 2021-03-03
 
