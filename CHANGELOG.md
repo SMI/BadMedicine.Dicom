@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bump NunitXml.TestLogger from 3.0.91 to 3.0.97
+
 
 ## [0.0.9] - 2021-03-03
 
@@ -15,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove spurious MathNet.Numerics dependency from nuspec as it caused conflicts with BadMedicine
 - Bump HIC.DicomTypeTranslation from 2.3.1 to 2.3.2
 - Bump System.Drawing.Common from 5.0.1 to 5.0.2
-
 
 ## [0.0.8] - 2021-03-02
 
