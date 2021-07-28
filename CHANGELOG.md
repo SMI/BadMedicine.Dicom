@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump Microsoft.NET.Test.Sdk from 16.9.1 to 16.10.0
 - Bump NUnit from 3.13.1 to 3.13.2
 - Bump NUnit3TestAdapter from 3.17.0 to 4.0.0
+- Bump HIC.DicomTypeTranslation from 2.3.2 to 3.0.0 
 
 ## [0.0.9] - 2021-03-03
 
