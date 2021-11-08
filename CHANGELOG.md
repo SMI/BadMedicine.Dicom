@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
-- Bump NunitXml.TestLogger from 3.0.91 to 3.0.107
+- Bump NunitXml.TestLogger from 3.0.91 to 3.0.117
 - Bump XunitXml.TestLogger from 3.0.62 to 3.0.70
 - Bump YamlDotNet from 9.1.4 to 11.2.1
 - Bump Microsoft.NET.Test.Sdk from 16.9.1 to 17.0.0
