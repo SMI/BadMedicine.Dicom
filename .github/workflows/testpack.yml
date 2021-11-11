@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Start MySQL for testing
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+       - name: Start MySQL for testing
         run: sudo systemctl start mysql.service
       - name: Test
         run: |
