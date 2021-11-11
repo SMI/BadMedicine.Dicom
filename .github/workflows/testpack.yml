@@ -25,7 +25,7 @@ jobs:
           done
           ( cd dist && zip -r baddicom-win-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).zip ./win-x64 && tar czf baddicom-linux-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).tar.gz ./linux-x64 && cd - )
           dotnet build -c Debug
-          cd ./BadDicom/bin/Debug/netcoreapp3.1
+          cd ./BadDicom/bin/Debug/net5.0
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
           mv BadDicom.template.yaml BadDicom.yaml
           dotnet ./BadDicom.dll ./ 50000 10 CT
