@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump NUnit3TestAdapter from 3.17.0 to 4.1.0
 - Bump HIC.DicomTypeTranslation from 2.3.2 to 3.0.0 
 - Bump fo-dicom.NetCore from 4.0.7 to 4.0.8
+- Bump System.Drawing.Common from 5.0.2 to 6.0.0
 
 ## [0.0.9] - 2021-03-03
 
