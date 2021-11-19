@@ -36,6 +36,8 @@ namespace BadMedicine.Dicom.Tests
             datasetCreated.Dataset.GetValues<DicomUID>(DicomTag.StudyInstanceUID)[0].UID,
             "UID in the dicom file generated did not match the one output into the CSV inventory file"
             );
+
+            Assert.IsNotEmpty(datasetCreated.Dataset.GetSingleValue<String>(DicomTag.AccessionNumber));
             
             Console.WriteLine("Created file "+ f.FullName);
 
