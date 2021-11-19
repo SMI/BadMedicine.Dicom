@@ -233,6 +233,7 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(new DicomTime(DicomTag.SeriesTime, DateTime.Today + series.SeriesTime));
                         
             ds.AddOrUpdate(DicomTag.Modality,series.Modality);
+            ds.AddOrUpdate(DicomTag.AccessionNumber, series.Study.AccessionNumber?? "");
             
             if(series.Study.StudyDescription != null)
                 ds.AddOrUpdate(DicomTag.StudyDescription,series.Study.StudyDescription);
