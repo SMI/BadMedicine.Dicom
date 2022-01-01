@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump YamlDotNet from 9.1.4 to 11.2.1
 - Bump Microsoft.NET.Test.Sdk from 16.9.1 to 17.0.0
 - Bump NUnit from 3.13.1 to 3.13.2
-- Bump NUnit3TestAdapter from 3.17.0 to 4.1.0
+- Bump NUnit3TestAdapter from 3.17.0 to 4.2.0
 - Bump HIC.DicomTypeTranslation from 2.3.2 to 3.0.0 
 - Bump fo-dicom.NetCore from 4.0.7 to 4.0.8
 
