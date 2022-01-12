@@ -15,7 +15,6 @@ jobs:
       - name: Test
         run: |
           dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
-          #sed -i "s/VERSION/$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2)/g" ./BadMedicine.Dicom/BadMedicine.Dicom.nuspec
       - name: Package
         run: |
           dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true
@@ -36,7 +35,7 @@ jobs:
       - name: Nuget push
         if: contains(github.ref,'refs/tags/')
         run: |
-          nuget push -skipDuplicate ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_KEY }}
+          dotnet nuget push ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -k ${{ secrets.NUGET_KEY }} --skip-duplicate
       - name: Upload release binaries
         if: contains(github.ref,'refs/tags/')
         uses: alexellis/upload-assets@0.2.2
