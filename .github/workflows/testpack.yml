@@ -14,15 +14,15 @@ jobs:
         run: sudo systemctl start mysql.service
       - name: Test
         run: |
-          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj"
+          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo
       - name: Package
         run: |
-          dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true
+          dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true -p:Version=$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2) -nologo
           for platform in linux win
           do
             dotnet publish -c Release -r $platform-x64 -o $(pwd)/dist/$platform-x64 --self-contained true -nologo -v q
           done
-          ( cd dist && zip -r baddicom-win-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).zip ./win-x64 && tar czf baddicom-linux-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).tar.gz ./linux-x64 && cd - )
+          ( cd dist && zip -9r baddicom-win-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).zip ./win-x64 && tar czf baddicom-linux-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).tar.gz ./linux-x64 && cd - )
           dotnet build -c Debug
           cd ./BadDicom/bin/Debug/net5.0
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
