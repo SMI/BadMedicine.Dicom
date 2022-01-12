@@ -19,7 +19,7 @@ namespace BadMedicine.Dicom.Tests
     {
         static readonly string[] Analyzers = new string[] { "SecurityCodeScan","Microsoft.SourceLink.GitHub" };
 
-        [TestCase("../../../../BadMedicine.Dicom/BadMedicine.Dicom.csproj", "../../../../BadMedicine.Dicom/BadMedicine.Dicom.nuspec", "../../../../Packages.md")]
+        [TestCase("../../../../BadMedicine.Dicom/BadMedicine.Dicom.csproj", null, "../../../../Packages.md")]
         [TestCase("../../../../BadDicom/BadDicom.csproj", null, "../../../../Packages.md")]
         [TestCase("../../../../BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj", null, "../../../../Packages.md")]
         public void TestDependencyCorrect(string csproj, string nuspec, string packagesMarkdown)
