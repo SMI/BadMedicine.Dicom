@@ -41,7 +41,8 @@ namespace BadDicom
 
         private static void HandleParseError(IEnumerable<Error> errs)
         {
-            _returnCode = 500;
+            // if user wants help then return exit code 0 otherwise return a failed to parse error code
+            _returnCode = errs.Any(e => e.Tag == ErrorType.HelpRequestedError) ? 0 : 500;
         }
 
         private static void RunOptionsAndReturnExitCode(ProgramOptions opts)
