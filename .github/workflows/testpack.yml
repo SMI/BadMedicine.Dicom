@@ -26,6 +26,7 @@ jobs:
           cd -
       - name: Package
         run: |
+          mkdir -p dist
           dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true -p:Version=$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2) -nologo
           for platform in linux win
           do
