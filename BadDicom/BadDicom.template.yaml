@@ -3,7 +3,7 @@
   DropTables: false
   # The connection string to your database
   ConnectionString: server=127.0.0.1;Uid=root;Pwd=root;SslMode=None;AllowPublicKeyRetrieval=True
-  # Your DBMS provider ('MySql', 'PostgreSql','Oracle' or 'MicrosoftSQL')
+  # Your DBMS provider ('MySql', 'PostgreSql','Oracle' or 'MicrosoftSQLServer')
   DatabaseType: MySql
   # Contains the table schema (which dicom tags to use for which tables)
   Template: CT.it
