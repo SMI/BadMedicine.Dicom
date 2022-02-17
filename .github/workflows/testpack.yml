@@ -35,11 +35,15 @@ jobs:
       - name: Nuget push
         if: contains(github.ref,'refs/tags/')
         run: |
-          dotnet nuget push ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -k ${{ secrets.NUGET_KEY }} --skip-duplicate
+          dotnet nuget push ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -k ${{ secrets.NUGET_KEY }} --skip-duplicate -s https://api.nuget.org/v3/index.json
       - name: Upload release binaries
-        if: contains(github.ref,'refs/tags/')
+        if: contains(github.ref,'refs/tags/v')
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["dist/baddicom*"]'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/baddicom*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
