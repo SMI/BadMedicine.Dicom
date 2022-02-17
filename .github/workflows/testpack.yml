@@ -36,11 +36,10 @@ jobs:
         if: contains(github.ref,'refs/tags/')
         run: |
           dotnet nuget push ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -k ${{ secrets.NUGET_KEY }} --skip-duplicate -s https://api.nuget.org/v3/index.json
+            - name: Upload binaries to release
       - name: Upload release binaries
-        if: contains(github.ref,'refs/tags/')
-        uses: alexellis/upload-assets@0.3.0
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: svenstaro/upload-release-action@2.2.1
+        if: contains(github.ref, 'refs/tags/v')
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/baddicom*
