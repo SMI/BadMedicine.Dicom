@@ -2,7 +2,7 @@
 name: Request to model bad data
 about: If you have encountered a peculiar dicom file and want it modelled in BadDicom.  Describe
   it in this issue.
-title: ''
+title: "[BadData]"
 labels: ''
 assignees: ''
 
