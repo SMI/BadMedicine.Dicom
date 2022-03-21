@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Update fo-dicom to 5.0.2
+
 ## [0.0.10] - 2022-02-17
 
 ### Fixed

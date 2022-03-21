@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace BadMedicine.Dicom
 
         public IReadOnlyList<DicomDataset> Datasets{get; }
 
-        private readonly List<DicomDataset> _datasets = new List<DicomDataset>();
+        private readonly List<DicomDataset> _datasets = new();
         
         public Person person;
         public string Modality {get; }
@@ -22,7 +22,7 @@ namespace BadMedicine.Dicom
         public TimeSpan SeriesTime { get; internal set; }
         public int NumberOfSeriesRelatedInstances { get; }
 
-        internal Series(Study study, Person person, string modality, string imageType, int imageCount, Random r)
+        internal Series(Study study, Person person, string modality, string imageType, int imageCount)
         {
             SeriesUID = DicomUID.Generate();
 

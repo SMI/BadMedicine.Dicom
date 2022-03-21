@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,7 +49,7 @@ namespace BadMedicine.Dicom
         /// </summary>
         public int NumberOfStudyRelatedInstances { get; }
 
-        private readonly List<Series> _series = new List<Series>();
+        private readonly List<Series> _series = new();
 
         /// <summary>
         /// Constructor for a new Study on a specified Person
@@ -110,7 +110,7 @@ namespace BadMedicine.Dicom
             Series = new ReadOnlyCollection<Series>(_series);
             
             for(int i=0;i<NumberOfStudyRelatedInstances;i++)
-                _series.Add(new Series(this, person, modalityStats.Modality, imageType, imageCount, r));
+                _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount));
         }
 
 

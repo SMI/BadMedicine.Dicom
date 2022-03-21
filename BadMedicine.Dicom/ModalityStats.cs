@@ -32,12 +32,12 @@ namespace BadMedicine.Dicom
         /// <summary>
         /// The mean number of Images in a Series of this Modality
         /// </summary>
-        public double ImagesPerSeriesAverage { get => ImagesPerSeriesNormal.Mean; set => ImagesPerSeriesNormal=new Normal(value,ImagesPerSeriesNormal.StdDev, Rng); }
+        public double ImagesPerSeriesAverage { get => ImagesPerSeriesNormal.Mean; set => ImagesPerSeriesNormal=new(value,ImagesPerSeriesNormal.StdDev, Rng); }
 
         /// <summary>
         /// The standard deviation of the number of Images in a Series of this Modality
         /// </summary>
-        public double ImagesPerSeriesStandardDeviation{ get => ImagesPerSeriesNormal.StdDev; set => ImagesPerSeriesNormal=new Normal(ImagesPerSeriesNormal.Mean,value,Rng); }
+        public double ImagesPerSeriesStandardDeviation{ get => ImagesPerSeriesNormal.StdDev; set => ImagesPerSeriesNormal=new(ImagesPerSeriesNormal.Mean,value,Rng); }
 
         /// <summary>
         /// The Normal distribution of the number of Images per Series for this Modality
@@ -62,8 +62,8 @@ namespace BadMedicine.Dicom
         {
             Rng = r;
             Modality = modality;
-            SeriesPerStudyNormal = new Normal(averageSeriesPerStudy, standardDeviationSeriesPerStudy, r);
-            ImagesPerSeriesNormal = new Normal(averageImagesPerSeries, standardDeviationImagesPerSeries, r);
+            SeriesPerStudyNormal = new(averageSeriesPerStudy, standardDeviationSeriesPerStudy, r);
+            ImagesPerSeriesNormal = new(averageImagesPerSeries, standardDeviationImagesPerSeries, r);
         }
     }
 }
