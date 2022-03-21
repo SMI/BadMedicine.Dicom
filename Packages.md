@@ -10,7 +10,7 @@
 | Package | Source Code | Version | License | Purpose | Additional Risk Assessment |
 | ------- | ------------| --------| ------- | ------- | -------------------------- |
 | HIC.BadMedicine | [GitHub](https://github.com/HicServices/BadMedicine) | [1.0.0](https://www.nuget.org/packages/HIC.BadMedicine/1.0.0) | [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) | Handles generating baseline random data (patient date of birth, CHI numberts etc)| |
-| fo-dicom.NetCore | [GitHub](https://github.com/fo-dicom/fo-dicom) |[4.0.8](https://www.nuget.org/packages/fo-dicom.NetCore/4.0.8)|[MS-PL](https://opensource.org/licenses/MS-PL) | Handles reading/writing dicom tags from dicom datasets | |
+| fo-dicom | [GitHub](https://github.com/fo-dicom/fo-dicom) |[5.0.2](https://www.nuget.org/packages/fo-dicom/5.0.2)|[MS-PL](https://opensource.org/licenses/MS-PL) | Handles reading/writing dicom tags from dicom datasets | |
 | Microsoft.SourceLink.GitHub | [GitHub](https://github.com/dotnet/sourcelink) | [1.1.1](https://www.nuget.org/packages/Microsoft.SourceLink.GitHub/1.1.1) | [Apache License 2.0](https://github.com/dotnet/sourcelink/blob/master/License.txt) | Enables source debugging of project nuget package| |
 | Microsoft.NETCore.App | [GitHub](https://github.com/dotnet/runtime) | [2.2.8](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) |[MIT](https://opensource.org/licenses/MIT) | | .Net Core API|
 | System.Drawing.Common | [GitHub](https://github.com/dotnet/corefx)  | [5.0.2](https://www.nuget.org/packages/System.Drawing.Common/5.0.2) |[MIT](https://opensource.org/licenses/MIT) | Enables working with Bitmap resources |  |
