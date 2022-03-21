@@ -40,10 +40,10 @@ namespace BadMedicine.Dicom.Tests
                 Assert.Fail("Could not find file {0}", packagesMarkdown);
 
             //<PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
-            Regex rPackageRef = new Regex(@"<PackageReference\s+Include=""(.*)""\s+Version=""([^""]*)""", RegexOptions.IgnoreCase);
+            Regex rPackageRef = new(@"<PackageReference\s+Include=""(.*)""\s+Version=""([^""]*)""", RegexOptions.IgnoreCase);
 
             //<dependency id="CsvHelper" version="12.1.2" />
-            Regex rDependencyRef = new Regex(@"<dependency\s+id=""(.*)""\s+version=""([^""]*)""", RegexOptions.IgnoreCase);
+            Regex rDependencyRef = new(@"<dependency\s+id=""(.*)""\s+version=""([^""]*)""", RegexOptions.IgnoreCase);
 
             //For each dependency listed in the csproj
             foreach (Match p in rPackageRef.Matches(File.ReadAllText(csproj)))
@@ -81,7 +81,7 @@ namespace BadMedicine.Dicom.Tests
                     found = false;
                     foreach (string line in File.ReadAllLines(packagesMarkdown))
                     {
-                        if (Regex.IsMatch(line, @"[\s[]" + Regex.Escape(package) + @"[\s\]]", RegexOptions.IgnoreCase))
+                        if (Regex.IsMatch(line, $@"[\s[]{Regex.Escape(package)}[\s\]]", RegexOptions.IgnoreCase))
                         {
                             int count = new Regex(Regex.Escape(version)).Matches(line).Count;
 
@@ -97,14 +97,15 @@ namespace BadMedicine.Dicom.Tests
             }
         }
 
-        private object BuildRecommendedDependencyLine(string package, string version)
+        private static object BuildRecommendedDependencyLine(string package, string version)
         {
             return $"<dependency id=\"{package}\" version=\"{version}\" />";
         }
 
-        private object BuildRecommendedMarkdownLine(string package, string version)
+        private static object BuildRecommendedMarkdownLine(string package, string version)
         {
-            return string.Format("| {0} | [GitHub]() | [{1}](https://www.nuget.org/packages/{0}/{1}) | | | |", package, version);
+            return
+                $"| {package} | [GitHub]() | [{version}](https://www.nuget.org/packages/{package}/{version}) | | | |";
         }
     }
 }

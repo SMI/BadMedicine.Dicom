@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using NUnit.Framework;
 using System;
 using System.Globalization;
@@ -39,7 +39,7 @@ namespace BadMedicine.Dicom.Tests
 
             Assert.IsNotEmpty(datasetCreated.Dataset.GetSingleValue<String>(DicomTag.AccessionNumber));
             
-            Console.WriteLine("Created file "+ f.FullName);
+            Console.WriteLine($"Created file {f.FullName}");
 
             generator.Dispose();
         }
@@ -53,20 +53,18 @@ namespace BadMedicine.Dicom.Tests
             var person = new Person(r);
 
             //create a generator 
-            using (var generator = new DicomDataGenerator(r, null, "CT"))
-            {
-                //create a dataset in memory
-                DicomDataset dataset = generator.GenerateTestDataset(person, r);
+            using var generator = new DicomDataGenerator(r, null, "CT");
+            //create a dataset in memory
+            DicomDataset dataset = generator.GenerateTestDataset(person, r);
 
-                //values should match the patient details
-                Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
-                Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+            //values should match the patient details
+            Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
+            Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
 
-                //should have a study description
-                Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
-                //should have a study description
-                Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
-            }
+            //should have a study description
+            Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
+            //should have a study description
+            Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
         }
 
         [Test]
@@ -75,7 +73,7 @@ namespace BadMedicine.Dicom.Tests
             var r = new Random(23);
             var person = new Person(r);
 
-            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"CT");
+            var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT");
             
             //generate 100 images
             for(int i = 0 ; i < 100 ; i++)
@@ -94,7 +92,7 @@ namespace BadMedicine.Dicom.Tests
             var r = new Random(23);
             var person = new Person(r);
 
-            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"CT");
+            var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT");
             
             // without anonymisation (default) we get the normal patient ID
             var ds = generator.GenerateTestDataset(person, r);
@@ -120,7 +118,7 @@ namespace BadMedicine.Dicom.Tests
             var r = new Random(23);
             var person = new Person(r);
 
-            var generator = new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"CT","MR");
+            var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT","MR");
             
             //generate 100 images
             for(int i = 0 ; i < 100 ; i++)
@@ -139,7 +137,7 @@ namespace BadMedicine.Dicom.Tests
         public void TestFail_CreatingInMemory_Modality_Unknown()
         {
             var r = new Random(23);
-            Assert.Throws<ArgumentException>(()=>new DicomDataGenerator(r,new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"LOLZ"));
+            Assert.Throws<ArgumentException>(()=>new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"LOLZ"));
 
         }
 
@@ -160,7 +158,7 @@ namespace BadMedicine.Dicom.Tests
                 generator.NoPixels = true;
                 generator.MaximumImages = 500;
 
-                generator.GenerateTestDataFile(people,new FileInfo(Path.Combine(outputDir.FullName,"index.csv")),500);
+                generator.GenerateTestDataFile(people,new(Path.Combine(outputDir.FullName,"index.csv")),500);
             }
 
             //3 csv files + index.csv (the default one
@@ -168,19 +166,16 @@ namespace BadMedicine.Dicom.Tests
 
             foreach (FileInfo f in outputDir.GetFiles())
             {
-                using(var reader = new CsvReader(new StreamReader(f.FullName),CultureInfo.CurrentCulture))
-                {
-                    int rowcount = 0;
+                using var reader = new CsvReader(new StreamReader(f.FullName),CultureInfo.CurrentCulture);
+                int rowcount = 0;
 
-                    //confirms that the CSV is intact (no dodgy commas, unquoted newlines etc)
-                    while (reader.Read())
-                        rowcount++;
+                //confirms that the CSV is intact (no dodgy commas, unquoted newlines etc)
+                while (reader.Read())
+                    rowcount++;
 
-                    //should be 1 row per image + 1 for header
-                    if(f.Name == DicomDataGenerator.ImageCsvFilename)
-                        Assert.AreEqual(501,rowcount);
-                }
-
+                //should be 1 row per image + 1 for header
+                if(f.Name == DicomDataGenerator.ImageCsvFilename)
+                    Assert.AreEqual(501,rowcount);
             }
         }
     }

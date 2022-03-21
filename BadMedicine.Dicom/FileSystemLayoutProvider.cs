@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using System;
 using System.IO;
 
@@ -15,19 +15,19 @@ namespace BadMedicine.Dicom
 
         public FileInfo GetPath(DirectoryInfo root,DicomDataset ds)
         {
-            var filename = ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID+".dcm";
+            var filename = $"{ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID}.dcm";
             var date = ds.GetValues<DateTime>(DicomTag.StudyDate);
 
             switch(Layout)
             {
                 case FileSystemLayout.Flat: 
-                    return  new FileInfo(Path.Combine(root.FullName,filename));
+                    return  new(Path.Combine(root.FullName,filename));
 
                 case FileSystemLayout.StudyYearMonthDay:
                     
                     if(date.Length > 0)
                     {
-                        return  new FileInfo(Path.Combine(
+                        return  new(Path.Combine(
                         root.FullName,
                         date[0].Year.ToString(),
                         date[0].Month.ToString(),
@@ -43,7 +43,7 @@ namespace BadMedicine.Dicom
                     
                     if(date.Length > 0 && !string.IsNullOrWhiteSpace(acc))
                     {
-                        return  new FileInfo(Path.Combine(
+                        return  new(Path.Combine(
                         root.FullName,
                         date[0].Year.ToString(),
                         date[0].Month.ToString(),
@@ -56,7 +56,7 @@ namespace BadMedicine.Dicom
 
                 case FileSystemLayout.StudyUID:
 
-                    return  new FileInfo(Path.Combine(
+                    return  new(Path.Combine(
                         root.FullName,
                         ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
                         filename));
@@ -64,7 +64,7 @@ namespace BadMedicine.Dicom
                 default: throw new ArgumentOutOfRangeException();
             }
                    
-            return  new FileInfo(Path.Combine(root.FullName,filename));
+            return  new(Path.Combine(root.FullName,filename));
         }
 
     }

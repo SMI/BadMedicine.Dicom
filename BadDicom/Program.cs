@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BadDicom.Configuration;
-using Dicom;
+using FellowOakDicom;
 using DicomTypeTranslation;
 using DicomTypeTranslation.TableCreation;
 using FAnsi.Discovery;
@@ -92,12 +92,10 @@ namespace BadDicom
             try
             {
                 IPersonCollection identifiers = GetPeople(opts, out Random r);
-                using(var dicomGenerator = GetDataGenerator(opts, identifiers,r, out DirectoryInfo dir))
-                {
-                    Console.WriteLine($"{DateTime.Now} Starting file generation (to {dir.FullName})" );
-                    var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
-                    dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
-                }
+                using var dicomGenerator = GetDataGenerator(opts, identifiers,r, out DirectoryInfo dir);
+                Console.WriteLine($"{DateTime.Now} Starting file generation (to {dir.FullName})" );
+                var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
+                dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
             }
             catch (Exception e)
             {
@@ -116,9 +114,9 @@ namespace BadDicom
             dir = Directory.CreateDirectory(opts.OutputDirectory);
 
             //Generate the dicom files (of the modalities that the user requested)
-            string[] modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :new string[0];
+            string[] modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :Array.Empty<string>();
 
-            return new DicomDataGenerator(r, dir, modalities)
+            return new(r, dir, modalities)
             {
                 NoPixels = opts.NoPixels,
                 Anonymise = opts.Anonymise,
@@ -130,7 +128,7 @@ namespace BadDicom
 
         private static IPersonCollection GetPeople(ProgramOptions opts, out Random r)
         {
-            r = opts.Seed == -1 ? new Random() : new Random(opts.Seed);
+            r = opts.Seed == -1 ? new() : new Random(opts.Seed);
 
             //create a cohort of people
             IPersonCollection identifiers = new PersonCollection();
@@ -148,7 +146,7 @@ namespace BadDicom
                 opts.NoPixels = true;
 
             
-            Stopwatch swTotal = new Stopwatch();
+            Stopwatch swTotal = new();
 
             swTotal.Start();
 
@@ -293,7 +291,7 @@ namespace BadDicom
             for (int i = 0; i < batchSize; i++)
             {
                 var batch = i;
-                tasks[i] = new Task(() =>  // lgtm[cs/local-not-disposed]
+                tasks[i] = new(() =>  // lgtm[cs/local-not-disposed]
                 {
                     RunBatch(identifiers,opts,r,batches[batch],uploaders[batch]);
 
@@ -323,70 +321,67 @@ namespace BadDicom
             foreach (DiscoveredTable t in tables)
                 Console.WriteLine($"{t.GetFullyQualifiedName()}: {t.GetRowCount():0,0}");
 
-            Console.WriteLine("Total Running Time:" + swTotal.Elapsed);
+            Console.WriteLine($"Total Running Time:{swTotal.Elapsed}");
             return 0;
         }
 
         private static void RunBatch(IPersonCollection identifiers, ProgramOptions opts, Random r,DataTable[] batches, IBulkCopy[] uploaders)
         {
-            Stopwatch swGeneration = new Stopwatch();
-            Stopwatch swReading = new Stopwatch();
-            Stopwatch swUploading = new Stopwatch();
+            Stopwatch swGeneration = new();
+            Stopwatch swReading = new();
+            Stopwatch swUploading = new();
 
             try
             {
-                using(var dicomGenerator = GetDataGenerator(opts, identifiers,r, out _))
+                using var dicomGenerator = GetDataGenerator(opts, identifiers,r, out _);
+                for (int i = 0; i < opts.NumberOfStudies; i++)
                 {
-            
-                    for (int i = 0; i < opts.NumberOfStudies; i++)
-                    {
-                        swGeneration.Start();
+                    swGeneration.Start();
 
-                        var p = identifiers.People[r.Next(identifiers.People.Length)];
-                        var ds = dicomGenerator.GenerateStudyImages(p,out Study s);
+                    var p = identifiers.People[r.Next(identifiers.People.Length)];
+                    var ds = dicomGenerator.GenerateStudyImages(p,out Study s);
                         
-                        swGeneration.Stop();
+                    swGeneration.Stop();
 
-                        foreach (DicomDataset dataset in ds)
+                    foreach (DicomDataset dataset in ds)
+                    {
+                        var rows = new DataRow[batches.Length];
+
+                        for (int j = 0; j < batches.Length; j++) 
+                            rows[j] = batches[j].NewRow();
+
+                        swReading.Start();
+                        foreach (DicomItem item in dataset)
                         {
-                            var rows = new DataRow[batches.Length];
+                            var column = DicomTypeTranslaterReader.GetColumnNameForTag(item.Tag, false);
+                            var value = DicomTypeTranslater.Flatten(DicomTypeTranslaterReader.GetCSharpValue(dataset, item));
 
-                            for (int j = 0; j < batches.Length; j++) 
-                                rows[j] = batches[j].NewRow();
-
-                            swReading.Start();
-                            foreach (DicomItem item in dataset)
+                            foreach (DataRow row in rows)
                             {
-                                var column = DicomTypeTranslaterReader.GetColumnNameForTag(item.Tag, false);
-                                var value = DicomTypeTranslater.Flatten(DicomTypeTranslaterReader.GetCSharpValue(dataset, item));
-
-                                foreach (DataRow row in rows)
-                                {
-                                    if (row.Table.Columns.Contains(column))
-                                        row[column] = value ?? DBNull.Value;
-                                }
+                                if (row.Table.Columns.Contains(column))
+                                    row[column] = value ?? DBNull.Value;
                             }
-
-                            for (int j = 0; j < batches.Length; j++)
-                                batches[j].Rows.Add(rows[j]);
-
-                            swReading.Stop();
                         }
 
-                        //every 100 and last batch
-                        if (i % 100 == 0 || i == opts.NumberOfStudies - 1)
-                        {
-                            swUploading.Start();
-                            for (var j = 0; j < uploaders.Length; j++)
-                            {
-                                uploaders[j].Upload(batches[j]);
-                                batches[j].Rows.Clear();
-                            }
-                            swUploading.Stop();
-                            Console.WriteLine($"{DateTime.Now} Done {i} studies");
-                        }
-                            
+                        for (int j = 0; j < batches.Length; j++)
+                            batches[j].Rows.Add(rows[j]);
+
+                        swReading.Stop();
                     }
+
+                    //every 100 and last batch
+                    if (i % 100 == 0 || i == opts.NumberOfStudies - 1)
+                    {
+                        swUploading.Start();
+                        for (var j = 0; j < uploaders.Length; j++)
+                        {
+                            uploaders[j].Upload(batches[j]);
+                            batches[j].Rows.Clear();
+                        }
+                        swUploading.Stop();
+                        Console.WriteLine($"{DateTime.Now} Done {i} studies");
+                    }
+                            
                 }
             }
             finally
@@ -398,9 +393,9 @@ namespace BadDicom
                 }
             }
             
-            Console.WriteLine("Total time Generating Dicoms:" + swGeneration.Elapsed);
-            Console.WriteLine("Total time Reading Dicoms:" + swReading.Elapsed);
-            Console.WriteLine("Total time Uploading Records:" + swUploading.Elapsed);
+            Console.WriteLine($"Total time Generating Dicoms:{swGeneration.Elapsed}");
+            Console.WriteLine($"Total time Reading Dicoms:{swReading.Elapsed}");
+            Console.WriteLine($"Total time Uploading Records:{swUploading.Elapsed}");
 
         }
     }

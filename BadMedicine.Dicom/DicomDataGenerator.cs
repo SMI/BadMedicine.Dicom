@@ -1,5 +1,5 @@
 ﻿using BadMedicine.Datasets;
-using Dicom;
+using FellowOakDicom;
 using System;
 using System.IO;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace BadMedicine.Dicom
         /// </summary>
         public FileSystemLayout Layout{
             get => _pathProvider.Layout;
-            set => _pathProvider = new FileSystemLayoutProvider(value);
+            set => _pathProvider = new(value);
         }
         
         /// <summary>
@@ -48,9 +48,9 @@ namespace BadMedicine.Dicom
         /// </summary>
         public int MaximumImages { get; set; } = int.MaxValue;
 
-        private FileSystemLayoutProvider _pathProvider = new FileSystemLayoutProvider(FileSystemLayout.StudyYearMonthDay);
+        private FileSystemLayoutProvider _pathProvider = new(FileSystemLayout.StudyYearMonthDay);
 
-        readonly PixelDrawer drawing = new PixelDrawer();
+        readonly PixelDrawer drawing = new();
 
         private readonly int[] _modalities;
 
@@ -60,7 +60,7 @@ namespace BadMedicine.Dicom
         private string _lastStudyUID = "";
         private string _lastSeriesUID = "";
         private CsvWriter studyWriter, seriesWriter, imageWriter;
-        private DicomAnonymizer _anonymizer = new DicomAnonymizer();
+        private DicomAnonymizer _anonymizer = new();
 
         /// <summary>
         /// Name of the file that contains distinct Study level records for all images when <see cref="Csv"/> is true
@@ -101,7 +101,8 @@ namespace BadMedicine.Dicom
                 foreach(var m in modalities)
                 {
                     if(!stats.ModalityIndexes.ContainsKey(m))
-                        throw new ArgumentException("Modality '" + m + "' was not supported, supported modalities are:" + string.Join(",",stats.ModalityIndexes.Select(kvp=>kvp.Key)));
+                        throw new ArgumentException(
+                            $"Modality '{m}' was not supported, supported modalities are:{string.Join(",", stats.ModalityIndexes.Select(kvp => kvp.Key))}");
                 }
 
                 _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
@@ -171,7 +172,7 @@ namespace BadMedicine.Dicom
         public DicomDataset[] GenerateStudyImages(Person p, out Study study)
         {        
             //generate a study
-            study = new Study(this,p,GetRandomModality(r),r);
+            study = new(this,p,GetRandomModality(r),r);
 
             return study.SelectMany(series=>series).ToArray();
         }
@@ -213,16 +214,16 @@ namespace BadMedicine.Dicom
             
             //patient details
             ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
-            ds.AddOrUpdate(DicomTag.PatientName, p.Forename + " " + p.Surname);
+            ds.AddOrUpdate(DicomTag.PatientName, $"{p.Forename} {p.Surname}");
             ds.AddOrUpdate(DicomTag.PatientBirthDate, p.DateOfBirth);
 
             if (p.Address != null)
             {
-                string s = p.Address.Line1 + " " + p.Address.Line2 + " " + p.Address.Line3 + " " + p.Address.Line4 +
-                           " " + p.Address.Postcode.Value;
+                string s =
+                    $"{p.Address.Line1} {p.Address.Line2} {p.Address.Line3} {p.Address.Line4} {p.Address.Postcode.Value}";
 
                 ds.AddOrUpdate(DicomTag.PatientAddress,
-                    s.Substring(0,Math.Min(s.Length,64)) //LO only allows 64 characters
+                    s[..Math.Min(s.Length,64)] //LO only allows 64 characters
                     );
             }
 
@@ -242,7 +243,7 @@ namespace BadMedicine.Dicom
             var age = series.SeriesDate.Year - p.DateOfBirth.Year;
             // Go back to the year the person was born in case of a leap year
             if (p.DateOfBirth.Date > series.SeriesDate.AddYears(-age)) age--;
-                ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge,age.ToString("000") + "Y"));
+                ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge, $"{age:000}Y"));
             
             if(!NoPixels)
                 drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
@@ -298,7 +299,7 @@ namespace BadMedicine.Dicom
                 return;
             csvInitialized = true;
 
-            _studyTags = new List<DicomTag>()
+            _studyTags = new()
             {
                 DicomTag.PatientID,
                 DicomTag.StudyInstanceUID,
@@ -311,7 +312,7 @@ namespace BadMedicine.Dicom
                 DicomTag.PatientBirthDate
             };
 
-            _seriesTags = new List<DicomTag>()
+            _seriesTags = new()
             {
                 DicomTag.StudyInstanceUID,
                 DicomTag.SeriesInstanceUID,
@@ -333,7 +334,7 @@ namespace BadMedicine.Dicom
             };
 
 
-            _imageTags = new List<DicomTag>()
+            _imageTags = new()
             {
                 DicomTag.SeriesInstanceUID,
                 DicomTag.SOPInstanceUID,
@@ -369,9 +370,9 @@ namespace BadMedicine.Dicom
             if (OutputDir != null)
             {
                 // Create/open CSV files
-                studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
-                seriesWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
-                imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
+                studyWriter = new(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
+                seriesWriter = new(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
+                imageWriter = new(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
                 
                 // Write header
                 WriteData("STUDY>>", studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));

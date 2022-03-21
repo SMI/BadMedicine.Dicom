@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +9,15 @@ namespace BadMedicine.Dicom
     internal class DicomDataGeneratorStats
     {
         private static DicomDataGeneratorStats _instance;
-        private static readonly object InstanceLock = new object();
+        private static readonly object InstanceLock = new();
 
 
         /// <summary>
         /// Dictionary of Modality=>Tag=>FrequencyOfEachValue
         /// </summary>
-        public readonly Dictionary<string, Dictionary<DicomTag, BucketList<string>>> TagValuesByModalityAndTag = new Dictionary<string, Dictionary<DicomTag, BucketList<string>>>();
+        public readonly Dictionary<string, Dictionary<DicomTag, BucketList<string>>> TagValuesByModalityAndTag = new();
         public BucketList<ModalityStats> ModalityFrequency;
-        public Dictionary<string,int> ModalityIndexes = new Dictionary<string, int>();
+        public Dictionary<string,int> ModalityIndexes = new();
 
         /// <summary>
         /// Distribution of time of day (in hours only) that tests were taken
@@ -35,15 +35,15 @@ namespace BadMedicine.Dicom
             InitializeModalityFrequency(r);
             InitializeImageType();
 
-            InitializeHourOfDay(r);
+            InitializeHourOfDay();
         }
 
-        private void InitializeHourOfDay(Random r)
+        private static void InitializeHourOfDay()
         {
             //Provenance:
             //select DATEPART(HOUR,StudyTime),work.dbo.get_aggregate_value(count(*)) from CT_Godarts_StudyTable group by DATEPART(HOUR,StudyTime)
 
-            HourOfDay = new BucketList<int>();
+            HourOfDay = new();
             
             HourOfDay.Add(1,1);
             HourOfDay.Add(4,1);
@@ -76,10 +76,10 @@ namespace BadMedicine.Dicom
         {
             var ts = new TimeSpan(0,HourOfDay.GetRandom(r),r.Next(60),r.Next(60),0);
             
-            ts = ts.Subtract(new TimeSpan(ts.Days,0,0,0));
+            ts = ts.Subtract(new(ts.Days,0,0,0));
 
             if(ts.Days != 0)
-                throw new Exception("What!");
+                throw new("What!");
 
             return ts;
         }
@@ -96,71 +96,66 @@ namespace BadMedicine.Dicom
         /// <returns></returns>
         public string GetRandomAccessionNumber(Random r)
         {
-            return 'T' + r.Next(4) + r.Next(2) + r.Next(5) + "H" + r.Next(9999999);
+            return $"T{r.Next(4)}{r.Next(2)}{r.Next(5)}H{r.Next(9999999)}";
         }
 
         private void InitializeModalityFrequency(Random r)
         {
-            using (DataTable dt = new DataTable())
+            using DataTable dt = new();
+            dt.Columns.Add("Frequency", typeof(int));
+            dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
+            dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
+            dt.Columns.Add("AverageImagesPerSeries", typeof(double));
+            dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
+
+            DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
+
+            ModalityFrequency = new();
+
+            int idx = 0;
+            foreach (DataRow dr in dt.Rows)
             {
+                string modality = (string)dr["Modality"];
+                ModalityFrequency.Add((int)dr["Frequency"],
+                    new(
+                        modality,
+                        (double)dr["AverageSeriesPerStudy"],
+                        (double)dr["StandardDeviationSeriesPerStudy"],
+                        (double)dr["AverageImagesPerSeries"],
+                        (double)dr["StandardDeviationImagesPerSeries"],
+                        r
+                    ));
 
-                dt.Columns.Add("Frequency", typeof(int));
-                dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
-                dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
-                dt.Columns.Add("AverageImagesPerSeries", typeof(double));
-                dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
-
-                DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
-
-                ModalityFrequency = new BucketList<ModalityStats>();
-
-                int idx = 0;
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string modality = (string)dr["Modality"];
-                    ModalityFrequency.Add((int)dr["Frequency"],
-                        new ModalityStats(
-                            modality,
-                            (double)dr["AverageSeriesPerStudy"],
-                            (double)dr["StandardDeviationSeriesPerStudy"],
-                            (double)dr["AverageImagesPerSeries"],
-                            (double)dr["StandardDeviationImagesPerSeries"],
-                            r
-                            ));
-
-                    ModalityIndexes.Add(modality, idx++);
-                }
+                ModalityIndexes.Add(modality, idx++);
             }
         }
 
         private void InitializeTagValuesByModalityAndTag()
         {
-            using (DataTable dt = new DataTable())
+            using DataTable dt = new();
+            dt.Columns.Add("Frequency", typeof(int));
+
+            DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
+
+            foreach (DataRow dr in dt.Rows)
             {
-                dt.Columns.Add("Frequency", typeof(int));
+                var modality = (string)dr["Modality"];
+                var tag = DicomDictionary.Default[(string)dr["Tag"]];
 
-                DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
+                if (!TagValuesByModalityAndTag.ContainsKey(modality))
+                    TagValuesByModalityAndTag.Add(modality, new());
 
-                foreach (DataRow dr in dt.Rows)
-                {
-                    var modality = (string)dr["Modality"];
-                    var tag = DicomDictionary.Default[(string)dr["Tag"]];
+                if (!TagValuesByModalityAndTag[modality].ContainsKey(tag))
+                    TagValuesByModalityAndTag[modality].Add(tag, new());
 
-                    if (!TagValuesByModalityAndTag.ContainsKey(modality))
-                        TagValuesByModalityAndTag.Add(modality, new Dictionary<DicomTag, BucketList<string>>());
-
-                    if (!TagValuesByModalityAndTag[modality].ContainsKey(tag))
-                        TagValuesByModalityAndTag[modality].Add(tag, new BucketList<string>());
-
-                    int frequency = (int)dr["Frequency"];
-                    TagValuesByModalityAndTag[modality][tag].Add(frequency, (string)dr["Value"]);
-                }
+                int frequency = (int)dr["Frequency"];
+                TagValuesByModalityAndTag[modality][tag].Add(frequency, (string)dr["Value"]);
             }
         }
 
-        private void InitializeImageType()
+        private static void InitializeImageType()
         {
-            ImageType = new BucketList<string>();
+            ImageType = new();
             
             ImageType.Add(96,"ORIGINAL\\PRIMARY\\AXIAL");
             ImageType.Add(1,"ORIGINAL\\PRIMARY\\LOCALIZER");
@@ -177,7 +172,7 @@ namespace BadMedicine.Dicom
         {
             lock(InstanceLock)
             {
-                return _instance ?? (_instance = new DicomDataGeneratorStats(r));
+                return _instance ??= new(r);
             }
                 
         }
