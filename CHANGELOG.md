@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [0.0.10] - 2022-02-17
+
 ### Dependencies
 
+- Built on .Net 6.0 now
 - Update fo-dicom to 5.0.2
+- Bump HIC.DicomTypeTranslation from 3.0.0 to 4.0.0 
+- Bump NUnit from 3.13.2 to 3.13.3
+- Bump Microsoft.NET.Test.Sdk from 17.0.0 to 17.1.0
+
 
 ## [0.0.10] - 2022-02-17
 
