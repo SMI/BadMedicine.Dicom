@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
       - uses: actions/cache@v2
         with:
           path: ~/.nuget/packages
@@ -22,7 +22,7 @@ jobs:
         run: |
           dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo
           dotnet build -c Debug
-          cd ./BadDicom/bin/Debug/net5.0
+          cd ./BadDicom/bin/Debug/net6.0
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
           mv BadDicom.template.yaml BadDicom.yaml
           dotnet ./BadDicom.dll ./ 50000 10 CT
