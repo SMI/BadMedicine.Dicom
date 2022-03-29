@@ -1,4 +1,4 @@
-﻿using Dicom;
+﻿using FellowOakDicom;
 using NUnit.Framework;
 using System;
 
@@ -16,7 +16,7 @@ namespace BadMedicine.Dicom.Tests
 
             var p = new Person(r);
             
-            Study study = new Study(generator,p,new ModalityStats("MR",2,0,50,0,r),r);
+            Study study = new(generator,p,new("MR",2,0,50,0,r),r);
 
             Assert.AreEqual(2,study.Series.Count);
             Assert.AreEqual(50,study.Series[0].Datasets.Count);
