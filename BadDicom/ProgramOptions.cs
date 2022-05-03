@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BadDicom
 {
-       class ProgramOptions
+    class ProgramOptions
     {
         [Value(0,HelpText = "Output directory to create CSV files in",Required=true)]
         public string OutputDirectory { get; set; }
@@ -36,6 +36,12 @@ namespace BadDicom
 
         [Option('m',"MaxImages",HelpText= "The maximum number of images to generate (regardless of NumberOfStudies)",Default = int.MaxValue)]
         public int MaximumImages { get; set; } = int.MaxValue;
+
+        [Option('o', "Overlay", HelpText = "Type over overlays to add to the images generated.  Defaults to None.", Default = OverlayType.None)]
+        public OverlayType Overlay { get; set; } = OverlayType.None;
+
+        [Option('f', "Frames", HelpText = "The number of image frames to add to the DICOM.  Defaults to 1.",Default = 1)]
+        public int NumberOfFrames { get; set; } = 1;
 
         [Usage]
         public static IEnumerable<Example> Examples
