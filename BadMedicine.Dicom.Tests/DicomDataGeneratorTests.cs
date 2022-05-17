@@ -72,8 +72,7 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(23);
             var person = new Person(r);
-
-            var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT");
+            using var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT") {NoPixels = true};
             
             //generate 100 images
             for(int i = 0 ; i < 100 ; i++)
@@ -82,10 +81,8 @@ namespace BadMedicine.Dicom.Tests
                 var ds = generator.GenerateTestDataset(person, r);
                 Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
             }
-
-            generator.Dispose();
-            
         }
+
         [Test]
         public void Test_Anonymise()
         {

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using CsvHelper;
 
 namespace BadMedicine.Dicom
@@ -23,6 +24,13 @@ namespace BadMedicine.Dicom
         /// Set to true to generate <see cref="DicomDataset"/> without any pixel data.
         /// </summary>
         public bool NoPixels { get; set; }
+
+        /// <summary>
+        /// Set to true to discard the generated DICOM files, usually for testing.
+        /// </summary>
+        public bool DevNull { get; set; } = true;
+
+        private static readonly string devnullpath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)?"NUL":"/dev/null";
 
         /// <summary>
         /// Set to true to run <see cref="DicomAnonymizer"/> on the generated <see cref="DicomDataset"/> before writting to disk.
@@ -140,11 +148,11 @@ namespace BadMedicine.Dicom
                     var f = new DicomFile(ds);
 
                     var fi = _pathProvider.GetPath(OutputDir, f.Dataset);
-                    if(!fi.Directory.Exists)
+                    if(!DevNull && !fi.Directory.Exists)
                         fi.Directory.Create();
 
-                    string fileName = fi.FullName;
-                    f.Save(fileName);
+                    var outFile = new FileStream(DevNull?devnullpath : fi.FullName,FileMode.Create);
+                    f.Save(outFile);
                 }
             }
 
