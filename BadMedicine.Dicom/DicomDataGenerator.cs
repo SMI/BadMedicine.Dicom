@@ -28,9 +28,9 @@ namespace BadMedicine.Dicom
         /// <summary>
         /// Set to true to discard the generated DICOM files, usually for testing.
         /// </summary>
-        public bool DevNull { get; set; } = true;
+        private bool DevNull { get; }
 
-        private static readonly string devnullpath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)?"NUL":"/dev/null";
+        private static readonly string DevNullPath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)?"NUL":"/dev/null";
 
         /// <summary>
         /// Set to true to run <see cref="DicomAnonymizer"/> on the generated <see cref="DicomDataset"/> before writting to disk.
@@ -96,7 +96,7 @@ namespace BadMedicine.Dicom
         /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
         public DicomDataGenerator(Random r, string outputDir, params string[] modalities):base(r)
         {
-            DevNull = outputDir.Equals("/dev/null", StringComparison.InvariantCulture);
+            DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)??true;
             OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir);
             
             var stats = DicomDataGeneratorStats.GetInstance(r);
@@ -156,7 +156,7 @@ namespace BadMedicine.Dicom
                             fi.Directory.Create();
                     }
 
-                    using var outFile = new FileStream(fi?.FullName ?? devnullpath, FileMode.Create);
+                    using var outFile = new FileStream(fi?.FullName ?? DevNullPath, FileMode.Create);
                     f.Save(outFile);
                 }
             }

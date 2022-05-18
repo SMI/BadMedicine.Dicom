@@ -142,7 +142,9 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(500);
 
-            var outputDir = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
+            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory,nameof(Test_CsvOption)));
+            if (outputDir.Exists)
+                outputDir.Delete(true);
             outputDir.Create();
 
             var people = new PersonCollection();
