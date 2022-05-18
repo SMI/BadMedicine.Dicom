@@ -7,6 +7,7 @@ using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace BadMedicine.Dicom;
 
@@ -25,7 +26,7 @@ internal class PixelDrawer
         img.AsSharpImage().Mutate(x=>x.Fill(Color.Black));
         img.AsSharpImage().Mutate(x=>x.DrawText(msg,Font,Color.White,new PointF(250,100)));
         var memory = new Span<byte>(new byte[img.Pixels.ByteSize]);
-        img.RenderedImage.CopyPixelDataTo(memory);
+        img.RenderedImage.CloneAs<Rgb24>().CopyPixelDataTo(memory);
         MemoryByteBuffer buffer = new(memory.ToArray());
             
         ds.Add(DicomTag.PhotometricInterpretation, PhotometricInterpretation.Rgb.Value);
