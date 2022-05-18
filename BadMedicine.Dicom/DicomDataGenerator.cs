@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using CsvHelper;
 
 namespace BadMedicine.Dicom
@@ -23,6 +24,13 @@ namespace BadMedicine.Dicom
         /// Set to true to generate <see cref="DicomDataset"/> without any pixel data.
         /// </summary>
         public bool NoPixels { get; set; }
+
+        /// <summary>
+        /// Set to true to discard the generated DICOM files, usually for testing.
+        /// </summary>
+        private bool DevNull { get; }
+
+        private static readonly string DevNullPath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)?"NUL":"/dev/null";
 
         /// <summary>
         /// Set to true to run <see cref="DicomAnonymizer"/> on the generated <see cref="DicomDataset"/> before writting to disk.
@@ -86,9 +94,10 @@ namespace BadMedicine.Dicom
         /// <param name="outputDir"></param>
         /// <param name="modalities">List of modalities to generate from e.g. CT,MR.  The frequency of images generated is based on
         /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
-        public DicomDataGenerator(Random r, DirectoryInfo outputDir, params string[] modalities):base(r)
+        public DicomDataGenerator(Random r, string outputDir, params string[] modalities):base(r)
         {
-            OutputDir = outputDir;
+            DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)??true;
+            OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir);
             
             var stats = DicomDataGeneratorStats.GetInstance(r);
 
@@ -139,12 +148,16 @@ namespace BadMedicine.Dicom
                 {
                     var f = new DicomFile(ds);
 
-                    var fi = _pathProvider.GetPath(OutputDir, f.Dataset);
-                    if(!fi.Directory.Exists)
-                        fi.Directory.Create();
+                    FileInfo fi=null;
+                    if (!DevNull)
+                    {
+                        fi = _pathProvider.GetPath(OutputDir, f.Dataset);
+                        if (fi.Directory is { Exists: false })
+                            fi.Directory.Create();
+                    }
 
-                    string fileName = fi.FullName;
-                    f.Save(fileName);
+                    using var outFile = new FileStream(fi?.FullName ?? DevNullPath, FileMode.Create);
+                    f.Save(outFile);
                 }
             }
 
