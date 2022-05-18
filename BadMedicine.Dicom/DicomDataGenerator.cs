@@ -94,9 +94,10 @@ namespace BadMedicine.Dicom
         /// <param name="outputDir"></param>
         /// <param name="modalities">List of modalities to generate from e.g. CT,MR.  The frequency of images generated is based on
         /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
-        public DicomDataGenerator(Random r, DirectoryInfo outputDir, params string[] modalities):base(r)
+        public DicomDataGenerator(Random r, string outputDir, params string[] modalities):base(r)
         {
-            OutputDir = outputDir;
+            DevNull = outputDir.Equals("/dev/null", StringComparison.InvariantCulture);
+            OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir);
             
             var stats = DicomDataGeneratorStats.GetInstance(r);
 
@@ -147,11 +148,15 @@ namespace BadMedicine.Dicom
                 {
                     var f = new DicomFile(ds);
 
-                    var fi = _pathProvider.GetPath(OutputDir, f.Dataset);
-                    if(!DevNull && !fi.Directory.Exists)
-                        fi.Directory.Create();
+                    FileInfo fi=null;
+                    if (!DevNull)
+                    {
+                        fi = _pathProvider.GetPath(OutputDir, f.Dataset);
+                        if (fi.Directory is { Exists: false })
+                            fi.Directory.Create();
+                    }
 
-                    var outFile = new FileStream(DevNull?devnullpath : fi.FullName,FileMode.Create);
+                    var outFile = new FileStream(fi?.FullName ?? devnullpath, FileMode.Create);
                     f.Save(outFile);
                 }
             }

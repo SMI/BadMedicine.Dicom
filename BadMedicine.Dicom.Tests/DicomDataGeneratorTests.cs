@@ -14,8 +14,7 @@ namespace BadMedicine.Dicom.Tests
         public void Test_CreatingOnDisk_OneFile()
         {
             var r = new Random(500);
-            var root = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
-            var generator = new DicomDataGenerator(r, root) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
+            var generator = new DicomDataGenerator(r, TestContext.CurrentContext.WorkDirectory) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
 
 
             var person = new Person(r);
@@ -24,10 +23,10 @@ namespace BadMedicine.Dicom.Tests
             string studyUid = (string)generator.GenerateTestDataRow(person)[0];
             
             //should be a directory named after the Study UID
-            Assert.IsTrue(Directory.Exists(Path.Combine(root.FullName,studyUid)));
+            Assert.IsTrue(Directory.Exists(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)));
             
             //should be a single file
-            var f = new FileInfo(Directory.GetFiles(Path.Combine(root.FullName,studyUid)).Single());
+            var f = new FileInfo(Directory.GetFiles(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)).Single());
             Assert.IsTrue(f.Exists);
 
             var datasetCreated = DicomFile.Open(f.FullName);
@@ -143,13 +142,13 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(500);
 
-            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory, "TestCsv"));
+            var outputDir = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
             outputDir.Create();
 
             var people = new PersonCollection();
             people.GeneratePeople(100,r);
 
-            using (var generator = new DicomDataGenerator(r,outputDir, "CT"))
+            using (var generator = new DicomDataGenerator(r,outputDir.FullName, "CT"))
             {
                 generator.Csv = true;
                 generator.NoPixels = true;
