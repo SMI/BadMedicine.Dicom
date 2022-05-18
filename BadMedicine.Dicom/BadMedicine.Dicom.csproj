@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="fo-dicom" Version="5.0.2" />
+    <PackageReference Include="fo-dicom.Imaging.ImageSharp" Version="5.0.2" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
@@ -37,8 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HIC.BadMedicine" Version="1.0.0" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="HIC.BadMedicine" Version="1.0.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.1" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta14" />
   </ItemGroup>
 
 </Project>
