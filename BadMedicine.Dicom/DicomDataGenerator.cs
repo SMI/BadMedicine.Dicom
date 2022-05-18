@@ -156,7 +156,7 @@ namespace BadMedicine.Dicom
                             fi.Directory.Create();
                     }
 
-                    var outFile = new FileStream(fi?.FullName ?? devnullpath, FileMode.Create);
+                    using var outFile = new FileStream(fi?.FullName ?? devnullpath, FileMode.Create);
                     f.Save(outFile);
                 }
             }
