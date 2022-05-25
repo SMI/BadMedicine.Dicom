@@ -63,7 +63,7 @@ namespace BadMedicine.Dicom
         {
             /////////////////////// Generate all the Study Values ////////////////////
             Parent = parent;
-            StudyUID = DicomUID.Generate();
+            StudyUID = UIDAllocator.GenerateStudyInstanceUID();
             StudyDate = person.GetRandomDateDuringLifetime(r).Date;
 
             var stats = DicomDataGeneratorStats.GetInstance(r);

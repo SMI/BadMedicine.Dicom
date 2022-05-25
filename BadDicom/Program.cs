@@ -72,6 +72,11 @@ namespace BadDicom
                     return;
                 }
 
+                if(config.UIDs != null)
+                {
+                    config.UIDs.Load();
+                }
+
                 if (config.Database != null)
                 {
                     try
