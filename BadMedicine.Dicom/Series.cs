@@ -21,8 +21,10 @@ namespace BadMedicine.Dicom
         public DateTime SeriesDate { get; internal set; }
         public TimeSpan SeriesTime { get; internal set; }
         public int NumberOfSeriesRelatedInstances { get; }
+        public string SeriesDescription { get; }
+        public string BodyPartExamined { get; }
 
-        internal Series(Study study, Person person, string modality, string imageType, int imageCount)
+        internal Series(Study study, Person person, string modality, string imageType, int imageCount, DescBodyPart part = null)
         {
             SeriesUID = DicomUID.Generate();
 
@@ -36,7 +38,14 @@ namespace BadMedicine.Dicom
             SeriesDate = study.StudyDate;
             SeriesTime = study.StudyTime;
 
-            for(int i =0 ; i<imageCount;i++)
+            if(part != null)
+            {
+                SeriesDescription =  part.SeriesDescription;
+                BodyPartExamined = part.BodyPartExamined;
+            }
+            
+
+            for (int i =0 ; i<imageCount;i++)
                 _datasets.Add(Study.Parent.GenerateTestDataset(person,this));
             
             Datasets = new ReadOnlyCollection<DicomDataset>(_datasets);

@@ -19,6 +19,7 @@ namespace BadMedicine.Dicom
         public BucketList<ModalityStats> ModalityFrequency;
         public Dictionary<string,int> ModalityIndexes = new();
 
+        public readonly Dictionary<string, BucketList<DescBodyPart>> DescBodyPartsByModality = new ();
         /// <summary>
         /// Distribution of time of day (in hours only) that tests were taken
         /// </summary>
@@ -35,8 +36,11 @@ namespace BadMedicine.Dicom
             InitializeModalityFrequency(r);
             InitializeImageType();
 
+            InitializeDescBodyPart();
+
             InitializeHourOfDay();
         }
+
 
         private static void InitializeHourOfDay()
         {
@@ -130,6 +134,38 @@ namespace BadMedicine.Dicom
             }
         }
 
+        private void InitializeDescBodyPart()
+        {
+            using DataTable dt = new();
+            dt.Columns.Add("Modality", typeof(string));
+            dt.Columns.Add("StudyDescription", typeof(string));
+            dt.Columns.Add("BodyPartExamined", typeof(string));
+            dt.Columns.Add("SeriesDescription", typeof(string));
+            dt.Columns.Add("series_count", typeof(int));
+
+            DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorDescBodyPart.csv", dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var modality = (string)dr["Modality"];
+
+                // first time we have seen this modality
+                if(!DescBodyPartsByModality.ContainsKey(modality))
+                {
+                    DescBodyPartsByModality.Add(modality, new ());
+                }
+
+                var part = new DescBodyPart
+                {
+                    StudyDescription = dr["StudyDescription"] as string,
+                    BodyPartExamined = dr["BodyPartExamined"] as string, // as string deals with DBNull.value
+                    SeriesDescription = dr["SeriesDescription"] as string,
+                };
+
+                // record how often we see this part
+                DescBodyPartsByModality[modality].Add((int)dr["series_count"], part);
+            }
+        }
         private void InitializeTagValuesByModalityAndTag()
         {
             using DataTable dt = new();

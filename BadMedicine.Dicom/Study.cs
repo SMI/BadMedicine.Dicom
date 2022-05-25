@@ -14,7 +14,7 @@ namespace BadMedicine.Dicom
         /// <summary>
         /// The Series objects within this Study
         /// </summary>
-        public IReadOnlyList<Series> Series{get;}
+        public IReadOnlyList<Series> Series => _series.AsReadOnly();
 
         /// <summary>
         /// The DicomDataGenerator which created this Study
@@ -106,11 +106,19 @@ namespace BadMedicine.Dicom
                 NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
                 imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
             }
-         
-            Series = new ReadOnlyCollection<Series>(_series);
-            
-            for(int i=0;i<NumberOfStudyRelatedInstances;i++)
-                _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount));
+
+            // see if we have a better StudyDescription / SeriesDescription / BodyPart value set for
+            // this modality
+            DescBodyPart part = null;
+
+            if (stats.DescBodyPartsByModality.ContainsKey(modalityStats.Modality))
+            {
+                part = stats.DescBodyPartsByModality[modalityStats.Modality].GetRandom(r);
+                StudyDescription = part.StudyDescription;
+            }
+
+            for (int i=0;i<NumberOfStudyRelatedInstances;i++)
+                _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount,part));
         }
 
 

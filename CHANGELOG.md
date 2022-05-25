@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ...
+
+- Added linked statistics for frequency of StudyDescription, SeriesDescription and BodyPartExamined for CT
+
 ## [0.0.12] - 2022-05-18
 
 - Fixed memory leaks generating pixel data when running in linux
