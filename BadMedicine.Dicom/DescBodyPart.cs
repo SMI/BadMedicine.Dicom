@@ -1,4 +1,6 @@
-﻿namespace BadMedicine.Dicom
+﻿using FellowOakDicom;
+
+namespace BadMedicine.Dicom
 {
     /// <summary>
     /// <para>
@@ -16,8 +18,22 @@
     /// </summary>
     public class DescBodyPart
     {
+        /// <summary>
+        /// A known value of <see cref="DicomTag.StudyDescription"/> which is consistent with
+        /// <see cref="BodyPartExamined"/> and <see cref="SeriesDescription"/> (of this class)
+        /// </summary>
         public string StudyDescription { get; set; }
+
+        /// <summary>
+        /// A known value of <see cref="DicomTag.BodyPartExamined"/> which is consistent with
+        /// <see cref="StudyDescription"/> and <see cref="SeriesDescription"/> (of this class)
+        /// </summary>
         public string BodyPartExamined { get; set; }
+
+        /// <summary>
+        /// A known value of <see cref="DicomTag.SeriesDescription"/> which is consistent with
+        /// <see cref="BodyPartExamined"/> and <see cref="StudyDescription"/> (of this class)
+        /// </summary>
         public string SeriesDescription { get; set; }
     }
 }

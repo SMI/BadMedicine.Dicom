@@ -2,12 +2,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace BadMedicine.Dicom
 {
     /// <summary>
-    /// Represents a whole DICOM Study (a collection of Series objects)
+    /// Represents a whole DICOM Study (a collection of Series objects).
+    /// Stores the DICOM tags that fit at the study/patient level hierarchy
+    /// (and are modelled by BadMedicine.Dicom). 
     /// </summary>
     public class Study : IEnumerable<Series>
     {
@@ -121,11 +122,18 @@ namespace BadMedicine.Dicom
                 _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount,part));
         }
 
-
+        /// <summary>
+        /// Returns enumeration of <see cref="Series"/>
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<Series> GetEnumerator()
         {
             return _series.GetEnumerator();
         }
+        /// <summary>
+        /// Returns IEnumerable of <see cref="Series"/>
+        /// </summary>
+        /// <returns></returns>
 
         IEnumerator IEnumerable.GetEnumerator()
         {
