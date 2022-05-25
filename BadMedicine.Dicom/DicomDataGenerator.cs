@@ -252,6 +252,12 @@ namespace BadMedicine.Dicom
             if(series.Study.StudyDescription != null)
                 ds.AddOrUpdate(DicomTag.StudyDescription,series.Study.StudyDescription);
 
+            if(series.SeriesDescription != null)
+                ds.AddOrUpdate(DicomTag.SeriesDescription, series.SeriesDescription);
+
+            if (series.BodyPartExamined != null)
+                ds.AddOrUpdate(DicomTag.BodyPartExamined, series.BodyPartExamined);
+
             // Calculate the age of the patient at the time the series was taken
             var age = series.SeriesDate.Year - p.DateOfBirth.Year;
             // Go back to the year the person was born in case of a leap year
