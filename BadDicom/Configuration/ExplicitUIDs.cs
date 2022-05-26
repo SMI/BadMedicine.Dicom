@@ -48,13 +48,9 @@ namespace BadDicom.Configuration
 
         private IEnumerable<string> GetUIDsFrom(string path)
         {
-            if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
-            {
-                var lines = File.ReadAllLines(StudyInstanceUIDs);
-                return lines.Where(l => !string.IsNullOrWhiteSpace(l));
-            }
-
-            return Enumerable.Empty<string>();
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(path)) return Enumerable.Empty<string>();
+            
+            return File.ReadLines(StudyInstanceUIDs).Where(l => !string.IsNullOrWhiteSpace(l));
         }
     }
 }
