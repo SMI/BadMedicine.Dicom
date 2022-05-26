@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+- Added support for specifying explicit UIDs to use when generating images
 - Added linked statistics for frequency of StudyDescription, SeriesDescription and BodyPartExamined for CT
 
 ## [0.0.12] - 2022-05-18

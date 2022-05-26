@@ -221,7 +221,7 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
             ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
 
-            DicomUID sopInstanceUID = DicomUID.Generate();
+            DicomUID sopInstanceUID = UIDAllocator.GenerateSOPInstanceUID();
             ds.AddOrUpdate(DicomTag.SOPInstanceUID,sopInstanceUID);
             ds.AddOrUpdate(DicomTag.SOPClassUID , DicomUID.SecondaryCaptureImageStorage);
             

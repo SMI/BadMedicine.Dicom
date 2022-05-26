@@ -13,3 +13,7 @@
   MakeDistinct: true
   #The number of parallel batches to execute (each batch gets the full count of studies then they are merged at the end
   Batches: 1
+UIDs:
+  StudyInstanceUIDs: ./StudyInstanceUIDs.csv
+  SeriesInstanceUIDs: ./SeriesInstanceUIDs.csv
+  SOPInstanceUIDs: ./SOPInstanceUIDs.csv

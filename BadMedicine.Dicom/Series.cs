@@ -86,7 +86,7 @@ namespace BadMedicine.Dicom
 
         internal Series(Study study, Person person, string modality, string imageType, int imageCount, DescBodyPart part = null)
         {
-            SeriesUID = DicomUID.Generate();
+            SeriesUID = UIDAllocator.GenerateSeriesInstanceUID();
 
             this.Study = study;
             this.person = person;
