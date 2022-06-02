@@ -9,8 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.0.13] - 2022-06-02
+
+- Fixed SpiralPitchFactor illegal value of 0.0 [#107](https://github.com/HicServices/BadMedicine.Dicom/issues/107)
 - Added support for specifying explicit UIDs to use when generating images
 - Added linked statistics for frequency of StudyDescription, SeriesDescription and BodyPartExamined for CT
+  - Adds SeriesDescription and BodyPartExamined as new tags now modelled
+  - Changes StudyDescriptions to more accurately match real DICOM CT data (includes some blank fields)
 
 ## [0.0.12] - 2022-05-18
 
@@ -123,7 +128,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.12...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.13...develop
+[0.0.13]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.9...v0.0.10
