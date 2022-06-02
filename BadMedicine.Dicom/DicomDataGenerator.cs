@@ -281,7 +281,7 @@ namespace BadMedicine.Dicom
             ds.AddOrUpdate(DicomTag.SliceLocation, "");
             ds.AddOrUpdate(DicomTag.SliceThickness, "");
             ds.AddOrUpdate(DicomTag.SpacingBetweenSlices, "");
-            ds.AddOrUpdate(DicomTag.SpiralPitchFactor, "0.0");
+            ds.AddOrUpdate(DicomTag.SpiralPitchFactor, "0");
             ds.AddOrUpdate(DicomTag.KVP, "0");
             ds.AddOrUpdate(DicomTag.ExposureTime, "0");
             ds.AddOrUpdate(DicomTag.Exposure, "0");
