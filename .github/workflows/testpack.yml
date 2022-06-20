@@ -22,7 +22,7 @@ jobs:
         run: |
           dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo -c Release
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
-          mv BadDicom/BadDicom.template.yaml BadDicom.yaml
+          cp BadDicom/BadDicom.template.yaml BadDicom.yaml
           dotnet run --project BadDicom/BadDicom.csproj -- ./ 50000 10 CT
           sed -i "s/Batches: 1/Batches: 5/g" ./BadDicom.yaml
           sed -i "s/DropTables: false/DropTables: true/g" ./BadDicom.yaml
