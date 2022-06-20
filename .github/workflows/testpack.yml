@@ -20,16 +20,13 @@ jobs:
         run: sudo systemctl start mysql.service
       - name: Test
         run: |
-          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo
-          dotnet build -c Debug
-          cd ./BadDicom/bin/Debug/net6.0
+          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo -c Release
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
-          mv BadDicom.template.yaml BadDicom.yaml
-          dotnet ./BadDicom.dll ./ 50000 10 CT
+          cp BadDicom/BadDicom.template.yaml BadDicom.yaml
+          dotnet run --project BadDicom/BadDicom.csproj -- ./ 50000 10 CT
           sed -i "s/Batches: 1/Batches: 5/g" ./BadDicom.yaml
           sed -i "s/DropTables: false/DropTables: true/g" ./BadDicom.yaml
-          dotnet ./BadDicom.dll ./ 50000 10 CT
-          cd -
+          dotnet run --project BadDicom/BadDicom.csproj -- ./ 50000 10 CT
       - name: Package
         run: |
           mkdir -p dist
