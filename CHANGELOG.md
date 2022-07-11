@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.0.14] - 2022-07-11
+
+### Dependencies
+
+- Bump HIC.DicomTypeTranslation from 4.0.0 to 4.0.1
+- Bump HIC.BadMedicine from 1.0.1 to 1.1.0
+- Bump SixLabors.ImageSharp from 2.1.2 to 2.1.3
+
 ## [0.0.13] - 2022-06-02
 
 - Fixed SpiralPitchFactor illegal value of 0.0 [#107](https://github.com/HicServices/BadMedicine.Dicom/issues/107)
@@ -128,7 +136,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.13...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.14...develop
+[0.0.14]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.10...v0.0.11
