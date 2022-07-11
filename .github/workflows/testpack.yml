@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.0.x'
-      - uses: actions/cache@v3.0.3
+      - uses: actions/cache@v3.0.4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
@@ -20,23 +20,20 @@ jobs:
         run: sudo systemctl start mysql.service
       - name: Test
         run: |
-          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo
-          dotnet build -c Debug
-          cd ./BadDicom/bin/Debug/net6.0
+          dotnet test "./BadMedicine.Dicom.Tests/BadMedicine.Dicom.Tests.csproj" -nologo -c Release
           curl https://raw.githubusercontent.com/HicServices/DicomTypeTranslation/master/Templates/CT.it > ./CT.it
-          mv BadDicom.template.yaml BadDicom.yaml
-          dotnet ./BadDicom.dll ./ 50000 10 CT
+          cp BadDicom/BadDicom.template.yaml BadDicom.yaml
+          dotnet run --project BadDicom/BadDicom.csproj -- ./ 50000 10 CT
           sed -i "s/Batches: 1/Batches: 5/g" ./BadDicom.yaml
           sed -i "s/DropTables: false/DropTables: true/g" ./BadDicom.yaml
-          dotnet ./BadDicom.dll ./ 50000 10 CT
-          cd -
+          dotnet run --project BadDicom/BadDicom.csproj -- ./ 50000 10 CT
       - name: Package
         run: |
           mkdir -p dist
           dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true -p:Version=$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2) -nologo
           for platform in linux win
           do
-            dotnet publish -c Release -r $platform-x64 -o $platform-x64 --self-contained true -nologo -v q
+            dotnet publish BadDicom/BadDicom.csproj -c Release -r $platform-x64 -o $platform-x64 --self-contained true -nologo -v q -p:PublishSingleFile=true -p:DebugType=embedded -p:GenerateDocumentationFile=false
           done
           zip -9r dist/baddicom-win-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).zip ./win-x64
           tar czf dist/baddicom-linux-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).tar.gz ./linux-x64
@@ -45,7 +42,7 @@ jobs:
         run: |
           dotnet nuget push ./BadMedicine.Dicom/bin/Release/HIC.BadMedicine.Dicom.*.nupkg -k ${{ secrets.NUGET_KEY }} --skip-duplicate -s https://api.nuget.org/v3/index.json
       - name: Upload release binaries
-        uses: svenstaro/upload-release-action@2.2.1
+        uses: svenstaro/upload-release-action@2.3.0
         if: contains(github.ref, 'refs/tags/v')
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
