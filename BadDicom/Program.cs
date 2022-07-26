@@ -124,6 +124,8 @@ namespace BadDicom
                 Anonymise = opts.Anonymise,
                 Layout = opts.Layout,
                 MaximumImages = opts.MaximumImages,
+                Overlay = opts.Overlay,
+                NumberOfFrames = opts.NumberOfFrames,
                 Csv = opts.csv,
             };
         }

@@ -1,4 +1,4 @@
-﻿using FellowOakDicom;
+using FellowOakDicom;
 using FellowOakDicom.IO.Buffer;
 using System;
 using System.IO;

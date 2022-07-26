@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using CsvHelper;
+using FellowOakDicom.Imaging;
 
 namespace BadMedicine.Dicom
 {
@@ -42,6 +43,16 @@ namespace BadMedicine.Dicom
         /// disables image file output
         /// </summary>
         public bool Csv { get; set; }
+
+        /// <summary>
+        /// The number of image frames to add to the DICOM.  Defaults to 1.
+        /// </summary>
+        public int NumberOfFrames { get; set; }
+
+        /// <summary>
+        /// Type over overlays to add to the images generated.  Defaults to None.
+        /// </summary>
+        public OverlayType Overlay { get; set; }
 
         /// <summary>
         /// The subdirectories layout to put dicom files into when writting to disk
@@ -86,7 +97,7 @@ namespace BadMedicine.Dicom
         public const string ImageCsvFilename = "image.csv";
 
         private bool csvInitialized = false;
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -265,7 +276,25 @@ namespace BadMedicine.Dicom
                 ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge, $"{age:000}Y"));
             
             if(!NoPixels)
-                drawing.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
+            {
+                DicomPixelData pixels = null;
+
+                for(int i = 0;i<NumberOfFrames;i++)
+                {
+                    if(i == 0)
+                    {
+                        using var bmp = drawing.DrawBlackBoxWithWhiteText(500, 500, sopInstanceUID.UID);
+                        pixels = BitmapToDicom.ImportImage(bmp, ds);
+                    }
+                    else
+                    {
+                        using var bmp = drawing.DrawBlackBoxWithWhiteText(500, 500,$"Frame {i+1}");
+                        BitmapToDicom.AddFrame(bmp, pixels);
+                    }
+
+                }
+            }
+                
 
             // Additional DICOM tags added for the generation of CSV files
             ds.AddOrUpdate(DicomTag.ModalitiesInStudy, series.Modality);
