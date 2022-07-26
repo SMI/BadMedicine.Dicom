@@ -2,19 +2,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace BadMedicine.Dicom
 {
     /// <summary>
-    /// Represents a whole DICOM Study (a collection of Series objects)
+    /// Represents a whole DICOM Study (a collection of Series objects).
+    /// Stores the DICOM tags that fit at the study/patient level hierarchy
+    /// (and are modelled by BadMedicine.Dicom). 
     /// </summary>
     public class Study : IEnumerable<Series>
     {
         /// <summary>
         /// The Series objects within this Study
         /// </summary>
-        public IReadOnlyList<Series> Series{get;}
+        public IReadOnlyList<Series> Series => _series.AsReadOnly();
 
         /// <summary>
         /// The DicomDataGenerator which created this Study
@@ -62,7 +63,7 @@ namespace BadMedicine.Dicom
         {
             /////////////////////// Generate all the Study Values ////////////////////
             Parent = parent;
-            StudyUID = DicomUID.Generate();
+            StudyUID = UIDAllocator.GenerateStudyInstanceUID();
             StudyDate = person.GetRandomDateDuringLifetime(r).Date;
 
             var stats = DicomDataGeneratorStats.GetInstance(r);
@@ -106,18 +107,33 @@ namespace BadMedicine.Dicom
                 NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());
                 imageCount = Math.Max(1,(int)modalityStats.ImagesPerSeriesNormal.Sample());
             }
-         
-            Series = new ReadOnlyCollection<Series>(_series);
-            
-            for(int i=0;i<NumberOfStudyRelatedInstances;i++)
-                _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount));
+
+            // see if we have a better StudyDescription / SeriesDescription / BodyPart value set for
+            // this modality
+            DescBodyPart part = null;
+
+            if (stats.DescBodyPartsByModality.ContainsKey(modalityStats.Modality))
+            {
+                part = stats.DescBodyPartsByModality[modalityStats.Modality].GetRandom(r);
+                StudyDescription = part.StudyDescription;
+            }
+
+            for (int i=0;i<NumberOfStudyRelatedInstances;i++)
+                _series.Add(new(this, person, modalityStats.Modality, imageType, imageCount,part));
         }
 
-
+        /// <summary>
+        /// Returns enumeration of <see cref="Series"/>
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<Series> GetEnumerator()
         {
             return _series.GetEnumerator();
         }
+        /// <summary>
+        /// Returns IEnumerable of <see cref="Series"/>
+        /// </summary>
+        /// <returns></returns>
 
         IEnumerator IEnumerable.GetEnumerator()
         {

@@ -14,8 +14,7 @@ namespace BadMedicine.Dicom.Tests
         public void Test_CreatingOnDisk_OneFile()
         {
             var r = new Random(500);
-            var root = new DirectoryInfo(TestContext.CurrentContext.WorkDirectory);
-            var generator = new DicomDataGenerator(r, root) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
+            var generator = new DicomDataGenerator(r, TestContext.CurrentContext.WorkDirectory) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
 
 
             var person = new Person(r);
@@ -24,10 +23,10 @@ namespace BadMedicine.Dicom.Tests
             string studyUid = (string)generator.GenerateTestDataRow(person)[0];
             
             //should be a directory named after the Study UID
-            Assert.IsTrue(Directory.Exists(Path.Combine(root.FullName,studyUid)));
+            Assert.IsTrue(Directory.Exists(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)));
             
             //should be a single file
-            var f = new FileInfo(Directory.GetFiles(Path.Combine(root.FullName,studyUid)).Single());
+            var f = new FileInfo(Directory.GetFiles(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)).Single());
             Assert.IsTrue(f.Exists);
 
             var datasetCreated = DicomFile.Open(f.FullName);
@@ -72,8 +71,7 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(23);
             var person = new Person(r);
-
-            var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT");
+            using var generator = new DicomDataGenerator(r,new(TestContext.CurrentContext.WorkDirectory),"CT") {NoPixels = true};
             
             //generate 100 images
             for(int i = 0 ; i < 100 ; i++)
@@ -82,10 +80,8 @@ namespace BadMedicine.Dicom.Tests
                 var ds = generator.GenerateTestDataset(person, r);
                 Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
             }
-
-            generator.Dispose();
-            
         }
+
         [Test]
         public void Test_Anonymise()
         {
@@ -146,13 +142,15 @@ namespace BadMedicine.Dicom.Tests
         {
             var r = new Random(500);
 
-            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory, "TestCsv"));
+            var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory,nameof(Test_CsvOption)));
+            if (outputDir.Exists)
+                outputDir.Delete(true);
             outputDir.Create();
 
             var people = new PersonCollection();
             people.GeneratePeople(100,r);
 
-            using (var generator = new DicomDataGenerator(r,outputDir, "CT"))
+            using (var generator = new DicomDataGenerator(r,outputDir.FullName, "CT"))
             {
                 generator.Csv = true;
                 generator.NoPixels = true;

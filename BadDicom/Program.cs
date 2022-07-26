@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BadDicom.Configuration;
 using FellowOakDicom;
@@ -71,6 +72,8 @@ namespace BadDicom
                     return;
                 }
 
+                config.UIDs?.Load();
+
                 if (config.Database != null)
                 {
                     try
@@ -93,8 +96,8 @@ namespace BadDicom
             {
                 IPersonCollection identifiers = GetPeople(opts, out Random r);
                 using var dicomGenerator = GetDataGenerator(opts, identifiers,r, out DirectoryInfo dir);
-                Console.WriteLine($"{DateTime.Now} Starting file generation (to {dir.FullName})" );
-                var targetFile = new FileInfo(Path.Combine(dir.FullName, "DicomFiles.csv"));
+                Console.WriteLine($"{DateTime.Now} Starting file generation (to {dir?.FullName ?? "/dev/null"})" );
+                var targetFile = new FileInfo(dir==null?(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "NUL" : "/dev/null") :Path.Combine(dir.FullName, "DicomFiles.csv"));
                 dicomGenerator.GenerateTestDataFile(identifiers,targetFile,opts.NumberOfStudies);
             }
             catch (Exception e)
@@ -111,12 +114,11 @@ namespace BadDicom
 
         private static DicomDataGenerator GetDataGenerator(ProgramOptions opts, IPersonCollection identifiers,Random r, out DirectoryInfo dir)
         {
-            dir = Directory.CreateDirectory(opts.OutputDirectory);
-
             //Generate the dicom files (of the modalities that the user requested)
             string[] modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :Array.Empty<string>();
 
-            return new(r, dir, modalities)
+            dir = opts.OutputDirectory.Equals("/dev/null",StringComparison.InvariantCulture) ? null : Directory.CreateDirectory(opts.OutputDirectory);
+            return new(r, opts.OutputDirectory, modalities)
             {
                 NoPixels = opts.NoPixels,
                 Anonymise = opts.Anonymise,
