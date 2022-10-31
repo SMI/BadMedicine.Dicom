@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.0.15] - 2022-10-31
+
+### Dependencies
+
+- Bump YamlDotNet from 11.2.1 to 12.0.2
+- Bump HIC.BadMedicine from 1.1.0 to 1.1.1
+- Bump SixLabors.ImageSharp.Drawing from 1.0.0-beta14 to 1.0.0-beta15
+
 ## [0.0.14] - 2022-07-11
 
 ### Dependencies
@@ -136,7 +144,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.14...develop
+[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.15...develop
+[0.0.15]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.11...v0.0.12
