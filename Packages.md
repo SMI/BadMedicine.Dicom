@@ -9,7 +9,7 @@
 
 | Package | Source Code | Version | License | Purpose | Additional Risk Assessment |
 | ------- | ------------| --------| ------- | ------- | -------------------------- |
-| HIC.BadMedicine | [GitHub](https://github.com/HicServices/BadMedicine) | [1.1.1](https://www.nuget.org/packages/HIC.BadMedicine/1.1.1) | [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) | Handles generating baseline random data (patient date of birth, CHI numberts etc)| |
+| HIC.BadMedicine | [GitHub](https://github.com/HicServices/BadMedicine) | [1.1.2](https://www.nuget.org/packages/HIC.BadMedicine/1.1.2) | [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) | Handles generating baseline random data (patient date of birth, CHI numberts etc)| |
 | fo-dicom | [GitHub](https://github.com/fo-dicom/fo-dicom) |[5.0.3](https://www.nuget.org/packages/fo-dicom/5.0.3)|[MS-PL](https://opensource.org/licenses/MS-PL) | Handles reading/writing dicom tags from dicom datasets | |
 | fo-dicom.Imaging.ImageSharp | [GitHub](https://github.com/fo-dicom/fo-dicom) |[5.0.3](https://www.nuget.org/packages/fo-dicom/5.0.3)|[MS-PL](https://opensource.org/licenses/MS-PL) | Handles imaging aspects with fo-dicom | |
 | SixLabors.ImageSharp | [GitHub](https://github.com/SixLabors/ImageSharp) | [2.1.3](https://www.nuget.org/packages/SixLabors.ImageSharp/2.1.3) | [Apache 2.0](https://github.com/SixLabors/ImageSharp/blob/main/LICENSE) | Platform-independent replacement for legacy Windows-only System.Drawing.Common | |
