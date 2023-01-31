@@ -23,4 +23,4 @@
 | NUnit3TestAdapter | [GitHub](https://github.com/nunit/nunit3-vs-adapter)| [4.3.1](https://www.nuget.org/packages/NUnit3TestAdapter/4.3.1) | [MIT](https://opensource.org/licenses/MIT) | Run unit tests from within Visual Studio |
 | Microsoft.NET.Test.Sdk | [GitHub](https://github.com/microsoft/vstest/) | [17.4.1](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/17.4.1) |  [MIT](https://opensource.org/licenses/MIT) | Run unit tests | |
 | NunitXml.TestLogger | [GitHub](https://github.com/spekt/nunit.testlogger) | [3.0.131](https://www.nuget.org/packages/NunitXml.TestLogger/3.0.131) | [MIT](https://opensource.org/licenses/MIT) | Report test results in XML syntax | |
-| XunitXml.TestLogger | [GitHub](https://github.com/spekt/xunit.testlogger) | [3.0.70](https://www.nuget.org/packages/XunitXml.TestLogger/3.0.70) | [MIT](https://opensource.org/licenses/MIT) | Report test results in XML syntax | |
+| XunitXml.TestLogger | [GitHub](https://github.com/spekt/xunit.testlogger) | [3.0.78](https://www.nuget.org/packages/XunitXml.TestLogger/3.0.78) | [MIT](https://opensource.org/licenses/MIT) | Report test results in XML syntax | |
