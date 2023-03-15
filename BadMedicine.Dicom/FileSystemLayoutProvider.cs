@@ -2,70 +2,69 @@
 using System;
 using System.IO;
 
-namespace BadMedicine.Dicom
+namespace BadMedicine.Dicom;
+
+internal class FileSystemLayoutProvider
 {
-    class FileSystemLayoutProvider
+    public FileSystemLayout Layout { get; }
+
+    public FileSystemLayoutProvider(FileSystemLayout layout)
     {
-        public FileSystemLayout Layout { get; }
+        Layout = layout;
+    }
 
-        public FileSystemLayoutProvider(FileSystemLayout layout)
+    public FileInfo GetPath(DirectoryInfo root,DicomDataset ds)
+    {
+        var filename = $"{ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID}.dcm";
+        var date = ds.GetValues<DateTime>(DicomTag.StudyDate);
+
+        switch(Layout)
         {
-            Layout = layout;
-        }
+            case FileSystemLayout.Flat: 
+                return  new FileInfo(Path.Combine(root.FullName,filename));
 
-        public FileInfo GetPath(DirectoryInfo root,DicomDataset ds)
-        {
-            var filename = $"{ds.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID}.dcm";
-            var date = ds.GetValues<DateTime>(DicomTag.StudyDate);
-
-            switch(Layout)
-            {
-                case FileSystemLayout.Flat: 
-                    return  new(Path.Combine(root.FullName,filename));
-
-                case FileSystemLayout.StudyYearMonthDay:
+            case FileSystemLayout.StudyYearMonthDay:
                     
-                    if(date.Length > 0)
-                    {
-                        return  new(Path.Combine(
+                if(date.Length > 0)
+                {
+                    return  new FileInfo(Path.Combine(
                         root.FullName,
                         date[0].Year.ToString(),
                         date[0].Month.ToString(),
                         date[0].Day.ToString(),
                         filename));
-                    }
-                    else
-                        break;
+                }
+                else
+                    break;
 
-                case FileSystemLayout.StudyYearMonthDayAccession:
+            case FileSystemLayout.StudyYearMonthDayAccession:
                     
-                    var acc = ds.GetSingleValue<string>(DicomTag.AccessionNumber);
+                var acc = ds.GetSingleValue<string>(DicomTag.AccessionNumber);
                     
-                    if(date.Length > 0 && !string.IsNullOrWhiteSpace(acc))
-                    {
-                        return  new(Path.Combine(
+                if(date.Length > 0 && !string.IsNullOrWhiteSpace(acc))
+                {
+                    return  new FileInfo(Path.Combine(
                         root.FullName,
                         date[0].Year.ToString(),
                         date[0].Month.ToString(),
                         date[0].Day.ToString(),
                         acc,
                         filename));
-                    }
-                    else
-                        break;
+                }
+                else
+                    break;
 
-                case FileSystemLayout.StudyUID:
+            case FileSystemLayout.StudyUID:
 
-                    return  new(Path.Combine(
-                        root.FullName,
-                        ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
-                        filename));
+                return  new FileInfo(Path.Combine(
+                    root.FullName,
+                    ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
+                    filename));
 
-                default: throw new ArgumentOutOfRangeException();
-            }
-                   
-            return  new(Path.Combine(root.FullName,filename));
+            default: throw new ArgumentOutOfRangeException();
         }
-
+                   
+        return  new FileInfo(Path.Combine(root.FullName,filename));
     }
+
 }
