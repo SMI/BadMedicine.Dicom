@@ -35,6 +35,7 @@ jobs:
           done
           zip -9r dist/baddicom-win-x64-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).zip ./win-x64
           for platform in linux-x64 win-x64 osx-{arm64,x64}
+          do
             tar cJf dist/baddicom-${platform}-v$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2).tar.xz ./$platform
           done
           ls -lh dist
