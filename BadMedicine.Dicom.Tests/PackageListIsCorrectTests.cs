@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
-namespace IsIdentifiable.Tests;
+namespace BadMedicine.Dicom.Tests;
 
 /// <summary>
 /// Tests to confirm that the dependencies in csproj files (NuGet packages) match those in the .nuspec files and that packages.md 
