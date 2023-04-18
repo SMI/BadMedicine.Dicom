@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using MongoDB.Driver.Search;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
