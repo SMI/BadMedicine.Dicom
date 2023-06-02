@@ -92,12 +92,12 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// <param name="outputDir"></param>
     /// <param name="modalities">List of modalities to generate from e.g. CT,MR.  The frequency of images generated is based on
     /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
-    public DicomDataGenerator(Random r, string outputDir, params string[] modalities):base(r)
+    public DicomDataGenerator(Random r, string? outputDir, params string[] modalities):base(r)
     {
         DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)!=false;
         OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir!);
             
-        var stats = DicomDataGeneratorStats.GetInstance(r);
+        var stats = DicomDataGeneratorStats.GetInstance();
 
         if(modalities.Length == 0)
         {
@@ -132,8 +132,8 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             {
                 break;
             }
-            else
-                studyUID = study.StudyUID.UID; //all images will have the same study
+
+            studyUID = study.StudyUID.UID; //all images will have the same study
 
             // ACH : additions to produce some CSV data
             if(Csv)
@@ -199,7 +199,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
     private ModalityStats GetRandomModality(Random _r)
     {
-        return DicomDataGeneratorStats.GetInstance(_r).ModalityFrequency.GetRandom(_modalities,_r);
+        return DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_modalities,_r);
     }
 
     /// <summary>

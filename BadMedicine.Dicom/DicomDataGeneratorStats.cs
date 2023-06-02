@@ -8,32 +8,31 @@ namespace BadMedicine.Dicom;
 
 internal class DicomDataGeneratorStats
 {
-    private static DicomDataGeneratorStats _instance;
-    private static readonly object InstanceLock = new();
+    public static readonly DicomDataGeneratorStats Instance=new();
 
 
     /// <summary>
     /// Dictionary of Modality=>Tag=>FrequencyOfEachValue
     /// </summary>
     public readonly Dictionary<string, Dictionary<DicomTag, BucketList<string>>> TagValuesByModalityAndTag = new();
-    public BucketList<ModalityStats> ModalityFrequency;
+    public readonly BucketList<ModalityStats> ModalityFrequency=new();
     public readonly Dictionary<string,int> ModalityIndexes = new();
 
     public readonly Dictionary<string, BucketList<DescBodyPart>> DescBodyPartsByModality = new ();
     /// <summary>
     /// Distribution of time of day (in hours only) that tests were taken
     /// </summary>
-    public static BucketList<int> HourOfDay;
+    private readonly BucketList<int> _hourOfDay=new();
 
     /// <summary>
     /// CT Image Type
     /// </summary>
-    public static BucketList<string> ImageType;
+    private readonly BucketList<string> _imageType=new();
 
-    private DicomDataGeneratorStats(Random r)
+    private DicomDataGeneratorStats()
     {
         InitializeTagValuesByModalityAndTag();
-        InitializeModalityFrequency(r);
+        InitializeModalityFrequency(new Random());
         InitializeImageType();
 
         InitializeDescBodyPart();
@@ -42,32 +41,29 @@ internal class DicomDataGeneratorStats
     }
 
 
-    private static void InitializeHourOfDay()
+    private void InitializeHourOfDay()
     {
         //Provenance:
         //select DATEPART(HOUR,StudyTime),work.dbo.get_aggregate_value(count(*)) from CT_GoDARTS_StudyTable group by DATEPART(HOUR,StudyTime)
-
-        HourOfDay = new BucketList<int>();
-            
-        HourOfDay.Add(1,1);
-        HourOfDay.Add(4,1);
-        HourOfDay.Add(5,1);
-        HourOfDay.Add(6,1);
-        HourOfDay.Add(8,15);
-        HourOfDay.Add(9,57);
-        HourOfDay.Add(10,36);
-        HourOfDay.Add(11,41);
-        HourOfDay.Add(12,51);
-        HourOfDay.Add(13,55);
-        HourOfDay.Add(14,54);
-        HourOfDay.Add(15,42);
-        HourOfDay.Add(16,44);
-        HourOfDay.Add(17,42);
-        HourOfDay.Add(18,33);
-        HourOfDay.Add(19,1);
-        HourOfDay.Add(20,7);
-        HourOfDay.Add(21,5);
-        HourOfDay.Add(22,8);        
+        _hourOfDay.Add(1,1);
+        _hourOfDay.Add(4,1);
+        _hourOfDay.Add(5,1);
+        _hourOfDay.Add(6,1);
+        _hourOfDay.Add(8,15);
+        _hourOfDay.Add(9,57);
+        _hourOfDay.Add(10,36);
+        _hourOfDay.Add(11,41);
+        _hourOfDay.Add(12,51);
+        _hourOfDay.Add(13,55);
+        _hourOfDay.Add(14,54);
+        _hourOfDay.Add(15,42);
+        _hourOfDay.Add(16,44);
+        _hourOfDay.Add(17,42);
+        _hourOfDay.Add(18,33);
+        _hourOfDay.Add(19,1);
+        _hourOfDay.Add(20,7);
+        _hourOfDay.Add(21,5);
+        _hourOfDay.Add(22,8);        
     }
 
     /// <summary>
@@ -76,9 +72,9 @@ internal class DicomDataGeneratorStats
     /// </summary>
     /// <param name="r"></param>
     /// <returns></returns>
-    public static TimeSpan GetRandomTimeOfDay(Random r)
+    public TimeSpan GetRandomTimeOfDay(Random r)
     {
-        var ts = new TimeSpan(0,HourOfDay.GetRandom(r),r.Next(60),r.Next(60),0);
+        var ts = new TimeSpan(0,_hourOfDay.GetRandom(r),r.Next(60),r.Next(60),0);
             
         ts = ts.Subtract(new TimeSpan(ts.Days,0,0,0));
 
@@ -88,7 +84,7 @@ internal class DicomDataGeneratorStats
         return ts;
     }
 
-    public static string GetRandomImageType(Random r) => ImageType.GetRandom(r);
+    public string GetRandomImageType(Random r) => _imageType.GetRandom(r);
 
     /// <summary>
     /// returns a random string e.g. T101H12451352 where the first letter indicates Tayside and 5th letter indicates Hospital
@@ -100,6 +96,7 @@ internal class DicomDataGeneratorStats
     private void InitializeModalityFrequency(Random r)
     {
         using DataTable dt = new();
+        dt.BeginLoadData();
         dt.Columns.Add("Frequency", typeof(int));
         dt.Columns.Add("AverageSeriesPerStudy", typeof(double));
         dt.Columns.Add("StandardDeviationSeriesPerStudy", typeof(double));
@@ -107,8 +104,7 @@ internal class DicomDataGeneratorStats
         dt.Columns.Add("StandardDeviationImagesPerSeries", typeof(double));
 
         DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorModalities.csv", dt);
-
-        ModalityFrequency = new BucketList<ModalityStats>();
+        dt.EndLoadData();
 
         var idx = 0;
         foreach (DataRow dr in dt.Rows)
@@ -164,9 +160,11 @@ internal class DicomDataGeneratorStats
     private void InitializeTagValuesByModalityAndTag()
     {
         using DataTable dt = new();
+        dt.BeginLoadData();
         dt.Columns.Add("Frequency", typeof(int));
 
         DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorTags.csv", dt);
+        dt.EndLoadData();
 
         foreach (DataRow dr in dt.Rows)
         {
@@ -184,27 +182,19 @@ internal class DicomDataGeneratorStats
         }
     }
 
-    private static void InitializeImageType()
+    private void InitializeImageType()
     {
-        ImageType = new BucketList<string>();
-            
-        ImageType.Add(96,"ORIGINAL\\PRIMARY\\AXIAL");
-        ImageType.Add(1,"ORIGINAL\\PRIMARY\\LOCALIZER");
-        ImageType.Add(3,"DERIVED\\SECONDARY");
+        _imageType.Add(96,"ORIGINAL\\PRIMARY\\AXIAL");
+        _imageType.Add(1,"ORIGINAL\\PRIMARY\\LOCALIZER");
+        _imageType.Add(3,"DERIVED\\SECONDARY");
     }
 
     /// <summary>
-    /// Returns the existing stats for tag popularity, modality frequencies etc.  If stats have not been loaded they are loaded
-    /// and primed with the Random <paramref name="r"/> (otherwise <paramref name="r"/> is ignored).
+    /// Returns the existing stats for tag popularity, modality frequencies etc.
     /// </summary>
-    /// <param name="r"></param>
     /// <returns></returns>
-    public static DicomDataGeneratorStats GetInstance(Random r)
+    public static DicomDataGeneratorStats GetInstance()
     {
-        lock(InstanceLock)
-        {
-            return _instance ??= new DicomDataGeneratorStats(r);
-        }
-                
+            return Instance;
     }
 }

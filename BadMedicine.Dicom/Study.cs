@@ -66,7 +66,7 @@ public class Study : IEnumerable<Series>
         StudyUID = UIDAllocator.GenerateStudyInstanceUID();
         StudyDate = person.GetRandomDateDuringLifetime(r).Date;
 
-        var stats = DicomDataGeneratorStats.GetInstance(r);
+        var stats = DicomDataGeneratorStats.GetInstance();
 
         string imageType;
         NumberOfStudyRelatedInstances = 1;
@@ -84,7 +84,7 @@ public class Study : IEnumerable<Series>
             }
 
         AccessionNumber = DicomDataGeneratorStats.GetRandomAccessionNumber(r);
-        StudyTime = DicomDataGeneratorStats.GetRandomTimeOfDay(r);
+        StudyTime = DicomDataGeneratorStats.Instance.GetRandomTimeOfDay(r);
 
         /////////////////////  Generate all the Series (will also generate images) /////////////////////
             
@@ -94,7 +94,7 @@ public class Study : IEnumerable<Series>
         if(modalityStats.Modality == "CT")
         {
             // Set ImageType
-            imageType = DicomDataGeneratorStats.GetRandomImageType(r);
+            imageType = DicomDataGeneratorStats.Instance.GetRandomImageType(r);
             if(imageType == "ORIGINAL\\PRIMARY\\AXIAL")
             {
                 NumberOfStudyRelatedInstances = Math.Max(1,(int)modalityStats.SeriesPerStudyNormal.Sample());

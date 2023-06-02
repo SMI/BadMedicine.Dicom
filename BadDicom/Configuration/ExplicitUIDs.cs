@@ -15,17 +15,17 @@ public class ExplicitUIDs
     /// <summary>
     /// Path to a file containing a list of study instance UIDs to use
     /// </summary>
-    public string StudyInstanceUIDs { get; set; }
+    public string? StudyInstanceUIDs { get; set; }
 
     /// <summary>
     /// Path to a file containing a list of series instance UIDs to use
     /// </summary>
-    public string SeriesInstanceUIDs { get; set; }
+    public string? SeriesInstanceUIDs { get; set; }
 
     /// <summary>
     /// Path to a file containing a list of SOP instance UIDs to use
     /// </summary>
-    public string SOPInstanceUIDs { get; set; }
+    public string? SOPInstanceUIDs { get; set; }
 
     /// <summary>
     /// Loads the UID files referenced (if they exist) in the configuration
@@ -48,10 +48,10 @@ public class ExplicitUIDs
             UIDAllocator.SOPUIDs.Enqueue(u);
     }
 
-    private IEnumerable<string> GetUIDsFrom(string path)
+    private static IEnumerable<string> GetUIDsFrom(string? path)
     {
         if (string.IsNullOrWhiteSpace(path) || !File.Exists(path)) return Enumerable.Empty<string>();
             
-        return File.ReadLines(StudyInstanceUIDs).Where(l => !string.IsNullOrWhiteSpace(l));
+        return File.ReadLines(path).Where(l => !string.IsNullOrWhiteSpace(l));
     }
 }

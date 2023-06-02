@@ -115,7 +115,7 @@ internal class Program
         //Generate the dicom files (of the modalities that the user requested)
         var modalities = string.IsNullOrWhiteSpace(opts.Modalities)? Array.Empty<string>() :opts.Modalities.Split(",");
 
-        dir = opts.OutputDirectory.Equals("/dev/null",StringComparison.InvariantCulture) ? null : Directory.CreateDirectory(opts.OutputDirectory);
+        dir = opts.OutputDirectory?.Equals("/dev/null",StringComparison.InvariantCulture)!=false ? null : Directory.CreateDirectory(opts.OutputDirectory);
         return new DicomDataGenerator(r, opts.OutputDirectory, modalities)
         {
             NoPixels = opts.NoPixels,
