@@ -1,10 +1,12 @@
 ﻿using FAnsi;
+using YamlDotNet.Serialization;
 
 namespace BadDicom.Configuration;
 
 /// <summary>
 /// Identify the target database and configuration for generated data
 /// </summary>
+[YamlSerializable]
 public class TargetDatabase
 {
     /// <summary>

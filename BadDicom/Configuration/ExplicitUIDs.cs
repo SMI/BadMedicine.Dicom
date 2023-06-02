@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using YamlDotNet.Serialization;
 
 namespace BadDicom.Configuration;
 
 /// <summary>
 /// Config section for loading explicit UIDs from disk and using those in file creation
 /// </summary>
+[YamlSerializable]
 public class ExplicitUIDs
 {
     /// <summary>
