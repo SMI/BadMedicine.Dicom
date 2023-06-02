@@ -131,6 +131,7 @@ internal class DicomDataGeneratorStats
     private void InitializeDescBodyPart()
     {
         using DataTable dt = new();
+        dt.BeginLoadData();
         dt.Columns.Add("Modality", typeof(string));
         dt.Columns.Add("StudyDescription", typeof(string));
         dt.Columns.Add("BodyPartExamined", typeof(string));
@@ -138,7 +139,7 @@ internal class DicomDataGeneratorStats
         dt.Columns.Add("series_count", typeof(int));
 
         DataGenerator.EmbeddedCsvToDataTable(typeof(DicomDataGenerator), "DicomDataGeneratorDescBodyPart.csv", dt);
-
+        dt.EndLoadData();
         foreach (DataRow dr in dt.Rows)
         {
             var modality = (string)dr["Modality"];

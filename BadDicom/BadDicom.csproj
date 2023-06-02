@@ -15,6 +15,7 @@
     <DebugType>embedded</DebugType>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishSingleFile>true</PublishSingleFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

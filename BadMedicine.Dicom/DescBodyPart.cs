@@ -22,17 +22,17 @@ public class DescBodyPart
     /// A known value of <see cref="DicomTag.StudyDescription"/> which is consistent with
     /// <see cref="BodyPartExamined"/> and <see cref="SeriesDescription"/> (of this class)
     /// </summary>
-    public string StudyDescription { get; init; }
+    public string? StudyDescription { get; init; }
 
     /// <summary>
     /// A known value of <see cref="DicomTag.BodyPartExamined"/> which is consistent with
     /// <see cref="StudyDescription"/> and <see cref="SeriesDescription"/> (of this class)
     /// </summary>
-    public string BodyPartExamined { get; init; }
+    public string? BodyPartExamined { get; init; }
 
     /// <summary>
     /// A known value of <see cref="DicomTag.SeriesDescription"/> which is consistent with
     /// <see cref="BodyPartExamined"/> and <see cref="StudyDescription"/> (of this class)
     /// </summary>
-    public string SeriesDescription { get; init; }
+    public string? SeriesDescription { get; init; }
 }

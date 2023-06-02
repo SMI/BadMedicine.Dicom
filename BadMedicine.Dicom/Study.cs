@@ -8,7 +8,7 @@ namespace BadMedicine.Dicom;
 /// <summary>
 /// Represents a whole DICOM Study (a collection of Series objects).
 /// Stores the DICOM tags that fit at the study/patient level hierarchy
-/// (and are modeled by BadMedicine.Dicom). 
+/// (and are modelled by BadMedicine.Dicom). 
 /// </summary>
 public class Study : IEnumerable<Series>
 {
@@ -35,7 +35,7 @@ public class Study : IEnumerable<Series>
     /// <summary>
     /// Free-text description of this Study
     /// </summary>
-    public string StudyDescription {get; }
+    public string? StudyDescription {get; }
     /// <summary>
     /// The Accession Number for this Study, usually used to associate the study with clinical data in the RIS
     /// </summary>
@@ -73,8 +73,8 @@ public class Study : IEnumerable<Series>
         var imageCount = 2;
 
         //if we know about the frequency of tag values for this modality?
-        if(stats.TagValuesByModalityAndTag.ContainsKey(modalityStats.Modality))
-            foreach(var (key, value) in stats.TagValuesByModalityAndTag[modalityStats.Modality])
+        if(stats.TagValuesByModalityAndTag.TryGetValue(modalityStats.Modality, out var tag))
+            foreach(var (key, value) in tag)
             {
                 //for each tag we know about
 
@@ -110,12 +110,12 @@ public class Study : IEnumerable<Series>
 
         // see if we have a better StudyDescription / SeriesDescription / BodyPart value set for
         // this modality
-        DescBodyPart part = null;
+        DescBodyPart? part = null;
 
-        if (stats.DescBodyPartsByModality.ContainsKey(modalityStats.Modality))
+        if (stats.DescBodyPartsByModality.TryGetValue(modalityStats.Modality, out var stat))
         {
-            part = stats.DescBodyPartsByModality[modalityStats.Modality].GetRandom(r);
-            StudyDescription = part.StudyDescription;
+            part = stat.GetRandom(r);
+            StudyDescription = part?.StudyDescription;
         }
 
         for (var i=0;i<NumberOfStudyRelatedInstances;i++)

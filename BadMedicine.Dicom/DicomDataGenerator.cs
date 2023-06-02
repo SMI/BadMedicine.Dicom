@@ -18,7 +18,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// <summary>
     /// Location on disk to output dicom files to
     /// </summary>
-    public DirectoryInfo OutputDir { get; }
+    public DirectoryInfo? OutputDir { get; }
 
     /// <summary>
     /// Set to true to generate <see cref="DicomDataset"/> without any pixel data.
@@ -83,7 +83,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// </summary>
     public const string ImageCsvFilename = "image.csv";
 
-    private bool csvInitialized = false;
+    private bool csvInitialized;
 
     /// <summary>
     /// 
@@ -94,8 +94,8 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
     public DicomDataGenerator(Random r, string outputDir, params string[] modalities):base(r)
     {
-        DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)??true;
-        OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir);
+        DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)!=false;
+        OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir!);
             
         var stats = DicomDataGeneratorStats.GetInstance(r);
 
@@ -105,13 +105,9 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         }
         else
         {
-            foreach(var m in modalities)
-            {
-                if(!stats.ModalityIndexes.ContainsKey(m))
-                    throw new ArgumentException(
-                        $"Modality '{m}' was not supported, supported modalities are:{string.Join(",", stats.ModalityIndexes.Select(kvp => kvp.Key))}");
-            }
-
+            if (modalities.Any(m => !stats.ModalityIndexes.ContainsKey(m)))
+                throw new ArgumentException(
+                    $"Modality '{string.Join(',',modalities.Except(stats.ModalityIndexes.Keys))}' not supported, supported modalities are:{string.Join(",", stats.ModalityIndexes.Keys)}");
             _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
         }
     }
@@ -121,13 +117,13 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// </summary>
     /// <param name="p"></param>
     /// <returns></returns>
-    public override object[] GenerateTestDataRow(Person p)
+    public override object?[] GenerateTestDataRow(Person p)
     {
         if(!csvInitialized && Csv)
             InitialiseCSVOutput();
 
         //The currently extracting study
-        string studyUID = null;
+        string? studyUID = null;
 
         foreach (var ds in GenerateStudyImages(p, out var study))
         {
@@ -146,10 +142,10 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             {
                 var f = new DicomFile(ds);
 
-                FileInfo fi=null;
+                FileInfo? fi=null;
                 if (!DevNull)
                 {
-                    fi = _pathProvider.GetPath(OutputDir, f.Dataset);
+                    fi = _pathProvider.GetPath(OutputDir!, f.Dataset);
                     if (fi.Directory is { Exists: false })
                         fi.Directory.Create();
                 }
@@ -160,7 +156,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         }
 
         //in the CSV write only the StudyUID
-        return new object[]{studyUID };
+        return new object?[]{studyUID };
     }
 
     /// <summary>
@@ -297,13 +293,10 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         ds.AddOrUpdate(DicomTag.LossyImageCompressionMethod, "ISO_10918_1");
         ds.AddOrUpdate(DicomTag.LossyImageCompressionRatio, "1");
 
-        if(Anonymise)
-        { 
-            _anonymiser.AnonymizeInPlace(ds);
-            ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
-            ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
-        }
-
+        if (!Anonymise) return ds;
+        _anonymiser.AnonymizeInPlace(ds);
+        ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
+        ds.AddOrUpdate(DicomTag.SeriesInstanceUID, series.SeriesUID);
         return ds;
     }
 
@@ -384,18 +377,16 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             DicomTag.ScanOptions
         };
 
-        if (OutputDir != null)
-        {
-            // Create/open CSV files
-            _studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
-            _seriesWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
-            _imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
+        if (OutputDir == null) return;
+        // Create/open CSV files
+        _studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
+        _seriesWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
+        _imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
                 
-            // Write header
-            WriteData(_studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
-            WriteData(_seriesWriter, _seriesTags.Select(i => i.DictionaryEntry.Keyword));
-            WriteData(_imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
-        }
+        // Write header
+        WriteData(_studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
+        WriteData(_seriesWriter, _seriesTags.Select(i => i.DictionaryEntry.Keyword));
+        WriteData(_imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
     }
 
     private static void WriteData(CsvWriter sw, IEnumerable<string> data)

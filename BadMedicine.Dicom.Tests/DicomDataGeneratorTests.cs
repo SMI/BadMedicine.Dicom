@@ -84,7 +84,7 @@ public class DicomDataGeneratorTests
         var r = new Random(23);
         var person = new Person(r);
 
-        var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT");
+        using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT");
             
         // without anonymisation (default) we get the normal patient ID
         var ds = generator.GenerateTestDataset(person, r);
@@ -100,9 +100,6 @@ public class DicomDataGeneratorTests
         // we get a blank patient ID
         Assert.IsTrue(ds2.Contains(DicomTag.PatientID));
         Assert.AreEqual(string.Empty,ds2.GetString(DicomTag.PatientID));
-
-        generator.Dispose();
-            
     }
     [Test]
     public void Test_CreatingInMemory_Modality_CTAndMR()

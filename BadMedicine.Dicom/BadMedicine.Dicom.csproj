@@ -14,6 +14,7 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <Copyright>Copyright 2019</Copyright>
     <PackageTags>DICOM,Test Data,Random,Synthetic Data,Health</PackageTags>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

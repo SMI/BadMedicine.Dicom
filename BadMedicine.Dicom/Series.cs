@@ -9,7 +9,7 @@ namespace BadMedicine.Dicom;
 /// <summary>
 /// Data class representing a single dicom series.  Stores
 /// the DICOM tags that fit at the series level hierarchy
-/// (and are modeled by BadMedicine.Dicom).
+/// (and are modelled by BadMedicine.Dicom).
 /// </summary>
 public class Series : IEnumerable<DicomDataset>
 {
@@ -55,13 +55,13 @@ public class Series : IEnumerable<DicomDataset>
     /// Date to use for the <see cref="DicomTag.SeriesDate"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public DateTime SeriesDate { get; internal set; }
+    public DateTime SeriesDate { get; }
 
     /// <summary>
     /// Value to use for the <see cref="DicomTag.SeriesTime"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public TimeSpan SeriesTime { get; internal set; }
+    public TimeSpan SeriesTime { get; }
 
 
     /// <summary>
@@ -75,16 +75,16 @@ public class Series : IEnumerable<DicomDataset>
     /// Value to use for the <see cref="DicomTag.SeriesDescription"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public string SeriesDescription { get; }
+    public string? SeriesDescription { get; }
 
 
     /// <summary>
     /// Value to use for the <see cref="DicomTag.BodyPartExamined"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public string BodyPartExamined { get; }
+    public string? BodyPartExamined { get; }
 
-    internal Series(Study study, Person person, string modality, string imageType, int imageCount, DescBodyPart part = null)
+    internal Series(Study study, Person person, string modality, string imageType, int imageCount, DescBodyPart? part = null)
     {
         SeriesUID = UIDAllocator.GenerateSeriesInstanceUID();
 
@@ -98,13 +98,9 @@ public class Series : IEnumerable<DicomDataset>
         SeriesDate = study.StudyDate;
         SeriesTime = study.StudyTime;
 
-        if(part != null)
-        {
-            SeriesDescription =  part.SeriesDescription;
-            BodyPartExamined = part.BodyPartExamined;
-        }
-            
-
+        SeriesDescription =  part?.SeriesDescription;
+        BodyPartExamined = part?.BodyPartExamined;
+        
         for (var i =0 ; i<imageCount;i++)
             _datasets.Add(Study.Parent.GenerateTestDataset(person,this));
             
