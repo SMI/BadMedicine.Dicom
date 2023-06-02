@@ -3,6 +3,6 @@
 namespace BadDicom.Configuration;
 
 [YamlStaticContext]
-internal partial class ConfigContext : StaticContext
+public partial class ConfigContext : StaticContext
 {
 }

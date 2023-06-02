@@ -36,6 +36,7 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="HIC.DicomTypeTranslation" Version="4.0.3" />
+    <PackageReference Include="Vecc.YamlDotNet.Analyzers.StaticGenerator" Version="13.0.2" />
     <PackageReference Include="YamlDotNet" Version="13.1.0" />
   </ItemGroup>
   <ItemGroup>
