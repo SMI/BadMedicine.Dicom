@@ -34,8 +34,7 @@ internal class FileSystemLayoutProvider
                         date[0].Day.ToString(),
                         filename));
                 }
-                else
-                    break;
+                break;
 
             case FileSystemLayout.StudyYearMonthDayAccession:
                     
@@ -51,8 +50,7 @@ internal class FileSystemLayoutProvider
                         acc,
                         filename));
                 }
-                else
-                    break;
+                break;
 
             case FileSystemLayout.StudyUID:
 

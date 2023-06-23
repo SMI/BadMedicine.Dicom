@@ -10,7 +10,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BadDicom.Configuration;
-using FellowOakDicom;
 using DicomTypeTranslation;
 using DicomTypeTranslation.TableCreation;
 using FAnsi.Discovery;
@@ -61,13 +60,12 @@ internal class Program
 
             try
             {
-                var d = new Deserializer();
+                var d = new StaticDeserializerBuilder(new ConfigContext()).Build();
                 config = d.Deserialize<Config>(File.ReadAllText(ConfigFile));
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Error deserializing '{ConfigFile}'");
-                Console.Write(e.ToString());
+                Console.WriteLine($"Error deserializing '{ConfigFile}'{Environment.NewLine}{e}");
                 _returnCode = -1;
                 return;
             }
@@ -112,12 +110,12 @@ internal class Program
         _returnCode = 0;
     }
 
-    private static DicomDataGenerator GetDataGenerator(ProgramOptions opts,Random r, out DirectoryInfo dir)
+    private static DicomDataGenerator GetDataGenerator(ProgramOptions opts,Random r, out DirectoryInfo? dir)
     {
         //Generate the dicom files (of the modalities that the user requested)
-        var modalities = !string.IsNullOrWhiteSpace(opts.Modalities)? opts.Modalities.Split(",") :Array.Empty<string>();
+        var modalities = string.IsNullOrWhiteSpace(opts.Modalities)? Array.Empty<string>() :opts.Modalities.Split(",");
 
-        dir = opts.OutputDirectory.Equals("/dev/null",StringComparison.InvariantCulture) ? null : Directory.CreateDirectory(opts.OutputDirectory);
+        dir = opts.OutputDirectory?.Equals("/dev/null",StringComparison.InvariantCulture)!=false ? null : Directory.CreateDirectory(opts.OutputDirectory);
         return new DicomDataGenerator(r, opts.OutputDirectory, modalities)
         {
             NoPixels = opts.NoPixels,
@@ -144,14 +142,10 @@ internal class Program
         var batchSize = Math.Max(1, configDatabase.Batches);
 
         //if we are going into a database we definitely do not need pixels!
-        if (opts.NoPixels == false)
-            opts.NoPixels = true;
+        opts.NoPixels = true;
 
             
-        Stopwatch swTotal = new();
-
-        swTotal.Start();
-
+        var swTotal = Stopwatch.StartNew();
         const string neverDistinct = "SOPInstanceUID";
 
         if (!File.Exists(configDatabase.Template))
@@ -167,8 +161,7 @@ internal class Program
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error reading yaml from '{configDatabase.Template}'");
-            Console.WriteLine(e.ToString());
+            Console.WriteLine($"Error reading yaml from '{configDatabase.Template}'{Environment.NewLine}{e}");
             return -2;
         }
 
@@ -220,7 +213,7 @@ internal class Program
         for (var i = 0; i < uploaders.Length; i++)
             uploaders[i] = new IBulkCopy[template.Tables.Count];
 
-        var pks = new string[template.Tables.Count];
+        var pks = new string?[template.Tables.Count];
 
         for (var i = 0; i < template.Tables.Count; i++)
         {
@@ -286,22 +279,9 @@ internal class Program
                 uploaders[j][i] = tbl.BeginBulkInsert();
             }
         }
-        var tasks = new Task[batchSize];
-            
         var identifiers = GetPeople(opts, out var r);
 
-        for (var i = 0; i < batchSize; i++)
-        {
-            var batch = i;
-            tasks[i] = new Task(() =>  // lgtm[cs/local-not-disposed]
-            {
-                RunBatch(identifiers,opts,r,batches[batch],uploaders[batch]);
-
-            });
-            tasks[i].Start();
-        }
-
-        Task.WaitAll(tasks);
+        Parallel.For(0, batchSize, i => RunBatch(identifiers, opts, r, batches[i], uploaders[i]));
             
         swTotal.Stop();
 
@@ -341,7 +321,7 @@ internal class Program
                 swGeneration.Start();
 
                 var p = identifiers.People[r.Next(identifiers.People.Length)];
-                var ds = dicomGenerator.GenerateStudyImages(p,out var s);
+                var ds = dicomGenerator.GenerateStudyImages(p,out _);
                         
                 swGeneration.Stop();
 
@@ -358,11 +338,8 @@ internal class Program
                         var column = DicomTypeTranslaterReader.GetColumnNameForTag(item.Tag, false);
                         var value = DicomTypeTranslater.Flatten(DicomTypeTranslaterReader.GetCSharpValue(dataset, item));
 
-                        foreach (var row in rows)
-                        {
-                            if (row.Table.Columns.Contains(column))
-                                row[column] = value ?? DBNull.Value;
-                        }
+                        foreach (var row in rows.Where(row=>row.Table.Columns.Contains(column)))
+                            row[column] = value ?? DBNull.Value;
                     }
 
                     for (var j = 0; j < batches.Length; j++)
@@ -372,7 +349,7 @@ internal class Program
                 }
 
                 //every 100 and last batch
-                if (i % 100 == 0 || i == opts.NumberOfStudies - 1)
+                if (i % 100 != 0 && i != opts.NumberOfStudies - 1) continue;
                 {
                     swUploading.Start();
                     for (var j = 0; j < uploaders.Length; j++)
@@ -383,7 +360,7 @@ internal class Program
                     swUploading.Stop();
                     Console.WriteLine($"{DateTime.Now} Done {i} studies");
                 }
-                            
+
             }
         }
         finally

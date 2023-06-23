@@ -18,6 +18,7 @@
 | Microsoft.NETCore.App | [GitHub](https://github.com/dotnet/runtime) |[MIT](https://opensource.org/licenses/MIT) | | .Net Core API|
 | HIC.DicomTypeTranslation | [GitHub](https://github.com/SMI/DicomTypeTranslation)  | [GPL 3.0](https://github.com/SMI/DicomTypeTranslation/blob/master/LICENSE) | | |
 | YamlDotNet | [GitHub](https://github.com/aaubry/YamlDotNet)  | [MIT](https://opensource.org/licenses/MIT) |Loading configuration files|
+| Vecc.YamlDotNet.Analyzers.StaticGenerator | [GitHub](https://github.com/aaubry/YamlDotNet)  | [MIT](https://opensource.org/licenses/MIT) |Extension to YamlDotNet for static processing|
 | CommandLineParser | [GitHub](https://github.com/commandlineparser/commandline) | [MIT](https://opensource.org/licenses/MIT) | Allows command line arguments for main client application and CLI executables |
 | [Nunit](https://nunit.org/) |[GitHub](https://github.com/nunit/nunit) | [MIT](https://opensource.org/licenses/MIT) | Unit testing |
 | NUnit3TestAdapter | [GitHub](https://github.com/nunit/nunit3-vs-adapter)| [MIT](https://opensource.org/licenses/MIT) | Run unit tests from within Visual Studio |

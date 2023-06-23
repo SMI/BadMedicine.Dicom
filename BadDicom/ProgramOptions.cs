@@ -8,7 +8,7 @@ namespace BadDicom;
 internal class ProgramOptions
 {
     [Value(0,HelpText = "Output directory to create CSV files in",Required=true)]
-    public string OutputDirectory { get; set; }
+    public string? OutputDirectory { get; set; }
 
     [Value(1, HelpText = "The number of unique patient identifiers to generate up front and then use in test data",Default = 500)]
     public int NumberOfPatients { get; set; } = 500;
