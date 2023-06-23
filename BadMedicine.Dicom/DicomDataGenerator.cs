@@ -124,7 +124,6 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             DicomTag.LossyImageCompressionRatio,
             DicomTag.ScanOptions
         };
-        ;
     private string _lastStudyUID = "";
     private string _lastSeriesUID = "";
     private CsvWriter? _studyWriter, _seriesWriter, _imageWriter;
