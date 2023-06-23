@@ -198,7 +198,11 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
             // ACH : additions to produce some CSV data
             if(Csv)
-                AddDicomDatasetToCSV(ds);
+                AddDicomDatasetToCSV(
+                    ds,
+                    _studyWriter ?? throw new InvalidOperationException(),
+                    _seriesWriter ?? throw new InvalidOperationException(),
+                    _imageWriter ?? throw new InvalidOperationException());
             else
             {
                 var f = new DicomFile(ds);
@@ -390,23 +394,23 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         sw.NextRecord();
     }
 
-    private void AddDicomDatasetToCSV(DicomDataset ds)
+    private void AddDicomDatasetToCSV(DicomDataset ds,CsvWriter studies,CsvWriter series,CsvWriter images)
     {
         if (_lastStudyUID != ds.GetString(DicomTag.StudyInstanceUID))
         {
             _lastStudyUID = ds.GetString(DicomTag.StudyInstanceUID);
 
-            WriteTags(_studyWriter, StudyTags, ds);
+            WriteTags(studies, StudyTags, ds);
         }
 
         if (_lastSeriesUID != ds.GetString(DicomTag.SeriesInstanceUID))
         {
             _lastSeriesUID = ds.GetString(DicomTag.SeriesInstanceUID);
 
-            WriteTags(_seriesWriter, SeriesTags, ds);
+            WriteTags(series, SeriesTags, ds);
         }
 
-        WriteTags(_imageWriter, ImageTags, ds);
+        WriteTags(images, ImageTags, ds);
     }
 
     private static void WriteTags(CsvWriter sw, IEnumerable<DicomTag> tags, DicomDataset ds)
