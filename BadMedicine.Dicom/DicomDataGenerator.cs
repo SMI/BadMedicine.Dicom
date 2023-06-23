@@ -60,12 +60,74 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
     private readonly int[] _modalities;
 
-    private List<DicomTag> _studyTags;
-    private List<DicomTag> _seriesTags;
-    private List<DicomTag> _imageTags;
+    private static readonly List<DicomTag> StudyTags = new()
+    {
+        DicomTag.PatientID,
+        DicomTag.StudyInstanceUID,
+        DicomTag.StudyDate,
+        DicomTag.StudyTime,
+        DicomTag.ModalitiesInStudy,
+        DicomTag.StudyDescription,
+        DicomTag.PatientAge,
+        DicomTag.NumberOfStudyRelatedInstances,
+        DicomTag.PatientBirthDate
+    };
+    private static readonly List<DicomTag> SeriesTags = new()
+    {
+        DicomTag.StudyInstanceUID,
+        DicomTag.SeriesInstanceUID,
+        DicomTag.SeriesDate,
+        DicomTag.SeriesTime,
+        DicomTag.Modality,
+        DicomTag.ImageType,
+        DicomTag.SourceApplicationEntityTitle,
+        DicomTag.InstitutionName,
+        DicomTag.ProcedureCodeSequence,
+        DicomTag.ProtocolName,
+        DicomTag.PerformedProcedureStepID,
+        DicomTag.PerformedProcedureStepDescription,
+        DicomTag.SeriesDescription,
+        DicomTag.BodyPartExamined,
+        DicomTag.DeviceSerialNumber,
+        DicomTag.NumberOfSeriesRelatedInstances,
+        DicomTag.SeriesNumber
+    };
+    private static readonly List<DicomTag> ImageTags= new()
+        {
+            DicomTag.SeriesInstanceUID,
+            DicomTag.SOPInstanceUID,
+            DicomTag.BurnedInAnnotation,
+            DicomTag.SliceLocation,
+            DicomTag.SliceThickness,
+            DicomTag.SpacingBetweenSlices,
+            DicomTag.SpiralPitchFactor,
+            DicomTag.KVP,
+            DicomTag.ExposureTime,
+            DicomTag.Exposure,
+            DicomTag.ManufacturerModelName,
+            DicomTag.Manufacturer,
+            DicomTag.XRayTubeCurrent,
+            DicomTag.PhotometricInterpretation,
+            DicomTag.ContrastBolusRoute,
+            DicomTag.ContrastBolusAgent,
+            DicomTag.AcquisitionNumber,
+            DicomTag.AcquisitionDate,
+            DicomTag.AcquisitionTime,
+            DicomTag.ImagePositionPatient,
+            DicomTag.PixelSpacing,
+            DicomTag.FieldOfViewDimensions,
+            DicomTag.FieldOfViewDimensionsInFloat,
+            DicomTag.DerivationDescription,
+            DicomTag.TransferSyntaxUID,
+            DicomTag.LossyImageCompression,
+            DicomTag.LossyImageCompressionMethod,
+            DicomTag.LossyImageCompressionRatio,
+            DicomTag.ScanOptions
+        };
+        ;
     private string _lastStudyUID = "";
     private string _lastSeriesUID = "";
-    private CsvWriter _studyWriter, _seriesWriter, _imageWriter;
+    private CsvWriter? _studyWriter, _seriesWriter, _imageWriter;
     private readonly DicomAnonymizer _anonymiser = new();
 
     /// <summary>
@@ -309,74 +371,6 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             return;
         csvInitialized = true;
 
-        _studyTags = new List<DicomTag>
-        {
-            DicomTag.PatientID,
-            DicomTag.StudyInstanceUID,
-            DicomTag.StudyDate,
-            DicomTag.StudyTime,
-            DicomTag.ModalitiesInStudy,
-            DicomTag.StudyDescription,
-            DicomTag.PatientAge,
-            DicomTag.NumberOfStudyRelatedInstances,
-            DicomTag.PatientBirthDate
-        };
-
-        _seriesTags = new List<DicomTag>
-        {
-            DicomTag.StudyInstanceUID,
-            DicomTag.SeriesInstanceUID,
-            DicomTag.SeriesDate,
-            DicomTag.SeriesTime,
-            DicomTag.Modality,
-            DicomTag.ImageType,
-            DicomTag.SourceApplicationEntityTitle,
-            DicomTag.InstitutionName,
-            DicomTag.ProcedureCodeSequence,
-            DicomTag.ProtocolName,
-            DicomTag.PerformedProcedureStepID,
-            DicomTag.PerformedProcedureStepDescription,
-            DicomTag.SeriesDescription,
-            DicomTag.BodyPartExamined,
-            DicomTag.DeviceSerialNumber,
-            DicomTag.NumberOfSeriesRelatedInstances,
-            DicomTag.SeriesNumber
-        };
-
-
-        _imageTags = new List<DicomTag>
-        {
-            DicomTag.SeriesInstanceUID,
-            DicomTag.SOPInstanceUID,
-            DicomTag.BurnedInAnnotation,
-            DicomTag.SliceLocation,
-            DicomTag.SliceThickness,
-            DicomTag.SpacingBetweenSlices,
-            DicomTag.SpiralPitchFactor,
-            DicomTag.KVP,
-            DicomTag.ExposureTime,
-            DicomTag.Exposure,
-            DicomTag.ManufacturerModelName,
-            DicomTag.Manufacturer,
-            DicomTag.XRayTubeCurrent,
-            DicomTag.PhotometricInterpretation,
-            DicomTag.ContrastBolusRoute,
-            DicomTag.ContrastBolusAgent,
-            DicomTag.AcquisitionNumber,
-            DicomTag.AcquisitionDate,
-            DicomTag.AcquisitionTime,
-            DicomTag.ImagePositionPatient,
-            DicomTag.PixelSpacing,
-            DicomTag.FieldOfViewDimensions,
-            DicomTag.FieldOfViewDimensionsInFloat,
-            DicomTag.DerivationDescription,
-            DicomTag.TransferSyntaxUID,
-            DicomTag.LossyImageCompression,
-            DicomTag.LossyImageCompressionMethod,
-            DicomTag.LossyImageCompressionRatio,
-            DicomTag.ScanOptions
-        };
-
         if (OutputDir == null) return;
         // Create/open CSV files
         _studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
@@ -384,9 +378,9 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         _imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
                 
         // Write header
-        WriteData(_studyWriter, _studyTags.Select(i => i.DictionaryEntry.Keyword));
-        WriteData(_seriesWriter, _seriesTags.Select(i => i.DictionaryEntry.Keyword));
-        WriteData(_imageWriter, _imageTags.Select(i => i.DictionaryEntry.Keyword));
+        WriteData(_studyWriter, StudyTags.Select(i => i.DictionaryEntry.Keyword));
+        WriteData(_seriesWriter, SeriesTags.Select(i => i.DictionaryEntry.Keyword));
+        WriteData(_imageWriter, ImageTags.Select(i => i.DictionaryEntry.Keyword));
     }
 
     private static void WriteData(CsvWriter sw, IEnumerable<string> data)
@@ -403,17 +397,17 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         {
             _lastStudyUID = ds.GetString(DicomTag.StudyInstanceUID);
 
-            WriteTags(_studyWriter, _studyTags, ds);
+            WriteTags(_studyWriter, StudyTags, ds);
         }
 
         if (_lastSeriesUID != ds.GetString(DicomTag.SeriesInstanceUID))
         {
             _lastSeriesUID = ds.GetString(DicomTag.SeriesInstanceUID);
 
-            WriteTags(_seriesWriter, _seriesTags, ds);
+            WriteTags(_seriesWriter, SeriesTags, ds);
         }
 
-        WriteTags(_imageWriter, _imageTags, ds);
+        WriteTags(_imageWriter, ImageTags, ds);
     }
 
     private static void WriteTags(CsvWriter sw, IEnumerable<DicomTag> tags, DicomDataset ds)
