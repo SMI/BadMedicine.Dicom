@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Disable disk flush
         run: sudo apt-get install -y libeatmydata1
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
