@@ -1,9 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-
     <TargetFramework>net7.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <StartupObject></StartupObject>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
@@ -16,7 +14,6 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishSingleFile>true</PublishSingleFile>
     <Nullable>enable</Nullable>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
