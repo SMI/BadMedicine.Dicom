@@ -20,11 +20,11 @@ internal class FileSystemLayoutProvider
 
         switch(Layout)
         {
-            case FileSystemLayout.Flat: 
+            case FileSystemLayout.Flat:
                 return  new FileInfo(Path.Combine(root.FullName,filename));
 
             case FileSystemLayout.StudyYearMonthDay:
-                    
+
                 if(date.Length > 0)
                 {
                     return  new FileInfo(Path.Combine(
@@ -37,9 +37,9 @@ internal class FileSystemLayoutProvider
                 break;
 
             case FileSystemLayout.StudyYearMonthDayAccession:
-                    
+
                 var acc = ds.GetSingleValue<string>(DicomTag.AccessionNumber);
-                    
+
                 if(date.Length > 0 && !string.IsNullOrWhiteSpace(acc))
                 {
                     return  new FileInfo(Path.Combine(
@@ -59,9 +59,9 @@ internal class FileSystemLayoutProvider
                     ds.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID,
                     filename));
 
-            default: throw new ArgumentOutOfRangeException();
+            default: throw new ArgumentOutOfRangeException(nameof(Layout));
         }
-                   
+
         return  new FileInfo(Path.Combine(root.FullName,filename));
     }
 
