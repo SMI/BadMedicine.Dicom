@@ -1,5 +1,6 @@
 # BadMedicine.Dicom
-[![Build Status](https://travis-ci.org/SMI/BadMedicine.Dicom.svg?branch=master)](https://travis-ci.org/SMI/BadMedicine.Dicom) [![NuGet Badge](https://buildstats.info/nuget/HIC.BadMedicine.Dicom)](https://www.nuget.org/packages/HIC.BadMedicine.Dicom/)  [![Total alerts](https://img.shields.io/lgtm/alerts/g/SMI/BadMedicine.Dicom.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/SMI/BadMedicine.Dicom/alerts/)
+
+[![NuGet Badge](https://buildstats.info/nuget/HIC.BadMedicine.Dicom)](https://www.nuget.org/packages/HIC.BadMedicine.Dicom/) [![Build, test and package](https://github.com/SMI/BadMedicine.Dicom/actions/workflows/testpack.yml/badge.svg)](https://github.com/SMI/BadMedicine.Dicom/actions/workflows/testpack.yml) [![CodeQL](https://github.com/SMI/BadMedicine.Dicom/actions/workflows/codeql.yml/badge.svg)](https://github.com/SMI/BadMedicine.Dicom/actions/workflows/codeql.yml)
 
 The purpose of BadMedicine.Dicom is to generate large volumes of complex (in terms of tags) dicom images for integration/stress testing ETL and image management tools.
 
