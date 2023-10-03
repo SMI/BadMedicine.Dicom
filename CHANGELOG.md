@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.0.16] - 2023-10-04
+
+### Dependencies
+
+- Bump HIC.BadMedicine from 1.1.0 to 1.1.1
+- Bump SixLabors.ImageSharp.Drawing from 1.0.0-beta15 to 2.0.0
+- Bump SixLabors.ImageSharp from 2.1.3 to 3.0.2
+
 ## [0.0.15] - 2022-10-31
 
 ### Dependencies
