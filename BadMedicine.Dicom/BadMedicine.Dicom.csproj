@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,15 +10,15 @@
     <PackageId>HIC.BadMedicine.Dicom</PackageId>
     <Authors>Health Informatics Centre - University of Dundee</Authors>
     <PackageDescription>Generate large volumes of complex (in terms of tags) DICOM images for integration/stress testing ETL and image management tools.  BadMedicine.Dicom generates DICOM images on demand based on an anonymous aggregate model of tag data found in Scottish medical imaging with a small memory footprint.</PackageDescription>
-    <PackageProjectUrl>https://github.com/HicServices/BadMedicine.Dicom</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/SMI/BadMedicine.Dicom</PackageProjectUrl>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <Copyright>Copyright 2019</Copyright>
     <PackageTags>DICOM,Test Data,Random,Synthetic Data,Health</PackageTags>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="fo-dicom" Version="5.0.3" />
-    <PackageReference Include="fo-dicom.Imaging.ImageSharp" Version="5.0.3" />
+    <PackageReference Include="fo-dicom" Version="5.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
@@ -40,9 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HIC.BadMedicine" Version="1.1.1" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
-    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta15" />
+    <PackageReference Include="HIC.BadMedicine" Version="1.1.2" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.2" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.0.0" />
   </ItemGroup>
 
 </Project>

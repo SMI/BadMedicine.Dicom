@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.0.16] - 2023-10-04
+
+### Dependencies
+
+- Bump HIC.BadMedicine from 1.1.0 to 1.1.1
+- Bump SixLabors.ImageSharp.Drawing from 1.0.0-beta15 to 2.0.0
+- Bump SixLabors.ImageSharp from 2.1.3 to 3.0.2
+
 ## [0.0.15] - 2022-10-31
 
 ### Dependencies
@@ -27,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.13] - 2022-06-02
 
-- Fixed SpiralPitchFactor illegal value of 0.0 [#107](https://github.com/HicServices/BadMedicine.Dicom/issues/107)
+- Fixed SpiralPitchFactor illegal value of 0.0 [#107](https://github.com/SMI/BadMedicine.Dicom/issues/107)
 - Added support for specifying explicit UIDs to use when generating images
 - Added linked statistics for frequency of StudyDescription, SeriesDescription and BodyPartExamined for CT
   - Adds SeriesDescription and BodyPartExamined as new tags now modelled
@@ -144,19 +152,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.15...develop
-[0.0.15]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.14...v0.0.15
-[0.0.14]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.13...v0.0.14
-[0.0.13]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
-[0.0.12]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.11...v0.0.12
-[0.0.11]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.10...v0.0.11
-[0.0.10]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.9...v0.0.10
-[0.0.9]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.8...v0.0.9
-[0.0.8]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.7...v0.0.8
-[0.0.7]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.6...v0.0.7
-[0.0.6]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.5...v0.0.6
-[0.0.5]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.4...v0.0.5
-[0.0.4]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.3...v0.0.4
-[0.0.3]: https://github.com/HicServices/BadMedicine.Dicom/compare/5517d7e29aaf3742e91b86288b85f692a063dba4...v0.0.3
-[0.0.2]: https://github.com/HicServices/BadMedicine.Dicom/compare/v0.0.1...5517d7e29aaf3742e91b86288b85f692a063dba4
-[0.0.1]: https://github.com/HicServices/BadMedicine.Dicom/compare/bdea963df0337e47434c3e72bde7a16a111b99a8...v0.0.1
+[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.15...develop
+[0.0.15]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.14...v0.0.15
+[0.0.14]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.13...v0.0.14
+[0.0.13]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
+[0.0.12]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.11...v0.0.12
+[0.0.11]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.10...v0.0.11
+[0.0.10]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.9...v0.0.10
+[0.0.9]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.8...v0.0.9
+[0.0.8]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.7...v0.0.8
+[0.0.7]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.6...v0.0.7
+[0.0.6]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.5...v0.0.6
+[0.0.5]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.4...v0.0.5
+[0.0.4]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.3...v0.0.4
+[0.0.3]: https://github.com/SMI/BadMedicine.Dicom/compare/5517d7e29aaf3742e91b86288b85f692a063dba4...v0.0.3
+[0.0.2]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.1...5517d7e29aaf3742e91b86288b85f692a063dba4
+[0.0.1]: https://github.com/SMI/BadMedicine.Dicom/compare/bdea963df0337e47434c3e72bde7a16a111b99a8...v0.0.1

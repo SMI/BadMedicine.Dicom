@@ -1,8 +1,10 @@
-﻿namespace BadDicom.Configuration
+﻿using YamlDotNet.Serialization;
+
+namespace BadDicom.Configuration;
+
+[YamlSerializable]
+internal class Config
 {
-    class Config
-    {
-        public TargetDatabase Database { get;set; }
-        public ExplicitUIDs UIDs { get; set; }
-    }
+    public TargetDatabase? Database { get;set; }
+    public ExplicitUIDs? UIDs { get; set; }
 }

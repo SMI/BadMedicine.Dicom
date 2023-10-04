@@ -1,34 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <StartupObject></StartupObject>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <StartupObject>BadDicom.Program</StartupObject>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
+    <DebugType>embedded</DebugType>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishSingleFile>true</PublishSingleFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
   </ItemGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
     <None Remove="BadDicom.template.yaml" />
   </ItemGroup>
@@ -42,8 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="HIC.DicomTypeTranslation" Version="4.0.1" />
-    <PackageReference Include="YamlDotNet" Version="12.0.2" />
+    <PackageReference Include="HIC.DicomTypeTranslation" Version="4.0.3" />
+    <PackageReference Include="Vecc.YamlDotNet.Analyzers.StaticGenerator" Version="13.4.0" />
+    <PackageReference Include="YamlDotNet" Version="13.4.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
