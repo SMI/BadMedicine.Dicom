@@ -17,12 +17,12 @@ public class TargetDatabase
     /// The ConnectionString containing the server name, credentials and other parameters for the connection
     /// </summary>
     public string? ConnectionString { get; set; }
-        
+
     /// <summary>
     /// The name of database
     /// </summary>
     public string? DatabaseName { get; set; }
-        
+
     /// <summary>
     /// The filename of a YAML template file to be used for this database
     /// </summary>

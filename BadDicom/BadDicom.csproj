@@ -33,6 +33,10 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="HIC.DicomTypeTranslation" Version="4.0.3" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Vecc.YamlDotNet.Analyzers.StaticGenerator" Version="13.7.0" />
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>

@@ -26,7 +26,7 @@ internal class PixelDrawer
         img.Mutate(x => x.Fill(Color.Black));
         img.Mutate(x=>x.DrawText(msg,Font,Color.White,new PointF(width/2f,height/2f)));
         img.CopyPixelDataTo(buffer);
-            
+
         ds.Add(DicomTag.PhotometricInterpretation, PhotometricInterpretation.Rgb.Value);
         ds.Add(DicomTag.Rows, (ushort)img.Height);
         ds.Add(DicomTag.Columns, (ushort)img.Width);

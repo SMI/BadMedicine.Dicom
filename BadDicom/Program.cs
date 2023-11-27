@@ -81,7 +81,7 @@ internal class Program
                 }
                 catch (Exception e)
                 {
-                        
+
                     Console.WriteLine(e);
                     _returnCode = 3;
                     return;
@@ -144,7 +144,7 @@ internal class Program
         //if we are going into a database we definitely do not need pixels!
         opts.NoPixels = true;
 
-            
+
         var swTotal = Stopwatch.StartNew();
         const string neverDistinct = "SOPInstanceUID";
 
@@ -171,7 +171,7 @@ internal class Program
         ImplementationManager.Load<MicrosoftSQLImplementation>();
 
         var server = new DiscoveredServer(configDatabase.ConnectionString, configDatabase.DatabaseType);
-           
+
         try
         {
             server.TestConnection();
@@ -183,7 +183,7 @@ internal class Program
             return -2;
         }
 
-            
+
         var db = server.ExpectDatabase(configDatabase.DatabaseName);
 
         if (!db.Exists())
@@ -198,14 +198,14 @@ internal class Program
         }
 
         var creator = new ImagingTableCreation(db.Server.GetQuerySyntaxHelper());
-            
+
         Console.WriteLine($"Image template contained schemas for {template.Tables.Count} tables.  Looking for existing tables..");
-            
+
         //setting up bulk inserters
         var tables = new DiscoveredTable[template.Tables.Count];
         var batches = new DataTable[batchSize][];
 
-        for (var i = 0; i < batches.Length; i++) 
+        for (var i = 0; i < batches.Length; i++)
             batches[i] = new DataTable[template.Tables.Count];
 
         var uploaders= new IBulkCopy[batchSize][];
@@ -259,7 +259,7 @@ internal class Program
                     create = false;
                 }
             }
-                    
+
             if(create)
             {
                 Console.WriteLine($"About to create '{tbl.GetFullyQualifiedName()}'");
@@ -275,21 +275,21 @@ internal class Program
                 var dt = tbl.GetDataTable();
                 dt.Rows.Clear();
 
-                batches[j][i] = dt; 
+                batches[j][i] = dt;
                 uploaders[j][i] = tbl.BeginBulkInsert();
             }
         }
         var identifiers = GetPeople(opts, out var r);
 
         Parallel.For(0, batchSize, i => RunBatch(identifiers, opts, r, batches[i], uploaders[i]));
-            
+
         swTotal.Stop();
 
         for (var i = 0; i < tables.Length; i++)
         {
             if(pks[i] == null)
                 continue;
-                
+
             Console.WriteLine( $"{DateTime.Now} Making table '{tables[i]}' distinct (this may take a long time)");
             var tbl = tables[i];
             tbl.MakeDistinct(500000000);
@@ -297,9 +297,9 @@ internal class Program
             Console.WriteLine( $"{DateTime.Now} Creating primary key on '{tables[i]}' of '{pks[i]}'");
             tbl.CreatePrimaryKey(500000000,tbl.DiscoverColumn(pks[i]));
         }
-            
+
         Console.WriteLine("Final Row Counts:");
-            
+
         foreach (var t in tables)
             Console.WriteLine($"{t.GetFullyQualifiedName()}: {t.GetRowCount():0,0}");
 
@@ -322,14 +322,14 @@ internal class Program
 
                 var p = identifiers.People[r.Next(identifiers.People.Length)];
                 var ds = dicomGenerator.GenerateStudyImages(p,out _);
-                        
+
                 swGeneration.Stop();
 
                 foreach (var dataset in ds)
                 {
                     var rows = new DataRow[batches.Length];
 
-                    for (var j = 0; j < batches.Length; j++) 
+                    for (var j = 0; j < batches.Length; j++)
                         rows[j] = batches[j].NewRow();
 
                     swReading.Start();
@@ -371,7 +371,7 @@ internal class Program
                 batches[i].Dispose();
             }
         }
-            
+
         Console.WriteLine($"Total time Generating Dicoms:{swGeneration.Elapsed}");
         Console.WriteLine($"Total time Reading Dicoms:{swReading.Elapsed}");
         Console.WriteLine($"Total time Uploading Records:{swUploading.Elapsed}");

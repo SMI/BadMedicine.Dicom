@@ -21,45 +21,50 @@ public class DicomDataGeneratorTests
 
         //generates a study but because of maximum images 1 we should only get 1 image being generated
         var studyUid = (string)generator.GenerateTestDataRow(person)[0];
-            
+
         //should be a directory named after the Study UID
-        Assert.IsTrue(Directory.Exists(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)));
-            
+        Assert.That(Directory.Exists(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)));
+
         //should be a single file
         var f = new FileInfo(Directory.GetFiles(Path.Combine(TestContext.CurrentContext.WorkDirectory, studyUid)).Single());
-        Assert.IsTrue(f.Exists);
+        Assert.That(f.Exists);
 
         var datasetCreated = DicomFile.Open(f.FullName);
-            
-        Assert.AreEqual(studyUid,
-            datasetCreated.Dataset.GetValues<DicomUID>(DicomTag.StudyInstanceUID)[0].UID,
-            "UID in the dicom file generated did not match the one output into the CSV inventory file"
-        );
 
-        Assert.IsNotEmpty(datasetCreated.Dataset.GetSingleValue<string>(DicomTag.AccessionNumber));
+        Assert.Multiple(() =>
+        {
+            Assert.That(datasetCreated.Dataset.GetValues<DicomUID>(DicomTag.StudyInstanceUID)[0].UID, Is.EqualTo(studyUid),
+                    "UID in the dicom file generated did not match the one output into the CSV inventory file"
+                );
+
+            Assert.That(datasetCreated.Dataset.GetSingleValue<string>(DicomTag.AccessionNumber), Is.Not.Empty);
+        });
     }
 
-        
+
     [Test]
     public void ExampleUsage()
-    { 
+    {
         //create a test person
         var r = new Random(23);
         var person = new Person(r);
 
-        //create a generator 
+        //create a generator
         using var generator = new DicomDataGenerator(r, null, "CT");
         //create a dataset in memory
         var dataset = generator.GenerateTestDataset(person, r);
 
-        //values should match the patient details
-        Assert.AreEqual(person.CHI,dataset.GetValue<string>(DicomTag.PatientID,0));
-        Assert.GreaterOrEqual(dataset.GetValue<DateTime>(DicomTag.StudyDate,0),person.DateOfBirth);
+        Assert.Multiple(() =>
+        {
+            //values should match the patient details
+            Assert.That(dataset.GetValue<string>(DicomTag.PatientID, 0), Is.EqualTo(person.CHI));
+            Assert.That(dataset.GetValue<DateTime>(DicomTag.StudyDate, 0), Is.GreaterThanOrEqualTo(person.DateOfBirth));
 
-        //should have a study description
-        Assert.IsNotNull(dataset.GetValue<string>(DicomTag.StudyDescription,0));
-        //should have a study description
-        Assert.IsNotNull(dataset.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
+            //should have a study description
+            Assert.That(dataset.GetValue<string>(DicomTag.StudyDescription, 0), Is.Not.Null);
+            //should have a study time
+            Assert.That(dataset.Contains(DicomTag.StudyTime));
+        });
     }
 
     [Test]
@@ -68,13 +73,13 @@ public class DicomDataGeneratorTests
         var r = new Random(23);
         var person = new Person(r);
         using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT") {NoPixels = true};
-            
+
         //generate 100 images
         for(var i = 0 ; i < 100 ; i++)
         {
             //all should be CT because we said CT only
             var ds = generator.GenerateTestDataset(person, r);
-            Assert.AreEqual("CT",ds.GetSingleValue<string>(DicomTag.Modality));
+            Assert.That(ds.GetSingleValue<string>(DicomTag.Modality), Is.EqualTo("CT"));
         }
     }
 
@@ -85,21 +90,27 @@ public class DicomDataGeneratorTests
         var person = new Person(r);
 
         using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT");
-            
+
         // without anonymisation (default) we get the normal patient ID
         var ds = generator.GenerateTestDataset(person, r);
-            
-        Assert.IsTrue(ds.Contains(DicomTag.PatientID));
-        Assert.AreEqual(person.CHI,ds.GetValue<string>(DicomTag.PatientID,0));
-            
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(ds.Contains(DicomTag.PatientID));
+            Assert.That(ds.GetValue<string>(DicomTag.PatientID, 0), Is.EqualTo(person.CHI));
+        });
+
         // with anonymisation
         generator.Anonymise = true;
-            
+
         var ds2 = generator.GenerateTestDataset(person, r);
 
-        // we get a blank patient ID
-        Assert.IsTrue(ds2.Contains(DicomTag.PatientID));
-        Assert.AreEqual(string.Empty,ds2.GetString(DicomTag.PatientID));
+        Assert.Multiple(() =>
+        {
+            // we get a blank patient ID
+            Assert.That(ds2.Contains(DicomTag.PatientID));
+            Assert.That(ds2.GetString(DicomTag.PatientID), Is.EqualTo(string.Empty));
+        });
     }
     [Test]
     public void Test_CreatingInMemory_Modality_CTAndMR()
@@ -108,7 +119,7 @@ public class DicomDataGeneratorTests
         var person = new Person(r);
 
         using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT","MR");
-            
+
         //generate 100 images
         for(var i = 0 ; i < 100 ; i++)
         {
@@ -116,7 +127,7 @@ public class DicomDataGeneratorTests
             var ds = generator.GenerateTestDataset(person, r);
             var modality = ds.GetSingleValue<string>(DicomTag.Modality);
 
-            Assert.IsTrue(modality is "CT" or "MR","Unexpected modality {0}",modality);
+            Assert.That(modality is "CT" or "MR","Unexpected modality {0}",modality);
         }
     }
 
@@ -151,7 +162,7 @@ public class DicomDataGeneratorTests
         }
 
         //3 csv files + index.csv (the default one
-        Assert.AreEqual(4,outputDir.GetFiles().Length);
+        Assert.That(outputDir.GetFiles(), Has.Length.EqualTo(4));
 
         foreach (var f in outputDir.GetFiles())
         {
@@ -164,7 +175,7 @@ public class DicomDataGeneratorTests
 
             //should be 1 row per image + 1 for header
             if(f.Name == DicomDataGenerator.ImageCsvFilename)
-                Assert.AreEqual(501,rowcount);
+                Assert.That(rowcount, Is.EqualTo(501));
         }
     }
 }

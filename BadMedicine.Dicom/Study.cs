@@ -8,7 +8,7 @@ namespace BadMedicine.Dicom;
 /// <summary>
 /// Represents a whole DICOM Study (a collection of Series objects).
 /// Stores the DICOM tags that fit at the study/patient level hierarchy
-/// (and are modelled by BadMedicine.Dicom). 
+/// (and are modelled by BadMedicine.Dicom).
 /// </summary>
 public class Study : IEnumerable<Series>
 {
@@ -21,7 +21,7 @@ public class Study : IEnumerable<Series>
     /// The DicomDataGenerator which created this Study
     /// </summary>
     public DicomDataGenerator Parent;
-        
+
     /// <summary>
     /// The DICOM UID of this Study
     /// </summary>
@@ -87,7 +87,7 @@ public class Study : IEnumerable<Series>
         StudyTime = DicomDataGeneratorStats.Instance.GetRandomTimeOfDay(r);
 
         /////////////////////  Generate all the Series (will also generate images) /////////////////////
-            
+
         //have a random number of series (based on average and standard deviation for that modality)
         //but have at least 1 series!
 

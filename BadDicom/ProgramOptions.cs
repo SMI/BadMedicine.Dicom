@@ -21,7 +21,7 @@ internal class ProgramOptions
 
     [Value(3, HelpText = "Comma separated list of modalities to generate from", Default = "CT")]
     public string Modalities { get; set; } = "CT";
-        
+
     [Option("NoPixels",HelpText= "Generate dicom files without pixel data (only tags).  This results in much smaller file sizes")]
     public bool NoPixels{get;set;}
 
@@ -42,13 +42,13 @@ internal class ProgramOptions
     {
         get
         {
-            yield return 
+            yield return
                 new Example("Generate test data",
                     new ProgramOptions { OutputDirectory = @"c:/temp" });
 
             yield return
                 new Example("Generate a custom amount of data", new ProgramOptions { OutputDirectory = @"c:/temp",NumberOfPatients = 5000, NumberOfStudies = 20000});
-                    
+
         }
     }
 
