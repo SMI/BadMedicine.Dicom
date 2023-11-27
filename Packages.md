@@ -21,6 +21,7 @@
 | Vecc.YamlDotNet.Analyzers.StaticGenerator | [GitHub](https://github.com/aaubry/YamlDotNet)  | [MIT](https://opensource.org/licenses/MIT) |Extension to YamlDotNet for static processing|
 | CommandLineParser | [GitHub](https://github.com/commandlineparser/commandline) | [MIT](https://opensource.org/licenses/MIT) | Allows command line arguments for main client application and CLI executables |
 | [Nunit](https://nunit.org/) |[GitHub](https://github.com/nunit/nunit) | [MIT](https://opensource.org/licenses/MIT) | Unit testing |
+| [NUnit.Analyzers](https://nunit.org/) |[GitHub](https://github.com/nunit/nunit.analyzers) | [MIT](https://opensource.org/licenses/MIT) | Unit testing support code |
 | NUnit3TestAdapter | [GitHub](https://github.com/nunit/nunit3-vs-adapter)| [MIT](https://opensource.org/licenses/MIT) | Run unit tests from within Visual Studio |
 | Microsoft.NET.Test.Sdk | [GitHub](https://github.com/microsoft/vstest/) |  [MIT](https://opensource.org/licenses/MIT) | Run unit tests | |
 | NunitXml.TestLogger | [GitHub](https://github.com/spekt/nunit.testlogger) | [MIT](https://opensource.org/licenses/MIT) | Report test results in XML syntax | |

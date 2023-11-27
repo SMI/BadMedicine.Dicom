@@ -9,10 +9,10 @@ using NUnit.Framework;
 namespace BadMedicine.Dicom.Tests;
 
 /// <summary>
-/// Tests to confirm that the dependencies in csproj files (NuGet packages) match those in the .nuspec files and that packages.md 
+/// Tests to confirm that the dependencies in csproj files (NuGet packages) match those in the .nuspec files and that packages.md
 /// lists the correct versions (in documentation)
 /// </summary>
-public class PackageListIsCorrectTests
+public sealed class PackageListIsCorrectTests
 {
     private static readonly EnumerationOptions EnumerationOptions = new() { RecurseSubdirectories = true,MatchCasing = MatchCasing.CaseInsensitive,IgnoreInaccessible = true};
 
@@ -36,17 +36,18 @@ public class PackageListIsCorrectTests
 
         // Extract the named packages from PACKAGES.md
         var packagesMarkdown = File.ReadAllLines(GetPackagesMarkdown(root))
-            .Select(line => RMarkdownEntry.Match(line))
-            .Where(m=>m.Success)
-            .Select(m => m.Groups[1].Value)
+            .Select(static line => RMarkdownEntry.Match(line))
+            .Where(static m=>m.Success)
+            .Select(static m => m.Groups[1].Value)
             .ToHashSet(StringComparer.InvariantCultureIgnoreCase);
 
         // Extract the named packages from csproj files, then subtract those listed in PACKAGES.md (should be empty)
-        var undocumentedPackages = GetCsprojFiles(root).Select(File.ReadAllText).SelectMany(s => RPackageRef.Matches(s))
-            .Select(m=>m.Groups[1].Value).Except(packagesMarkdown).Select(BuildRecommendedMarkdownLine);
+        var undocumentedPackages = GetCsprojFiles(root).Select(File.ReadAllText)
+            .SelectMany(static s => RPackageRef.Matches(s))
+            .Select(static m=>m.Groups[1].Value).Except(packagesMarkdown).Select(BuildRecommendedMarkdownLine);
         undocumented.AppendJoin(Environment.NewLine, undocumentedPackages);
 
-        Assert.IsEmpty(undocumented.ToString());
+        Assert.That(undocumented.ToString(), Is.Empty);
     }
 
     /// <summary>
@@ -54,7 +55,8 @@ public class PackageListIsCorrectTests
     /// </summary>
     /// <param name="package"></param>
     /// <returns></returns>
-    private static object BuildRecommendedMarkdownLine(string package) => $"Package {package} is not documented in PACKAGES.md. Recommended line is:\r\n| {package} | [GitHub]() | LICENCE GOES HERE | |";
+    private static object BuildRecommendedMarkdownLine(string package) =>
+        $"Package {package} is not documented in PACKAGES.md. Recommended line is:\r\n| {package} | [GitHub]() | LICENCE GOES HERE | |";
 
     /// <summary>
     /// Find the root of this repo, which is usually the directory containing the .sln file
@@ -72,7 +74,7 @@ public class PackageListIsCorrectTests
         var root = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
         while (!root.EnumerateFiles("*.sln", SearchOption.TopDirectoryOnly).Any() && root.Parent != null)
             root = root.Parent;
-        Assert.IsNotNull(root.Parent, "Could not find root of repository");
+        Assert.That(root.Parent, Is.Not.Null, "Could not find root of repository");
         return root;
     }
 
@@ -83,7 +85,8 @@ public class PackageListIsCorrectTests
     /// <returns></returns>
     private static IEnumerable<string> GetCsprojFiles(DirectoryInfo root)
     {
-        return root.EnumerateFiles("*.csproj", EnumerationOptions).Select(f => f.FullName).Where(f => !f.Contains("tests", StringComparison.InvariantCultureIgnoreCase));
+        return root.EnumerateFiles("*.csproj", EnumerationOptions).Select(static f => f.FullName)
+            .Where(static f => !f.Contains("tests", StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>
@@ -93,8 +96,9 @@ public class PackageListIsCorrectTests
     /// <returns></returns>
     private static string GetPackagesMarkdown(DirectoryInfo root)
     {
-        var path = root.EnumerateFiles("packages.md", EnumerationOptions).Select(f => f.FullName).SingleOrDefault();
-        Assert.IsNotNull(path, "Could not find packages.md");
+        var path = root.EnumerateFiles("packages.md", EnumerationOptions).Select(static f => f.FullName)
+            .SingleOrDefault();
+        Assert.That(path, Is.Not.Null, "Could not find packages.md");
         return path;
     }
 

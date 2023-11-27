@@ -50,7 +50,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         get => _pathProvider.Layout;
         set => _pathProvider = new FileSystemLayoutProvider(value);
     }
-        
+
     /// <summary>
     /// The maximum number of images to generate regardless of how many calls to <see cref="GenerateTestDataRow"/>,  Defaults to int.MaxValue
     /// </summary>
@@ -157,7 +157,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     {
         DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)!=false;
         OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir!);
-            
+
         var stats = DicomDataGeneratorStats.GetInstance();
 
         if(modalities.Length == 0)
@@ -172,7 +172,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
         }
     }
-        
+
     /// <summary>
     /// Creates a new dicom dataset
     /// </summary>
@@ -242,7 +242,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// <param name="study"></param>
     /// <returns></returns>
     public DicomDataset[] GenerateStudyImages(Person p, out Study study)
-    {        
+    {
         //generate a study
         study = new Study(this,p,GetRandomModality(r),r);
 
@@ -276,14 +276,14 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     public DicomDataset GenerateTestDataset(Person p,Series series)
     {
         var ds = new DicomDataset();
-                        
+
         ds.AddOrUpdate(DicomTag.StudyInstanceUID,series.Study.StudyUID);
         ds.AddOrUpdate(DicomTag.SeriesInstanceUID,series.SeriesUID);
 
         var sopInstanceUID = UIDAllocator.GenerateSOPInstanceUID();
         ds.AddOrUpdate(DicomTag.SOPInstanceUID,sopInstanceUID);
         ds.AddOrUpdate(DicomTag.SOPClassUID , DicomUID.SecondaryCaptureImageStorage);
-            
+
         //patient details
         ds.AddOrUpdate(DicomTag.PatientID, p.CHI);
         ds.AddOrUpdate(DicomTag.PatientName, $"{p.Forename} {p.Surname}");
@@ -304,10 +304,10 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
         ds.AddOrUpdate(new DicomDate(DicomTag.SeriesDate, series.SeriesDate));
         ds.AddOrUpdate(new DicomTime(DicomTag.SeriesTime, DateTime.Today + series.SeriesTime));
-                        
+
         ds.AddOrUpdate(DicomTag.Modality,series.Modality);
         ds.AddOrUpdate(DicomTag.AccessionNumber, series.Study.AccessionNumber?? "");
-            
+
         if(series.Study.StudyDescription != null)
             ds.AddOrUpdate(DicomTag.StudyDescription,series.Study.StudyDescription);
 
@@ -322,7 +322,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         // Go back to the year the person was born in case of a leap year
         if (p.DateOfBirth.Date > series.SeriesDate.AddYears(-age)) age--;
         ds.AddOrUpdate(new DicomAgeString(DicomTag.PatientAge, $"{age:000}Y"));
-            
+
         if(!NoPixels)
             PixelDrawer.DrawBlackBoxWithWhiteText(ds,500,500,sopInstanceUID.UID);
 
@@ -379,7 +379,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         _studyWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, StudyCsvFilename)),CultureInfo.CurrentCulture);
         _seriesWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, SeriesCsvFilename)),CultureInfo.CurrentCulture);
         _imageWriter = new CsvWriter(new StreamWriter(Path.Combine(OutputDir.FullName, ImageCsvFilename)),CultureInfo.CurrentCulture);
-                
+
         // Write header
         WriteData(_studyWriter, StudyTags.Select(i => i.DictionaryEntry.Keyword));
         WriteData(_seriesWriter, SeriesTags.Select(i => i.DictionaryEntry.Keyword));
@@ -390,7 +390,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     {
         foreach (var s in data)
             sw.WriteField(s);
-            
+
         sw.NextRecord();
     }
 

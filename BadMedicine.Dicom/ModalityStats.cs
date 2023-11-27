@@ -8,7 +8,7 @@ namespace BadMedicine.Dicom;
 /// </summary>
 public class ModalityStats
 {
-            
+
     /// <summary>
     /// Which Modality this relates to, for example 'MR'
     /// </summary>
@@ -42,8 +42,8 @@ public class ModalityStats
     /// <summary>
     /// The Normal distribution of the number of Images per Series for this Modality
     /// </summary>
-    public Normal ImagesPerSeriesNormal {get; private set; }      
-        
+    public Normal ImagesPerSeriesNormal {get; private set; }
+
     /// <summary>
     /// The Random pseudo-random number generator to be used
     /// </summary>

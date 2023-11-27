@@ -14,17 +14,20 @@ internal class StudyTests
         using var generator = new DicomDataGenerator(r,null) {NoPixels = true};
 
         var p = new Person(r);
-            
+
         Study study = new(generator,p,new ModalityStats("MR",2,0,50,0,r),r);
 
-        Assert.AreEqual(2,study.Series.Count);
-        Assert.AreEqual(50,study.Series[0].Datasets.Count);
+        Assert.That(study.Series, Has.Count.EqualTo(2));
+        Assert.That(study.Series[0].Datasets, Has.Count.EqualTo(50));
 
 
         foreach(var ds in study.Series[0])
         {
-            Assert.AreEqual("MR",ds.GetValues<string>(DicomTag.Modality)[0]);
-            Assert.AreEqual(study.StudyTime,ds.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay);
+            Assert.Multiple(() =>
+            {
+                Assert.That(ds.GetValues<string>(DicomTag.Modality)[0], Is.EqualTo("MR"));
+                Assert.That(ds.GetSingleValue<DateTime>(DicomTag.StudyTime).TimeOfDay, Is.EqualTo(study.StudyTime));
+            });
         }
     }
 
@@ -43,12 +46,18 @@ internal class StudyTests
 
         Study study = new(generator, p, new ModalityStats("MR", 2, 0, 50, 0, r), r);
 
-        Assert.AreEqual("999", study.StudyUID.UID);
-        Assert.AreEqual("888", study.Series[0].SeriesUID.UID);
+        Assert.Multiple(() =>
+        {
+            Assert.That(study.StudyUID.UID, Is.EqualTo("999"));
+            Assert.That(study.Series[0].SeriesUID.UID, Is.EqualTo("888"));
+        });
 
         var image1 = study.Series[0].Datasets[0];
-        Assert.AreEqual("999", image1.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID);
-        Assert.AreEqual("888", image1.GetSingleValue<DicomUID>(DicomTag.SeriesInstanceUID).UID);
-        Assert.AreEqual("777", image1.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID);
+        Assert.Multiple(() =>
+        {
+            Assert.That(image1.GetSingleValue<DicomUID>(DicomTag.StudyInstanceUID).UID, Is.EqualTo("999"));
+            Assert.That(image1.GetSingleValue<DicomUID>(DicomTag.SeriesInstanceUID).UID, Is.EqualTo("888"));
+            Assert.That(image1.GetSingleValue<DicomUID>(DicomTag.SOPInstanceUID).UID, Is.EqualTo("777"));
+        });
     }
 }
