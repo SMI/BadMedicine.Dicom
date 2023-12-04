@@ -127,7 +127,7 @@ public class DicomDataGeneratorTests
             var ds = generator.GenerateTestDataset(person, r);
             var modality = ds.GetSingleValue<string>(DicomTag.Modality);
 
-            Assert.That(modality is "CT" or "MR","Unexpected modality {0}",modality);
+            Assert.That(modality is "CT" or "MR",$"Unexpected modality {modality}");
         }
     }
 
