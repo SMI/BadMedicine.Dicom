@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="fo-dicom" Version="5.1.1" />
+    <PackageReference Include="fo-dicom" Version="5.1.2" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
