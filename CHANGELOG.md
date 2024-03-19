@@ -9,7 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
-## [0.1.0] - 2024-03-06
+## [0.1.0] - 2024-03-20
+
+* Target .Net 8 not 6
+* Bump fo-dicom from 5.0.3 to 5.1.2
+* Bump HIC.BadMedicine from 1.1.1 to 1.1.2
+* Bump HIC.DicomTypeTranslation from 4.0.1 to 4.0.3
+* Bump SixLabors.ImageSharp from 2.1.3 to 3.1.3
+* Bump SixLabors.ImageSharp.Drawing from 1.0.0 to 2.1.2
+* Bump Vecc.YamlDotNet.Analyzers.StaticGenerator from 13.4.0 to 13.5.1
+* Bump YamlDotNet from 12.0.2 to 15.1.2
 
 ### Dependencies
 
