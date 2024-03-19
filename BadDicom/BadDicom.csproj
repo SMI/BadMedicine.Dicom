@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
@@ -11,7 +11,6 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <DebugType>embedded</DebugType>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishSingleFile>true</PublishSingleFile>
     <Nullable>enable</Nullable>
   </PropertyGroup>
