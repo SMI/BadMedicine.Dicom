@@ -28,7 +28,7 @@ jobs:
       - name: Package
         run: |
           mkdir -p dist
-          dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:IncludeSymbols=true -p:Version=$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2) -nologo
+          dotnet pack ./BadMedicine.Dicom/BadMedicine.Dicom.csproj -c Release -p:DebugType=full -p:SymbolPackageFormat=snupkg -p:IncludeSymbols=true -p:Version=$(grep AssemblyInformationalVersion SharedAssemblyInfo.cs | cut -d'"' -f2) -nologo
           for platform in linux-x64 win-x64 osx-{arm64,x64}
           do
             dotnet publish BadDicom/BadDicom.csproj -c Release -r $platform -o $platform --self-contained true -nologo -v q -p:PublishSingleFile=true -p:DebugType=embedded -p:GenerateDocumentationFile=false
