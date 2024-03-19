@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ...
 
+## [0.1.0] - 2024-03-06
+
+### Dependencies
+
 ## [0.0.16] - 2023-10-04
 
 ### Dependencies
@@ -152,7 +156,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.15...develop
+[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.0...develop
+[0.1.0]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.16...v0.1.0
+[0.0.16]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.12...v0.0.13
