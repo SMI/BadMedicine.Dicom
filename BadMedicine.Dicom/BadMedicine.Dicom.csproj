@@ -27,7 +27,7 @@
 
 
 	<ItemGroup>
-		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
 		<None Remove="DicomDataGeneratorDescBodyPart.csv" />
 		<None Remove="DicomDataGeneratorModalities.csv" />
 		<None Remove="DicomDataGeneratorTags.csv" />
