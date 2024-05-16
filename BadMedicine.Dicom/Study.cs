@@ -1,4 +1,5 @@
 ﻿using FellowOakDicom;
+using SynthEHR;
 using System;
 using System.Collections;
 using System.Collections.Generic;

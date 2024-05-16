@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
+using SynthEHR;
 
 namespace BadMedicine.Dicom.Tests;
 
@@ -14,7 +15,7 @@ public class DicomDataGeneratorTests
     public void Test_CreatingOnDisk_OneFile()
     {
         var r = new Random(500);
-        using var generator = new DicomDataGenerator(r, TestContext.CurrentContext.WorkDirectory) {Layout = FileSystemLayout.StudyUID, MaximumImages = 1};
+        using var generator = new DicomDataGenerator(r, TestContext.CurrentContext.WorkDirectory) { Layout = FileSystemLayout.StudyUID, MaximumImages = 1 };
 
 
         var person = new Person(r);
@@ -72,10 +73,10 @@ public class DicomDataGeneratorTests
     {
         var r = new Random(23);
         var person = new Person(r);
-        using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT") {NoPixels = true};
+        using var generator = new DicomDataGenerator(r, new string(TestContext.CurrentContext.WorkDirectory), "CT") { NoPixels = true };
 
         //generate 100 images
-        for(var i = 0 ; i < 100 ; i++)
+        for (var i = 0; i < 100; i++)
         {
             //all should be CT because we said CT only
             var ds = generator.GenerateTestDataset(person, r);
@@ -89,7 +90,7 @@ public class DicomDataGeneratorTests
         var r = new Random(23);
         var person = new Person(r);
 
-        using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT");
+        using var generator = new DicomDataGenerator(r, new string(TestContext.CurrentContext.WorkDirectory), "CT");
 
         // without anonymisation (default) we get the normal patient ID
         var ds = generator.GenerateTestDataset(person, r);
@@ -118,16 +119,16 @@ public class DicomDataGeneratorTests
         var r = new Random(23);
         var person = new Person(r);
 
-        using var generator = new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"CT","MR");
+        using var generator = new DicomDataGenerator(r, new string(TestContext.CurrentContext.WorkDirectory), "CT", "MR");
 
         //generate 100 images
-        for(var i = 0 ; i < 100 ; i++)
+        for (var i = 0; i < 100; i++)
         {
             //all should be CT because we said CT only
             var ds = generator.GenerateTestDataset(person, r);
             var modality = ds.GetSingleValue<string>(DicomTag.Modality);
 
-            Assert.That(modality is "CT" or "MR",$"Unexpected modality {modality}");
+            Assert.That(modality is "CT" or "MR", $"Unexpected modality {modality}");
         }
     }
 
@@ -135,7 +136,7 @@ public class DicomDataGeneratorTests
     public void TestFail_CreatingInMemory_Modality_Unknown()
     {
         var r = new Random(23);
-        Assert.Throws<ArgumentException>(()=>_=new DicomDataGenerator(r,new string(TestContext.CurrentContext.WorkDirectory),"LOLZ"));
+        Assert.Throws<ArgumentException>(() => _ = new DicomDataGenerator(r, new string(TestContext.CurrentContext.WorkDirectory), "LOLZ"));
 
     }
 
@@ -144,21 +145,21 @@ public class DicomDataGeneratorTests
     {
         var r = new Random(500);
 
-        var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory,nameof(Test_CsvOption)));
+        var outputDir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.WorkDirectory, nameof(Test_CsvOption)));
         if (outputDir.Exists)
             outputDir.Delete(true);
         outputDir.Create();
 
         var people = new PersonCollection();
-        people.GeneratePeople(100,r);
+        people.GeneratePeople(100, r);
 
-        using (var generator = new DicomDataGenerator(r,outputDir.FullName, "CT"))
+        using (var generator = new DicomDataGenerator(r, outputDir.FullName, "CT"))
         {
             generator.Csv = true;
             generator.NoPixels = true;
             generator.MaximumImages = 500;
 
-            generator.GenerateTestDataFile(people,new FileInfo(Path.Combine(outputDir.FullName,"index.csv")),500);
+            generator.GenerateTestDataFile(people, new FileInfo(Path.Combine(outputDir.FullName, "index.csv")), 500);
         }
 
         //3 csv files + index.csv (the default one
@@ -166,7 +167,7 @@ public class DicomDataGeneratorTests
 
         foreach (var f in outputDir.GetFiles())
         {
-            using var reader = new CsvReader(new StreamReader(f.FullName),CultureInfo.CurrentCulture);
+            using var reader = new CsvReader(new StreamReader(f.FullName), CultureInfo.CurrentCulture);
             var rowcount = 0;
 
             //confirms that the CSV is intact (no dodgy commas, unquoted newlines etc)
@@ -174,7 +175,7 @@ public class DicomDataGeneratorTests
                 rowcount++;
 
             //should be 1 row per image + 1 for header
-            if(f.Name == DicomDataGenerator.ImageCsvFilename)
+            if (f.Name == DicomDataGenerator.ImageCsvFilename)
                 Assert.That(rowcount, Is.EqualTo(501));
         }
     }

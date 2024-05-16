@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using BadMedicine.Datasets;
+using SynthEHR.Datasets;
+using SynthEHR;
 
 namespace BadMedicine.Dicom;
 

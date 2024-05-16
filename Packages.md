@@ -9,7 +9,7 @@
 
 | Package | Source Code |  License | Purpose | Additional Risk Assessment |
 | ------- | ------------|  ------- | ------- | -------------------------- |
-| HIC.BadMedicine | [GitHub](https://github.com/SMI/BadMedicine) | [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) | Handles generating baseline random data (patient date of birth, CHI numberts etc)| |
+| HIC.SynthEHR | [GitHub](https://github.com/HICServices/SynthEHR) | [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) | Handles generating baseline random data (patient date of birth, CHI numberts etc)| |
 | fo-dicom | [GitHub](https://github.com/fo-dicom/fo-dicom) |[MS-PL](https://opensource.org/licenses/MS-PL) | Handles reading/writing dicom tags from dicom datasets | |
 | fo-dicom.Imaging.ImageSharp | [GitHub](https://github.com/fo-dicom/fo-dicom) |[MS-PL](https://opensource.org/licenses/MS-PL) | Handles imaging aspects with fo-dicom | |
 | SixLabors.ImageSharp | [GitHub](https://github.com/SixLabors/ImageSharp) | [Apache 2.0](https://github.com/SixLabors/ImageSharp/blob/main/LICENSE) | Platform-independent replacement for legacy Windows-only System.Drawing.Common | |
