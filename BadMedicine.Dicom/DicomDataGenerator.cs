@@ -1,4 +1,4 @@
-﻿using BadMedicine.Datasets;
+﻿using SynthEHR.Datasets;
 using FellowOakDicom;
 using System;
 using System.IO;
@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using CsvHelper;
+using SynthEHR;
 
 namespace BadMedicine.Dicom;
 
@@ -225,7 +226,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     }
 
     /// <summary>
-    /// Returns headers for the inventory file produced during <see cref="GenerateTestDataset(BadMedicine.Person,System.Random)"/>
+    /// Returns headers for the inventory file produced during <see cref="GenerateTestDataset(SynthEHR.Person,System.Random)"/>
     /// </summary>
     /// <returns></returns>
     protected override string[] GetHeaders()

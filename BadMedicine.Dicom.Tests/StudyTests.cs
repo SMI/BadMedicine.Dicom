@@ -1,5 +1,6 @@
 ﻿using FellowOakDicom;
 using NUnit.Framework;
+using SynthEHR;
 using System;
 
 namespace BadMedicine.Dicom.Tests;

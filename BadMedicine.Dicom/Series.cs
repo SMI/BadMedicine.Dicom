@@ -1,4 +1,5 @@
 ﻿using FellowOakDicom;
+using SynthEHR;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,19 +17,19 @@ public class Series : IEnumerable<DicomDataset>
     /// <summary>
     /// The unique identifier for this series
     /// </summary>
-    public DicomUID SeriesUID {get; }
+    public DicomUID SeriesUID { get; }
 
     /// <summary>
     /// The Dicom Study this series is a part of
     /// </summary>
-    public Study Study{get; }
+    public Study Study { get; }
 
     /// <summary>
     /// All dicom images generated for this series.  These can be
     /// written out to file by other processes and do not yet exist
     /// on disk.
     /// </summary>
-    public IReadOnlyList<DicomDataset> Datasets{get; }
+    public IReadOnlyList<DicomDataset> Datasets { get; }
 
     private readonly List<DicomDataset> _datasets = new();
 
@@ -43,13 +44,13 @@ public class Series : IEnumerable<DicomDataset>
     /// Value to use for the <see cref="DicomTag.Modality"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public string Modality {get; }
+    public string Modality { get; }
 
     /// <summary>
     /// Value to use for the <see cref="DicomTag.ImageType"/> when writing
     /// out to dicom datasets
     /// </summary>
-    public string ImageType {get; }
+    public string ImageType { get; }
 
     /// <summary>
     /// Date to use for the <see cref="DicomTag.SeriesDate"/> when writing
@@ -98,11 +99,11 @@ public class Series : IEnumerable<DicomDataset>
         SeriesDate = study.StudyDate;
         SeriesTime = study.StudyTime;
 
-        SeriesDescription =  part?.SeriesDescription;
+        SeriesDescription = part?.SeriesDescription;
         BodyPartExamined = part?.BodyPartExamined;
 
-        for (var i =0 ; i<imageCount;i++)
-            _datasets.Add(Study.Parent.GenerateTestDataset(person,this));
+        for (var i = 0; i < imageCount; i++)
+            _datasets.Add(Study.Parent.GenerateTestDataset(person, this));
 
         Datasets = new ReadOnlyCollection<DicomDataset>(_datasets);
     }
