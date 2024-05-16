@@ -1,4 +1,3 @@
-using BadMedicine;
 using BadMedicine.Dicom;
 using CommandLine;
 using System;
