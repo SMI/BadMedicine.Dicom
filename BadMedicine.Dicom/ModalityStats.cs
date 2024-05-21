@@ -6,13 +6,12 @@ namespace BadMedicine.Dicom;
 /// <summary>
 /// A set of statistical distribution parameters for a specific Modality
 /// </summary>
-public class ModalityStats
+public readonly record struct ModalityStats
 {
-
     /// <summary>
     /// Which Modality this relates to, for example 'MR'
     /// </summary>
-    public string Modality{ get; }
+    public string Modality { get; }
 
     /// <summary>
     /// The mean number of Series in a Study of this Modality
@@ -32,17 +31,17 @@ public class ModalityStats
     /// <summary>
     /// The mean number of Images in a Series of this Modality
     /// </summary>
-    public double ImagesPerSeriesAverage { get => ImagesPerSeriesNormal.Mean; set => ImagesPerSeriesNormal=new Normal(value,ImagesPerSeriesNormal.StdDev, Rng); }
+    public double ImagesPerSeriesAverage => ImagesPerSeriesNormal.Mean;
 
     /// <summary>
     /// The standard deviation of the number of Images in a Series of this Modality
     /// </summary>
-    public double ImagesPerSeriesStandardDeviation{ get => ImagesPerSeriesNormal.StdDev; set => ImagesPerSeriesNormal=new Normal(ImagesPerSeriesNormal.Mean,value,Rng); }
+    public double ImagesPerSeriesStandardDeviation => ImagesPerSeriesNormal.StdDev;
 
     /// <summary>
     /// The Normal distribution of the number of Images per Series for this Modality
     /// </summary>
-    public Normal ImagesPerSeriesNormal {get; private set; }
+    public Normal ImagesPerSeriesNormal { get; }
 
     /// <summary>
     /// The Random pseudo-random number generator to be used
@@ -58,7 +57,7 @@ public class ModalityStats
     /// <param name="averageImagesPerSeries"></param>
     /// <param name="standardDeviationImagesPerSeries"></param>
     /// <param name="r"></param>
-    public ModalityStats(string modality, double averageSeriesPerStudy,double standardDeviationSeriesPerStudy,double averageImagesPerSeries,double standardDeviationImagesPerSeries, Random r)
+    public ModalityStats(string modality, double averageSeriesPerStudy, double standardDeviationSeriesPerStudy, double averageImagesPerSeries, double standardDeviationImagesPerSeries, Random r)
     {
         Rng = r;
         Modality = modality;
