@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 * Replace BadMedicine v1.2.1 with SynthEHR v2.0.0
+* Bugfix: no more 44 o'clock scans
+* Pre-build BucketList instead of parsing CSVs
 
 ## [0.1.0] - 2024-03-20
 

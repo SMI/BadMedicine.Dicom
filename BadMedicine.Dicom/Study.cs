@@ -73,16 +73,9 @@ public class Study : IEnumerable<Series>
         NumberOfStudyRelatedInstances = 1;
         var imageCount = 2;
 
-        //if we know about the frequency of tag values for this modality?
-        if(stats.TagValuesByModalityAndTag.TryGetValue(modalityStats.Modality, out var tag))
-            foreach(var (key, value) in tag)
-            {
-                //for each tag we know about
-
-                //if it's a study level one record it here
-                if(key == DicomTag.StudyDescription)
-                    StudyDescription = value.GetRandom(r);
-            }
+        //if we know about the frequency of StudyDescription values for this modality?
+        if(stats.TagValuesByModalityAndTag.TryGetValue(modalityStats.Modality, out var descriptions))
+            StudyDescription = descriptions.GetRandom(r);
 
         AccessionNumber = DicomDataGeneratorStats.GetRandomAccessionNumber(r);
         StudyTime = DicomDataGeneratorStats.Instance.GetRandomTimeOfDay(r);

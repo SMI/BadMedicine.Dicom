@@ -19,34 +19,20 @@
 		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
-
-	<ItemGroup>
+<ItemGroup>
 		<PackageReference Include="fo-dicom" Version="5.1.2" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+		<PackageReference Include="HIC.SynthEHR" Version="2.0.0" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.3" />
 	</ItemGroup>
-
-
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\"/>
 		<None Remove="DicomDataGeneratorDescBodyPart.csv" />
 		<None Remove="DicomDataGeneratorModalities.csv" />
 		<None Remove="DicomDataGeneratorTags.csv" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Include="DicomDataGeneratorDescBodyPart.csv" />
-		<EmbeddedResource Include="DicomDataGeneratorModalities.csv" />
-		<EmbeddedResource Include="DicomDataGeneratorTags.csv" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="HIC.SynthEHR" Version="2.0.0" />
-		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
-		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.3" />
-	</ItemGroup>
-
 </Project>

@@ -59,7 +59,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
     private FileSystemLayoutProvider _pathProvider = new(FileSystemLayout.StudyYearMonthDay);
 
-    private readonly int[] _modalities;
+    private readonly int[]? _modalities;
 
     private static readonly List<DicomTag> StudyTags = new()
     {
@@ -154,24 +154,20 @@ public class DicomDataGenerator : DataGenerator,IDisposable
     /// <param name="outputDir"></param>
     /// <param name="modalities">List of modalities to generate from e.g. CT,MR.  The frequency of images generated is based on
     /// the popularity of that modality in a clinical PACS.  Passing nothing results in all supported modalities being generated</param>
-    public DicomDataGenerator(Random r, string? outputDir, params string[] modalities):base(r)
+    public DicomDataGenerator(Random r, string? outputDir, params string[] modalities) : base(r)
     {
-        DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture)!=false;
+        DevNull = outputDir?.Equals("/dev/null", StringComparison.InvariantCulture) != false;
         OutputDir = DevNull ? null : Directory.CreateDirectory(outputDir!);
 
         var stats = DicomDataGeneratorStats.GetInstance();
 
-        if(modalities.Length == 0)
-        {
-            _modalities = stats.ModalityIndexes.Values.ToArray();
-        }
-        else
-        {
-            if (modalities.Any(m => !stats.ModalityIndexes.ContainsKey(m)))
-                throw new ArgumentException(
-                    $"Modality '{string.Join(',',modalities.Except(stats.ModalityIndexes.Keys))}' not supported, supported modalities are:{string.Join(",", stats.ModalityIndexes.Keys)}");
-            _modalities = modalities.Select(m=>stats.ModalityIndexes[m]).ToArray();
-        }
+        var modalityList = new HashSet<string>(modalities);
+        // Iterate through known modalities, listing their offsets within the BucketList
+        _modalities = stats.ModalityFrequency.Select(static i => i.item.Modality).Select(static (m, i) => (m, i))
+            .Where(i => modalityList.Count == 0 || modalityList.Contains(i.m)).Select(static i => i.i).ToArray();
+
+        if (modalityList.Count != 0 && modalityList.Count != _modalities.Length)
+            throw new ArgumentException($"Modality list '{string.Join(' ',modalities)}' not supported, valid values are '{string.Join(' ',stats.ModalityFrequency.Select(i=>i.item.Modality))}'");
     }
 
     /// <summary>
@@ -263,10 +259,12 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         return GenerateTestDataset(p,new Study(this,p,modality,_r).Series[0]);
     }
 
-    private ModalityStats GetRandomModality(Random _r)
-    {
-        return DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_modalities,_r);
-    }
+    private ModalityStats GetRandomModality(Random _r) =>
+        _modalities is null
+            ? DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_r)
+            : _modalities.Length == 1
+                ? DicomDataGeneratorStats.GetInstance().ModalityFrequency.Skip(_modalities[0]).First().item
+                : DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_modalities, _r);
 
     /// <summary>
     /// Returns a new random dicom image for the <paramref name="p"/> with tag values that make sense for that person
@@ -307,7 +305,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         ds.AddOrUpdate(new DicomTime(DicomTag.SeriesTime, DateTime.Today + series.SeriesTime));
 
         ds.AddOrUpdate(DicomTag.Modality,series.Modality);
-        ds.AddOrUpdate(DicomTag.AccessionNumber, series.Study.AccessionNumber?? "");
+        ds.AddOrUpdate(DicomTag.AccessionNumber, series.Study.AccessionNumber ?? "");
 
         if(series.Study.StudyDescription != null)
             ds.AddOrUpdate(DicomTag.StudyDescription,series.Study.StudyDescription);
