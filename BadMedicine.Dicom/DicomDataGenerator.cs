@@ -167,7 +167,7 @@ public class DicomDataGenerator : DataGenerator,IDisposable
             .Where(i => modalityList.Count == 0 || modalityList.Contains(i.m)).Select(static i => i.i).ToArray();
 
         if (modalityList.Count != 0 && modalityList.Count != _modalities.Length)
-            throw new ArgumentException($"Modality list '{modalities}' not supported, valid values are '{string.Join(' ',stats.ModalityFrequency.Select(i=>i.item.Modality))}'");
+            throw new ArgumentException($"Modality list '{string.Join(' ',modalities)}' not supported, valid values are '{string.Join(' ',stats.ModalityFrequency.Select(i=>i.item.Modality))}'");
     }
 
     /// <summary>
