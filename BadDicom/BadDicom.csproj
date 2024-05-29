@@ -13,6 +13,8 @@
     <DebugType>embedded</DebugType>
     <PublishSingleFile>true</PublishSingleFile>
     <Nullable>enable</Nullable>
+    <PublishSingleFile>true</PublishSingleFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
