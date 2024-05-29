@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Replace BadMedicine v1.2.1 with SynthEHR v2.0.0
 * Bump fo-dicom from 5.0.3 to 5.1.2
 * Bump HIC.BadMedicine from 1.1.1 to 1.1.2
-* Bump HIC.DicomTypeTranslation from 4.0.1 to 4.0.3
+* Bump HIC.DicomTypeTranslation from 4.0.1 to 4.1.1
 * Bump SixLabors.ImageSharp from 2.1.3 to 3.1.3
 * Bump SixLabors.ImageSharp.Drawing from 1.0.0 to 2.1.2
 * Bump Vecc.YamlDotNet.Analyzers.StaticGenerator from 13.4.0 to 13.5.1
