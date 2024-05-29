@@ -2,11 +2,11 @@ using System.Reflection;
 
 [assembly: AssemblyCompany("Health Informatics Centre, University of Dundee")]
 [assembly: AssemblyProduct("Bad Dicom")]
-[assembly: AssemblyCopyright("Copyright (c) 2018 - 2023")]
+[assembly: AssemblyCopyright("Copyright (c) 2018 - 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // These should be replaced with correct values by the release process
-[assembly: AssemblyVersion("0.0.16")]
-[assembly: AssemblyFileVersion("0.0.16")]
-[assembly: AssemblyInformationalVersion("0.0.16")]
+[assembly: AssemblyVersion("0.1.0")]
+[assembly: AssemblyFileVersion("0.1.0")]
+[assembly: AssemblyInformationalVersion("0.1.0")]
