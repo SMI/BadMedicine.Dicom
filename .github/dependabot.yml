@@ -11,6 +11,5 @@ updates:
   schedule:
     interval: weekly
   open-pull-requests-limit: 99
-  target-branch: develop
   reviewers:
     - SMI/reviewers
