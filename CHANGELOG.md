@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Bump SixLabors.ImageSharp from 2.1.3 to 3.1.3
 * Bump SixLabors.ImageSharp.Drawing from 1.0.0 to 2.1.2
 * Bump Vecc.YamlDotNet.Analyzers.StaticGenerator from 13.4.0 to 13.5.1
-* Bump YamlDotNet from 12.0.2 to 15.1.2
+* Bump YamlDotNet from 12.0.2 to 15.1.6
 
 
 ## [0.0.16] - 2023-10-04
