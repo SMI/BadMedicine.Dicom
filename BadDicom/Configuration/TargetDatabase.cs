@@ -7,7 +7,7 @@ namespace BadDicom.Configuration;
 /// Identify the target database and configuration for generated data
 /// </summary>
 [YamlSerializable]
-public class TargetDatabase
+public sealed class TargetDatabase
 {
     /// <summary>
     /// Which RDBMS the database is (MySQL, Microsoft SQL Server, etc)

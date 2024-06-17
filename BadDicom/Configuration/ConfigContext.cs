@@ -3,6 +3,7 @@
 namespace BadDicom.Configuration;
 
 [YamlStaticContext]
-public partial class ConfigContext : StaticContext
-{
-}
+[YamlSerializable(typeof(Config))]
+[YamlSerializable(typeof(TargetDatabase))]
+[YamlSerializable(typeof(ExplicitUIDs))]
+public sealed partial class ConfigContext;
