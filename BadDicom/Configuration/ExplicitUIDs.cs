@@ -10,7 +10,7 @@ namespace BadDicom.Configuration;
 /// Config section for loading explicit UIDs from disk and using those in file creation
 /// </summary>
 [YamlSerializable]
-public class ExplicitUIDs
+public sealed class ExplicitUIDs
 {
     /// <summary>
     /// Path to a file containing a list of study instance UIDs to use
@@ -52,6 +52,6 @@ public class ExplicitUIDs
     {
         if (string.IsNullOrWhiteSpace(path) || !File.Exists(path)) return Enumerable.Empty<string>();
 
-        return File.ReadLines(path).Where(l => !string.IsNullOrWhiteSpace(l));
+        return File.ReadLines(path).Where(static l => !string.IsNullOrWhiteSpace(l));
     }
 }
