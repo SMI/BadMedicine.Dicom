@@ -1,5 +1,5 @@
-﻿using MathNet.Numerics.Distributions;
-using System;
+﻿using System;
+using BadMedicine.Dicom.Statistics.Distributions;
 
 namespace BadMedicine.Dicom;
 
@@ -26,7 +26,7 @@ public readonly record struct ModalityStats
     /// <summary>
     /// The parameterised Normal distribution used for the number of series per study
     /// </summary>
-    public Normal SeriesPerStudyNormal { get; }
+    internal Normal SeriesPerStudyNormal { get; }
 
     /// <summary>
     /// The mean number of Images in a Series of this Modality
@@ -41,7 +41,7 @@ public readonly record struct ModalityStats
     /// <summary>
     /// The Normal distribution of the number of Images per Series for this Modality
     /// </summary>
-    public Normal ImagesPerSeriesNormal { get; }
+    internal Normal ImagesPerSeriesNormal { get; }
 
     /// <summary>
     /// The Random pseudo-random number generator to be used
