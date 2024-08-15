@@ -7,22 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-08-15
+
+- Bump fo-dicom from 5.1.2 to 5.1.3
+- Bump HIC.DicomTypeTranslation from 4.1.2 to 4.1.3
+- Bump HIC.SynthEHR from 2.0.0 to 2.0.1
+- Bump SixLabors.ImageSharp from 3.1.4 to 3.1.5
+- Bump SixLabors.ImageSharp.Drawing from 2.1.3 to 2.1.4
+- Bump YamlDotNet from 15.1.6 to 16.0.0
+
 ## [0.1.0] - 2024-05-29
 
-* Bugfix: no more 44 o'clock scans
-* Pre-build BucketList instead of parsing CSVs
-* Target .Net 8 not 6
+- Bugfix: no more 44 o'clock scans
+- Pre-build BucketList instead of parsing CSVs
+- Target .Net 8 not 6
 
 ### Dependencies
 
-* Replace BadMedicine v1.2.1 with SynthEHR v2.0.0
-* Bump fo-dicom from 5.0.3 to 5.1.2
-* Bump HIC.BadMedicine from 1.1.1 to 1.1.2
-* Bump HIC.DicomTypeTranslation from 4.0.1 to 4.1.1
-* Bump SixLabors.ImageSharp from 2.1.3 to 3.1.3
-* Bump SixLabors.ImageSharp.Drawing from 1.0.0 to 2.1.2
-* Bump Vecc.YamlDotNet.Analyzers.StaticGenerator from 13.4.0 to 13.5.1
-* Bump YamlDotNet from 12.0.2 to 15.1.6
+- Replace BadMedicine v1.2.1 with SynthEHR v2.0.0
+- Bump fo-dicom from 5.0.3 to 5.1.2
+- Bump HIC.BadMedicine from 1.1.1 to 1.1.2
+- Bump HIC.DicomTypeTranslation from 4.0.1 to 4.1.1
+- Bump SixLabors.ImageSharp from 2.1.3 to 3.1.3
+- Bump SixLabors.ImageSharp.Drawing from 1.0.0 to 2.1.2
+- Bump Vecc.YamlDotNet.Analyzers.StaticGenerator from 13.4.0 to 13.5.1
+- Bump YamlDotNet from 12.0.2 to 15.1.6
 
 
 ## [0.0.16] - 2023-10-04
@@ -168,7 +177,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.0...develop
+[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.1...develop
+[0.1.1]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.16...v0.1.0
 [0.0.16]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.14...v0.0.15
