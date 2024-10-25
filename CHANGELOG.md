@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-10-25
+
+- Bump HIC.DicomTypeTranslation from 4.1.3 to 4.1.4
+- Bump YamlDotNet from 16.0.0 to 16.1.3
+
 ## [0.1.1] - 2024-08-15
 
 - Bump fo-dicom from 5.1.2 to 5.1.3
@@ -177,7 +182,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for PatientAge, Modality, Address, UIDs, StudyDate/Time
 - Support for pixel data / NoPixels flag
 
-[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.1...develop
+[Unreleased]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.2...develop
+[0.1.2]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.16...v0.1.0
 [0.0.16]: https://github.com/SMI/BadMedicine.Dicom/compare/v0.0.15...v0.0.16
