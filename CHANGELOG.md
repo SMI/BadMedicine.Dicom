@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.2] - 2024-10-25
+## [0.1.2] - 2024-10-28
 
-- Bump HIC.DicomTypeTranslation from 4.1.3 to 4.1.4
+- Bump HIC.DicomTypeTranslation from 4.1.3 to 4.1.5
 - Bump YamlDotNet from 16.0.0 to 16.1.3
 
 ## [0.1.1] - 2024-08-15
