@@ -33,6 +33,7 @@
 		<None Remove="DicomDataGeneratorTags.csv" />
 	</ItemGroup>
 	<ItemGroup>
+  	<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.20" />
 		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
 	</ItemGroup>
 </Project>
