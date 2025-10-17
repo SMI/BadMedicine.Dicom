@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -34,5 +34,11 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<!-- Source generator for DescBodyPart data -->
+		<ProjectReference Include="..\BadMedicine.Dicom.SourceGenerators\BadMedicine.Dicom.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<!-- Include CSV files as AdditionalFiles for the generator -->
+		<AdditionalFiles Include="..\data\DicomDataGeneratorDescBodyPart.csv" />
 	</ItemGroup>
 </Project>
