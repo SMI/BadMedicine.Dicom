@@ -162,12 +162,12 @@ public class DicomDataGenerator : DataGenerator,IDisposable
         var stats = DicomDataGeneratorStats.GetInstance();
 
         var modalityList = new HashSet<string>(modalities);
-        // Iterate through known modalities, listing their offsets within the BucketList
-        _modalities = stats.ModalityFrequency.Select(static i => i.item.Modality).Select(static (m, i) => (m, i))
-            .Where(i => modalityList.Count == 0 || modalityList.Contains(i.m)).Select(static i => i.i).ToArray();
+        // Iterate through known modalities, listing their offsets within the optimized array
+        _modalities = stats.ModalityFrequency.Items.Select(static (item, index) => (item.Value.Modality, index))
+            .Where(i => modalityList.Count == 0 || modalityList.Contains(i.Modality)).Select(static i => i.index).ToArray();
 
         if (modalityList.Count != 0 && modalityList.Count != _modalities.Length)
-            throw new ArgumentException($"Modality list '{string.Join(' ',modalities)}' not supported, valid values are '{string.Join(' ',stats.ModalityFrequency.Select(i=>i.item.Modality))}'");
+            throw new ArgumentException($"Modality list '{string.Join(' ',modalities)}' not supported, valid values are '{string.Join(' ',stats.ModalityFrequency.Items.Select(i=>i.Value.Modality))}'");
     }
 
     /// <summary>
@@ -261,10 +261,10 @@ public class DicomDataGenerator : DataGenerator,IDisposable
 
     private ModalityStats GetRandomModality(Random _r) =>
         _modalities is null
-            ? DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_r)
+            ? DicomDataGeneratorStats.GetInstance().GetRandomModality(_r)
             : _modalities.Length == 1
-                ? DicomDataGeneratorStats.GetInstance().ModalityFrequency.Skip(_modalities[0]).First().item
-                : DicomDataGeneratorStats.GetInstance().ModalityFrequency.GetRandom(_modalities, _r);
+                ? DicomDataGeneratorStats.GetInstance().ModalityFrequency.Items[_modalities[0]].Value
+                : DicomDataGeneratorStats.GetInstance().GetRandomModality(_modalities, _r);
 
     /// <summary>
     /// Returns a new random dicom image for the <paramref name="p"/> with tag values that make sense for that person

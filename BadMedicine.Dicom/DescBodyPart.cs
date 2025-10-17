@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using FellowOakDicom;
 using SynthEHR;
 
@@ -35,8 +37,11 @@ public readonly record struct DescBodyPart(
     string? BodyPartExamined,
     string? SeriesDescription)
 {
-    internal static readonly ReadOnlyDictionary<string, BucketList<DescBodyPart>> d =
-        new Dictionary<string, BucketList<DescBodyPart>>
+    internal static readonly ReadOnlyDictionary<string, (int MaxWeight, (int CumulativeWeight, DescBodyPart Value)[] Items)> d = InitializeDescBodyParts();
+
+    private static ReadOnlyDictionary<string, (int MaxWeight, (int CumulativeWeight, DescBodyPart Value)[] Items)> InitializeDescBodyParts()
+    {
+        var tempDict = new Dictionary<string, BucketList<DescBodyPart>>
         {
             {
                 "CT",
@@ -2049,5 +2054,41 @@ public readonly record struct DescBodyPart(
                 }
             }
         }.AsReadOnly();
+
+        // Convert all BucketLists to optimized format
+        var result = new Dictionary<string, (int MaxWeight, (int CumulativeWeight, DescBodyPart Value)[] Items)>();
+        foreach (var kvp in tempDict)
+        {
+            var list = new List<(int CumulativeWeight, DescBodyPart Value)>();
+            int cumulative = 0;
+            foreach (var (item, probability) in kvp.Value)
+            {
+                cumulative += probability;
+                list.Add((cumulative, item));
+            }
+            result[kvp.Key] = (cumulative, list.ToArray());
+        }
+        return new ReadOnlyDictionary<string, (int MaxWeight, (int CumulativeWeight, DescBodyPart Value)[] Items)>(result);
+    }
+
+    /// <summary>
+    /// Binary search helper for getting random DescBodyPart - O(log n) performance
+    /// </summary>
+    public static DescBodyPart GetRandom((int MaxWeight, (int CumulativeWeight, DescBodyPart Value)[] Items) data, Random r)
+    {
+        var target = r.Next(data.MaxWeight);
+        int left = 0, right = data.Items.Length - 1;
+
+        while (left < right)
+        {
+            int mid = left + (right - left) / 2;
+            if (data.Items[mid].CumulativeWeight <= target)
+                left = mid + 1;
+            else
+                right = mid;
+        }
+
+        return data.Items[left].Value;
+    }
 }
 
