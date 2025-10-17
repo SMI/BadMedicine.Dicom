@@ -1,0 +1,2001 @@
+Modality,StudyDescription,BodyPartExamined,SeriesDescription,series_count
+CT,CT Head,HEAD,5,172459
+CT,CT Head,,Patient Protocol,105131
+CT,CT Head,,Scout,94958
+CT,CT Head,,SCOUT,94665
+CT,CT Head,HEAD,2,93839
+CT,CT Head,,Dose Report,82848
+CT,CT Head,HEAD,Topogram  0.6  T20f,50307
+CT,CT Head,HEAD,Topogram,47042
+CT,CT Head,HEAD,Head 1.0,43383
+CT,Head^1_Head_SAFIRE (Adult),HEAD,Head  1.0  J70h  3,43020
+CT,CT Head,,0.6MM,40439
+CT,CT Thorax & abdo & pel,,Dose Report,36922
+CT,Head^1_Head_SAFIRE (Adult),,Patient Protocol,36835
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Dose Report,34379
+CT,CT Thorax abdomen pelvis with contrast,,Patient Protocol,31396
+CT,NM Whole body PET FDG,,Dose Report,30749
+CT,CT Head,,0.625mm Soft,30058
+CT,CT Head,,2,29132
+CT,CT Head,HEAD,Topogram  0.6  T20s,28975
+CT,CT Head,HEAD,Bone 1.0,28861
+CT,CT Head,,1.25mm Brain,28479
+CT,CT Angiogram pulmonary,,Smart Prep Series,27871
+CT,Head^RoutineSpiralHead (Adult),,Patient Protocol,25830
+CT,CT Angiogram pulmonary,,Dose Report,25651
+CT,CT Head,,0.625mm Bone,25515
+CT,CT Head,HEAD,Head  1.0   3D,25499
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Patient Protocol,25149
+CT,Head^HeadRoutine (Adult),HEAD,Head  1.0,24915
+CT,Head^1_Head_SAFIRE (Adult),HEAD,Head  1.0  J30s  3,24426
+CT,CT Thorax abdomen pelvis with contrast,,Dose Report,23767
+CT,Head^RoutineSpiralHead (Adult),HEAD,Head  1.0  H31s,23409
+CT,Head^RoutineSpiralHead (Adult),HEAD,Topogram,22512
+CT,Head^RoutineSpiralHead (Adult),HEAD,5mm Brain MPR,21992
+CT,CT Thorax & abdo & pel,,SCOUT CHEST/ABDOMEN/PELVIS,21708
+CT,CT Abdomen/Pelvis With Contrast,,Scout,21518
+CT,CT Angiogram Pulmonary,,Patient Protocol,21418
+CT,Abdomen^1_AbdomenPelvis_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I26f  3,20806
+CT,Head^Ayr_Head_Spiral (Adult),HEAD,Topogram,20466
+CT,Head^Ayr_Head_Spiral (Adult),,Patient Protocol,20442
+CT,HEAD,HEAD,Head 0.5,20167
+CT,CT Angiogram pulmonary,,SCOUT,20034
+CT,CT Colonoscopy (Virtual),ABDOMEN,Topogram  0.6  T20f,19790
+CT,CT Chest/Abdo With Contrast,,Dose Report,19741
+CT,CT Head,HEAD,Head 0.5,19613
+CT,HEAD,HEAD,5,19287
+CT,CT Head,HEAD,Head  1.0  H60s,18786
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,2,17502
+CT,Head^HeadRoutine (Adult),HEAD,Topogram  0.6,17258
+CT,CT Thorax & abdo & pel,,Smart Prep Series,16783
+CT,Head^HeadRoutine (Adult),,Patient Protocol,16645
+CT,Head,HEAD,5,16468
+CT,Head^1_Head_SAFIRE (Adult),HEAD,Topogram  0.6  T20f,16466
+CT,CT Abdomen & pelvis wi,,Smart Prep Series,16358
+CT,CT Angiogram Pulmonary,,Dose Report,16285
+CT,Head^Ayr_Head_Spiral (Adult),HEAD,Head  5.0  True Axial,16263
+CT,CT Head,,Exam Summary,16207
+CT,CT Thorax & abdo & pel,,SCOUT,15770
+CT,CT Head,HEAD,Head  1.0  H31s,15413
+CT,CT Abdomen/Pelvis With Contrast,,Dose Report,15307
+CT,CT Urogram,,Dose Report,14770
+CT,CT Abdomen & pelvis wi,,SCOUT,14555
+CT,Abdomen^1_AbdomenPelvis_SAFIRE (Adult),ABDOMEN,Topogram  0.6  T20f,14368
+CT,HEAD,HEAD,2,14349
+CT,CT Head,HEAD,2.0   Sharp,14119
+CT,Abdomen^1_AbdomenPelvis_SAFIRE (Adult),,Patient Protocol,13948
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,2,13850
+CT,CT Head,HEAD,5mm Brain MPR,13570
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Axial 1 5,13523
+CT,Head^Ayr_Head_Spiral (Adult),HEAD,Head  1.0 3D,13429
+CT,Head,HEAD,5.0 Head  Brain,12882
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Body 1.0 CE,12859
+CT,NM Whole body PET FDG,,CT Std ET,12786
+CT,Head^Brain (Adult),HEAD,Head  1.0,12753
+CT,Head,HEAD,1.0 Head  Brain,12560
+CT,CT Abdomen/Pelvis With Contrast,,Patient Protocol,12413
+CT,NM Whole body PET FDG,,CT Std ET 690,12234
+CT,CT Head,HEAD,Head  1.0  J30s  2,12214
+CT,CT Abdomen & pelvis wi,,Dose Report,12132
+CT,HEAD,,Scout,12125
+CT,CT Thorax abdomen pelv,,SCOUTS,12110
+CT,CT Head,HEAD,Topogram  0.6,11886
+CT,Head^Brain (Adult),HEAD,Topogram,11856
+CT,CT Head,,5,11790
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Lung,11464
+CT,CH/AB/PEL,CH_AB_PEL,",1.0,Std. Volume,Body,Vol,CE",11394
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Topogram  0.6  T20f,11323
+CT,,HEAD,5,11264
+CT,CT,,Scout,11154
+CT,CT Thorax & abdomen wi,,Dose Report,11128
+CT,CT Head,HEAD,Head  1.0  J30s  3,11109
+CT,CT Abdomen and pelvis with contrast,,Scout,11090
+CT,CT Chest High Resolution,,Dose Report,11079
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Topogram  0.6  T20f,10998
+CT,NM Whole body PET FDG,,CT AC ET 690,10995
+CT,CT Head,,0.625mm recon,10950
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Topogram  0.6  T20s,10831
+CT,HEAD,,Dose Report,10791
+CT,CT Abdomen/Pelvis With Contrast,,Abdo Pelvis 1.25mm,10773
+CT,NM Whole body PET FDG,,CT AC ET,10570
+CT,ABDO/PELVIS,ABDO_PELVIS,2,10569
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Thorax  1.5  I31f  3,10451
+CT,CT Head,,,10430
+CT,CT Thorax & abdomen wi,,SCOUT,10161
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,2,10102
+CT,CT Head,,Head 1.25mm,9839
+CT,CT Abdomen & pelvis wi,,1.25 ABDO/PELVIS,9735
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),CHEST,Thorax  1.0  I31f  3,9694
+CT,Head^Brain (Adult),,Patient Protocol,9674
+CT,CT Thorax and abdomen with contrast,,Dose Report,9624
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,Topogram,9596
+CT,CT Chest high resolution,,Dose Report,9558
+CT,,HEAD,2,9424
+CT,CT Abdomen and pelvis with contrast,,Patient Protocol,9405
+CT,CT KUB,KUB,5,9400
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Scouts,9360
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Thorax  1.0  B20f 3D,9333
+CT,NM Whole body PET FDG,,CT SCOUT HEAD IN,9236
+CT,CT Head,HEAD,Head  4.0  MPR,9233
+CT,CT Thorax & abdomen wi,,CHEST STAGING,9205
+CT,CT Angiogram Pulmonary,CTPA,2 CE,9197
+CT,CT Abdomen and pelvis with contrast,,1.25mm Std,9185
+CT,CT Abdomen and pelvis with contrast,,Dose Report,9101
+CT,CT Cardiac Angiogram Coronary,,Timing Bolus,8914
+CT,CT Thorax abdomen pelvis with contrast,,1.25mm Chest/Abdo/Pelvis,8877
+CT,CT Thorax abdomen pelvis with contrast,,SCOUT,8858
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,2,8826
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Topogram,8826
+CT,CT Chest High Resolution,HRCT,2,8794
+CT,CT Thorax & abdo & pel,,1.25mm chest abdomen pelvis,8603
+CT,CT KUB,,Dose Report,8566
+CT,CT Chest/Abdo/Pelvis/ With Contrast,ABDOMEN,Topogram  0.6  T20f,8553
+CT,CT Renal Both,,SCOUT ABDO,8515
+CT,CT Head,,2.5mm Axial,8508
+CT,CT Angiogram Pulmonary,CTPA,Lung 10.0 CE,8494
+CT,CT Colonoscopy (Virtual),,Dose Report,8452
+CT,CT Cardiac Angiogram Coronary,,Scout,8446
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Scout,8430
+CT,CT Urogram,ABDOMEN,Topogram  0.6  T20f,8428
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,2,8388
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Thorax  1.5,8383
+CT,CT Head,,0.5 Head Brain,8379
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,2,8351
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,2.0   Sharp,8336
+CT,CT Chest/Abdo With Contrast,,Patient Protocol,8334
+CT,Head^SpiralHead (Adult),HEAD,Head  1 mm,8333
+CT,CT Thorax & abdo & pel,,CHEST/ABDO/PELVIS,8322
+CT,CT Abdomen and Pelvis,ABDOMEN,iDose (4),8316
+CT,Head^SpiralHead (Adult),HEAD,Head  5 mm,8197
+CT,CT Thorax abdomen pelvis with contrast,,1.25mm C.A.P DMPR,8165
+CT,CT Angiogram Pulmonary,,Scout,8123
+CT,Head,HEAD,2.0   Sharp,8035
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,Body 1.0 CE,8030
+CT,Head,HEAD,5.0 Head Sagittal Brain,8015
+CT,CT Head,BRAIN,"1mm, iDose (1)",7991
+CT,CT Head,HEAD,Head  1.0,7971
+CT,CT Thorax and abdomen,,SCOUTS,7933
+CT,Head^Brain (Adult),HEAD,Head  5.0 Baseline,7920
+CT,CT Head/Neck,HEAD,",Sharp,,,",7859
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Topogram  0.6  T20s,7839
+CT,CT Cardiac Angiogram Coronary,,Processed Images,7829
+CT,CT Head,HEAD,1.0 Head   Brain Volume,7773
+CT,CT Chest/Abdo With Contrast,,Axial 1 5,7761
+CT,Thorax^CHESTABDOPELVIS (Adult),CHEST,Topogram  1.0  T20s,7734
+CT,Head,HEAD,Head 0.5,7725
+CT,CT Head,,Recon 2: 2.5MM AXIAL,7709
+CT,CT Angiogram pulmonary,,1.25mm Lung,7669
+CT,CT Angiogram pulmonary,CHEST,2,7654
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Chest Abdo Pelvis 1.25mm,7640
+CT,Thorax^4_CTPA_SAFIRE (Adult),CHEST,Thorax  5.0  I70f  3,7599
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Venous/Phase/Coronal Std. Volume CE,7541
+CT,CT Chest High Resolution,HRCT,7,7540
+CT,NM Whole body PET FDG,,CT Std ET 710,7520
+CT,Head,HEAD,5.0 Head Coronal Brain,7520
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Venous/Phase Std. Axial CE,7483
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,AbdoPelvis  1.5  I26f  3,7446
+CT,CT Sinuses,,Dose Report,7425
+CT,CT Angiogram Pulmonary,CHEST,Topogram,7400
+CT,CT Chest High Resolution,HRCT,1.0 Lung Volume,7393
+CT,CT Thorax abdomen pelvis with contrast,,Scout,7316
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Thorax  1.5 lung,7264
+CT,Thorax^WholebodyStagingDP (Adult),,Patient Protocol,7262
+CT,CT Head,HEAD,Head  1.0  J40s  3,7250
+CT,CT Head,HEAD,HeadSeq  1.2  H31s,7182
+CT,CT Chest With Contrast,,Patient Protocol,7166
+CT,Thorax^4_CTPA_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,7125
+CT,CT KUB,,Scout,7076
+CT,Head^01HeadSpiral_4x1_VOL,HEAD,Topogram,7071
+CT,CT Head,HEAD,1.0 Head  Brain,7020
+CT,CT Thorax and abdomen with contrast,,Patient Protocol,6937
+CT,CHEST/ABDO,CHEST_ABDO,",1.0,Std. Volume,Body,Vol,CE",6912
+CT,Head,HEAD,3.0 Head Coronal Brain,6894
+CT,Abdomen^AbdomenRoutine (Adult),ABDOMEN,Topogram  0.6,6885
+CT,Thorax^CHESTABDOPELVIS (Adult),,Patient Protocol,6870
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,2.0   Sharp,6834
+CT,,HEAD,1.0 Head,6813
+CT,CTPA,CTPA,2,6812
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Abdomen  1.0  I30f  3,6811
+CT,Thorax^7_SingleRun_Thorax_Abdo_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,6801
+CT,CT Urinary tract,,Dose Report,6746
+CT,HEAD,HEAD,2.0   Sharp,6743
+CT,CT Thorax abdomen pelvis with contrast,,CAP (DMPR) 1.25MM,6733
+CT,CT Head,HEAD,KEY_IMAGES,6720
+CT,CT Abdomen/Pelvis With Contrast,,Scouts,6701
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Abdopelvis  1.0,6684
+CT,CHEST_TO_PELVIS,CHEST_TO_PELVIS,2.0   Sharp,6622
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,5 PORTAL VEN CE,6617
+CT,CT Angiogram pulmonary,CTPA,2,6598
+CT,Thorax^1_ChestAbdo (Adult),CHEST,MEDIASTINUM 2MM,6593
+CT,CT Abdomen and pelvis with contrast,ABDO_PELVIS,2,6584
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 1.0 PORTAL VEN CE,6531
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Topogram,6527
+CT,Abdomen^4_KUB (Adult),,Patient Protocol,6517
+CT,CT Chest/Abdo/Pelvis/ With Contrast,ABDOMEN,AbdoPelvis  1.5  I26f  3,6515
+CT,Abdomen^1_AbdoPelvisRoutine (Adult),ABDOMEN,ADBO 2MM,6507
+CT,CT,,Dose Report,6467
+CT,CT Head,,Head 1.0,6466
+CT,CT Chest High Resolution,HRCT,1.0 Body AIDR Std,6460
+CT,"CT Chest, Abdo, Pelvis + C",,Post Contrast SS 40,6455
+CT,CT Chest With Contrast,,Dose Report,6448
+CT,CT Urinary tract,,Patient Protocol,6442
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,2 CE,6441
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,2.0   Sharp,6440
+CT,CT Angiogram pulmonary,,0.625mm Std,6397
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Arterial /Phase Std. Volume CE,6378
+CT,Thorax^7_SingleRun_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I70f  3,6366
+CT,Thorax^01Chest-Abdo-Pelvis_VOL,CHEST,Topogram,6362
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Topogram  0.6,6355
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_P,2   Port_Ven/Phase CE,6348
+CT,CT Chest/Abdo With Contrast,,Scout,6336
+CT,CT Head,HEAD,1.0 Head Brain Volume AIDR,6323
+CT,CT Thorax & abdo & pelvis with contrast,,Soft_Tissue 1.0 Body Volume Port_Ven/Phase CE,6264
+CT,Thorax^ChestLiverStaging (Adult),CHEST,Topogram,6255
+CT,CT Renal Both,,Dose Report,6242
+CT,CT Angiogram Pulmonary,CHEST,Thorax  1.0  B31f,6220
+CT,Thorax^4_CTPA_SAFIRE (Adult),,Patient Protocol,6205
+CT,CT Thorax abdomen pelvis with contrast,CHEST,2.0   Sharp  Scano,6203
+CT,Abdomen^Ayr_Abdo_Pel (Adult),ABDOMEN,Topogram,6171
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Abdomen  1.0  B20f 3D,6154
+CT,CT Angiogram Pulmonary,ABDOMEN,PE  1.0  I26f  3,6151
+CT,Head^Head_Spiral_BGH (Adult),HEAD,Head  4.0  MPR,6141
+CT,CT Head,,2.5MM AXIAL,6096
+CT,CT Head,,iDose (3),6088
+CT,Thorax^1_Thorax_NonC_SAFIRE (Adult),,Patient Protocol,6076
+CT,Thorax^ChestAbdoBolus (Adult),CHEST,Topogram,6025
+CT,Head^HeadSeq,HEAD,Topogram,6021
+CT,CT Chest/Abdo With Contrast,,Scouts,6015
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,Body 1.0,6014
+CT,"CT Chest, Abdo, Pelvis + C",,Scout,5953
+CT,Abdomen^AbdomenRoutine (Adult),,Patient Protocol,5949
+CT,CT KUB,,Patient Protocol,5931
+CT,Upper Extremity,,Individually captured images,5923
+CT,Abdomen^4_KUB (Adult),ABDOMEN,Abdomen  1.0  I26f  3,5923
+CT,Thorax^7_SingleRun_Thorax_Abdo_SAFIRE (Adult),,Patient Protocol,5922
+CT,CT Head,,HELICAL VOLUME 0.625,5891
+CT,CT Angiogram aorta,,SCOUT,5884
+CT,CT Thorax abdomen pelv,,Dose Report,5881
+CT,CT Head,,/Head/Brain/0.5//,5871
+CT,CT Head,,Scouts,5856
+CT,HEAD,,2.5/5mm HEAD,5822
+CT,CTPA,,Dose Report,5803
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Body 1.0,5783
+CT,ABDO/PELVIS,,Abdo Pelvis 1.25mm,5769
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Venous/Phase Std. Volume CE,5752
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,5710
+CT,CT Thorax & abdo & pelvis with contrast,,Lung 1.0 Lung Volume Port_Ven/Phase CE,5704
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,5  Venous/Phase  CE,5701
+CT,NM Whole body PET FDG,,Scout,5696
+CT,Thorax^1_ChestAbdoPelvis (Adult),CHEST,Topogram  1.0  T20s,5694
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),,Patient Protocol,5684
+CT,CT Colonoscopy (Virtual),,Patient Protocol,5683
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),CHEST,Thorax  5.0  I70f  3,5679
+CT,CT Head with contrast,,SCOUT,5668
+CT,CT Thorax & abdo & pelvis with contrast,,2,5640
+CT,CT Abdomen  pelvis with contrast,,Patient Protocol,5631
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Thorax  1.0  B31f,5618
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Arterial/Phase/Sagittal Std. Volume CE,5599
+CT,CT Head,HEAD,2.0   Sharp  Scano,5584
+CT,CT Angiogram Pulmonary,CTPA,CTA 1.0 CE,5581
+CT,Thorax^1_ChestAbdoPelvis (Adult),CHEST,MEDIASTINUM 2MM,5519
+CT,Thorax^ChestLiverStaging (Adult),CHEST,PV Liver  1.0 Thins,5510
+CT,CT Head,HEAD,1.0 Head Brain (FC23),5503
+CT,NM Whole Body PET FDG,,Patient Protocol,5466
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,Body 1.0 CE,5443
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,5  Portal Ven/Phase  CE,5443
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,5.0 Body Venous/Phase/Coronal Std. Volume CE,5424
+CT,CT Thorax and abdomen with contrast,CHEST,Topogram,5422
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,Body 1.0 PORTAL VEN CE,5402
+CT,Head^-01 Head 2.5 GR LW,HEAD,Topogram,5394
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,5,5368
+CT,Thorax^-01 Chest Abdo Pelvis 2.5,CHEST,CAP 5.0 B45f,5341
+CT,CT Angiogram Pulmonary,,CTPA 1.25mm,5340
+CT,CT Thorax abdomen pelvis with contrast,,SCOUTS,5312
+CT,,,Individually captured images,5311
+CT,CT Thorax,CHEST,2,5298
+CT,CT Angiogram Pulmonary,CTPA,2,5297
+CT,CT Thorax abdomen pelvis with contrast,CHEST,5  60s/Delay  CE,5282
+CT,CT Thorax,CHEST,",Sharp,,,",5279
+CT,CT Head with contrast,,Patient Protocol,5265
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5  Venous/Phase  CE,5242
+CT,CT Chest/Abdo/Pelvis,,Exam Summary,5214
+CT,CT Head,,Recon 2: 2.5mm Axial Head,5210
+CT,CT Angiogram Pulmonary,ABDOMEN,Topogram  0.6  T20f,5209
+CT,Head^-01 Head 2.5 GR LW,HEAD,RoutineSeq 2.5 H40s,5207
+CT,CT Angiogram aorta,,Smart Prep Series,5204
+CT,Thorax^CHESTABDOPELVIS (Adult),CHEST,MEDIASTINUM 2MM,5192
+CT,CT Urogram,,IST PART UROGRAM,5155
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I26f  3,5145
+CT,Abdomen^AbdomenRoutine (Adult),ABDOMEN,Abdomen  1.5,5145
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,2,5126
+CT,"CT Chest, Abdo, Pelvis + C",,Dose Report,5106
+CT,CT Thorax abdomen pelvis with contrast,,KEY_IMAGES,5105
+CT,CT Thorax and abdomen with contrast,,Scout,5096
+CT,Thorax^01Chest-Abdo-Pelvis_VOL,,Patient Protocol,5072
+CT,CT Colonoscopy virtual,,Dose Report,5065
+CT,,HEAD,Head 1.0,5043
+CT,CT Chest/Abdo/Pelvis,,Dose Report,5034
+CT,CT Head,BRAIN,"2MM SOFT TISSUE, iDose (2)",5026
+CT,HEAD,HEAD,",2.0,Sharp,,Scano,",4997
+CT,CT Head,BRAIN,"0.9mm bone, iDose (2)",4980
+CT,CT Head,,2.5mm Axial Head,4978
+CT,CT Urogram,,Patient Protocol,4969
+CT,CT Head With Contrast,,Dose Report,4950
+CT,CT Head,HEAD,1.0 Head  Brain Volume,4940
+CT,CHEST/ABDO,CHEST_ABDO,2,4935
+CT,Head^01HeadSpiral_4x1_VOL,HEAD,Thin Slice 5.0 H41s,4920
+CT,Head,HEAD,2,4898
+CT,CT KUB,KUB,2,4898
+CT,CT Thorax,,Dose Report,4874
+CT,Abdomen^1_AbdoPelvisRoutine (Adult),ABDOMEN,Topogram  1.0  T20s,4866
+CT,Thorax^Ayr_Staging_Chest_for_SC (Adult),,Patient Protocol,4861
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Venous/Phase/Sagittal Std. Volume CE,4853
+CT,CT Thorax with contrast,CHEST,2,4847
+CT,CT Head,,//Sharp/2.0//,4838
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,"2MM ST, iDose (3)",4837
+CT,Thorax^1_Thorax_NonC_SAFIRE (Adult),CHEST,Thorax  1.0  I31f  3,4815
+CT,CT Angiogram aorta,,Dose Report,4814
+CT,CT Chest high resolution,,SCOUT,4801
+CT,CT Guided biopsy lung,CHEST,Body 2.0,4801
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,"2MM Lung, iDose (3)",4777
+CT,Head^Head_Spiral_BGH (Adult),HEAD,Topogram  0.6  T20f,4765
+CT,CT Thorax abdomen pelv,,SCOUT,4764
+CT,HEAD,,Head 1.25mm,4750
+CT,CT Cone beam mandible,,,4743
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,Abdomen  1.0  B20f,4730
+CT,CT Head,HEAD,Head  1.0 3D,4706
+CT,CT Chest high resolution,,Patient Protocol,4702
+CT,Abdomen^4_KUB (Adult),ABDOMEN,Topogram  0.6  T20f,4671
+CT,CT Head,,2.5mm HEAD,4666
+CT,CT Angiogram pulmonary,,Scout,4665
+CT,Abdomen^Ayr_Abdo_Pel (Adult),,Patient Protocol,4661
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,5   Venous/Phase CE,4653
+CT,NM Whole body PET FDG,,CT Scout ET,4637
+CT,CT Chest/Abdo/Pelvis,CHEST,"Lung, iDose (3)",4626
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,5,4610
+CT,CT Cardiac Angiogram Coronary,,Dose Report,4605
+CT,CT Thorax abdomen pelv,,Recon 2:  CAP (DMPR) 1.25MM,4605
+CT,NM Whole body PET FDG,,CT AC ET 710,4602
+CT,Thorax^ChestAbdoBolus (Adult),,Patient Protocol,4592
+CT,CTPA,,Scout,4583
+CT,CT Chest,,Dose Report,4580
+CT,Abdomen^ABDOPELVIS_SAFIRE (Adult),ABDOMEN,AbdoPelvis  1.5  I26f  3,4572
+CT,Thorax^ChestAbdoBolus (Adult),CHEST,Thorax  1.5 lung,4553
+CT,CT Urinary tract,,SCOUT,4542
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,TAP  1.0  I30f  3,4510
+CT,CT Urogram,,2ND PART UROGRAM,4510
+CT,Thorax^1_ChestAbdo (Adult),,Patient Protocol,4510
+CT,Abdomen^1_AbdoPelvisRoutine (Adult),,Patient Protocol,4504
+CT,CT KUB,KUB,Body 1.0,4497
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,5.0 Body Venous/Phase/Sagittal Std. Volume CE,4482
+CT,CT Thorax abdomen pelvis with contrast,CHEST,KEY_IMAGES,4464
+CT,HEAD,HEAD,Head 1.0,4463
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Dose Report,4461
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Chest Liver  1.0,4438
+CT,CT Head,,1.25/0.625 Stnd,4432
+CT,CT Thorax abdomen pelv,,Recon 3: 5MM  HELICAL,4432
+CT,CT HeadAcute Stroke,BRAIN,"1mm, iDose (1)",4431
+CT,Abdomen^ABDOPELVIS_SAFIRE (Adult),ABDOMEN,Topogram  0.6  T20f,4421
+CT,CT Guided biopsy lung,CHEST,Body 4.0,4414
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5  Venous/Phase  CE,4393
+CT,HEAD,HEAD,",0.5,Brain,Head,Vol,",4379
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Arterial/Phase/Coronal Std. Volume CE,4375
+CT,Head^Sinuses (Adult),,Patient Protocol,4361
+CT,CT Urinary tract,ABDOMEN,Body 1.0,4354
+CT,Thorax^ChestAbdoBolus (Adult),CHEST,Thorax  1.5,4344
+CT,CT Chest high resoluti,,SCOUT,4341
+CT,Thorax^1_ChestAbdoPelvis (Adult),,Patient Protocol,4340
+CT,NM Whole Body PET FDG,ABDOMEN,AC CT WB,4317
+CT,CT Chest With Contrast,CHEST,Topogram  0.6  T20f,4271
+CT,Head^Head_Spiral_BGH (Adult),,Patient Protocol,4261
+CT,CT Head,BRAIN,"5mm to Baseline, iDose (1)",4258
+CT,Thorax^ChestAbdoPelvis_SAFIRE_LCAD (Adult),CHEST,Topogram  0.6  T20f,4245
+CT,CHEST/ABDO/PELVIS,,Dose Report,4242
+CT,CT Chest/Abdo/Pelvis,CHEST,iDose (3),4226
+CT,CT Angiogram Pulmonary,CHEST,Topogram  0.6  T20f,4225
+CT,Head^SpiralHead (Adult),,Patient Protocol,4215
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,iDose (4),4209
+CT,CT Thorax & abdomen wi,,Smart Prep Series,4202
+CT,CT Abdomen/Pelvis With Contrast,,Post Contrast SS40,4199
+CT,CT Thorax abdomen pelvis with contrast,CAP,2,4195
+CT,Abdomen^1_AbdomenPelvis_SAFIRE (Adult),ABDOMEN,Abdomen  2.0  I70f  3,4174
+CT,Abdomen^Colon_BGH (Adult),ABDOMEN,Topogram  0.6  T20f,4165
+CT,ABDO PELVIS,,Dose Report,4164
+CT,CT Head,HEAD,Thin Brain  0.5 Head Brain FC23,4160
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,5 Venous/Phase CE,4158
+CT,CT Thorax and abdomen,,Dose Report,4154
+CT,Head,HEAD,2.0  Smooth,4138
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,5 PORTAL VEN CE,4137
+CT,ABDOMEN,ABDOMEN,2.0   Sharp,4134
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,2,4130
+CT,CT Head,,AXIAL 5/7.5,4123
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,KEY_IMAGES,4121
+CT,Thorax^ChestAbdoPelvis_SAFIRE_LCAD (Adult),ABDOMEN,AbdoPelvis  1.5  I26f  3,4102
+CT,Head,HEAD,1.0 Head Brain Vol,4100
+CT,Head^HeadSeq,HEAD,HeadSeq 5.0 H40s,4088
+CT,CT Sinuses,,0.625mm,4085
+CT,CT Head,HEAD,2.0    Sharp,4081
+CT,CT Spine cervical,,Dose Report,4058
+CT,CT Head,,True Axials,4051
+CT,Abdomen^Colon_BGH (Adult),ABDOMEN,Abdomen  1.0  I30f  3,4025
+CT,Thorax^DynChest_Abdomen (Adult),CHEST,Topogram,4022
+CT,Thorax^ChestAbdoPelvis_SAFIRE_LCAD (Adult),CHEST,Thorax  1.5  I31f  3,4020
+CT,CT Chest and abdomen,CHEST,iDose (3),4020
+CT,Thorax^1_Thorax_NonC_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,4016
+CT,Head^Head_Spiral_BGH (Adult),HEAD,Head  1.0  J40s  3,4008
+CT,CT Abdomen/Pelvis With Contrast,,Abdo/Pelvis,3979
+CT,CT Head,,Recon 2: AXIAL 5/7.5,3972
+CT,CT Angiogram pulmonary,,Patient Protocol,3959
+CT,CT Angiogram pulmonary,CHEST,CTA 1.0 CE,3955
+CT,ABDO/PELVIS,ABDO_PELVIS,Body 1.0 Venous/Phase CE,3955
+CT,CT Thorax and abdomen with contrast,CHEST,2.0   Sharp  Scano,3948
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Venous/Phase/Coronal Std. Volume CE,3934
+CT,CT Head,BRAIN,"2MM ST, iDose (2)",3930
+CT,CT Abdomen & pelvis wi,,1.25 MM ABDOMEN/PELVIS,3903
+CT,CT Cardiac Angiogram Coronary,,SS Pulse SS40 30-65BPM,3889
+CT,CT Guided biopsy lung,,Body 4.0,3887
+CT,CT Head/Neck,HEAD,",,SUMMARY,,",3871
+CT,CT Head,BRAIN,"Bony, iDose (1)",3861
+CT,CT Cardiac Angiogram Coronary,,Patient Protocol,3859
+CT,CT Head,HEAD,Head 5.0,3858
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,2 CE,3851
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),ABDOMEN,Abdo/pel. ven  1.0  3D,3849
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,5 CE,3846
+CT,PET^PETCT_AC_WB_SMI_REDACTED (Adult),ABDOMEN,AC CT WB,3844
+CT,Thorax^-01 Chest Abdo Pelvis 2.5,,Patient Protocol,3843
+CT,CHEST,CHEST,2.0   Sharp,3823
+CT,CT Urogram,,2ND  PART UROGRAM SCOUT,3823
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),CHEST,Topogram,3821
+CT,CT Thorax abdomen pelv,,HELICAL 1.25MM,3814
+CT,CT Abdomen and pelvis,,SCOUTS,3813
+CT,CHEST,CHEST,1.0 Body Portal Ven/Phase Std. Volume CE,3813
+CT,CT Head,BRAIN,2,3807
+CT,CT Abdomen and pelvis,,Recon 2: P0ST CONTRAST 5MM HELI,3798
+CT,CT Head/Neck,HEAD,",Brain,Vol.,Head,",3792
+CT,CT Guided Biopsy,,Biopsy,3784
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),CHEST,Chest Ven  1.0 3D,3775
+CT,Thorax^DynChest_Abdomen (Adult),,Patient Protocol,3762
+CT,CT Thorax abdomen pelvis with contrast,,2,3757
+CT,Abdomen^-01 Abdo Routine 2.5mm,,Patient Protocol,3753
+CT,Head^SpiralHead (Adult),HEAD,Topogram  1.0  T20s,3751
+CT,CT Colonoscopy (Virtual),,Prone Scout,3740
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,KEY_IMAGES,3739
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Topogram  0.6,3739
+CT,CT Angiogram pulmonary,CHEST,1 CE,3735
+CT,Abdomen^Ayr_Abdo_Pel (Adult),ABDOMEN,Abdo/pel VEN  1.0  3D,3724
+CT,Head,HEAD,3.0 Head Sagittal Brain,3717
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,Body 1.0 Port Ven/CAP,3714
+CT,CT Head with contrast,,Dose Report,3712
+CT,CT Abdomen & pelvis with contrast,,1.0 Body Volume Port_Ven/Phase CE,3712
+CT,CT Thorax abdomen and,,Dose Report,3705
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,Port_Ven 1.0 Body Non Hybrid Volume Port_Ven/Phase CE,3701
+CT,CT,,RTP PELVIS,3697
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,Lung 1.0 CE,3693
+CT,HRCT,HRCT,2,3660
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,1.0 Body Portal Ven/Phase Std. Volume CE,3659
+CT,CT Thorax and abdomen with contrast,CHEST,KEY_IMAGES,3640
+CT,CT Angiogram Pulmonary,CHEST,CTPA  1.0  I26f  3,3639
+CT,CT Urogram,,Scouts,3635
+CT,CT Sinuses,HEAD,Topogram,3626
+CT,Abdomen^-01 Abdo Routine 2.5mm,ABDOMEN,AbdRoutine 5.0 B45f,3616
+CT,CT Chest/Abdo/Pelvis/,,Dose Report,3608
+CT,CT Angiogram lower limb Both,,Smart Prep Series,3607
+CT,CT Head,,1.25mm Bone,3605
+CT,Thorax^QM_Alternative_CAP_Thorabdo_Single_Run (Adult),ABDOMEN,Topogram  0.6  T20f,3591
+CT,CT Chest/Abdo/Pelvis,,Scout,3583
+CT,CT Chest With Contrast,,Scout,3567
+CT,CT Urinary tract,ABDOMEN,2,3566
+CT,CT Head,HEAD,1.0 Bone Hi Res,3564
+CT,CT Chest High Resolution,CHEST,Topogram  0.6  T20f,3559
+CT,ABDO/PELVIS,,Dose Report,3530
+CT,CT Head,BRAIN,0.5 Head Brain FC23,3524
+CT,Abdomen^ABDOPELVIS_SAFIRE (Adult),,Patient Protocol,3503
+CT,Head^HeadSeq,,Patient Protocol,3495
+CT,ABDOMEN,ABDOMEN,5  Venous/Phase  CE,3485
+CT,CT Thorax and abdomen with contrast,CHEST,1.0 Body 60s/Delay Std. Volume CE Vol,3475
+CT,CT KUB,,KUB 1.25mm,3473
+CT,CT Urinary tract,ABDOMEN,5,3470
+CT,CT Colonoscopy (Virtual),,Scout,3467
+CT,CT Chest/Abdo/Pelvis,,,3464
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,2   Port_Ven/Phase CE,3461
+CT,CT Angiogram Pulmonary,CHEST,iDose (3),3459
+CT,CT Thorax and abdomen with contrast,CHEST,2.0   Sharp,3455
+CT,Lower Extremity,,Individually captured images,3454
+CT,Thorax^01Chest-Abdo-Pelvis_VOL,CHEST,C/A/P 3.0 B30f,3449
+CT,CT Head with contrast,HEAD,2,3442
+CT,,ABDOMEN,2,3440
+CT,CT BRAIN,CT BRAIN,5,3434
+CT,Thorax^7_Singlerun_Thorax_Abdo_SAFIRE (Adult),,Patient Protocol,3427
+CT,Thorax^ThoraxAbdoPelvisCombined+Contrast,,Patient Protocol,3424
+CT,CT Angiogram Pulmonary,CHEST,PreMonitoring  10.0  B30s,3417
+CT,CHEST_TO_PELVIS,CHEST_TO_PELVIS,1.0 Body Portal Ven/Phase Std. Volume CE,3406
+CT,CT Chest High Resolution,,Scouts,3403
+CT,CT Urogram,ABDOMEN,UROGRAM  1.5  I26f  3,3391
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,1.0 Lung Volume Arterial  /Phase CE,3384
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,1.0 Body AIDR Strong Venous/Phase CE,3382
+CT,CT Thorax abdomen pelvis with contrast,CHEST,2,3373
+CT,CT Angiogram pulmonary,CHEST,Embolism  1.0  B20f 3D,3371
+CT,Head^01HeadSpiral_4x1_VOL,HEAD,Thin Slice 1.25 H41s,3356
+CT,CT Chest high resolution,CHEST,"Lung, iDose (2)",3355
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 1.0 Venous/Phase CE,3351
+CT,CT Chest/Abdo With Contrast,,Lung,3340
+CT,ABDO PELVIS,,Axial A/P,3323
+CT,CT Abdomen and pelvis with contrast,ABDO_PELVI,5   Venous/Phase CE,3322
+CT,Thorax^4_CTPA_SAFIRE (Adult),CHEST,Thorax  1.0  I31f  3,3321
+CT,CHEST_TO_PELVIS,CHEST_TO_PELVIS,5  Portal Ven/Phase  CE,3313
+CT,HEAD,HEAD,1.0 Head  Brain Volume,3310
+CT,,CTPA,10.0 Lung CTA CE,3306
+CT,CT Abdomen and pelvis with contrast,ABDO_PELVIS,Body 1.0 Venous/Phase CE,3300
+CT,CT Thorax and abdomen with contrast,CHEST,Topogram  0.6  T20s,3290
+CT,CT Head,,BONE,3287
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Lung 1.0,3284
+CT,CT BRAIN,CT BRAIN,5.0 Head   Brain Axial,3280
+CT,CT Abdomen/Pelvis With Contrast,,Axial A/P,3279
+CT,NM Whole Body PET FDG,,CT STND,3277
+CT,Head^RoutineSpiralHead (Adult),HEAD,Head  1.0  H60s,3276
+CT,Thorax^DualThoraxAbdo (Adult),CHEST,Thorax 2 mm Mediastinum,3273
+CT,Abdomen^KUB (Adult),,Patient Protocol,3272
+CT,Head^1_Head_SAFIRE (Adult),HEAD,Head  5.0  J30s  3,3266
+CT,CT Renal Both,,1.25,3264
+CT,CT Thorax & abdomen with contrast,,2,3263
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,KEY_IMAGES,3255
+CT,CT Chest (Limited),,1.25mm Chest,3252
+CT,CT Abdomen and pelvis,,Dose Report,3247
+CT,Thorax^7_SingleRun_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I26f  3,3246
+CT,CT Chest With Contrast,CHEST,2,3244
+CT,Thorax^ChestLiverStaging (Adult),ABDOMEN,Art Chest/Liver  1.0,3239
+CT,CT Chest high resolution,CHEST,"Mediastinum, iDose (2)",3236
+CT,CT Head,HEAD,1.0 Head  Brain  Vol,3230
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),,Patient Protocol,3226
+CT,CT Cardiac Angiogram Coronary,,SmartScore - Localize,3208
+CT,Head^-01 Head 2.5 GR LW,,Patient Protocol,3205
+CT,CT Head With Contrast,,Patient Protocol,3203
+CT,CT Chest high resoluti,,SCOUTS,3203
+CT,Abdomen^Ayr_CT_Urogram (Adult),ABDOMEN,UROGRAM  1.0  3D,3203
+CT,Head^03aHeadSpiral (Adult),HEAD,Topogram  1.0  T20s,3200
+CT,CHEST/ABDO,CHEST_ABDO,",5.0,Std. Volume,Body,Coronal,CE",3192
+CT,CT Head,,1.25mm bone recon,3189
+CT,CT Thorax with contrast,,Dose Report,3188
+CT,C/A/P,,Dose Report,3180
+CT,,CTPA,2,3173
+CT,Head^01HeadSpiral_4x1_VOL,,Patient Protocol,3169
+CT,CT Abdomen and Pelvis,ABDOMEN_PELVIS,2.0   Sharp,3169
+CT,Abdomen^7_Colon (Adult),ABDOMEN,Topogram  0.6  T20f,3169
+CT,CT Colonoscopy (Virtual),,Supine Scouts,3167
+CT,CT Chest/Abdo With Contrast,,Post Contrast SS 40,3160
+CT,CT Chest/Abdo With Contrast,CHEST,Thorax LCAD  1.5  I31f  3,3150
+CT,CT Chest high resolution,CHEST,2,3146
+CT,CT Neck thorax abdomen pelvis with Cont,,Dose Report,3138
+CT,CT Chest,,Patient Protocol,3137
+CT,CHEST/ABDO,CHEST_ABDO,",2.0,Sharp,,Scano,",3137
+CT,Abdo/Pelvis,ABDO_PELVIS,1.0 Body Volume Venous/Phase CE,3136
+CT,Head^Head (Adult),HEAD,Topogram,3132
+CT,CT Head,,KEY_IMAGES,3131
+CT,CT Chest High Resolution,,HRCT,3130
+CT,CT Chest/Abdo With Contrast,CHEST,Topogram  0.6  T20f,3120
+CT,CH/AB/PEL,CH_AB_PEL,",2.0,Sharp,,Scano,",3117
+CT,CT Guided biopsy lung,ABDOMEN,Sft Tissue 3.0,3103
+CT,CT Thorax abdomen pelvis with contrast,CHEST,1.0 Body 60s/Delay Std. Volume CE Vol,3094
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,10.0 Body Axial Arterial  /Phase CE,3093
+CT,CT Angiogram Pulmonary,,Lung,3090
+CT,CAP,,Dose Report,3088
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,KEY_IMAGES,3085
+CT,CT Urinary tract,ABDOMEN,Abdomen  1.0  B20f,3084
+CT,CT Abdomen & pelvis with contrast,,//Sharp/2.0//,3084
+CT,Thorax^1_ChestAbdo (Adult),CHEST,Topogram  1.0  T20s,3078
+CT,Thorax^QM_Alternative_CAP_Thorabdo_Single_Run (Adult),CHEST,MPR CAP  1.0  I26f  3,3068
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Abdomen  1.0,3066
+CT,CT Head With Contrast,HEAD,Head  1.0  H60s,3063
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Arterial /Phase Std. Volume CE,3059
+CT,CT Abdomen and pelvis with contrast,ABDO_PELVIS,Thin Abdo  1.0 Body Volume FC7 Venous/Phase CE,3053
+CT,ABDO/PELVIS,ABDO_PELVIS,5 Venous/Phase CE,3036
+CT,CT Angiogram pulmonary,CHEST,2 CE,3035
+CT,ABDOMEN,ABDOMEN,2,3030
+CT,Abdomen^-01 Abdo Routine 2.5mm,ABDOMEN,Topogram,3027
+CT,CHEST/ABDO,,Dose Report,3016
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,CAP 65  1.5  I30f  3,3015
+CT,CT Spine cervical,,0.625mm Bone,3014
+CT,Thorax^1_Thorax_NonC_SAFIRE (Adult),CHEST,Thorax  5.0  I70f  3,3008
+CT,Thorax^1_ChestAbdoPelvis (Adult),ABDOMEN,AbdRoutine  2.0  B20f,3005
+CT,CT HEAD,,Dose Report,3003
+CT,Chest/Abdo,CHEST_ABDO,5  Venous/Phase  CE,3003
+CT,CT Colonoscopy (Virtual),ABDOMEN,Abdomen  1.0  I30f  3,3000
+CT,CT Thorax and abdomen with contrast,CHEST,2,2998
+CT,CT Abdomen and Pelvis,,Exam Summary,2986
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,1.0 Body Venous/Phase Std. Volume CE,2982
+CT,CT Abdomen and pelvis with contrast,ABDOMEN_PELVIS,2,2979
+CT,Thorax^CHESTABDOPELVIS (Adult),ABDOMEN,AbdoPelvis  2.0  B20f,2964
+CT,CT BRAIN,CT BRAIN,5.0 Head Sagittal  Brain Volume,2957
+CT,CT Head with contrast,HEAD,Topogram  0.6  T20s,2950
+CT,CT Urinary tract,,1.25mm KUB Soft,2941
+CT,CT Head,,3mm COR,2941
+CT,Head^Sinuses (Adult),HEAD,Sinus  1.5,2932
+CT,CT Sinuses,,Scout,2923
+CT,CT Thorax abdomen pelvis with contrast,CAP,1.0 Body Std. Volume Port_Ven/Phase CE,2920
+CT,CT Chest high resoluti,,Dose Report,2915
+CT,Thorax^ChestAbdoBolus (Adult),ABDOMEN,Abdomen  1.5,2915
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,KEY_IMAGES,2914
+CT,CT Chest high resoluti,,HRCT 1.25MM,2911
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Arterial /Phase Std. Axial CE,2909
+CT,NM Whole Body PET FDG,ABDOMEN,Topogram  0.6  T80s,2906
+CT,CT Angiogram lower limb Both,,Dose Report,2900
+CT,Head^03aHeadSpiral (Adult),,Patient Protocol,2896
+CT,CT Urinary tract,ABDOMEN,Topogram  0.6  T20f,2894
+CT,CHEST/ABDO,CHEST_ABDO,",5.0,Std. Axial,Body,Axial,CE",2894
+CT,CT Angiogram pulmonary,CTPA,CTA 1.0 CTA CE,2890
+CT,CT Neck With Contrast,NECK,Neck  1.0  B60f,2890
+CT,Head^RoutineSpiralHead (Adult),HEAD,Head  1.0  J30s  2,2887
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Thorax  1.5  I50f  3,2886
+CT,CT Head,HEAD,Head  5.0  True Axial,2875
+CT,Thorax^VenousChestAbdo (Adult),CHEST,Topogram  0.6,2873
+CT,CT Angiogram Pulmonary,,Timing Bolus,2872
+CT,Thorax^DynChest_Abdomen (Adult),CHEST,Thorax  1.5  B50f,2870
+CT,CHEST,CHEST,5  Portal Ven/Phase  CE,2851
+CT,CT Thorax,,Patient Protocol,2842
+CT,,CHEST_ABDO,2,2837
+CT,CT Thorax and abdomen with contrast,,1.25mm Chest/abdo,2825
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,5 CE,2818
+CT,Abdomen^KUB (Adult),ABDOMEN,Topogram,2818
+CT,CT Multi Area,ABDOMEN,iDose,2813
+CT,CT Thorax and abdomen with contrast,CHEST,Thorax  1.0  B31f,2808
+CT,Thorax^DualThoraxAbdo (Adult),,Patient Protocol,2802
+CT,CT Thorax abdomen pelv,,CAP (DMPR) 1.25MM,2801
+CT,Abdomen^AbdRoutine+Contrast,ABDOMEN,AbdRoutine 3.0 B31f,2798
+CT,CT Head With/Without Contrast,,Dose Report,2795
+CT,Thorax^TAP_All_In_One_With_IV_BGH (Adult),ABDOMEN,Topogram  0.6  T20f,2791
+CT,CHEST,,Dose Report,2788
+CT,CT Abdomen With Contrast,ABDOMEN,2,2783
+CT,CT Angiogram pulmonary,,PULM. ANGIO,2782
+CT,CT Spine cervical,,Scout,2779
+CT,CT Abdomen and pelvis with contrast,ABDOMEN_PELVIS,Body 1.0 PORTAL VEN CE,2777
+CT,Thorax^QM_Alternative_CAP_Thorabdo_Single_Run (Adult),CHEST,Thorax Lung  2.0  I70f  3,2776
+CT,ABDOMEN,ABDOMEN,1.0 Body Venous/Phase Std. Volume CE,2772
+CT,CT Urogram,,UROGRAM SCOUT,2771
+CT,Abdomen^Abdomen_With_IV_BGH (Adult),ABDOMEN,Topogram  0.6  T20f,2769
+CT,CT Spine cervical,C SPINE,3,2769
+CT,,HEAD,1.0 Bone,2766
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,5 Venous/Phase CE,2764
+CT,Thorax^SingleThoraxAbdo (Adult),,Patient Protocol,2757
+CT,Thorax^1_CTPA (Adult),CHEST,Topogram  1.0  T20s,2757
+CT,CT Spine cervical,C SPINE,Spine 0.5,2755
+CT,CT Renal,,Dose Report,2748
+CT,CT Thorax and abdomen with contrast,CHEST,Thorax  1.0  B20f 3D,2745
+CT,CT Head,HEAD,Head  1.0    ax 3D,2745
+CT,CT Colonoscopy virtual,ABDOMEN,2.0   Sharp CE Scano,2745
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,2.0   Sharp  Scano,2744
+CT,CT Chest,,Scout,2743
+CT,,CHEST_ABDO_PELV,Body 1.0 CE,2741
+CT,CT Colonoscopy (Virtual),,Colon 1mm,2737
+CT,CT Chest high resoluti,,Recon 2: 1.25mm HRCT INSP,2736
+CT,CT Chest/Abdo With Contrast,ABDOMEN,Abdo  1.5  I26f  3,2731
+CT,Thorax^7_Singlerun_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I26f  3,2729
+CT,CH/AB/PEL,CH_AB_PEL,",5.0,Std. Axial,Body,Axial,CE",2726
+CT,CT Angiogram Lower Limbs,PERIPHERAL,2,2723
+CT,HEAD,HEAD,1.0 Head   Brain Volume,2721
+CT,CT Head,HEAD,Head  1.0  J70h  3,2719
+CT,Thorax^ChestLiverStaging (Adult),ABDOMEN,Lungs 1.0,2717
+CT,CT Angiogram pulmonary,,Helical 1.25mm,2717
+CT,Abdomen^7_Colon (Adult),ABDOMEN,Abdomen  1.0  I26f  3,2715
+CT,ABDOMEN,ABDOMEN,1.0 Body Non/Contrast Std. Volume,2689
+CT,Abdomen^1_Colon (Adult),ABDOMEN,Topogram  1.0  T20s,2688
+CT,CT Chest/Abdo With Contrast,ABDOMEN,Topogram  0.6  T20f,2687
+CT,CT Chest high resolution,CHEST,Topogram  0.6  T20s,2684
+CT,CT KUB,ABDOMEN,Topogram  0.6  T20f,2682
+CT,CTPA,,CTPA 1.25mm,2681
+CT,CTPA,CTPA,Body 2.0,2679
+CT,CT Chest,CHEST,"Mediastinum, iDose (2)",2667
+CT,CT Abdomen / Pelvis,ABDOMEN,iDose,2663
+CT,CT Chest and abdomen,ABDOMEN,iDose (4),2663
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Arterial/Phase/Coronal Std. Volume CE,2661
+CT,CT Neck With Contrast,CHEST,Topogram  0.6  T20s,2654
+CT,CT Head,,Recon 3: AXIAL 5/7.5,2649
+CT,CT Urinary tract,ABDOMEN,2.0   Sharp,2649
+CT,CT Spine Cervical,,Patient Protocol,2645
+CT,Head^BrainwithBony (Adult),,Patient Protocol,2643
+CT,CT Head,HEAD,Brain Vol. Head,2641
+CT,CHEST ABDO PELVIS,,Dose Report,2640
+CT,CT Abdomen and pelvis with contrast,,SCOUT,2636
+CT,CT Abdomen and Pelvis,,Patient Protocol,2616
+CT,CT Guided biopsy lung,,Body 2.0,2616
+CT,CT Thorax,,SCOUTS,2615
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,5 PORTAL VEN CE,2614
+CT,CT KUB,,Axial 1 5,2613
+CT,CT Abdomen/Pelvis With Contrast,,,2605
+CT,CT Thorax abdomen and pelvis,CHEST_ABDO_PELVI,2,2603
+CT,Head^HeadRoutineSeqBGH (Adult),HEAD,Brain  4.5  H40s,2597
+CT,CT Chest high resolution,,Scout,2589
+CT,Head,HEAD,1.0 Bone Hi Res,2584
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,2,2582
+CT,Thorax^DualThoraxAbdo (Adult),CHEST,Topogram  1.0  T20s,2574
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25mm art chest recon,2571
+CT,CT Abdomen and pelvis with contrast,,KEY_IMAGES,2571
+CT,CT Urinary tract,ABDOMEN,5  Non/Contrast,2562
+CT,CT BRAIN,CT BRAIN,2.0    Sharp,2556
+CT,ABDO PELVIS,,Scout,2550
+CT,CHEST ABDO PELVIS,,Scout,2548
+CT,,HEAD,Bone 1.0,2537
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,Topogram  0.6  T20f,2534
+CT,Thorax^ChestAbdoPelvis_SAFIRE_LCAD (Adult),,Patient Protocol,2533
+CT,CT Thorax,,CHEST,2533
+CT,CT Abdomen and pelvis,ABDO_PELVIS,2,2530
+CT,CT Colonoscopy virtual,,SUPINE SCOUT,2527
+CT,NM Bone Whole Body,,Dose Report,2525
+CT,CT Angiogram Pulmonary,,tracker,2521
+CT,CT Sinuses,,SINUS SUPINE SCOUT,2515
+CT,Abdomen^AbdRoutine+Contrast,,Patient Protocol,2513
+CT,Head^Sinuses (Adult),HEAD,Topogram,2512
+CT,CT BRAIN,CT BRAIN,5.0 Head Coronal  Brain Volume,2510
+CT,KUB,,Dose Report,2509
+CT,Thorax^DualThoraxAbdo (Adult),ABDOMEN,Abdomen  2.0 mm,2506
+CT,CT Urogram,,Scout,2503
+CT,CT Chest High Resolution,,INSP. 1.25/10mm,2503
+CT,CT Chest/Abdo With Contrast,CHEST,TAP 1.0  I30f  3,2500
+CT,CT Colonoscopy virtual,,SUPINE,2493
+CT,CTPA,CTPA,CTA 1.0 CTA CE,2493
+CT,CT Colonoscopy virtual,,PRONE LOW mA,2486
+CT,CT Chest/Abdo/Pelvis/ With Contrast,C_A_P,5  55 sec/delay CE,2486
+CT,CT Head with contrast,,0.6MM,2484
+CT,CT Abdomen & pelvis with contrast,,2,2483
+CT,CT Head With Contrast,HEAD,Topogram,2481
+CT,CT Abdomen and Pelvis,,Scout,2455
+CT,Thorax^Ayr_Staging_Chest_for_SC (Adult),CHEST,Topogram,2452
+CT,CT Head with contrast,HEAD,Topogram  0.6  T20f,2448
+CT,HEAD,HEAD,Head 5.0 Coronal,2444
+CT,CT Thorax abdomen pelvis with contrast,,Recon 2:  CAP (DMPR) 1.25MM,2441
+CT,CT Colonoscopy virtual,,SCOUT PRONE low dose series,2438
+CT,Head^03aHeadSpiral (Adult),HEAD,Head Spiral  1.0  H31s,2434
+CT,CT Spine Cervical,,Dose Report,2433
+CT,Head^HeadRoutineSeqBGH (Adult),HEAD,Topogram  1.0  T20s,2430
+CT,CT Sinuses,,Patient Protocol,2429
+CT,CT Angiogram Pulmonary,,locator,2429
+CT,PET^PETCT_AC_WB_SMI_REDACTED (Adult),ABDOMEN,Topogram  0.6  T80s,2429
+CT,CT Colonoscopy (Virtual),ABDOMEN,Colo_prone  1.0  I26f  3,2426
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Body 1.0 CE,2425
+CT,CT Angiogram pulmonary,,Recon 2: 4MLS + 100MLS CONTRAST,2422
+CT,CT Cone beam maxilla,,,2422
+CT,HEAD,,2.5mm Head,2419
+CT,CT Chest/Abdo With Con,,Dose Report,2414
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Body 1.0 CE,2411
+CT,Head^RoutineSpiralHeadPostContrast (Adult),,Patient Protocol,2411
+CT,CT Chest/Abdo With Contrast,CHEST,Topogram  0.6,2411
+CT,CT Angiogram pulmonary,,2,2408
+CT,Thorax^SingleThoraxAbdo (Adult),CHEST,ThoraxAbd  2.0 mm ST,2406
+CT,CT Head,HEAD,Head 1.0 CE,2404
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Arterial/Phase/Sagittal Std. Volume CE,2403
+CT,CH/AB/PEL,CH_AB_PEL,",5.0,Std. Volume,Body,Coronal,CE",2398
+CT,CT Angiogram Pulmonary,CHEST,"Lung, iDose (3)",2398
+CT,CT Abdomen and pelvis,,ABDO PELVIS,2391
+CT,CT Abdomen/Pelvis With Contrast,,Axial 1 5,2385
+CT,Thorax^ThoraxAbdoPelvisCombined+Contrast,CHEST,Topogram,2381
+CT,CT Head,,2.5/5mm HEAD,2376
+CT,Abdo/Pelvis,ABDO_PELVIS,2.0  Smooth,2375
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Topogram  0.6  T20f,2369
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,1.0 Body Volume Venous/Phase CE,2367
+CT,CT Thorax and abdomen with contrast,,SCOUT,2363
+CT,,CTPA,1.0 CTA CTA CE,2360
+CT,CT Angiogram pulmonary,CHEST,Topogram  0.6  T20s,2359
+CT,CT Head,,0.625mm  Soft,2357
+CT,,CTPA,2  CTA CE,2354
+CT,HEAD,,2.5/5mm,2353
+CT,CT Chest high resoluti,,HELICAL /HRCT 2ND RECON,2351
+CT,Thorax^ChestLiverStaging (Adult),,Patient Protocol,2349
+CT,CT KUB,KUB,2.0 Body AIDR Strong,2344
+CT,CT Thorax,CHEST,5,2342
+CT,CT Spine cervical,C SPINE,Bone 0.5,2337
+CT,HEAD,HEAD,2.0    Sharp,2321
+CT,CT Chest high resolution,CHEST,ThorHR  1.0  B70 3D,2319
+CT,CT Abdomen and Pelvis,ABDOMEN_PELVIS,5  Venous/Phase  CE,2316
+CT,ABDOMEN,ABDOMEN,5  Non/Contrast,2315
+CT,Abdomen^Ayr_CT_Urogram (Adult),ABDOMEN,Topogram,2309
+CT,CT urinary tract with contrast,ABDOMEN,2,2307
+CT,Neck^Dyn_Neck (Adult),CHEST,Topogram  0.6  T20s,2302
+CT,Thorax^1_ChestAbdo (Adult),ABDOMEN,AbdRoutine  2.0  B20f,2300
+CT,CT Abdomen and pelvis,ABDOMEN_PELVIS,2,2300
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Topogram,2299
+CT,CT Chest High Resolution,,Patient Protocol,2297
+CT,Abdomen^01_Urogram_Plain_VOL,ABDOMEN,Urogram 3.0 B30f,2290
+CT,CT Thorax and abdomen with contrast,CHEST,Thorax  1.0  I31s  3,2284
+CT,CT Chest/Abdo/Pelvis,,Patient Protocol,2282
+CT,CT Chest high resolution,,2,2271
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,2.0   Sharp,2270
+CT,ABDO/PELVIS,ABDO_PELVIS,",2.0,Sharp,,Scano,",2264
+CT,CT Thorax abdomen pelvis with contrast,,LUNG 5mm,2258
+CT,Thorax^-01 Chest Abdo Pelvis 2.5,CHEST,Topogram,2257
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,5  PORTAL VEN CE,2257
+CT,Head^RoutineSpiralHeadPostContrast (Adult),HEAD,Head  1.0  H31s,2256
+CT,Abdomen^AbdRoutine+Contrast,ABDOMEN,Topogram,2248
+CT,CT Colonoscopy virtual,ABDOMEN,1.0 Body Prone/Colon Std. Volume CE Vol,2247
+CT,CT Head,,Head 0.5,2247
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,5.0 Body Venous/Phase Std. Axial CE,2241
+CT,CT Abdomen and Pelvis,ABDOMEN,Topogram,2237
+CT,Lower Extremities^1_Extremity (Adult),EXTREMITY,Topogram  0.6  T20f,2234
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Lung 5.0,2233
+CT,CT Urogram,ABDOMEN,Topogram,2232
+CT,CT Head,,2.5mm Soft,2228
+CT,CT Head With Contrast,HEAD,Head  1.0  J30s  2,2227
+CT,CT Head,BRAIN,"1mm, iDose",2221
+CT,ABDO/PELVIS,,Scout,2220
+CT,CT Chest High Resolution,,SCOUT,2220
+CT,CHEST,CHEST,1.0 Lung  Std. Volume,2219
+CT,Thorax^CTPA_BGH (Adult),,Patient Protocol,2216
+CT,Abdomen^01Abdo-Pelvis_VOL,ABDOMEN,Abdo/Pelvis 3.0 B30f,2215
+CT,Head^BrainwithBony (Adult),HEAD,Head  5.0 Baseline,2213
+CT,Head^HeadRoutineSeqBGH (Adult),,Patient Protocol,2209
+CT,,CHEST_ABDO,Body 1.0 CE,2208
+CT,Thorax^Ayr_Staging_Chest_for_SC (Adult),ABDOMEN,Chest/Liver p.v.  1.0  3D,2206
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,1.0 Body 60s/Delay Std. Volume CE Vol,2206
+CT,,ABDO_PELVIS,5  Portal Ven,2204
+CT,ABDO/PELVIS,ABDO_PELVIS,",1.0,Std. Volume,Body,Vol,CE",2202
+CT,CT Neck with contrast,,Dose Report,2200
+CT,CT Renal Both,,Non_Con 1.0 Body Volume Non_Con /Prone,2200
+CT,CT Angiogram pulmonary,CTPA,1   CTA CE,2198
+CT,CT,,Patient Protocol,2192
+CT,CTPA,CTPA,1.0 CTA Body CTA CE,2188
+CT,Thorax^Ayr_CT_PA (Adult),CHEST,CT P.A.  3.0,2183
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,Body 1.0 Port Ven/Ab/Pel,2183
+CT,CHEST/ABDOMEN,CHEST_ABDOMEN,2,2182
+CT,CT Thorax and abdomen,,SCOUT,2177
+CT,CT Abdomen and pelvis with contrast,,2,2176
+CT,CT KUB (Urinary tract),ABDOMEN,iDose (5),2176
+CT,CT Chest high resolution,,HELICAL /HRCT 2ND RECON,2175
+CT,,,,2174
+CT,CT Thorax and abdomen with contrast,,1.25MM,2172
+CT,CT Cardiac Angiogram Coronary,HEART,Topogram  0.6  T20s,2172
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,1.0 Body Volume Arterial  /Phase CE,2169
+CT,CT urinary tract with contrast,,Dose Report,2167
+CT,CT Thorax and abdomen,,1.25mm C.A.P DMPR,2166
+CT,Chest,CHEST,2.0  Smooth,2163
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Venous Abdo/Pelvis,2162
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Venous/Phase Std. Volume CE,2160
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Port_Ven 1.0 Body Std. Volume Port_Ven/Phase CE,2155
+CT,Head^BrainwithBony (Adult),HEAD,Head  1.0,2153
+CT,CT Head,BRAIN,5,2151
+CT,CHEST,CHEST,2,2146
+CT,CT Chest high resolution,CHEST,5,2145
+CT,CTPA,CTPA,Body 0.5  CE,2145
+CT,CT Abdomen and Pelvis,,Dose Report,2142
+CT,CT Angiogram Lower Limbs,,Scout,2139
+CT,CT Angiogram Pulmonary,,Scouts,2134
+CT,CT Thorax and abdomen with contrast,CHEST_ABDO,2,2130
+CT,CT Urogram,,Axial 1 5,2128
+CT,CT Thorax & abdo & pelvis with contrast,,KEY_IMAGES,2127
+CT,CAP,,Scout,2125
+CT,CT Renal Both,,1.25 renal stone,2124
+CT,CT Guided drainage,,1.25 ABDO/PELVIS,2116
+CT,CT Thorax,,SCOUT,2115
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5 Port Ven/CAP,2114
+CT,CT Abdomen and pelvis,ABDO_PELVIS,Body 1.0 Venous/Phase CE,2114
+CT,CT Angiogram pulmonary,,Recon 2: Helical 1.25mm,2114
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Venous/Phase/Sagittal Std. Volume CE,2112
+CT,CT Thorax abdomen and pelvis,,Dose Report,2111
+CT,CT Angiogram Pulmonary,,Smart Prep Series,2106
+CT,CHEST,CHEST,1.0 Body  Std. Volume,2104
+CT,CT Chest high resoluti,,1.25mm HRCT INSP,2100
+CT,,CTPA,Lung 10.0 CE,2099
+CT,CT Renal Both,,1.25 RENAL STONE,2096
+CT,PET^1_PETCT_AC_WholeBody_CRC (Adult),,Patient Protocol,2093
+CT,CT Abdomen and pelvis with contrast,ABDO_PELVIS,5 Venous/Phase CE,2092
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,KEY_IMAGES,2090
+CT,CT Abdomen With Cont,ABDOMEN,Abdomen  1.0  B20f,2087
+CT,CT Chest With Contrast,,Scouts,2086
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO,1.0 Body Volume Venous/Phase CE,2086
+CT,CT Chest and abdomen,CHEST,"Lung, iDose (3)",2084
+CT,CT Thorax,CHEST,",Std. Volume,Vol.,Body,Arterial",2082
+CT,CT Neck With Contrast,,Patient Protocol,2079
+CT,CT Abdomen With Cont,,Patient Protocol,2078
+CT,,ABDO_PELVIS,2,2077
+CT,CT Abdomen and Pelvis,ABDOMEN_PELVIS,1.0 Body Venous/Phase Std. Volume CE,2077
+CT,Chest/Abdo,CHEST_ABDO,10.0 Body Axial Arterial /Phase CE,2076
+CT,CT Chest/Abdo/Pelvis/,,Scouts,2074
+CT,CT Thorax abdomen and,,SCOUTS,2074
+CT,CT Colonoscopy virtual,,Patient Protocol,2073
+CT,CT Thorax and abdomen with contrast,CHEST,Topogram  0.6  T20f,2069
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO,5   Venous/Phase CE,2068
+CT,Abdomen^Ayr_CT_Urogram (Adult),,Patient Protocol,2065
+CT,CT Head,,1.25,2059
+CT,CT Chest/Abdo/Pelvis/ With Contrast,ABDOMEN,AbdoPelvis  1.0  I26f  3,2058
+CT,CT Angiogram pulmonary,,4MLS + 100MLS CONTRAST,2053
+CT,CT KUB,ABDOMEN,Topogram  0.6,2052
+CT,CT Thorax abdomen pelvis with contrast,CAP,Thin Chest  1.0 Body Volume FC7 PORT_VEN/Phase CE,2047
+CT,CT Chest/Abdo/Pelvis,,Bone Plus ( Hi Res Lungs),2046
+CT,CT Thorax abdomen pelv,,1.25mm C.A.P DMPR,2046
+CT,CT Thorax abdomen pelvis with contrast,ABDOMEN,Topogram  0.6  T20f,2044
+CT,C/A/P,,Scouts,2043
+CT,CT Thorax abdomen pelvis with contrast,CHEST_TO_PELVIS,5  60s/Delay  CE,2040
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Chap  1.0  I31s  3,2038
+CT,CT Thorax & abdo & pel,,KEY_IMAGES,2036
+CT,CT Multi Area,CHEST,iDose,2035
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,1.0 Body Port Ven/Phase Std. Volume CE Vol,2034
+CT,CT Colonoscopy (Virtual),ABDOMEN,Colo_supine  1.0  I26f  3,2026
+CT,CT,,CHEST ONLY,2024
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDOMEN,2,2024
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,2,2022
+CT,CT Colonoscopy (Virtual),,Supine Colon 1.25mm,2021
+CT,CT Abdomen and pelvis with contrast,ABDOMEN_PELVIS,5 PORTAL VEN CE,2019
+CT,CT Chest high resolution,CHEST,2.0   Sharp  Scano,2018
+CT,Thorax^7_Singlerun_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  1.0  I70f  3,2015
+CT,CT Head With Contrast,,Scout,2014
+CT,CT Chest high resoluti,,PRONE SCOUT,2013
+CT,CT Chest high resolution,CHEST,ThorHR  1.0  B31f 3D,2013
+CT,CT Angiogram Pulmonary,,CTPA 1mm,2012
+CT,CT HeadAcute Stroke,,Exam Summary,2012
+CT,Thorax^DynChest_Abdomen (Adult),CHEST,Thorax  1.5  B31f,2010
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,5   Venous/Phase CE,2002
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,2.0    Sharp,2001
+CT,CT Head,HEAD,Sharp,2000
+CT,CT Chest high resoluti,,AXIAL 1.25/10mm,2000
+CT,ABDO/PELVIS,,Scouts,1997
+CT,Head^Head (Adult),HEAD,HeadSeq  2.4  H31s,1994
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Venous/Phase Std. Axial CE,1989
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Abdopelvis  5.0,1988
+CT,CT Temporal bones,,Dose Report,1987
+CT,CT Thorax abdomen and,,Recon 2:  CAP (DMPR) 1.25MM,1983
+CT,ABDO/PELVIS,,LIVER PELVIS 70 sec,1981
+CT,CT Head,,SAGITTAL  5mm,1981
+CT,CT Renal Both,,SCOUT,1980
+CT,Abdomen^AbdoPelvisDP (Adult),ABDOMEN,Lungs 1.0,1975
+CT,CTPA,CTPA,2 CTA CE,1975
+CT,CT Urinary tract,,Scout Prone,1970
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,Body 1.0 CE,1968
+CT,CT Sinuses,,Helical Sinuses SS40,1965
+CT,NM Bone Whole Body,,CTCT STD 1.25mTomo CT Bone LD,1964
+CT,CTPA,CTPA,3.0 CTA CTA/Pulmonary Body CE,1960
+CT,CT Chest/Abdo/Pelvis,,1.25mm Axials Std Algorithm,1959
+CT,CT Thorax and abdomen,,Recon 2: 1.25MM,1953
+CT,CT Stone Search KUB,,Dose Report,1949
+CT,CT KUB,ABDOMEN,Abdomen  1.0  B20f,1947
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,Abdomen  1.0  B20f,1947
+CT,CT Head/Neck,BRAIN,"1mm, iDose",1946
+CT,HRCT,,Dose Report,1944
+CT,Thorax^CTPA (Adult),CHEST,Vascular 1.0s,1944
+CT,CHEST/ABDO,,Lung,1937
+CT,Head^RoutineSpiralHeadPostContrast (Adult),HEAD,Topogram,1931
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO,10.0 Body Axial Arterial  /Phase CE,1930
+CT,CT Chest high resolution,,HRCT 1.25MM,1929
+CT,CT Sinuses,,Sinus Scout,1927
+CT,Abdomen^Abdomen_With_IV_BGH (Adult),ABDOMEN,Abdomen  1.0  I30f  3,1925
+CT,Chest/Abdo,CHEST_ABDO,5.0 Body Arterial /Phase Std. Axial CE,1925
+CT,CT Sinuses,HEAD,Sinus  3.0  coronal,1924
+CT,CT Head,,AXIAL 5mm,1922
+CT,Chest/Abdo,CHEST_ABDO,2.0   Sharp,1921
+CT,Abdomen^AbdoPelvisDP (Adult),ABDOMEN,Topogram,1920
+CT,CT Head,HEAD,5.0 Head  Brain,1919
+CT,CT Head/Neck,HEAD,",Brain,,Head,",1917
+CT,CT Abdomen with contrast,ABDOMEN,Topogram,1916
+CT,Thorax^Chest_Liver_All_In_One_With_IV_BGH (Adult),ABDOMEN,Topogram  0.6  T20f,1910
+CT,CT Angiogram pulmonary,,KEY_IMAGES,1900
+CT,CT Spine cervical,NECK,2,1897
+CT,CT Chest high resolution,CHEST,1.0 Body  Std. Volume,1894
+CT,Thorax^CAP1phaseNW (Adult),CHEST,Topogram  0.6  T20s,1893
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,5  Venous/Phase  CE,1893
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,Abdo/pel. ven  1.0  3D,1890
+CT,HRCT,HRCT,1.0 Lung Volume,1889
+CT,CT KUB,,KUB,1885
+CT,CT Thorax with contrast,CHEST,2 CE,1882
+CT,CT Chest High Resolution,CHEST,ThorHR  1.0  I31f  3,1881
+CT,CT Head,HEAD,Neck 1.0,1877
+CT,,CHEST_ABDO_PELVI,2,1876
+CT,CT Thorax abdomen and,,CAP (DMPR) 1.25MM,1871
+CT,CT Thorax,CHEST,",Std. Volume,Vol.,Body,Port-Ven",1871
+CT,CT Colonoscopy virtual,ABDOMEN,2,1867
+CT,ABDOMEN,ABDOMEN,1.0 Body Prone/Abdomen/Pe Std. Volume CE,1866
+CT,CT Head,,Smart Prep Series,1863
+CT,Neck^Dyn_NeckChest (Adult),CHEST,Topogram  0.6  T20s,1855
+CT,CT Thorax abdomen pelvis with contrast,CHEST,5 CE,1850
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO,1.0 Body Volume Arterial  /Phase CE,1848
+CT,CT Chest high resolution,HRCT,2,1847
+CT,,CTPA,CTA 1.0 CE,1843
+CT,CT Neck,,Dose Report,1840
+CT,CT Colonoscopy virtual,,SCOUT supine,1839
+CT,CT Chest high resolution,CHEST,Topogram,1837
+CT,CT Abdomen and pelvis,ABDOMEN,2,1833
+CT,CT Chest,CHEST,Topogram  0.6  T20f,1831
+CT,CT Chest high resolution,CHEST,2.0   Sharp,1831
+CT,CT Abdomen & pelvis,,SCOUT,1831
+CT,CT Chest high resolution,,Recon 2: 1.25mm HRCT INSP,1830
+CT,Thorax^Ayr_CT_PA (Adult),CHEST,CT P.A.  0.75 3D,1826
+CT,CT Thorax and abdomen with contrast,CHEST,5  Portal Ven/Phase  CE,1824
+CT,Thorax^VenousChestAbdo (Adult),CHEST,Thorax  1.5,1823
+CT,NM Whole Body PET FDG,,Dose Report,1822
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25mm chest recon,1821
+CT,CT Guided Biopsy,CHEST,Thorax LCAD  1.5  I31f  3,1816
+CT,CT Colonoscopy (Virtual),,Prone Scouts,1814
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,1.0 Body Volume Arterial  /Phase CE,1814
+CT,CT Angiogram Pulmonary,,SCOUT,1813
+CT,CT Chest high resolution,,Hi Res,1805
+CT,PET FDG Whole body,,Patient Protocol,1804
+CT,CHEST_ABDO,CHEST_ABDO,5.0 Lung Axial Arterial  /Phase CE,1804
+CT,Head^QM_Head_SAFIRE (Adult),HEAD,Topogram  0.6  T20f,1803
+CT,CT Angiogram Pulmonary,,,1799
+CT,CT Thorax & abdo & pel,,CORONAL 3mm,1797
+CT,Abdomen^Abdomen (Adult),ABDOMEN,Topogram,1797
+CT,CT Pelvis,,Dose Report,1794
+CT,Abdomen^AbdoPelvisDP (Adult),ABDOMEN,Art Abdo  1.0,1791
+CT,CT Head With Contrast,HEAD,Topogram  0.6  T20f,1791
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDOMEN,Lung 2.0 Venous CE,1787
+CT,CT Abdomen with contrast,ABDOMEN,Abdomen  1.0  B20f,1786
+CT,Abdomen^Abdomen_With_IV_BGH (Adult),,Patient Protocol,1785
+CT,Thorax^2_ChestAbdomen (Adult),ABDOMEN,Abdomen  5.0  B40f,1784
+CT,CT Angiogram Pulmonary,CTPA,10.0 Lung Axial CTA CE,1783
+CT,CT Abdomen and pelvis,,SCOUT,1782
+CT,HEAD,HEAD,/2.0///Sharp/,1778
+CT,Chest/Abdo,CHEST_ABDO,1.0 Body Arterial /Phase Std. Volume CE,1777
+CT,,CTPA,2 CE,1777
+CT,Thorax^ChestAbdo_SAFIRE_LCAD (Adult),CHEST,Thorax LCAD  1.5  I31f  3,1777
+CT,Chest/Abdo,CHEST_ABDO,1.0 Body Venous/Phase Std. Volume CE,1774
+CT,ABDO/PELVIS,,ABDO/PELVIS SCOUT,1774
+CT,Thorax^CTPA_BGH (Adult),CHEST,CTPA  1.0  I26f  3,1773
+CT,CT Chest/Abdo/Pelvis/ With Contrast,C_A_P,2.0    Sharp,1770
+CT,CT Abdomen / Pelvis,ABDOMEN,",Sharp,,,",1769
+CT,HEAD,HEAD,/0.5/Head//Brain/,1769
+CT,CT Head With Contrast,HEAD,5mm Brain MPR + C,1767
+CT,CT Chest high resolution,CHEST,1.0 Body HRCT Insp Std. Axial  Axial,1765
+CT,CT Abdomen and pelvis with contrast,,ABDO PELVIS,1764
+CT,CT Chest high resolution,CHEST,Body 1.0,1764
+CT,PET FDG Whole body,ABDOMEN,CT WB 1.5mm,1762
+CT,CT Head,,0.625mm stnd recon,1755
+CT,Thorax^1_CTPA (Adult),CHEST,Embolism  1.0  B20f,1754
+CT,Head^Head_Seq_BGH (Adult),HEAD,Topogram  0.6  T20f,1753
+CT,PET^PETCT_AC_WB_SMI_REDACTED (Adult),,Patient Protocol,1752
+CT,CT HEAD,,Scout,1750
+CT,CT Chest,,Exam Summary,1748
+CT,CT Chest/Abdo With Con,,Scouts,1748
+CT,PET FDG Whole body,ABDOMEN,Range-AC CT WB-Tra-<ALPHA Range>,1744
+CT,CT Urinary tract,ABDOMEN,1.0 Body Non C/Phase Std. Volume  Vol,1741
+CT,Thorax^CTPA (Adult),,Patient Protocol,1739
+CT,CTA CARDIAC,CTA CARDIAC,Sft Tissue 8.0  CE,1739
+CT,Thorax^Chest_Liver_All_In_One_With_IV_BGH (Adult),,Patient Protocol,1731
+CT,Abdomen^7_Colon (Adult),,Patient Protocol,1730
+CT,HEAD,HEAD,1.0 Head Brain Volume AIDR,1729
+CT,CT Thorax and abdomen,CHEST_ABDO,2.0   Sharp,1726
+CT,CT Head,,0.625mm standard recon,1723
+CT,Head^HeadSeq,HEAD,RoutineSeq 5.0 H40s,1723
+CT,CT Thorax,CHEST,2.0   Sharp,1717
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,1.0 Body Volume Venous/Phase CE,1715
+CT,CT Neck thorax abdomen pelvis with Cont,,SCOUT,1713
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),ABDOMEN,Abdomen  5.0  I30f  3,1709
+CT,CT Chest High Resolution,,Chest wit HRCT,1708
+CT,CT Colonography Minimal Preparation,,Patient Protocol,1705
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,Body 1.0 PORTAL VEN CE,1703
+CT,CT Neck With Contrast,,Dose Report,1702
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,2.0   Sharp  Scano,1702
+CT,Thorax^VenousChestAbdo (Adult),CHEST,Thorax  1.5 lung,1701
+CT,CT Urogram,,2,1701
+CT,CT Angiogram Lower Limbs,PERIPHERAL,CTA 1.0 CE,1700
+CT,CT Colonoscopy virtual,,SCOUT SUPINE,1699
+CT,CT Thorax & abdo & pel,,AXIAL 5mm,1698
+CT,CT Chest High Resolution,,STD RECONS,1695
+CT,Thorax^Ayr_CT_PA (Adult),,Patient Protocol,1691
+CT,CT Renal With Contrast,,Dose Report,1690
+CT,Head^Head (Adult),,Patient Protocol,1688
+CT,CT Sinuses,HEAD,2.0 Bone Coronal Sharp  Coronal,1688
+CT,CT Angiogram pulmonary,,SCOUTS,1683
+CT,NECK,NECK,",5.0,Std. Axial,Body,Axial,CE",1679
+CT,CH/AB/PEL,CH_AB_PEL,",3,,,,CE",1678
+CT,Head^HeadSeq,HEAD,ThinSliceSeq 2.5 H40s,1677
+CT,CHEST/ABDO,CHEST_ABDO,Body 1.0 Venous/Phase CE,1673
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,Lung 1.0 Chest/Arterial CE,1672
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Chest  Abdo Pelvis 1.25mm,1672
+CT,CT Thorax abdomen pelvis with contrast,ABDOMEN,iDose (4),1670
+CT,Head,HEAD,1.0 Head,1669
+CT,CT Sinuses,HEAD,1.0 Head  Brain  Vol,1668
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,iDose (4),1665
+CT,CT Angiogram Lower Limbs,,Dose Report,1664
+CT,CT Angio aortic arch and carotid Both,NECK,2,1663
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,5 Port Ven/CAP,1663
+CT,CT Thorax abdomen and,,1.25mm C.A.P DMPR,1660
+CT,CT Chest high resolution,,SCOUTS,1659
+CT,CT Colonoscopy (Virtual),COLON,5   Prone /Delayed CE,1659
+CT,CT Sinuses,SINUSES,2,1659
+CT,CT Angiogram pulmonary,,1.25,1657
+CT,CT Urinary tract,ABDOMEN,Topogram  0.6  T20s,1655
+CT,Thorax^2_ChestAbdomen (Adult),CHEST,Topogram  1.0  T20s,1655
+CT,Thorax^ThoraxAbdoPelvisCombined+Contrast,ABDOMEN,ThorAbdPelv 3.0 B31f,1654
+CT,CT Abdomen and Pelvis,ABDOMEN,Abdo/pel VEN  1.0  3D,1650
+CT,NM Whole Body PET FDG,,CT SCOUT HEAD IN,1649
+CT,CT Head,,2.5mm stnd recon,1649
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,5   Venous/Phase CE,1648
+CT,NM Cardiac Exercise Stress MIBI/TF,,CTAC 5mmSGATE,1648
+CT,CT Guided Biopsy,CHEST,3.0 Body Axial,1646
+CT,CT Chest high resoluti,,Prone Inspiration,1646
+CT,Thorax^2_ChestAbdomen (Adult),ABDOMEN,Abdomen  2.0  B20f,1644
+CT,CT Pelvis,,Patient Protocol,1643
+CT,CT Chest/Abdo With Con,,Axial 1 5,1641
+CT,Thorax^TAP_All_In_One_With_IV_BGH (Adult),,Patient Protocol,1639
+CT,CT Abdomen,,Dose Report,1639
+CT,CT Chest High Resolution,CHEST,Thorax  1.0  I70f  3,1638
+CT,Abdomen^1_KUB (Adult),,Patient Protocol,1638
+CT,ABDO/PELVIS,ABDO_PELVIS,",5,,,,CE",1636
+CT,CT Spine cervical,NECK,2,1635
+CT,Thorax^ChestAbdo_SAFIRE_LCAD (Adult),CHEST,Topogram  0.6  T20f,1634
+CT,CT Shoulder Rt,,Individually captured images,1624
+CT,CT Neck with contrast,,Soft Tissue Neck 0.625mm,1624
+CT,CT Angiogram Pulmonary,,Exam Summary,1623
+CT,CT Colon,ABDOMEN,2.0   Sharp,1621
+CT,Chest/Abdo,CHEST_ABDO,5   Venous/Phase CE,1616
+CT,Abdomen^AbdomenRoutineBGH (Adult),ABDOMEN,AbdRoutine  2.0  B10f,1613
+CT,CARDIAC,CARDIAC,0.5 CE,1608
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25mm stnd abdo/pelvis recon,1606
+CT,Abdomen^01_Urogram_Plain_VOL,,Patient Protocol,1606
+CT,CT Chest and abdomen,,Exam Summary,1602
+CT,Thorax^Thorax_With_IV_BGH (Adult),,Patient Protocol,1601
+CT,CT Abdomen and pelvis,ABDO_PELVIS,5 Venous/Phase CE,1598
+CT,CT Angiogram Pulmonary,CHEST,"1mm Lung, iDose (4)",1595
+CT,Colonography,COLONOGRAPHY,5.0 Body 65s/Colon/Coronal Std. Volume CE,1591
+CT,CT Urinary tract,,Recon 2: HELICAL 2.5MM UNENHANC,1586
+CT,CT Angiogram pulmonary,CTPA,2 CTA CE,1584
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,Body 1.0 Venous/Phase CE,1581
+CT,Cardiac^Retrospective_Cardiac (Adult),,Patient Protocol,1579
+CT,CT Head with contrast,,,1578
+CT,CT Sinuses,HEAD,Sinus  1.5,1575
+CT,CT Thorax & abdomen wi,,1.25mm chest abdomen,1574
+CT,CT Neck with contrast,,Patient Protocol,1574
+CT,CT Chest With Contrast,CHEST,Thorax  1.0  I40f  3,1570
+CT,CT Chest With Contrast,CHEST,Topogram  0.6  T20s,1568
+CT,CT Chest,CHEST,iDose (3),1568
+CT,CT Thorax abdomen pelv,,LUNG 5mm,1563
+CT,CT Head,,Recon 3: 2.5/5mm HEAD,1562
+CT,CT Angiogram Lower Limbs,,Patient Protocol,1561
+CT,CT Guided biopsy,,1.25 ABDO/PELVIS,1556
+CT,Thorax^01Chest-Abdo_VOL,CHEST,Topogram,1554
+CT,CT Thorax with contrast,CHEST,Port_Ven 1.0 Body Non Hybrid Volume Port_Ven/Phase CE,1553
+CT,Abdomen^1_KUB (Adult),ABDOMEN,Topogram  1.0  T20s,1552
+CT,Abdomen^AbdomenRoutineBGH (Adult),ABDOMEN,Topogram  1.0  T20s,1550
+CT,CT Urogram,,Urogram,1550
+CT,Thorax^Ayr_CT_PA (Adult),CHEST,Topogram,1546
+CT,Abdomen^Colonography_Safire (Adult),ABDOMEN,Topogram  0.6  T20f,1545
+CT,Thorax^1_CTPA (Adult),,Patient Protocol,1544
+CT,CT Thorax and abdomen with contrast,,2,1541
+CT,Chest,CHEST,5.0 Lung Axial,1541
+CT,Thorax^Ayr_HR_Chest (Adult),CHEST,Topogram,1539
+CT,CT Chest high resoluti,,Recon 2: AXIAL 1.25/10mm,1539
+CT,CT Spine Cervical,,Scout,1538
+CT,CT Stone Search KUB,,1.25mm KUB,1538
+CT,Thorax^PulmAngio (Adult),CHEST,PulmAngio 1.0  mm,1536
+CT,Thorax^DynChest_Abdomen (Adult),ABDOMEN,Abdomen  1.5  I26f  3,1533
+CT,CT Angiogram Pulmonary,CHEST,KEY_IMAGES,1531
+CT,Thorax^TAP_All_In_One_With_IV_BGH (Adult),CHEST,TAP  1.0  I30f  3,1529
+CT,HEAD,HEAD,Head 4.0,1529
+CT,C.A.P,C_A_P,2.0    Sharp,1527
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Arterial Chest,1526
+CT,CHEST,,Scout,1525
+CT,CT Thorax abdomen pelvis with contrast,,5  60s/Delay  CE,1524
+CT,Thorax^CTPA (Adult),CHEST,Topogram  0.6,1523
+CT,CT Urogram,ABDOMEN,UROGRAM  1.0  3D,1523
+CT,CT Head,,SAG 3mm,1522
+CT,Abdomen^UROGRAM_SAFIRE (Adult),ABDOMEN,Topogram  0.6  T20f,1521
+CT,Abdomen^1_CTUrography (Adult),ABDOMEN,ADBO 2MM,1519
+CT,Thorax^Ayr_HR_Chest (Adult),CHEST,HR Chest  1.0,1519
+CT,CT Abdomen and pelvis with contrast,ABDOMEN_PELVIS,Body 1.0 Port Ven/Ab/Pel CE,1518
+CT,Abdomen^Ayr_Abdo_Pel_JPC (Adult),ABDOMEN,Topogram,1516
+CT,Head^HeadSeq,HEAD,ThinSliceSeq 5.0 H40s,1514
+CT,Thorax^SMI_REDACTED_CAP_Split_JPC_Venous (Adult),CHEST,Chest Ven  1.0 3D,1513
+CT,CT Colonoscopy (Virtual),COLON,2,1510
+CT,CT Angiogram Pulmonary,CTPA,1.0 CTA CTA/Pulmonary Body CE,1509
+CT,CT Angio aortic arch and carotid Both,,Dose Report,1509
+CT,Abdomen^Ayr_KUB (Adult),,Patient Protocol,1508
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Topogram,1504
+CT,Head^Ayr_Head_Spiral_Pre_and_Post (Adult),HEAD,Head  5.0  True Axial,1504
+CT,Thorax^VenousChestAbdo (Adult),,Patient Protocol,1502
+CT,Thorax^QM_Alternative_CAP_Thorabdo_Single_Run (Adult),,Patient Protocol,1502
+CT,CT Thorax and abdomen with contrast,CHEST,1.0 Body Portal Ven/Phase Std. Volume CE,1496
+CT,Colonography,COLONOGRAPHY,5.0 Body Prone/Colon Std. Axial CE,1495
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,Axial CAP,1493
+CT,CT Head,,0.625mm + DMPR,1491
+CT,CT Thorax abdomen and pelvis,CHEST_ABDO_PELVI,Body 1.0 PORTAL VEN CE,1491
+CT,CT Thorax & abdo & pel,,SCOUTS,1490
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,C.A.P,1489
+CT,CT Spine cervical,C SPINE,2,1487
+CT,ABDOMEN,ABDOMEN,2.0   Sharp CE,1486
+CT,CT Head,,True axials,1483
+CT,CAP,,Axial CAP,1483
+CT,CTPA,CTPA,Body 8.0,1481
+CT,CT Chest high resolution,,1.25mm Chest,1480
+CT,CT Sinuses,HEAD,3,1479
+CT,Abdomen^Ayr_Abdo_Pel (Adult),ABDOMEN,Abdo/pel VEN  5.0,1479
+CT,Thorax^CTPA_SAFIRE (Adult),ABDOMEN,PE  1.0  I26f  3,1478
+CT,,CHEST_ABDO_PELVI,5  Portal Ven CE,1477
+CT,Chest/Abdo,CHEST_ABDO,2,1476
+CT,Abdomen^1_Colon (Adult),ABDOMEN,COLORoutineSUPINE  1.0  B20f,1474
+CT,CT Chest high resolution,,PRONE SCOUT,1473
+CT,CT Abdomen With Contrast,,Patient Protocol,1472
+CT,Thorax^SingleThoraxAbdo (Adult),CHEST,Topogram  1.0  T20s,1470
+CT,CT Thorax abdomen and pelvis,,Patient Protocol,1470
+CT,CT Thorax and abdomen,,Recon 3: HELICAL 5MM,1469
+CT,Head^Sinuses (Adult),HEAD,Sinus  3.0  coronal,1469
+CT,CT Chest High Resolution,HRCT,Lung 1.0,1467
+CT,CT Colonoscopy virtual,,Smart Prep Series,1466
+CT,Head^HEAD_SPI (Adult),HEAD,Head  1.0  J30s  3,1466
+CT,CT Colonoscopy virtual,,PNEUMOCOLON supine,1463
+CT,Thorax^THORAX_ABDO_PEL (Adult),CHEST,Topogram  0.6  T20f,1461
+CT,CT Chest/Abdo With Contrast,CHEST,Thorax  1.5  I31f  3,1461
+CT,CT Head,,"Bone, iDose (3)",1460
+CT,CT Abdomen/Pelvis With Contrast,,KEY_IMAGES,1459
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Thorax  1.0  I31f  3,1459
+CT,CT Angiogram Pulmonary,,1.25mm Stnd,1455
+CT,CT Colonoscopy virtual,ABDOMEN,2.0   Sharp  Scano,1454
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO,1.0 Lung Volume Arterial  /Phase CE,1454
+CT,CT Thorax and abdomen,,HELICAL 1.25MM,1452
+CT,CT Neck With Contrast,NECK,Neck  1.0  B20f,1449
+CT,CT urinary tract with contrast,ABDOMEN,2.0   Sharp,1449
+CT,CT Angiogram Pulmonary,,CTPA SS30,1449
+CT,Thorax^CTPA (Adult),CHEST,Lungs 1.0,1448
+CT,CT Head,,2.0   Sharp  Scano,1447
+CT,CT KUB (Urinary tract),,Dose Report,1444
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,5 NON CONTRA,1443
+CT,CT Angiogram pulmonary,CTPA,Body 2.0,1443
+CT,CT Head,,0.625mm head,1442
+CT,CT Chest/Abdo With Contrast,,Chest/Abdo,1442
+CT,CT Thorax & abdo & pelvis with contrast,,//Sharp/2.0//,1436
+CT,CT Multi Area,CHEST,"Lung, iDose",1435
+CT,Abdomen^KUB (Adult),ABDOMEN,Abdomen  1.0,1434
+CT,Thorax^TAPRoutineBGH (Adult),CHEST,Thorax  2.0  B40f,1433
+CT,Abdomen^AbdomenContrast (Adult),,Patient Protocol,1430
+CT,Abdomen^AbdoPelvisPVphaseBT (Adult),CHEST,PV Lung  1.0,1428
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,1.0 Body PORTAL VEN CE Std. Volume,1424
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,CAP,1423
+CT,PET LC,,WB Standard,1423
+CT,CT Thorax abdomen pelvis with contrast,,1.0 Body 60s/Delay Std. Volume CE Vol,1421
+CT,CT Thorax with contrast,,Patient Protocol,1420
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,1.0 Body Venous/Phase Std. Volume CE,1420
+CT,PET OTH,,WB Standard,1420
+CT,CT Abdomen and Pelvis,,,1419
+CT,CT Stone Search KUB,,Scout,1419
+CT,Colonography,COLONOGRAPHY,5  Prone/Colon  CE,1414
+CT,CT Head,,1.0 Head  Brain  Vol,1412
+CT,CT Cone beam (Dental Only),,,1410
+CT,Thorax^ThoraxAbdoCombined+Contrast,CHEST,Topogram,1410
+CT,CT Thorax and abdomen with contrast,,1.0 Body 60s/Delay Std. Volume CE Vol,1410
+CT,CT Colon,ABDOMEN,2.0   Sharp CE,1407
+CT,CHEST ABDO,,Scout,1406
+CT,NM Brain HMPAO (Ceretec) Brain Scan,HEAD,3D  Brain  3.0  H31s,1406
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Scout - Arms Down,1403
+CT,CT Urogram,,Urogram 1.25mm,1402
+CT,CT Sinuses,HEAD,0.5 Bone  Sharp  Vol,1399
+CT,CT Thorax with contrast,,Scout,1399
+CT,CT Abdomen and Pelvis,ABDOMEN,"2MM ST, iDose (3)",1397
+CT,Neck^Dyn_NeckChest (Adult),,Patient Protocol,1397
+CT,CT Thorax abdomen pelvis with contrast,CAP,2   Port_Ven/Phase CE,1396
+CT,,CHEST_ABDO_PELVI,10.0 Lung Arterial CE,1396
+CT,CT Head/Neck,,Exam Summary,1395
+CT,,ABDO_PELVIS,1.0 Body Portal Ven,1393
+CT,HRCT,HRCT,Body 2.0 INSPIRATIO,1391
+CT,CT Head,HEAD,Bone 0.5,1390
+CT,CT Chest high resolution,CHEST,Topogram  0.6  T20f,1390
+CT,CT Angiogram Aorta,,Scout,1390
+CT,CT Cardiac Angiogram Coronary,HEART,CaScPro  3.0    70%,1390
+CT,CHEST,CHEST,",1.0,Std. Volume,Body,Vol,",1386
+CT,CT Chest With Contrast,CHEST,Thorax LCAD  1.5  I31f  3,1386
+CT,CT Angiogram pulmonary,,CT PA,1386
+CT,NM Brain HMPAO (Ceretec) Brain Scan,HEAD,Topogram  1.0  T20s,1385
+CT,CTPA,CTPA,10.0 Lung Axial CTA CE,1383
+CT,CT Urinary tract,KUB,KUB  1.0  B20f 3D,1382
+CT,CT Angiogram lower limb Both,,PERIPHERAL ANGIO,1382
+CT,CT Chest With Cont,CHEST,Topogram,1382
+CT,CT Chest/Abdo/Pelvis/,,Axial 1 5,1381
+CT,Thorax^ChestLiverStaging (Adult),ABDOMEN,Lungs 5.0,1379
+CT,HRCT,,Insp 1/10mm,1379
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,Body 1.0 NON CONTRA,1378
+CT,CT Abdomen and pelvis,,1.25mm Std,1377
+CT,Chest,CHEST,4.0 Body Coronal Std. Volume,1377
+CT,Thorax^PulmAngio (Adult),CHEST,Topogram  1.0  T20s,1376
+CT,CT Urinary tract,ABDOMEN,Urinary tract  1.0  I30s  3,1374
+CT,CT Angiogram Pulmonary,CHEST,CT P.A.  0.75 3D,1374
+CT,CT Head with contrast,HEAD,5,1373
+CT,CT Abdomen & pelvis with contrast,,KEY_IMAGES,1372
+CT,CT Thorax & abdo & pelvis with contrast,,/Body/Smooth/1.0/60 DELAY/CE,1371
+CT,CHEST/ABDO,,CHEST sp / LIVER 70sec,1371
+CT,CHEST ABDO PELVIS,,Axial CAP,1369
+CT,CT Renal,ABDOMEN,KUB  1.0  I30f  3,1367
+CT,HEAD,,0.625mm head,1366
+CT,CT Thorax and abdomen with contrast,CHEST,5 CE,1365
+CT,CT Head With Contrast,HEAD,Head  4.0  MPR,1365
+CT,CT Cardiac angiogram coronary,,SEGMENT 75% 0.00s 75% 0.5 Cardiac CTA Standard CTA/SEGMENT CE,1364
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDOMEN,5 Venous CE,1363
+CT,CT Urinary tract,ABDOMEN,Topogram,1362
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25,1362
+CT,Thorax^2_ChestAbdomen (Adult),CHEST,Chest  5.0  B31f,1361
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,Body 1.0 PORTAL VEN CE,1361
+CT,CT Thorax abdomen pelvis with contrast,CHEST,Chap 1.0 I31s 3,1361
+CT,HRCT,HRCT,5 INSPIRATIO,1360
+CT,CT Knee Lt,,Dose Report,1360
+CT,CT Chest high resolution,CHEST,1.0 Lung HRCT Std. Volume  Vol,1358
+CT,Head^BrainwithBony (Adult),HEAD,Topogram,1356
+CT,Thorax^01Chest-Abdo_VOL,,Patient Protocol,1356
+CT,CT Abdomen with contrast,,Patient Protocol,1355
+CT,CHEST_ABDO,CHEST_ABDO,1.0 Body Volume Arterial  /Phase CE,1354
+CT,KUB,,Scout,1349
+CT,CT Thorax & abdomen with contrast,,//Sharp/2.0//,1348
+CT,CT Chest/Abdo/Pelvis,CHEST,KEY_IMAGES,1348
+CT,CT Chest high resolution,,Lung 1.0 Body Soft Tissue HRCT,1347
+CT,CT Angiogram Pulmonary,,Bone Plus ( Hi Res Lungs),1347
+CT,CT Sinuses,HEAD,Topogram  0.6  T20f,1346
+CT,CT KUB,ABDOMEN,Topogram,1345
+CT,CT Spine cervical,,SCOUT,1345
+CT,Abdo/Pelvis,ABDO_PELVIS,5   Venous/Phase CE,1343
+CT,CT Chest high resolution,CHEST,1.0 Lung  Std. Volume,1343
+CT,CT Head,,0.625mm Recons,1341
+CT,CT Chest,CHEST,KEY_IMAGES,1340
+CT,Thorax^7_Singlerun_Thorax_Abdo_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,1339
+CT,CT Chest/Abdo/Pelvis/ With Contrast,ABDOMEN,Abdomen  1.5  I26f  3,1339
+CT,Thorax^ThoraxAbdoCombined+Contrast,,Patient Protocol,1339
+CT,CT Head/Neck,BRAIN,"Bony, iDose",1339
+CT,ABDOMEN/PELVIS,ABDOMEN_PELVIS,Body 0.5 PORTAL VEN CE,1338
+CT,CT Spine Lumbar,SPINE,Topogram,1334
+CT,Thorax^2_ChestAbdomen (Adult),,Patient Protocol,1333
+CT,HRCT,HRCT,2.0  Smooth,1330
+CT,CT Abdomen/Pelvis With,,Abdo/Pelvis,1330
+CT,CT Chest High Resolution,CHEST,LungHR  1.0  I70f  3,1328
+CT,CT Neck thorax abdomen pelvis with Cont,,Patient Protocol,1327
+CT,CHEST/ABDO/PELVIS,,CHEST/ABDO/PELVIS SCOUT,1327
+CT,CT Thorax and abdomen with contrast,CHEST,5  60s/Delay  CE,1324
+CT,CT Head,HEAD,SUMMARY,1324
+CT,CT Chest/Abdo With Contrast,CHEST,Thorax  1.5 lung,1324
+CT,CT Chest high resolution,CHEST,1.0 Lung HRCT FC56 Helical,1324
+CT,CT Neck With Contrast,CHEST,Thorax  1.5  I50f  3,1323
+CT,CT Head,,Bone 1.0,1322
+CT,CT Chest,CHEST,"Lung, iDose (2)",1322
+CT,HRCT,,Scout,1321
+CT,CT Head with contrast,,2,1321
+CT,Head^Head_Seq_BGH (Adult),,Patient Protocol,1320
+CT,CHEST/ABDO,,CHEST/ABDO SCOUT,1320
+CT,CT Spine Cervical,C_SPINE,2,1315
+CT,Chest/Abdo,CHEST_ABDO,1.0 Body Volume Arterial /Phase CE,1314
+CT,CT Urinary tract,KUB,1.0 Body Std. Volume Non_C /PRONE,1307
+CT,CT Thorax and abdomen,,1.25MM,1306
+CT,Thorax^WholebodyStagingDP (Adult),CHEST,Chest Liver  5.0,1304
+CT,Abdomen^KUB_BGH (Adult),,Patient Protocol,1304
+CT,CT Thorax,,Scout,1304
+CT,CT Abdomen and pelvis with contrast,ABDOMEN_PELVIS,5 Port Ven/Ab/Pel CE,1302
+CT,CT Liver triple phase,,Dose Report,1301
+CT,CT Neck with contrast,,SCOUT,1301
+CT,CT Guided Biopsy,,Dose Report,1298
+CT,PET^1_PETCT_AC_WholeBody_CRC (Adult),ABDOMEN,CT WB 1.5mm,1298
+CT,CT Head,,2.5 standard,1298
+CT,CT Spine cervical,NECK,Bone 0.5,1297
+CT,CT Head,,POST CONTRAST,1297
+CT,Abdomen^8_Aorta_PV_AbdoPelvis (Adult),ABDOMEN,Abdomen  1.0  I26f  3,1297
+CT,Thorax^HRCTspiral (Adult),CHEST,Mediastinum 1.0s,1296
+CT,CT Neck thorax abdomen pelvis with Cont,,CAP (DMPR) 1.25MM,1295
+CT,CT Chest/Abdo,ABDOMEN,"2MM ST, iDose (3)",1295
+CT,CT Spine cervical,,0.625mm Soft,1294
+CT,CT Chest With Contrast,CHEST,1.0 Body Volume Arterial/Phase CE,1292
+CT,CT Urinary tract,ABDO_PELVIS,5 NON CONTRA/PRONE,1291
+CT,CT Chest High Resolution,,PRONE. 1.25/10mm,1291
+CT,Abdomen^1_CTUrography (Adult),ABDOMEN,Topogram  1.0  T20s,1287
+CT,CT Angiogram pulmonary,CTPA,Body 0.5  CE,1287
+CT,CT Head With Contrast,,0.625mm recon,1286
+CT,,CT KUB,5  Non Contra,1286
+CT,CT Colonoscopy virtual,ABDOMEN,5   Prone CE,1286
+CT,CT Urogram,ABDOMEN,"Urogram, iDose (4)",1285
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,2.0   Sharp,1284
+CT,CT Guided biopsy,,Dose Report,1283
+CT,Head^QM_Head_SAFIRE (Adult),,Patient Protocol,1283
+CT,CT Angiogram Aortic Arch and Carotids,,Dose Report,1283
+CT,CT Renal with contrast Both,,Dose Report,1282
+CT,CT Thorax abdomen pelvis with contrast,CHEST_ABDO_PELVI,Body 1.0 Port Ven/CAP,1282
+CT,CT Chest high resolution,,Lung 1.0 Lung HRCT Sharp,1282
+CT,Colonography,COLONOGRAPHY,1.0 Body Prone/Colon Std. Volume CE,1282
+CT,Abdomen^AbdoPelvisDP (Adult),,Patient Protocol,1279
+CT,CT Head,HEAD,Bone 0.625mm,1279
+CT,Thorax^SMI_REDACTED_CAP_Split_JPC_Venous (Adult),CHEST,Topogram,1278
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,5  55 sec/delay CE,1278
+CT,CHEST/ABDO/PELVIS,,Scouts,1277
+CT,CT Angiogram Intracranial,,Dose Report,1277
+CT,Chest/Abdo,CHEST_ABDO,1.0 Body Volume Venous/Phase CE,1276
+CT,CT BRAIN,CT BRAIN,1.0 Head   Brain Volume,1276
+CT,CT Chest,CHEST,Topogram,1275
+CT,CT KUB (Urinary tract),,Exam Summary,1272
+CT,Thorax^Ayr_Staging_Chest_for_MA (Adult),,Patient Protocol,1272
+CT,Thorax^CTPA_SAFIRE (Adult),,Patient Protocol,1271
+CT,CT Chest high resoluti,,Recon 2: Prone Inspiration,1271
+CT,CT Urogram,,//Sharp/2.0//,1270
+CT,CTPA,,Lung,1269
+CT,CT Thorax with contrast,,SCOUT,1269
+CT,CT Pelvis,,Scout,1268
+CT,Head^Ayr_Head_Spiral_Pre_and_Post (Adult),HEAD,Head  1.0 3D,1267
+CT,CT Chest/Abdo With Contrast,,Chest Abdo Pelvis 1.25mm,1266
+CT,CTPA,CTPA,2  CE,1264
+CT,CT Neck With Contrast,,0.625mm Stnd,1264
+CT,CT Cardiac Angiogram Coronary,,Smart Prep Series,1263
+CT,CT Chest high resolution,CHEST,ThorHRSeq  1.0  B70s,1260
+CT,CHEST/ABDO,CHEST_ABDO,5 Venous/Phase CE,1260
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,1.0 Body Std. Volume Port_Ven/Phase CE,1260
+CT,CT Urinary tract,,KUB Prone,1258
+CT,CHEST/ABDO,,LUNG RECON,1257
+CT,CT Chest,,Axial 1 5,1257
+CT,PET FDG Whole body,ABDOMEN,Topogram  0.6  T80s,1256
+CT,HEAD,HEAD,",1.0,Brain,Head,Axial,",1256
+CT,CT Thorax & abdo & pel,,SAGITTAL  5mm,1254
+CT,Abdomen^KUBLowDose,,Patient Protocol,1253
+CT,CT Angiogram Lower Limbs,ABDOMEN,Topogram  0.6  T20s,1252
+CT,CT Thorax,,LUNG 5mm,1251
+CT,,KUB,Body 1.0,1251
+CT,CT Chest/Abdo With Contrast,ABDOMEN,Abdomen  1.5  I26f  3,1251
+CT,CT Colonoscopy (Virtual),,1.25mm prone colon,1251
+CT,KUB,KUB,5,1249
+CT,CT Abdomen and pelvis,,HELICAL 1.25MM,1247
+CT,CT Angiogram pulmonary,CTPA,Thin Chest  0.5 CTA Body CTA CE,1247
+CT,CT Chest/Abdo With Contrast,CHEST,Thorax  1.5,1245
+CT,CT Urinary tract with contrast,,Patient Protocol,1245
+CT,Abdomen^01_Urogram_Plain_VOL,ABDOMEN,Topogram,1244
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 0.5 PORTAL VEN CE,1244
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,10.0 Body Axial Arterial /Phase CE,1243
+CT,HRCT,,Supine Lung,1243
+CT,CT Urogram,,Supine Scout,1242
+CT,CT Thorax and abdomen with contrast,,SCOUTS,1241
+CT,CT Abdomen and Pelvis,ABDOMEN,2,1239
+CT,CT Chest high resolution,CHEST,1.0 Lung HRCT Insp Std. Axial  Axial,1238
+CT,CT Thorax with contrast,CHEST,Body 1.0 CE,1237
+CT,CT Sinuses,,Recon 2: SINUS SUPINE,1237
+CT,CT Angiogram aorta,,ANGIO,1237
+CT,Thorax^2_Thorax_Contrast_SAFIRE (Adult),CHEST,Thorax  5.0  I70f  3,1237
+CT,CT Abdomen and Pelvis,ABDOMEN,KEY_IMAGES,1236
+CT,Chest,CHEST,5,1236
+CT,CT Neck thorax and abdomen with contrast,,Dose Report,1235
+CT,CHEST/ABDO/PELVIS,,Smart Prep Series,1234
+CT,CT Urogram,ABDOMEN,Urogram Frusi   1.0  I30f  3,1234
+CT,CT Cardiac Angiogram Coronary,,SnapShot Pulse,1234
+CT,CT Chest With Contrast,,Chest + contrast (SS 40),1234
+CT,Abdomen^kub (Adult),ABDOMEN,Abdo 2 mm,1234
+CT,,,2,1232
+CT,CT Thorax & abdomen wi,,SAG 3mm,1231
+CT,Abdomen^KUBLowDose,ABDOMEN,Topogram,1231
+CT,CT Angiogram Pulmonary,CTPA,2.0   Sharp,1229
+CT,CT Angio aortic arch and carotid Both,NECK,CTA 0.5 CE,1229
+CT,Abdomen^2_Pancreas_SAFIRE (Adult),ABDOMEN,Portal Venous  1.0  I26f  3,1228
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25 CAP,1227
+CT,Thorax^TAPRoutineBGH (Adult),CHEST,Topogram  1.0  T20s,1227
+CT,Abdomen^AbdoPelvisDP (Adult),CHEST,PV Abdo/Pel  1.0 Thins,1226
+CT,CT Chest/Abdo/Pelvis,ABDOMEN,"2mm ST, iDose (3)",1226
+CT,CT Head,HEAD,Scout,1222
+CT,CT Chest With Contrast,CHEST,5   Arterial/Phase CE,1221
+CT,CT Head With/Without Contrast,HEAD,Head  1.0  H60s,1219
+CT,CT Thorax & abdomen with contrast,,Soft_Tissue 1.0 Body Volume Port_Ven/Phase CE,1219
+CT,Abdomen^2_Pancreas_SAFIRE (Adult),,Patient Protocol,1217
+CT,CT Chest High Resolution,,PRONE SCOUT,1217
+CT,Thorax^ChestLiverStaging (Adult),CHEST,Art Chest/Liver  5.0,1215
+CT,Abdomen^AbdomenContrast (Adult),ABDOMEN,Topogram  1.0  T20s,1213
+CT,CT Abdomen / Pelvis,,Exam Summary,1212
+CT,CT Head,,CORONAL 3mm,1210
+CT,CT Head With Contrast,HEAD,Head  1.0  J40s  3,1210
+CT,CHEST/ABDO,,Scout,1210
+CT,CT Angiogram Pulmonary,,PE Study,1209
+CT,CT Thorax with contras,,Dose Report,1209
+CT,CT Colon,ABDOMEN,1.0 Body Prone/Abdomen/Pe Std. Volume CE,1208
+CT,CT Angiogram pulmonary,CTPA,2  CE,1207
+CT,CT Head,,3mm SAG,1203
+CT,CT Angiogram lower limb Both,,0.625mm Runoff,1203
+CT,CT Head with contrast,,2.5MM AXIAL,1202
+CT,CT Angiogram Pulmonary,CTPA,1.0 CTA Body CTA CE,1199
+CT,CT Head with contrast,,0.625mm Soft,1198
+CT,CT Head with contrast,,Scout,1196
+CT,CT Head,HEAD,0.5 Head Brain FC26 Std,1196
+CT,CT Chest With Contrast,CHEST,1.0 Lung Volume Arterial/Phase CE,1196
+CT,CT KUB,KUB,1.0 Body   Std. Volume,1195
+CT,CT Guided biopsy,,SCOUT,1194
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDOMEN,Body 2.0 Venous CE,1193
+CT,NM Cardiac Exercise Stress MIBI/TF,,Dose Report,1192
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Lung,1189
+CT,HRCT,,Scouts,1189
+CT,CT Urinary tract,ABDOMEN,iDose (6),1188
+CT,CT Guided biopsy abdomen,ABDOMEN,Sft Tissue 3.0,1188
+CT,CT Renal,,Prone Scout,1187
+CT,Abdomen,ABDOMEN,1.0 Body Volume Venous/Phase CE,1187
+CT,Abdomen^QM_AbdomenPelvis_Contrast_SAFIRE (Adult),,Patient Protocol,1187
+CT,CT Chest/Abdo/Pelvis,CHEST,Topogram,1186
+CT,CT Abdomen/Pelvis With Contrast,,Exam Summary,1186
+CT,CT Guided biopsy lung,,CHEST,1186
+CT,CT Abdomen and Pelvis,ABDOMEN,"PV, iDose (4)",1186
+CT,CT Thorax abdomen pelvis with contrast,,5 Port Ven CE,1185
+CT,ABDOMEN,ABDOMEN,5 Venous/Phase CE,1185
+CT,CT Facial Bones,,Dose Report,1185
+CT,CT Cardiac angiogram coronary,CTA_CARDIAC,SEGMENT 75% 0.00s 75% 0.5 Cardiac CTA Standard CTA/SEGMENT CE,1185
+CT,CT Chest With Contrast,CHEST,Lung 10.0 CE,1184
+CT,Abdomen^AbdRoutine,ABDOMEN,Topogram,1184
+CT,CT Abdomen/Pelvis With Contrast,,1.25mm stnd abdo/pelvis recon,1184
+CT,CHEST,CHEST,",1.0,HiResVol,Lung,Vol,",1182
+CT,,CHEST_ABDO_PELVI,1.0 Body Portal Ven CE,1182
+CT,CT Thorax abdomen pelvis with contrast,,Body 1.0 Port Ven CE,1182
+CT,CT Sinuses,SINUSES,1.0 Bone Volume,1182
+CT,CT Urogram,,Pre Contrast (SS40),1180
+CT,Thorax^Chest_Liver_All_In_One_With_IV_BGH (Adult),CHEST,TAP 1.0  I30f  3,1179
+CT,Thorax^-01 Chest + Liver 2.5mm,,Patient Protocol,1179
+CT,Thorax^DynChest_Abdomen (Adult),ABDOMEN,Abdomen  1.5  B20f,1175
+CT,CT Head,HEAD,Head 1.25mm,1175
+CT,,CHEST_ABDO,1.0 Body Arterial CE,1174
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST,Chest/Abdo 70s  1.5  I30f  3,1171
+CT,CT Spine Cervical,C_SPINE,Neck 1.0,1171
+CT,Abdomen^Colonography_Safire (Adult),,Patient Protocol,1171
+CT,Head^RoutineSpiralHeadPostContrast (Adult),HEAD,5mm Brain MPR,1170
+CT,CT Chest high resolution,CHEST,1.0 Body Std. Volume,1169
+CT,CT Head,HEAD,",Brain,Vol.,Head,",1169
+CT,CT Urogram,,Post Contrast (SS 40),1168
+CT,CT Thorax and abdomen with contrast,,KEY_IMAGES,1168
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 5.0 PORTAL VEN/Coronal CE,1167
+CT,CT Guided Drainage,ABDOMEN,AbdoPelvis  1.5  I26f  3,1166
+CT,Abdomen^KUB (Adult),ABDOMEN,KUB  1.5,1165
+CT,Spine^C_Spine (Adult),NECK,Topogram,1165
+CT,CT Thorax and abdomen,,LUNG 5mm,1164
+CT,CT Thorax abdomen pelvis with contrast,CHEST,MPR  Chap  1.0  I30f  3,1164
+CT,Thorax^3_Thorax_Abdo_SAFIRE (Adult),CHEST,Thorax  5.0  I31f  3,1164
+CT,Spine^C_Spine (Adult),,Patient Protocol,1163
+CT,CT Thorax abdomen and,,SCOUT,1162
+CT,CT Head,HEAD,5 CE,1162
+CT,CT Colonography Minimal Preparation,ABDOMEN,Topogram  0.6  T20f,1162
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,5  Port Ven/Phase  CE,1162
+CT,Abdomen^1_AbdomenPelvis_SAFIRE (Adult),ABDOMEN,Abdomen  5.0  I30f  3,1162
+CT,Abdomen^2_Pancreas_SAFIRE (Adult),ABDOMEN,Arterial  1.0  I26f  3,1160
+CT,CT Colonoscopy virtual,ABDOMEN,Topogram  0.6  T20f,1158
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,2,1158
+CT,Abdomen^Ayr_KUB (Adult),ABDOMEN,Topogram,1155
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,2.0  Sharp,1155
+CT,CT Colonoscopy (Virtual),,Prone Colon 1.25mm,1154
+CT,NECK,NECK,",1.0,Std. Volume,Body,Vol,CE",1154
+CT,CT Chest and abdomen,,Dose Report,1154
+CT,CT Spine Cervical,NECK,Topogram,1152
+CT,,CHEST_ABDO,5  Portal Ven CE,1150
+CT,Abdomen^KUB (Adult),ABDOMEN,Topogram  0.6,1149
+CT,CT Thorax abdomen pelvis with contrast,,Smart Prep Series,1149
+CT,ABDOMEN,ABDOMEN,",2.0,Sharp,,Scano,",1148
+CT,CT Thorax & abdomen wi,,SAGITTAL  5mm,1148
+CT,C/A/P,,Lung,1146
+CT,CT Head,,Recon 3: 2.5mm Axial Head,1146
+CT,,CHEST_ABDO,10.0 Lung Arterial CE,1146
+CT,Chest/Abdo,CHEST_ABDO,5.0 Lung Axial Arterial /Phase CE,1145
+CT,CT Colonoscopy (Virtual),,Prone Low Dose,1145
+CT,Abdomen^KUBLowDose,ABDOMEN,AbdRoutine 3.0 B31f,1145
+CT,CT Colon,ABDOMEN,1.0 Body Venous/Phase Std. Volume CE,1145
+CT,CT Thorax & abdomen wi,,CORONAL 3mm,1145
+CT,Abdomen,ABDOMEN,2,1144
+CT,CT Thorax abdomen pelvis with contrast,,2.0   Sharp  Scano,1141
+CT,EXTREMITY,,Individually captured images,1141
+CT,CT Head,,CT Thick Axials 5mm,1141
+CT,Thorax^TRIALChestAbdoPelvis (Adult),ABDOMEN,AbdRoutine  2MM B31f,1140
+CT,CHEST/ABDO,CHEST_ABDO,5 PORTAL VEN CE,1138
+CT,CT Colonoscopy virtual,,PRONE SCOUT,1136
+CT,Abdomen^1_Colon (Adult),ABDOMEN,ColonPRONE1.0  B20f,1136
+CT,CT Head,HEAD,3.0 Head Coronal Brain,1135
+CT,NM MPS Tf stress,HEART,Topogram 0.6 T20f,1135
+CT,CT Chest High Resolution,HRCT,Body 1.0,1135
+CT,CT Thorax,,2,1134
+CT,Abdomen^Urogram_FrusemideBGH (Adult),ABDOMEN,Urogram Frusi   1.0  I30f  3,1133
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,CHEST,Thorax  1.5 lung,1133
+CT,Cardiac^Retrospective_Cardiac (Adult),HEART,CaScSeq  3.0  B35f  70%,1132
+CT,CT Colonoscopy virtual,,1.0 Body Prone/Colon Std. Volume CE Vol,1130
+CT,CT Sinuses,,2mm AXIAL,1129
+CT,CT Renal,,Prone Non Contrast,1128
+CT,Thorax^CAP1phaseNW (Adult),CHEST,CAP  1.5  B60f,1128
+CT,CT Angiogram pulmonary,,Recon 2: CT PA,1128
+CT,CTPA,CTPA,2   CTA CE,1127
+CT,Thorax^2_Thorax_Contrast_SAFIRE (Adult),CHEST,Thorax  1.0  I31f  3,1127
+CT,Thorax^PulAng (Adult),,Patient Protocol,1127
+CT,CT Head With/Without Contrast,,Patient Protocol,1126
+CT,CT Sinuses,HEAD,3.0 Head  Soft Tissue  Axial,1126
+CT,CT Head,,0.625 recons,1125
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,KEY_IMAGES,1125
+CT,CT Abdomen and pelvis,ABDOMEN,Body 1.0,1124
+CT,CT Chest high resolution,,2.0   Sharp  Scano,1122
+CT,CT HR Chest Insp/Exp,,INSP. 1.25/10mm,1121
+CT,CT Thorax with contrast,CHEST,KEY_IMAGES,1120
+CT,,CHEST_ABDO_PELV,Lung 1.0 CE,1120
+CT,CT Abdomen & pelvis wi,,KEY_IMAGES,1119
+CT,Chest/Abdo,CHEST_ABDO,5 Port Ven/Chest/Ab CE,1118
+CT,CT Colonoscopy (Virtual),COLON,1.0 Body Volume Prone /Delayed CE,1118
+CT,Colonography,COLONOGRAPHY,1.0 Body 65s/Colon Std. Volume CE,1118
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5   Venous/Phase CE,1116
+CT,CT Colonography Minimal Preparation,,Axial 1 5,1116
+CT,CHEST_ABDO,CHEST_ABDO,5   Venous/Phase CE,1114
+CT,CTA CARDIAC,CTA CARDIAC,2,1114
+CT,,ABDOMEN,5,1113
+CT,KUB,KUB,5.0 Body Non Contra/Ab/Pel Std. Axial CE,1113
+CT,CT Colonoscopy (Virtual),COLONOGRAPHY,2.0    Sharp,1113
+CT,CT Thorax abdomen pelvis with contrast,,Recon 3: 5MM  HELICAL,1112
+CT,CT Chest High Resolution,,HRCT-Lung,1112
+CT,CT Ankle Rt,,Dose Report,1111
+CT,CT Renal,,Patient Protocol,1109
+CT,CT Angiogram pulmonary,,//Sharp/2.0//,1109
+CT,CT Chest,CHEST,2,1108
+CT,CT KUB,ABDOMEN,KUB  1.5  I26f  3,1107
+CT,CT Thorax & abdo & pelvis with contrast,,2   Port_Ven/Phase CE,1106
+CT,Abdomen^Ayr_KUB_Cystogram_Low_Dose (Adult),ABDOMEN,Topogram,1106
+CT,CT Thorax abdomen pelvis with contrast,,,1105
+CT,CT Neck With Contrast,,Scouts,1105
+CT,CT HR Chest Insp/Exp,,SCOUT,1104
+CT,CT Head with contrast,,0.625mm Bone,1104
+CT,Abdomen^AbdoPelvisPVphaseBT (Adult),ABDOMEN,Topogram,1103
+CT,CT Abdomen & pelvis wi,,AXIAL 5MM,1103
+CT,Thorax^ChestAbdo_SAFIRE_LCAD (Adult),,Patient Protocol,1101
+CT,Thorax^PulmAngio,,Patient Protocol,1101
+CT,CHEST/ABDOMEN,CHEST_ABDOMEN,Body 1.0 Arterial /Phase CE,1101
+CT,CT Chest/Abdo With Contrast,,KEY_IMAGES,1101
+CT,Abdomen^QM_AbdomenPelvis_Contrast_SAFIRE (Adult),ABDOMEN,Topogram  0.6  T20f,1100
+CT,CT Colonography Minimal Preparation,ABDOMEN,AbdoPelvis  1.5  I26f  3,1099
+CT,CT Thorax & abdo & pel,,Scout,1099
+CT,CT Chest With Contrast,,Thorax - Neck,1099
+CT,CT Guided Biopsy,,Scouts,1099
+CT,Thorax^HRCTspiral (Adult),CHEST,Topogram  0.6  T20s,1096
+CT,CT Thorax,,Soft_Tissue 1.0 Body Volume Non_Con,1095
+CT,CT Thorax with contrast,CHEST,2   Port_Ven/Phase CE,1094
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Lung Axial Arterial /Phase CE,1094
+CT,CT Thorax & abdomen wi,,COR 3mm,1093
+CT,CT Abdomen and pelvis,ABDO_PELVIS,Thin Abdo  1.0 Body Volume FC7 Venous/Phase CE,1093
+CT,Colonography,COLONOGRAPHY,5.0 Body 65s/Colon Std. Axial CE,1093
+CT,CTPA,CTPA,2.0   Sharp,1092
+CT,CT Thorax & abdomen with contrast,,Soft_Tissue 1.0 Body Volume Arterial/Phase CE,1092
+CT,CT Thorax abdomen and pelvis,,Scout,1092
+CT,CT Head,HEAD,Head 5.0 Coronal,1092
+CT,CHEST,CHEST,5,1090
+CT,CT Chest/Abdo/Pelvis/ With Contrast,C_A_P,1.0 Body 55 sec/delay CE Std. Volume,1089
+CT,CT Chest,,Scouts,1089
+CT,CT Abdomen / Pelvis,ABDOMEN,",Std. Volume,Vol.,Body,Portal Ven",1089
+CT,Thorax^HI_RES_SPIRAL (Adult),CHEST,MEDIASTINUM  1.0  B20f,1089
+CT,Neck^Dyn_NeckChest (Adult),CHEST,Thorax  1.5  B60f,1089
+CT,CT Thorax,,Lung 1.0 Lung Volume Non_Con,1089
+CT,CT Head,CT HEAD,5,1089
+CT,CT Angio aortic arch and carotid Both,NECK,1 CE,1085
+CT,CT,CHEST,Thorax  1.5,1085
+CT,CT Abdomen/Pelvis With,,Scouts,1084
+CT,CH/AB/PEL,CH_AB_PEL,5 CHEST/ARTERIAL CE,1084
+CT,Upper Extremity,UPPER EXTREMITY,1.0 Sft Tissue Volume,1084
+CT,CT Abdomen and pelvis with contrast,,Body 1.0 CE,1083
+CT,Thorax^-01 Chest + Liver 2.5mm,CHEST,Topogram,1082
+CT,HRCT,HRCT,7.0 Body Axial,1081
+CT,CT Chest/Abdo/Pelvis,CHEST,Chest Ven  1.0 3D,1081
+CT,CT Head With/Without Contrast,HEAD,Head  1.0  J30s  2,1081
+CT,ABDO/PELVIS,ABDO_PELVIS,Body 0.5 Venous/Phase CE,1080
+CT,HRCT,,Prone Lung,1080
+CT,CT Knee Rt,,Dose Report,1078
+CT,Thorax^Ayr_Staging_Chest_for_SC (Adult),ABDOMEN,Chest/Liver p.v.  5.0  COR,1077
+CT,CTPA,CTPA,CTA 0.5 CTA CE,1075
+CT,CT Spine Lumbar,,Patient Protocol,1075
+CT,CTPA,CTPA,3.0 CTA CTA/Pulmonary/Coronal Body CE,1073
+CT,Abdomen^Abdomen (Adult),ABDOMEN,Abdomen  1.0  B20f,1073
+CT,Head^Ayr_Head_C_Spine_Trauma (Adult),HEAD,Topogram,1073
+CT,CT Shoulder Rt,UPPER_EXT,1.0 Bone Volume,1073
+CT,LOWER EXTREMITY,LOWER EXTREMITY,2,1072
+CT,CT Head with contrast,HEAD,Head 0.5,1072
+CT,KUB,,KUB 1.25mm,1071
+CT,CHEST/ABDOMEN,CHEST_ABDOMEN,Body 1.0 Venous/Phase CE,1071
+CT,C/A/P,,Chest Abdo Pelvis 1.25mm,1069
+CT,CTPA,,Thin CTPA,1069
+CT,CT KUB,ABDOMEN,"2MM ST, iDose (5)",1068
+CT,CT Thorax,CHEST,1.0 Body  Std. Volume  Vol,1068
+CT,CT Neck thorax abdomen,,Dose Report,1067
+CT,CT Chest,CHEST,Topogram  0.6  T20s,1067
+CT,LOWER EXTREMITY,LOWER EXTREMITY,Bone 0.5,1067
+CT,Head^BrainwithBony (Adult),HEAD,Head  1.0 Bony,1065
+CT,CT Angiogram lower limb Both,,Scout,1064
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,1.0 Body 55 sec/delay CE Std. Volume,1064
+CT,,ABDOMEN,Body 1.0,1063
+CT,CT Colonography Minimal Preparation,,Scouts,1061
+CT,CT KUB,ABDOMEN,KEY_IMAGES,1061
+CT,CT Abdomen/Pelvis With Contrast,,1.25mm stnd reconA/P,1059
+CT,CHEST,CHEST,",2.0,Sharp,,Scano,",1059
+CT,CT Ankle Lt,,Dose Report,1059
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,4 PORTAL VEN CE,1058
+CT,Chest,CHEST,4.0 Body Sagittal Std. Volume,1057
+CT,CT Neck With Contrast,NECK,Neck  3.0  B31f,1056
+CT,CT Angiogram aorta,,Patient Protocol,1056
+CT,Abdomen^AbdoPelvisPVphaseBT (Adult),CHEST,PV Abdo/pelBT  1.0 Thins,1055
+CT,CT Chest/Abdo With Contrast,CHEST_ABDO,5 CE,1055
+CT,PET LC,,CTAC 3.75 Thick,1055
+CT,CT Angiogram pulmonary,,Lung 1.0 Lung HRCT Sharp CTA CE,1055
+CT,CT Chest and abdomen,,Scout,1054
+CT,CT Liver triple phase,,Smart Prep Series,1053
+CT,CTPA,CTPA,1 CTA CE,1053
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 5.0 ARTERIAL/Sagittal CE,1053
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body CTA Std. Volume CE,1052
+CT,CT Angio aortic arch and carotid Both,,0.625mm Std,1052
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,Body 1.0 Ab/Pel/PortVen CE,1051
+CT,CT Chest/Abdo/Pelvis/ With Contrast,,1.25mm pv stnd ap recon,1050
+CT,Abdomen^UROGRAM_SAFIRE (Adult),ABDOMEN,UROGRAM  1.5  I26f  3,1050
+CT,Thorax^THORAX_LIV (Adult),CHEST,Topogram  0.6  T20f,1050
+CT,CT Neck/Chest/Abdo/Pelvis,NECK,iDose (2),1049
+CT,CT Abdomen/Pelvis With,,Dose Report,1048
+CT,CT Head,HEAD,",Sharp,,,",1048
+CT,CT Thorax & abdomen with contrast,,Lung 1.0 Lung Volume Arterial/Phase CE,1046
+CT,CT Urogram,ABDOMEN,Abdomen  1.0  B20f,1044
+CT,Abdomen^7_Colon (Adult),ABDOMEN,Abdomen  2.0  I70f  3,1042
+CT,Thorax^TRIALChestAbdoPelvis (Adult),CHEST,ThoraxRoutine  5MM B41f,1040
+CT,CT HR Chest Insp/Exp,,Dose Report,1039
+CT,Chest,CHEST,1.0 Body Volume Arterial/Phase CE,1039
+CT,Abdomen^Urogram_FrusemideBGH (Adult),,Patient Protocol,1039
+CT,CT Chest/Abdo/Pelvis/,,C.A.P,1038
+CT,KUB,KUB,2.0   Sharp,1037
+CT,CT Urinary tract,ABDOMEN,1.0 Body Non/Contrast Std. Volume,1036
+CT,NM Bone Whole Body,,CTSCOUTTomo CT Bone LD,1036
+CT,CT CHEST/ABDO/PELV + C,CT CHEST_ABDO_PE,5.0 Body ABDOMEN/PORTAL VEN CE Std. Axial,1035
+CT,CT Angiogram pulmonary,,/Body/Std. Volume/1.0/CHEST/CE,1035
+CT,Thorax^Thorax_No_IV_BGH (Adult),,Patient Protocol,1034
+CT,CT Chest With Contrast,CHEST,5 CE,1033
+CT,CT Cardiac Angiogram Coronary,,3D Saved State - Processed Images,1032
+CT,CT Angio aortic arch & carotid Both,,Patient Protocol,1032
+CT,KUB,KUB,2,1031
+CT,HRCT,HRCT,2.0   Sharp,1031
+CT,CT Spine Cervical,,Exam Summary,1031
+CT,ABDO,,Dose Report,1030
+CT,CT Thorax abdomen and,,LUNG 5mm,1029
+CT,CT Abdomen and pelvis,,1.25mm DMPR ON,1029
+CT,CT Chest With Contrast,,Axial 1 5,1029
+CT,CT Chest With Contrast,CHEST,Thorax  1.5  I31f  3,1028
+CT,CT Abdomen/Pelvis With Contrast,ABDO_PELVIS,Body 1.0 CE,1028
+CT,CT Abdomen and Pelvis,ABDOMEN,Topogram  0.6  T20f,1028
+CT,Abdomen,ABDOMEN,5   Venous/Phase CE,1028
+CT,CT Renal,ABDOMEN,Topogram  0.6  T20f,1027
+CT,CH/AB/PEL,CH_AB_PEL,2,1027
+CT,,CHEST_ABDO_PELV,2,1027
+CT,HEAD,HEAD,Head 5.0 Sagittal,1026
+CT,CT Abdomen and pelvis,,Scout,1026
+CT,CT Spine Cervical,C_SPINE,2,1026
+CT,CT Sinuses,,CORONAL SINUSES,1026
+CT,CT Shoulder Lt,UPPER_EXT,1.0 Sft Tissue Volume,1026
+CT,CHEST ABDO,,Axial Chest/Abdo,1025
+CT,CT Chest High Resolution,CHEST,"Expiration, iDose (4)",1024
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,3 Ab/Pel/PortVen CE,1024
+CT,CT Spine cervical,HEAD,Head  1.0  J70h  3,1024
+CT,HRCT,HRCT,4.0 Body Non Contra/Chest/Sagittal Std. Volume,1024
+CT,CT Thorax and abdomen with contrast,CHEST_ABDO,5 Venous/Phase CE,1022
+CT,CT Thorax abdomen pelvis with contrast,CAP,5   PORT_VEN/Phase CE,1021
+CT,CT Abdomen With Contrast,ABDOMEN,Topogram  0.6  T20f,1021
+CT,Head^Head_Seq_BGH (Adult),HEAD,HeadSeq  4.0  J40s  3,1021
+CT,CT Thorax and abdomen with contrast,,1.25mm C.A.P DMPR,1020
+CT,CT Renal With Contrast,,Scout,1020
+CT,CT Head,,Recon 3: 2.5MM AXIAL,1019
+CT,Colonography,COLONOGRAPHY,2.0   Sharp,1019
+CT,CT Abdomen & pelvis wi,,0.625mm ABDO PELVIS,1019
+CT,CT Urinary tract,ABDO_PELVIS,2,1018
+CT,Thorax^ChestAbdo_SAFIRE_LCAD (Adult),ABDOMEN,Abdo  1.5  I26f  3,1018
+CT,CT Sinuses,SINUSES,3.0 Bone Volume Coronal,1018
+CT,CT Thorax abdomen and pelvis,CHEST_ABDO_PELVI,5 PORTAL VEN CE,1018
+CT,CT CHEST/ABDO/PELV + C,CT CHEST_ABDO_PE,5.0 Body CHEST/ARTERIAL CE Std. Axial,1018
+CT,CT Neck,,Patient Protocol,1018
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Patient Protocol,1017
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Volume Venous/Phase CE,1016
+CT,CT Guided biopsy lung,,HELICAL 5MM,1016
+CT,KUB,,Scouts,1015
+CT,CT Chest high resolution,,Exam Summary,1015
+CT,CT CHEST/ABDO/PELV + C,CT CHEST_ABDO_PE,5.0 Body CHEST/ARTERIAL/Coronal CE Std. Volume,1015
+CT,CT Colonoscopy virtual,,PNEUMOCOLON PRONE,1014
+CT,HEAD,,Recon 3: 0.625mm head,1014
+CT,CT Chest high resolution,,Recon 2: HRCT CHEST INSP,1014
+CT,Abdomen^1_KUB (Adult),ABDOMEN,AbdRoutine  2.0  B20f,1014
+CT,CT Chest/Abdo With Contrast,CHEST,Thorax/Abdo 65  1.5  I30f  3,1014
+CT,CT Abdomen With Cont,ABDOMEN,Topogram,1013
+CT,CT Thorax & abdo & pelvis with contrast,,Patient Protocol,1013
+CT,Abdomen^Ayr_Abdo_Pel_JPC (Adult),ABDOMEN,Abdo/pel VEN  1.0  3D,1012
+CT,C/A/P,,Scout,1012
+CT,Chest/Abdo,CHEST_ABDO,Body 1.0 Port Ven/Chest/Ab CE,1010
+CT,CT Neck with contrast,,Scout,1009
+CT,CT Colonoscopy virtual,ABDOMEN,5  Prone/Colon  CE,1009
+CT,CT Cardiac Angiogram Coronary,HEART,Vessel Analysis - Processed Images,1009
+CT,,CHEST_ABDO,5 CE,1008
+CT,CT Colon,COLONOGRAPHY,1.0 Body 65s/Colon Std. Volume CE,1008
+CT,CT Thorax,,1.25mm Chest/abdo,1007
+CT,CT Spine cervical,HEAD,Topogram  0.6  T20f,1006
+CT,CT Chest With Contrast,NECK,Neck  1.0  B20f,1006
+CT,CT Angiogram Pulmonary,CHEST,"1mm ST, iDose (4)",1004
+CT,CT Colonoscopy virtual,,2,1004
+CT,CT Head,HEAD,5.0 Head  Brain  Axial,1004
+CT,CT Sinuses,,2,1004
+CT,CT Head,,0.625mm  Bone,1003
+CT,CHEST/ABDO,CHEST_ABDO,Body 1.0 PORTAL VEN CE,1003
+CT,HRCT,HRCT,1.0 Lung Non Contra/Chest Sharp,1003
+CT,CT Temporal bones,,SCOUT,1002
+CT,CT CHEST/ABDO/PELV + C,CT CHEST_ABDO_PE,2.0    Sharp,1002
+CT,CT Thorax and abdomen with contrast,CHEST_ABDO,5 PORTAL VEN CE,1002
+CT,CT,HEAD,Head  1.0,1002
+CT,CT Head With Contrast,,1.25mm Brain,1001
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Body 1.0 Venous/Phase CE,1001
+CT,Abdomen^1_CTUrography (Adult),,Patient Protocol,1000
+CT,Abdomen^01Abdo-Pelvis_VOL,,Patient Protocol,1000
+CT,CT KUB (Urinary tract),ABDOMEN,KUB  1.0  3D,1000
+CT,CT Abdomen With Contrast,ABDOMEN,Body 1.0,1000
+CT,CTPA,CTPA,1.0 CTA CTA/Pulmonary Body CE,999
+CT,CT urinary tract with contrast,ABDOMEN,1.0 Body 100s Delay Std. Volume CE Vol,999
+CT,CT Head,HEAD,4,998
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,AbdRoutine  1.0  I30s  3,998
+CT,CTPA,CTPA,2.0  Smooth,998
+CT,Thorax^ChestLiverStaging (Adult),ABDOMEN,PV Liver  5.0,998
+CT,CT Chest,CHEST,"Lung, iDose (3)",998
+CT,CT Chest high resolution,CHEST,Lung 1.0,997
+CT,CT Head,BRAIN,KEY_IMAGES,997
+CT,CT Chest and abdomen,,Bone Plus ( Hi Res Lungs),997
+CT,CT Spine cervical,,Patient Protocol,994
+CT,CT urinary tract with,,Dose Report,994
+CT,CHEST/ABDO/PELVIS,,Abdo/Pelvis 1.25mm,993
+CT,Abdomen^AbdomenContrast (Adult),ABDOMEN,Abdomen  2 mm,992
+CT,CT Thorax and abdomen with contrast,,5  60s/Delay  CE,990
+CT,CT Urinary tract,,2,989
+CT,CT Chest High Resoluti,,Scouts,989
+CT,CT Neck thorax abdomen,,SCOUT,988
+CT,CT Head and Neck,,Dose Report,988
+CT,CT Enterography,ABDOMEN,2.0   Sharp  Scano,986
+CT,SINUSES,,Scout,986
+CT,CT Angiogram Lower Limbs,PERIPHERAL,1.0 CTA Body CTA CE,985
+CT,Thorax^2_Thorax_Contrast_SAFIRE (Adult),CHEST,Topogram  0.6  T20f,984
+CT,CT Head,,COR 3mm,983
+CT,CT Angiogram Aorta,,Patient Protocol,983
+CT,CT Head,CT HEAD,Head 0.5,983
+CT,CT Chest High Resoluti,,HRCT,983
+CT,CT Angiogram Aorta,,Dose Report,982
+CT,CT Chest With Contrast,,Lung,982
+CT,CT Head,,Axial 2.5/3.75mm,982
+CT,CT Colonoscopy virtual,ABDOMEN,Colo_Supine  1.0  I30s  3,982
+CT,Chest,CHEST,2.0   Sharp,981
+CT,CT Abdomen and pelvis with contrast,ABDOMEN,KEY_IMAGES,980
+CT,KUB,KUB,",2.0,Sharp,,Scano,",979
+CT,CT Abdomen  pelvis,,Patient Protocol,978
+CT,CT Thorax & abdomen with contrast,,KEY_IMAGES,978
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,10.0 Body Axial Arterial  /Phase CE,977
+CT,HEAD,HEAD,",5,,,,",977
+CT,CT Colonoscopy virtual,ABDOMEN,2.0    CE,977
+CT,NM Brain HMPAO (Ceretec) Brain Scan,HEAD,AC  Brain  3.0  H08s,976
+CT,CT Sinuses,,SINUSES 3MM CORONALS,975
+CT,ABDO_PELVIS,ABDO_PELVIS,2,975
+CT,HRCT,,Scout PRONE,975
+CT,CT Abdomen and pelvis,ABDOMEN_PELVIS,Body 1.0 PORTAL VEN CE,973
+CT,CT Angiogram Intracranial,,Scout,973
+CT,Thorax^DynChest_Abdomen (Adult),CHEST,Thorax  1.5  I31f  3,973
+CT,CT Spine cervical,HEAD,Head  1.0  J30s  3,973
+CT,CT Angiogram Pulmonary,CHEST,2,972
+CT,CT Pelvis,PELVIS,2,972
+CT,CT Facial Bones,,Scout,972
+CT,CT Head with contrast,HEAD,Head  1.0  H31s,972
+CT,Abdomen^AbdomenRoutineBGH (Adult),,Patient Protocol,970
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),CHEST,Chest Ven  5.0 3D,970
+CT,CT Chest With Contrast,CHEST,KEY_IMAGES,970
+CT,CT Colonoscopy (Virtual),COLON,1.0 Body Volume Supine/Venous CE,966
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Scouts,966
+CT,CT Urogram,ABDOMEN,KEY_IMAGES,966
+CT,CT Cardiac Angiogram Coronary,HEART,Topogram  0.6  T20f,965
+CT,CT Guided biopsy lung,ABDOMEN,Body 1.0,964
+CT,CT Pancreas With Contrast,,Dose Report,963
+CT,Thorax^QM_Thorax_NonC_SAFIRE (Adult),CHEST,Thorax  1.0  I31f  3,963
+CT,CT Abdomen  pelvis with contrast,ABDOMEN,Abdo/Pel  1.0  I30f  3,962
+CT,CT Head,CT HEAD,Head 5.0,962
+CT,Abdomen/Pelvis,ABDOMEN_PELVIS,5 Port Ven/Ab/Pel,960
+CT,CT Head,,AXIAL HEAD,959
+CT,CT Colonoscopy (Virtual),,Supine Abdo/Pelvis,959
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,Body 1.0 Chest/Arterial CE,959
+CT,CT Colon,ABDOMEN,5  Prone/Abdomen/Pe  CE,957
+CT,CT Thorax,CHEST,",,SUMMARY,,Port-Ven",956
+CT,Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,1.0 Body Volume Arterial /Phase CE,955
+CT,CT Thorax & abdomen with contrast,,/Body/Smooth/1.0/60 DELAY/CE,955
+CT,,,Dose Report,955
+CT,CT Thorax,CHEST,Body 1.0 NON CONTRA,955
+CT,CT Shoulder Rt,UPPER_EXT,2,955
+CT,CT Chest high resolution,,HRCT CHEST INSP,952
+CT,CT Head With Contrast,HEAD,2,952
+CT,CT Abdomen  pelvis with contrast,,,951
+CT,CT Angiogram aorta,,Scout,951
+CT,CT Chest,CHEST,Thorax  1.0  I40f  3,950
+CT,KUB,KUB,5.0 Body Non Contra/Ab/Pel/Sagittal Std. Volume CE,950
+CT,Abdomen^AbdoPelvisDP (Adult),ABDOMEN,Art Abdo  5.0,950
+CT,CT KUB (Urinary tract),ABDOMEN,Topogram,949
+CT,Thorax^CAP1phaseNW (Adult),CHEST,CAP  1.5  B30f,949
+CT,CT Colonoscopy virtual,ABDOMEN,1.0 Body Port Ven/Colon Std. Volume CE Vol,948
+CT,ABDOMEN,ABDOMEN,5  Prone/Abdomen/Pe  CE,948
+CT,Thorax^2_ChestAbdomen (Adult),CHEST,Chest  2.0  B20f,948
+CT,CT Angiogram Lower Limbs,PERIPHERAL,2 CE,947
+CT,CT KUB (Urinary tract),,Scout,946
+CT,HEAD,HEAD,Bone 0.5,946
+CT,Neck^NeckThoraxAbdoBOLUS (Adult),CHEST,Thorax  1.5,945
+CT,HRCT,HRCT,7,944
+CT,CT Angio TAVI Work-up,,Timing Bolus,942
+CT,CT Guided biopsy lung,,Dose Report,942
+CT,CT Abdomen With Contrast,ABDOMEN,5   Venous/Phase CE,942
+CT,CT Liver With Contrast,CHEST_ABDO,Body 1.0 CE,941
+CT,CT Head With Contrast,,2.5mm HEAD,940
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,,Neck Chest Abdo Pelvis 1.25mm,940
+CT,Chest,CHEST,3.0 Body Axial,939
+CT,PET FDG Whole body,,Dose Report,939
+CT,CHEST/ABDO,,Scouts,938
+CT,CT Thorax & abdo & pel,,COR 3mm,938
+CT,CT Chest high resolution,,//Sharp/2.0//,937
+CT,CT Thorax and abdomen with contrast,CHEST_ABDO,1.0 Body Std. Volume Port_Ven/Phase CE,936
+CT,Head^HeadSequence (Adult),HEAD,BaseSeq  4.5  H31s,935
+CT,CHEST/ABDO/PELVIS,,Lung,934
+CT,CT Thorax with contras,,SCOUT,934
+CT,Thorax^Ayr_CAP_Split_SC_Art_Venous (Adult),CHEST,Topogram,934
+CT,CT Guided ablation,,1.25 ABDO/PELVIS,933
+CT,Colonography,COLONOGRAPHY,5.0 Body Prone/Colon/Coronal Std. Volume CE,932
+CT,Cardiac^Retrospective_Cardiac (Adult),HEART,Topogram  0.6  T20f,931
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,Abdomen  1.5,931
+CT,CT Abdomen and pelvis with contrast,,5 CE,931
+CT,Abdomen^Ayr_KUB (Adult),ABDOMEN,KUB  1.0  3D,930
+CT,KUB,KUB,5.0 Body Non Contra/Ab/Pel/Coronal Std. Volume CE,930
+CT,CT Chest With Contrast,CHEST,Body 1.0 CE,929
+CT,NM Brain HMPAO (Ceretec) Brain Scan,HEAD,Brain  5.0  H31s,929
+CT,,CHEST_ABDO_PELV,5 CE,929
+CT,CT Abdomen & pelvis with contrast,,/Body/Smooth/1.0/PORTVEN/CE,928
+CT,CT KUB,,,928
+CT,CT Cardiac Angiogram Coronary,HEART,Lung 1.0  B50f  70%,928
+CT,CT HEAD,,2.5mm head,927
+CT,Thorax^Ayr_CAP_Split_AR_Venous (Adult),CHEST,Chest Ven  5.0,927
+CT,CT Pc cryotherapy tumour Abl kidney Rt,,1.25mm DMPR ON,927
+CT,CT Neck/Thorax/Abdo/Pelvis With Contrast,CHEST,Thorax  1.5,927
+CT,CT Head,,BRAIN AXIAL 0.6MM,927
+CT,CT Urogram,,Delayed 1.0 Body Volume Delayed /Phase CE,926
+CT,Abdomen^kub (Adult),,Patient Protocol,926
+CT,CT Urogram,,#PP  TB_Urogram  1.5  Q30f  3 Virtual Unenhanced Nonc#0 (Auto),926
+CT,CT CHEST/ABDO/PELV + C,CT CHEST_ABDO_PE,5.0 Body ABDOMEN/PORTAL VEN/Coronal CE Std. Volume,925
+CT,CT Angiogram pulmonary,,AXIAL MIP 5MM,924
+CT,CARDIAC,CARDIAC,1 CE,923
+CT,CT Chest high resolution,,HRCT 0.6MM,923
+CT,CT Pancreas with contr,,SCOUT,923
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,KEY_IMAGES,920
+CT,CT Chest/Abdo/Pelvis/ With Contrast,CHEST_ABDO_PELV,1.0 Lung Volume Arterial  /Phase CE,919
+CT,CT Thorax & abdomen wi,,AXIAL 5mm,919
+CT,PET OTH,,Dose Report,918
+CT,PNEUMOCOLON,,Prone Scout,916
+CT,CT Chest,,Bone Plus ( Hi Res Lungs),916
+CT,CT Angiogram Pulmonary,CTPA,2  CTA CE,915
+CT,PET OTH,,CTAC 3.75 Thick,914
+CT,CT,HEAD,Topogram  0.6,914
+CT,Lower Extremity,LOWER EXTREMITY,1.0 Sft Tissue Volume,914
+CT,KUB,KUB,5  Non Contra/Ab/Pel  CE,913
+CT,CT Colonoscopy virtual,,1.0 Body Port Ven/Colon Std. Volume CE Vol,913
+CT,CT Head,HEAD,Head 5.0 Sagittal,913
+CT,NM MPS Tf stress,,Patient Protocol,912
+CT,CT Colonoscopy virtual,ABDOMEN,1.0 Body Std. Volume Supine CE,912
+CT,CT Renal Both,,2,911
+CT,Abdomen^2_Pancreas_SAFIRE (Adult),ABDOMEN,Portal Venous Lung 1.0  I70f  3,910
+CT,COLONOGRAPHY,COLONOGRAPHY,",1.0,Std. Volume,Body,Vol,CE",910
+CT,CT Angio aortic arch and carotid Both,,KEY_IMAGES,909
+CT,CT Thorax & abdo & pel,,CT Chest2 Sag 5 Avg,909
+CT,CTPA,,PULMONARY ANGIO,909
+CT,CT Chest/Abdo/Pelvis,CHEST_ABDO_PELVI,5.0 Body Venous/Phase Std. Axial CE,909
+CT,PNEUMOCOLON,,Scout,908
+CT,CT Thorax abdomen and pelvis,CHEST_ABDO_PELVI,5 Venous/Phase CE,907
+CT,CT Urinary tract,ABDOMEN,KEY_IMAGES,905
+CT,CT Chest,,Venous Chest/Liver,905
+CT,CT Chest and abdomen,,Patient Protocol,904
+CT,Pelvis^1_BonyPelvis (Adult),PELVIS,Pelvis  1.0  B20f,904
+CT,CT Abdomen and Pelvis,,PV Abdo/ Pelvis,903
+CT,Thorax^HRCTspiral (Adult),CHEST,LungHR  1.0,903
+CT,COLON,,Dose Report,903
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,"2MM ST, iDose (3)",902
+CT,CT Chest/Abdo/Pelvis/,,Chest,902
+CT,CT Thorax,CHEST,",Body,Vol.,CTA,",902
+CT,CHEST/ABDO,,Chest 1.25mm,901
+CT,CT Multi Area,,Exam Summary,900
+CT,CT Abdomen & pelvis wi,,COR 3mm,899
+CT,Head^2_SinusVol (Adult),,Patient Protocol,899
+CT,,CHEST_ABDO,1.0 Lung Arterial CE,898
+CT,Abdomen^Ayr_Abdo_Pel_JPC (Adult),,Patient Protocol,896
+CT,Neck^Dyn_Neck (Adult),NECK,Neck  1.0  B60f,896
+CT,Head,HEAD,Head 4.0,896
+CT,CT Guided biopsy abdomen,ABDOMEN,Sft Tissue 3.0 CE,895
+CT,CT Urogram,ABDOMEN_PELVIS,2.0   Sharp,895
+CT,CT Chest High Resolution,CHEST,Thorax  1.0  I40f  3,894
+CT,CT Colonoscopy (Virtua,,Supine Scouts,894
+CT,CT Abdomen & pelvis wi,,SAG 3mm,893
+CT,CHEST/ABDO/PELVIS,CHEST_ABDO_PELVI,Body 5.0 ARTERIAL/Coronal CE,893
+CT,Thorax^Thorax_No_IV_BGH (Adult),CHEST,Thorax  1.0  I40f  3,893
+CT,Upper Extremity,UPPER EXTREMITY,1.0 Bone Volume,892
+CT,CT Head with contrast,HEAD,Head  1.0  J70h  3,892
+CT,CHEST,,Scouts,892
+CT,CHEST_ABDO,CHEST_ABDO,1.0 Body Volume Venous/Phase CE,891
+CT,CT Head,BRAIN,"Parenchyma 1s, iDose (1)",891
+CT,CT Chest/Abdo,ABDOMEN,"2MM Lung, iDose (3)",891
+CT,Abdomen^AbdoPelvisNoBT (Adult),,Patient Protocol,891
+CT,CT Neck With Contrast,CHEST,Thorax  1.5  I31f  3,890
+CT,CT Urogram,ABDOMEN,Topogram  0.6,890
+CT,,,2,889
+CT,Thorax^TAPRoutineBGH (Adult),ABDOMEN,AbdRoutine  2.0  B10f,889
+CT,CT Abdomen/Pelvis With Contrast,ABDOMEN,3 CE,889
+CT,CT Sinuses,HEAD,2.0   Sharp  Scano,888
+CT,CT Abdomen With Contrast,ABDOMEN,1.0 Body AIDR Strong Venous/Phase CE,887
+CT,CTPA,CTPA,3.0 CTA CTA/Pulmonary/Sagittal Body CE,886
+CT,CT Guided Biopsy,,Patient Protocol,886
+CT,Head,HEAD,0.5 Head  Brain,886
+CT,CT Head With/Without Contrast,,Scout,885
+CT,CTPA,,Scouts,885
+CT,CHEST_ABDO,CHEST_ABDO,10.0 Body Axial Arterial  /Phase CE,884
+CT,CT Thorax & abdomen wi,,SCOUTS,884
+CT,CT Mastoid Both,HEAD,1,884
+CT,CT Renal,,Non Contrast SS 40,883
+CT,CT Guided biopsy thorax,ABDOMEN,Sft Tissue 3.0,882
+CT,SINUSES,,Thin Bone,882
+CT,Thorax^ThoraxAbdoPelvis (Adult),CHEST,Topogram,882
